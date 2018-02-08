@@ -15,7 +15,7 @@ public class TBIStepDefs {
   private TBIPage  tBIPage;
 
   @Then("^the tbi page will be displayed$")
-  public void theGenderPageWillBeDisplayed() {
+  public void theTbiPageWillBeDisplayed() {
 	  tBIPage = new TBIPage(driver);
    driver.getPageSource().contains("This page is yet to be implemented");
   }
