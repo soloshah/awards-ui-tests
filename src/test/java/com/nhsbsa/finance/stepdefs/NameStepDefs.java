@@ -11,7 +11,6 @@ import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.pageobjects.StartPage;
 import com.nhsbsa.finance.properties.PropertyReader;
 import com.nhsbsa.finance.shared.SharedData;
-import com.nhsbsa.finance.shared.SharedMethods;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -97,12 +96,8 @@ public class NameStepDefs {
 	@Then("^The length of first and last name is verified$")
 	public void theLengthOfFirstAndLastNameIsVerified() {
 		namePage = new NamePage(driver);
-		String s1 = "hgn-yuiom jkhetryuyyuyuuuyjk";
-		String s2 = "hgn-yuiom jkhetryuhibhgfrtdoiueyt";
-		navigateToElementBy(selectedWorkingForNHSRadioButtonLocator);
-		System.out.println(SharedMethods.substring_safe(s1, 0, 25));
-		assertThat(SharedMethods.substring_safe(s1, 0, 25).compareTo("hgn-yuiom jkhetryuyyuyuuu"));
-		assertThat(SharedMethods.substring_safe(s2, 0, 32).matches("hgn-yuiom jkhetryuhibhgfrtdoiuey"));
+		assertThat(namePage.readFirstNameField()).matches("InvalidIn@validInvalidInv");
+		assertThat(namePage.readLastNameField()).matches("InvalidIn@validInvalidInvalidInv");
 	}
 
 	private void setNameDetails() {

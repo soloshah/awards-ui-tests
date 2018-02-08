@@ -2,13 +2,15 @@ package com.nhsbsa.finance.stepdefs;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.openqa.selenium.WebDriver;
+
 import com.nhsbsa.finance.driver.Config;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.pageobjects.StartPage;
 import com.nhsbsa.finance.properties.PropertyReader;
+
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import org.openqa.selenium.WebDriver;
 
 public class StartPageStepdefs {
 

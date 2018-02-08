@@ -1,17 +1,20 @@
-@WorkingForNHS
+@WorkingForNHS @BP490-118
 Feature: Working for NHS
+
 
 Scenario: Are you working for NHS
 #Given I am on working for NHS page
 Given I am on the start page
 When I go to working for NHS page
 When I select Yes
-Then Where are you employed page is displayed
+Then the tbi page will be displayed
+#Then Where are you employed page is displayed
 
 
 Scenario: Are you working for NHS
 Given I am on working for NHS page
 When I select No
+#Then the tbi page will be displayed
 Then What was the name of your last employer page will be displayed
 
 Scenario: Are you working for NHS

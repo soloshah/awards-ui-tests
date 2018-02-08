@@ -30,12 +30,4 @@ public class SharedMethods {
 
 	}
 
-	public static String substring_safe(String s, int start, int len) {
-
-		String result = s;
-
-		return result;
-
-	}
-
 }

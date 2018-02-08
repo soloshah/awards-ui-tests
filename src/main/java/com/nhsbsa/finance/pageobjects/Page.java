@@ -1,6 +1,5 @@
 package com.nhsbsa.finance.pageobjects;
 
-import cucumber.api.Scenario;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -8,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import cucumber.api.Scenario;
 
 public class Page {
 
@@ -55,7 +56,6 @@ public class Page {
 	}
 
 	public void navigateToElementBy(By by) {
-		navigateToRootElement();
 		element = element.findElement(by);
 	}
 

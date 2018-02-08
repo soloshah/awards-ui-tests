@@ -10,7 +10,6 @@ import com.nhsbsa.finance.driver.Config;
 import com.nhsbsa.finance.pageobjects.DateOfBirthPage;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.Page;
-import com.nhsbsa.finance.pageobjects.StartPage;
 import com.nhsbsa.finance.properties.PropertyReader;
 import com.nhsbsa.finance.shared.SharedData;
 import com.nhsbsa.finance.shared.SharedMethods;
@@ -28,20 +27,20 @@ public class DateOfBirthStepDefs {
 
 	@Given("^I am on DOB page$")
 	public void iAmOnTheDOBPage() {
-	
-	 new Page(driver).navigateToUrl(baseUrl + "/personal-details/what-is-your-dob");
- dateOfBirthPage = new DateOfBirthPage(driver);
- assertThat(dateOfBirthPage.getHeading()).contains("What is your date of birth?");
+
+		new Page(driver).navigateToUrl(baseUrl + "/personal-details/what-is-your-dob");
+		dateOfBirthPage = new DateOfBirthPage(driver);
+		assertThat(dateOfBirthPage.getHeading()).contains("What is your date of birth?");
 	}
-	
+
 	@When("^I go to DOB page$")
 	public void iGoToDOBPage() {
-	Page page = new Page(driver);
-	page.navigateToUrl(baseUrl + "/personal-details/what-is-your-dob");
- dateOfBirthPage = new DateOfBirthPage(driver);
- assertThat(dateOfBirthPage.getHeading()).contains("What is your date of birth?");
+		Page page = new Page(driver);
+		page.navigateToUrl(baseUrl + "/personal-details/what-is-your-dob");
+		dateOfBirthPage = new DateOfBirthPage(driver);
+		assertThat(dateOfBirthPage.getHeading()).contains("What is your date of birth?");
 	}
-	
+
 	@Then("^the date of birth submission will be successful$")
 	public void theDateOfBirthSubmissionWillBeSuccessful() {
 		new NavBarPage(driver);
@@ -89,7 +88,6 @@ public class DateOfBirthStepDefs {
 		assertThat(dateOfBirthPage.getDobFieldErrorMessage()).matches(errorMessage);
 	}
 
-
 	@Then("^the date of birth for 16 years error message '(.*)' will be displayed$")
 	public void theDateOfBirthFor16YearsErrorMessageWillBeDisplayed(String errorMessage) {
 		dateOfBirthPage = new DateOfBirthPage(driver);
@@ -98,7 +96,6 @@ public class DateOfBirthStepDefs {
 		assertThat(dateOfBirthPage.getDobAnchoredErrorMessage()).matches(errorMessage);
 	}
 
-	
 	@And("^I enter DOB less than 16 years from today's date$")
 	public void iEnterDOBLessThan16YearsFromTodaysDate() {
 		LocalDate minusYear = LocalDate.now().plusDays(1).minusYears(16);

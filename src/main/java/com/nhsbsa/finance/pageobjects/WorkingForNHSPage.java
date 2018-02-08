@@ -9,7 +9,7 @@ public class WorkingForNHSPage extends Page {
 	private By yesRadioButtonLocator = By.id("radio-yes");
 	private By noRadioButtonLocator = By.id("radio-no");
 	//private By selectedWorkingForNHSRadioButtonLocator = By.xpath("//input[@checked='checked']");
-	private By nextButtonLocator = By.id("submit");
+	private By nextButtonLocator = By.id("submit_button");
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");
 	  private By errorsBelowErrorMessageLocator = By.id("error-summary-heading1");
 	  private By nhsAnchoredErrorMessageLocator = By.id("error-list0");
