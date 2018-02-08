@@ -76,7 +76,7 @@ public class ChildNameStepDefs {
 	}
 
 	@When("^I enter an invalid child details using the (.*) '(.*)'$")
-	public void iEnterAnInvalidNameUsingFieldValue(String field, String value) {
+	public void iEnterAnInvalidChildDetailsUsingFieldValue(String field, String value) {
 		setChildNameDetails();
 
 		switch (field) {
@@ -92,15 +92,15 @@ public class ChildNameStepDefs {
 		childNamePage.submitInValidChildNameDetails();
 	}
 
-	@When("^I enter invalid child name using the firstName '(.*)' and lastName '(.*)'$")
-	public void iEnterInvalidChildNameDetailsUsingTheFirstNameAndLastName(String firstName, String lastName) {
+	@When("^I enter an invalid child name using the firstName '(.*)' and lastName '(.*)'$")
+	public void iEnterAnInvalidChildNameUsingTheFirstNameAndLastName(String firstName, String lastName) {
 		childNamePage = new ChildNamePage(driver);
 		childNamePage.enterChildNameDetails(firstName, lastName);
 		childNamePage.submitInValidChildNameDetails();
 	}
 
 	@Then("^The length of child first and last name is verified$")
-	public void theLengthOfFirstAndLastNameIsVerified() {
+	public void theLengthOfChildFirstAndLastNameIsVerified() {
 		childNamePage = new ChildNamePage(driver);
 		assertThat(childNamePage.readChildFirstNameField()).matches("InvalidIn@validInvalidIn");
 		assertThat(childNamePage.readChildLastNameField()).matches("InvalidIn@validInvalidIn");
