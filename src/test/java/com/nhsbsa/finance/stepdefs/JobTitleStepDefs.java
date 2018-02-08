@@ -33,6 +33,12 @@ public class JobTitleStepDefs {
 		jobTitlePage = new JobTitlePage(driver);
 		assertThat(jobTitlePage.getHeading()).contains("What was your job title?");
 	}
+	
+	@Then("^the job title page will be displayed$")
+	public void theJobTitlePageWillBeDisplayed() {
+		jobTitlePage = new JobTitlePage(driver);
+		assertThat(jobTitlePage.getHeading()).contains("What was your job title?");
+	}
 
 	@Then("^the job title submission will be successful$")
 	public void theJobTitleSubmissionWillBeSuccessful() {
