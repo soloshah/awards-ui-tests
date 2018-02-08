@@ -1,4 +1,4 @@
-@WorkingForNHS @BP490-118 @WIP
+@WorkingForNHS @BP490-118 
 Feature: Working for NHS Page
 
 Background:
@@ -21,7 +21,7 @@ Then the tbi page will be displayed
 
 Scenario: Are you working for NHS
 When I dont select anything
-Then Are you working for NHS Page error message 'Select 'yes' if you work for the NHS' will be displayed 
+Then the are you working for NHS Page error message 'Select 'yes' if you work for the NHS' will be displayed 
 
 
 Scenario: Default value for working for NHS

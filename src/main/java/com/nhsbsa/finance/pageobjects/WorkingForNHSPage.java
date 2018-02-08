@@ -6,11 +6,8 @@ import org.openqa.selenium.WebDriver;
 public class WorkingForNHSPage extends Page {
 
 	private String workingForNHSTitle = "Are you working in the NHS now? - Claim your NHS Pension";
-	// private By yesRadioButtonLocator = By.id("currentlyWorkingInNhs");
 	private By yesRadioButtonLocator = By.xpath("//*[@id='currentlyWorkingInNhs']");
 	private By noRadioButtonLocator = By.xpath("//*[@id='currentlyWorkingInNhs_group']/div/label[2]");
-	// private By selectedWorkingForNHSRadioButtonLocator =
-	// By.xpath("//input[@class,'selected']");
 	private By nextButtonLocator = By.id("submit_button");
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");
 	private By errorsBelowErrorMessageLocator = By.id("error-summary-heading1");
@@ -23,19 +20,8 @@ public class WorkingForNHSPage extends Page {
 		waitForTitleToExist(workingForNHSTitle);
 		waitForElementToBeVisibleBy(yesRadioButtonLocator);
 	}
-
-	public void getWorkingForNhs(String working) {
-		navigateToRootElement();
-		if (working.equals("yes")) {
-			navigateToElementBy(yesRadioButtonLocator);
-		} else if (working.equals("no")) {
-			navigateToElementBy(noRadioButtonLocator);
-		}
-		click();
-	}
-
-	public WorkingForNHSPage checkWorkingForNHS() {
-
+	
+	public WorkingForNHSPage workingForNHSIsNotSelected() {
 		nextStep();
 		return new WorkingForNHSPage(driver);
 	}
