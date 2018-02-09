@@ -6,15 +6,16 @@ import org.openqa.selenium.WebDriver;
 public class WorkingForNHSPage extends Page {
 
 	private String workingForNHSTitle = "Are you working in the NHS now? - Claim your NHS Pension";
-	private By yesRadioButtonLocator = By.id("radio-yes");
-	private By noRadioButtonLocator = By.id("radio-no");
-	//private By selectedWorkingForNHSRadioButtonLocator = By.xpath("//input[@checked='checked']");
+	// private By yesRadioButtonLocator = By.id("currentlyWorkingInNhs");
+	private By yesRadioButtonLocator = By.xpath("//*[@id='currentlyWorkingInNhs']");
+	private By noRadioButtonLocator = By.xpath("//*[@id='currentlyWorkingInNhs_group']/div/label[2]");
+	// private By selectedWorkingForNHSRadioButtonLocator =
+	// By.xpath("//input[@class,'selected']");
 	private By nextButtonLocator = By.id("submit_button");
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");
-	  private By errorsBelowErrorMessageLocator = By.id("error-summary-heading1");
-	  private By nhsAnchoredErrorMessageLocator = By.id("error-list0");
-	  private By nhsAnchoredErrorMessageAnchorLocator = By
-	      .xpath("//a[@href='#currentlyWorkingInNhs']");
+	private By errorsBelowErrorMessageLocator = By.id("error-summary-heading1");
+	private By nhsAnchoredErrorMessageLocator = By.id("error-list0");
+	private By nhsAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#currentlyWorkingInNhs']");
 	private By nhsFieldErrorMessageLocator = By.id("fieldName-error-message");
 
 	public WorkingForNHSPage(WebDriver driver) {
@@ -34,11 +35,7 @@ public class WorkingForNHSPage extends Page {
 	}
 
 	public WorkingForNHSPage checkWorkingForNHS() {
-		/*
-		 * navigateToRootElement();
-		 * navigateToElementBy(selectedWorkingForNHSRadioButtonLocator);
-		 * navigateToParentElement();
-		 */
+
 		nextStep();
 		return new WorkingForNHSPage(driver);
 	}
@@ -48,7 +45,6 @@ public class WorkingForNHSPage extends Page {
 
 		if (!isElementSelected(yesRadioButtonLocator) && !isElementSelected(noRadioButtonLocator))
 			selected = false;
-
 		return selected;
 	}
 
@@ -60,12 +56,28 @@ public class WorkingForNHSPage extends Page {
 		return new WhereAreYouEmployedPage(driver);
 	}
 
+	public TBIPage submitValidYesDetails() {
+		navigateToRootElement();
+		navigateToElementBy(yesRadioButtonLocator);
+		click();
+		nextStep();
+		return new TBIPage(driver);
+	}
+
 	public NameOfYourLastEmployerPage submitValidNoNhsDetails() {
 		navigateToRootElement();
 		navigateToElementBy(noRadioButtonLocator);
 		click();
 		nextStep();
 		return new NameOfYourLastEmployerPage(driver);
+	}
+
+	public TBIPage submitValidNoDetails() {
+		navigateToRootElement();
+		navigateToElementBy(noRadioButtonLocator);
+		click();
+		nextStep();
+		return new TBIPage(driver);
 	}
 
 	public String getErrorHeadingErrorMessage() {
@@ -92,16 +104,16 @@ public class WorkingForNHSPage extends Page {
 		return getElementText();
 	}
 
-	 public boolean doesNhsErrorMessageHaveAnchor() {
-		    navigateToRootElement();
-		    navigateToElementBy(nhsAnchoredErrorMessageLocator);
-		    navigateToParentElement();
-		    return getPresenceOfElement(nhsAnchoredErrorMessageAnchorLocator);
-		  }
-	 
-	  public String getNhsAnchoredErrorMessage() {
-		    navigateToRootElement();
-		    navigateToElementBy(nhsAnchoredErrorMessageLocator);
-		    return getElementText();
-		  }
+	public boolean doesNhsErrorMessageHaveAnchor() {
+		navigateToRootElement();
+		navigateToElementBy(nhsAnchoredErrorMessageLocator);
+		navigateToParentElement();
+		return getPresenceOfElement(nhsAnchoredErrorMessageAnchorLocator);
+	}
+
+	public String getNhsAnchoredErrorMessage() {
+		navigateToRootElement();
+		navigateToElementBy(nhsAnchoredErrorMessageLocator);
+		return getElementText();
+	}
 }

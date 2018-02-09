@@ -5,7 +5,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
-import com.nhsbsa.finance.pageobjects.DateOfBirthPage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.pageobjects.WorkingForNHSPage;
 import com.nhsbsa.finance.properties.PropertyReader;
@@ -39,30 +38,33 @@ public class WorkingForNHSStepDefs {
 		assertThat(workingForNHSPage.isWorkingForNHSRadioButtonSelected()).isFalse();
 	}
 
-	@And("^Are you working for NHS error message '(.*)' will be displayed$")
-	public void areYouWorkingForNhsErrorMessageWillBeDisplayed(String errorMessage) {
+	@And("^Are you working for NHS Page error message '(.*)' will be displayed$")
+	public void areYouWorkingForNhsPageErrorMessageWillBeDisplayed(String errorMessage) {
 		workingForNHSPage = new WorkingForNHSPage(driver);
 		assertThat(workingForNHSPage.getNhsFieldErrorMessage()).matches(errorMessage);
+		assertThat(workingForNHSPage.doesNhsErrorMessageHaveAnchor()).isTrue();
+		assertThat(workingForNHSPage.getNhsAnchoredErrorMessage()).matches(errorMessage);
+
 	}
 
 	@When("^I select Yes$")
-	public void iSelectYes(String working) {
+	public void iSelectYes() {
 		workingForNHSPage = new WorkingForNHSPage(driver);
-		workingForNHSPage.getWorkingForNhs(working);
-		workingForNHSPage.submitValidYesNhsDetails();
+		// workingForNHSPage.getWorkingForNhs(working);
+		workingForNHSPage.submitValidYesDetails();
 	}
 
 	@When("^I select No$")
-	public void iSelectNo(String working) {
+	public void iSelectNo() {
 		workingForNHSPage = new WorkingForNHSPage(driver);
-		workingForNHSPage.getWorkingForNhs(working);
-		workingForNHSPage.submitValidNoNhsDetails();
+		// workingForNHSPage.getWorkingForNhs(working);
+		workingForNHSPage.submitValidNoDetails();
 	}
 
 	@When("^I dont select anything$")
 	public void iDontSelectAnything() {
 
 		workingForNHSPage = new WorkingForNHSPage(driver);
-		assertThat(workingForNHSPage.checkWorkingForNHS());
+		workingForNHSPage.checkWorkingForNHS();
 	}
 }

@@ -1,19 +1,29 @@
-@JobTitle
+@JobTitle @BP490-123 
 Feature: What was your job title
 
+Background:
+#Given I am on the job title page
+Given I am on the start page
+When I go to the job title page
+
 Scenario: Valid job title details
-Given I am on the job title page
 When I enter valid job title details
-Then the job title submission will be successful
-And the date you leave page will be displayed
+And the tbi page will be displayed
+#Then the job title submission will be successful
+#And the date you leave page will be displayed
+
 
 Scenario Outline: Job title field validations 
-Given I am on the job title page
 When I enter job title details using the title '<title>'
 Then the job title submission will be unsuccessful
 And the job title error message '<errorMessage>' will be displayed
 Examples:
-| title     | errorMessage                                                           |
-|           |Enter your job title                                                    |
-|In%$ £"^&*"|Enter names using only letters a to z, spaces and hyphens               |
-|hgn-yu.iom jkhe'tryu90hi23|Enter names using only letters a to z, spaces and hyphens|
+| title     | errorMessage                                                     |
+|           |Enter your job title                                              | 
+|In%$ £"^&*"|Enter name using only numbers, letters a to z, spaces and hyphens |
+
+
+Scenario: Job title field length validations 
+When I enter valid job title using the jobTitle 'InvalidInvalidInvalid@Inv' 
+Then the length of job title is verified
+And the job title submission will be unsuccessful
