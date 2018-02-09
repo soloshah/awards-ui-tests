@@ -6,13 +6,13 @@ import org.openqa.selenium.WebDriver;
 public class JobTitlePage extends Page {
 
 	private String jobPageTitle = "What was the name of your last NHS employer? - Claim your NHS Pension";
-	private By jobTitleFieldLocator = By.id("nhsJobTitle");
+	private By jobTitleFieldLocator = By.id("jobTitle");
 	private By nextButtonLocator = By.id("submit_button");
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");
 	private By errorsBelowErrorMessageLocator = By.id("error-summary-heading1");
-	private By jobTitleFieldErrorMessageLocator = By.id("nhsJobTitle-error-message");
+	private By jobTitleFieldErrorMessageLocator = By.id("jobTitle-error-message");
 	private By jobTitleAnchoredErrorMessageLocator = By.id("error-list0");
-	private By jobTitleAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#nhsJobTitle']");
+	private By jobTitleAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#jobTitle']");
 
 	public JobTitlePage(WebDriver driver) {
 		super(driver);

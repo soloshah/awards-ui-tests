@@ -8,8 +8,9 @@ When I go to the child name page
 
 Scenario: Valid Child Name details
 When I enter valid child name details
-Then the tbi page will be displayed
 #Then the child name submission will be successful
+And the tbi page will be displayed
+
 #And the child date of birth page will be displayed
 
 Scenario Outline: Child first name field  validations 
@@ -35,7 +36,7 @@ Examples:
 
 
 Scenario: Child first and last name field length validations 
-When I enter invalid child name using the firstName 'InvalidIn@validInvalidInv' and lastName 'InvalidIn@validInvalidInv '
+When I enter an invalid child name using the firstName 'InvalidIn@validInvalidInv' and lastName 'InvalidIn@validInvalidInv '
 Then The length of child first and last name is verified
 And the child name submission will be unsuccessful
 

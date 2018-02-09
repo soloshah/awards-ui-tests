@@ -12,5 +12,5 @@ public class SharedData {
   public static String lastName;
   public static String jobTitle;
   public static String contactNumber;
-  public static String employerType;
+  public static String employerName;
 }

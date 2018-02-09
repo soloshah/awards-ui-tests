@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
+import com.nhsbsa.finance.pageobjects.DateOfBirthPage;
 import com.nhsbsa.finance.pageobjects.JobTitlePage;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.Page;
@@ -34,6 +35,13 @@ public class JobTitleStepDefs {
 		assertThat(jobTitlePage.getHeading()).contains("What was your job title?");
 	}
 
+	@Then("^the job title page will be displayed$")
+	public void theDateOfBirthPageWillBeDisplayed() {
+		jobTitlePage = new JobTitlePage(driver);
+		assertThat(jobTitlePage.getHeading()).contains("What was your job title?");
+	}
+	
+	
 	@Then("^the job title submission will be successful$")
 	public void theJobTitleSubmissionWillBeSuccessful() {
 		new NavBarPage(driver);
