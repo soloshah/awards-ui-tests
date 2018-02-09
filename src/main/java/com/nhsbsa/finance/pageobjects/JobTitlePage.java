@@ -70,14 +70,12 @@ public class JobTitlePage extends Page {
 
 	public DateYouLeavePage submitValidJobTitleDetails(String jobTitle) {
 		enterjobTitle(jobTitle);
-
 		nextStep();
 		return new DateYouLeavePage(driver);
 	}
 
 	public TBIPage submitValidJobTitle(String jobTitle) {
 		enterjobTitle(jobTitle);
-
 		nextStep();
 		return new TBIPage(driver);
 	}
@@ -95,7 +93,6 @@ public class JobTitlePage extends Page {
 
 	public SessionsExpiredPage submitValidJobtitleDetailsInExpiredSession(String jobTitle) {
 		enterjobTitle(jobTitle);
-
 		nextStep();
 		return new SessionsExpiredPage(driver);
 	}
