@@ -6,6 +6,7 @@ Background:
 Given I am on the start page
 When I go to the partner name page
 
+
 Scenario: Valid partner Name details
 When I enter valid partner name details
 Then the tbi page will be displayed
