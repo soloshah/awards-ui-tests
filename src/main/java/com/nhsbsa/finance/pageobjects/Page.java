@@ -18,8 +18,8 @@ public class Page {
 
 	private By headingLocator = By.id("main-heading");
 	private By createdHeadingLocator = By.id("account-created-heading");
-	private By exampleHintLocator = By.id("form-hint");
-
+    private By exampleHintLocator = By.id("form-hint");
+	
 	public Page(WebDriver driver) {
 		this.driver = driver;
 	}
@@ -99,6 +99,12 @@ public class Page {
 		return getElementText();
 	}
 
+	public String getExampleHint() {
+		navigateToRootElement();
+		navigateToElementBy(exampleHintLocator);
+		return getElementText();
+	}
+	
 	public String getCreatedHeading() {
 		navigateToRootElement();
 		navigateToElementBy(createdHeadingLocator);
