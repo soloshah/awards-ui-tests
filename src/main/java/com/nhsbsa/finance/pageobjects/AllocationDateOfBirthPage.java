@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class AllocationDateOfBirthPage extends Page {
 
-	private String allocationDobPageTitle = "What is their date of birth?"; // - Claim your NHS Pension";
+	private String allocationDobPageTitle = "What is their date of birth? - Claim your NHS Pension";
 	private By allocationDayFieldLocator = By.id("dateOfBirth-day");
 	private By allocationMonthFieldLocator = By.id("dateOfBirth-month");
 	private By allocationYearFieldLocator = By.id("dateOfBirth-year");

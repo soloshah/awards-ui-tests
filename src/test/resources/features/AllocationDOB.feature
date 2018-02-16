@@ -30,7 +30,7 @@ Examples:
            |31  | 11     |1980| Enter a valid date of birth|
            |01  | 01     |1889| The date you enter must be greater than 01 01 1900|
 
-@Bug
+
 Scenario: Allocation date of birth is greater than today's date
 And I enter allocation DOB greater than today's date
 Then the allocation date of birth submission will be unsuccessful
