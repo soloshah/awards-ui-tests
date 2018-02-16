@@ -1,4 +1,4 @@
-@RelationshipToYou @BP490-114  @WIP
+@RelationshipToYou @BP490-114  
 Feature: What is their relationship to you
 
 Background:
@@ -19,5 +19,5 @@ Then the relationship submission will be unsuccessful
 And the relationship name error message '<errorMessage>' will be displayed
 Examples:
 | name     | errorMessage                                                     |
-|           |You must enter the person's relationship to you                                             | 
-|In56drf%$ £"^&*"|Enter names using only letters a to z, spaces and hyphens |
+|           |You must enter the person's relationship to you                  | 
+|In56drf%$ £"^&*"|Enter names using only letters a to z, spaces and hyphens   |
