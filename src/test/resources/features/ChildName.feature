@@ -8,8 +8,9 @@ When I go to the child name page
 
 Scenario: Valid Child Name details
 When I enter valid child name details
-Then the tbi page will be displayed
 #Then the child name submission will be successful
+And the tbi page will be displayed
+
 #And the child date of birth page will be displayed
 
 Scenario Outline: Child first name field  validations 

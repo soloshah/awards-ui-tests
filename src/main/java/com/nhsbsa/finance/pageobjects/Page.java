@@ -111,6 +111,12 @@ public class Page {
 		return getElementText();
 	}
 
+	public String getExampleHintMessage() {
+		navigateToRootElement();
+		navigateToElementBy(exampleHintLocator);
+		return getElementText();
+	}
+
 	public String getDate(By monthLocator, By yearLocator) {
 		navigateToRootElement();
 		navigateToElementBy(monthLocator);

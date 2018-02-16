@@ -15,7 +15,7 @@ public class DateOfBirthPage extends Page {
 	private By dobFieldErrorMessageLocator = By.id("dateOfBirth-error-message");
 	private By dobAnchoredErrorMessageLocator = By.id("error-list0");
 	private By dobAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#dateOfBirth']");
-	
+		
 	public DateOfBirthPage(WebDriver driver) {
 		super(driver);
 		waitForTitleToExist(dobPageTitle);
