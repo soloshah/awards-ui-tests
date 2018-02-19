@@ -29,6 +29,13 @@ public class PartnerNamePage extends Page {
 		navigateToElementBy(firstNameFieldLocator);
 		type(firstName);
 	}
+	
+	public void getFirstName(String firstName){
+		navigateToRootElement();
+		enterfirstName(firstName);
+		getElementValue();
+				
+	}
 
 	public void enterlastName(String lastName) {
 		navigateToRootElement();
