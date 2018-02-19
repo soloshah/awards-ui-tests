@@ -10,6 +10,7 @@ import com.nhsbsa.finance.driver.Config;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.pageobjects.PartnerDateOfBirthPage;
+import com.nhsbsa.finance.pageobjects.PartnerNamePage;
 import com.nhsbsa.finance.properties.PropertyReader;
 import com.nhsbsa.finance.shared.SharedData;
 import com.nhsbsa.finance.shared.SharedMethods;
@@ -25,13 +26,16 @@ public class PartnerDateOfBirthStepDefs {
 	private String baseUrl = PropertyReader.getProperty("base.server");
 	private PartnerDateOfBirthPage partnerDateOfBirthPage;
 	
+	PartnerNamePage partnerNamePage = new PartnerNamePage(driver);
+	
 	 
 	@Given("^I am on partner DOB page$")
 	public void iAmOnPartnerDOBPage() {
-		 SharedData.firstName = "Partner Test";
 		new Page(driver).navigateToUrl(baseUrl + "/partner-and-child/what-is-your-partner-dob");
 		partnerDateOfBirthPage = new PartnerDateOfBirthPage(driver);
-		//assertThat(partnerDateOfBirthPage.getHeading()).contains("What is" + SharedData.firstName + "date of birth?");
+		/*partnerNamePage.getFirstName(SharedData.firstName);
+		System.out.println(SharedData.firstName);
+		assertThat(partnerDateOfBirthPage.getHeading()).contains("What is " + SharedData.firstName + "'s " + " date of birth?");*/
 	}
 
 	@When("^I go to partner DOB page$")

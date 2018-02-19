@@ -34,4 +34,13 @@ Examples:
 Scenario: Partner date of birth less than 16 years from today's date
 And I enter partner's dob  less than 16 years from today's date
 Then the partner date of birth submission will be unsuccessful
-And the partner date of birth for 16 years error message 'Your spouse or civil partner must be at least 16 years old' will be displayed      
+And the partner date of birth for 16 years error message 'Your spouse or civil partner must be at least 16 years old' will be displayed
+
+Scenario: Dynamic partner's first name value to be displayed on Partner's DOB page
+Given I am on the start page
+When I go to the partner name page
+And I submit valid first and last name details
+Then the partner's date of birth page is displayed
+And the partner first name is displayed on the partner's DOB page
+
+   

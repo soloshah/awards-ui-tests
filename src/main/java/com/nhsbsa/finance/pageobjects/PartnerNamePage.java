@@ -33,8 +33,7 @@ public class PartnerNamePage extends Page {
 	public void getFirstName(String firstName){
 		navigateToRootElement();
 		enterfirstName(firstName);
-		getElementValue();
-				
+					
 	}
 
 	public void enterlastName(String lastName) {
