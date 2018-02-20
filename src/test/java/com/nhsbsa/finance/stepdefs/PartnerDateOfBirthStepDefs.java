@@ -10,7 +10,6 @@ import com.nhsbsa.finance.driver.Config;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.pageobjects.PartnerDateOfBirthPage;
-import com.nhsbsa.finance.pageobjects.PartnerNamePage;
 import com.nhsbsa.finance.properties.PropertyReader;
 import com.nhsbsa.finance.shared.SharedData;
 import com.nhsbsa.finance.shared.SharedMethods;
@@ -26,16 +25,14 @@ public class PartnerDateOfBirthStepDefs {
 	private String baseUrl = PropertyReader.getProperty("base.server");
 	private PartnerDateOfBirthPage partnerDateOfBirthPage;
 	
-	PartnerNamePage partnerNamePage = new PartnerNamePage(driver);
+	
 	
 	 
 	@Given("^I am on partner DOB page$")
 	public void iAmOnPartnerDOBPage() {
 		new Page(driver).navigateToUrl(baseUrl + "/partner-and-child/what-is-your-partner-dob");
 		partnerDateOfBirthPage = new PartnerDateOfBirthPage(driver);
-		/*partnerNamePage.getFirstName(SharedData.firstName);
-		System.out.println(SharedData.firstName);
-		assertThat(partnerDateOfBirthPage.getHeading()).contains("What is " + SharedData.firstName + "'s " + " date of birth?");*/
+		//assertThat(partnerDateOfBirthPage.getHeading()).contains("What is " + SharedData.firstName + "'s " + " date of birth?");
 	}
 
 	@When("^I go to partner DOB page$")
@@ -51,10 +48,11 @@ public class PartnerDateOfBirthStepDefs {
 		new NavBarPage(driver);
 	}
 
-	@Then("^the partner date of birth page will be displayed$")
-	public void thePartnerDateOfBirthPageWillBeDisplayed() {
+	@Then("^the partners date of birth page will be displayed$")
+	public void thePartnersDateOfBirthPageWillBeDisplayed() {
 		partnerDateOfBirthPage = new PartnerDateOfBirthPage(driver);
-		//assertThat(partnerDateOfBirthPage.getHeading()).contains("What is" + SharedData.firstName + "date of birth?");
+		assertThat(partnerDateOfBirthPage.getExampleHint().matches("For example, 31 03 1980"));
+		//assertThat(partnerDateOfBirthPage.getHeading()).contains("What is " + SharedData.firstName + "'s " +  "date of birth?");
 	}
 
 	@When("^I enter valid partner DOB details$")
@@ -112,5 +110,13 @@ public class PartnerDateOfBirthStepDefs {
 		partnerDateOfBirthPage.submitInValidPartnerDOBDetails();
 	}
 	
-	
+	@Then("^the dynamic value of partner first name is displayed on the partners DOB page$")
+	public void theDynamicValueOfPartnerFirstNameIsDisplayedOnThePartnersDOBPage() {
+   		//partnerDateOfBirthPage = new PartnerDateOfBirthPage(driver);
+   		Page page = new Page(driver);
+   		String partnerDatePageTitle = "What is " + SharedData.firstName + "'s " +  "date of birth? - Claim your NHS Pension";
+   	page.waitForTitleToExist(partnerDatePageTitle);
+		//assertThat(partnerDateOfBirthPage.getHeading().contains("What is " + SharedData.firstName + "'s " +  "date of birth?"));
+   	
+	}
 }

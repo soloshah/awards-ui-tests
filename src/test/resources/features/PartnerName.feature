@@ -6,11 +6,12 @@ Background:
 Given I am on the start page
 When I go to the partner name page
 
+@WIP
 Scenario: Valid partner Name details
 When I enter valid partner name details
-Then the tbi page will be displayed
-#Then the partner name submission will be successful
-#And the partner date of birth page will be displayed
+#Then the tbi page will be displayed
+Then the partner name submission will be successful
+And the partners date of birth page will be displayed
 
 @Bug
 Scenario Outline: Partner first name field  validations 
