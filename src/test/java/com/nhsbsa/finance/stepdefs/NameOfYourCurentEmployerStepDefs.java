@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
 import com.nhsbsa.finance.pageobjects.NameOfYourCurrentEmployerPage;
-import com.nhsbsa.finance.pageobjects.NameOfYourLastEmployerPage;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.properties.PropertyReader;
@@ -17,7 +16,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class NameOfYourCurentEmployerStepDefs2 {
+public class NameOfYourCurentEmployerStepDefs {
 
 	private WebDriver driver = Config.getDriver();
 	private String baseUrl = PropertyReader.getProperty("base.server");
@@ -26,7 +25,7 @@ public class NameOfYourCurentEmployerStepDefs2 {
 	@Then("^What is the name of your current employer page will be displayed$")
 	public void whatIsTheNameofYourCurrenttEmployerPageWillBeDisplayed() {
 		nameOfYourCurrentEmployerPage = new NameOfYourCurrentEmployerPage(driver);
-		//assertThat(nameOfYourCurrentEmployerPage.getHeading()).matches("What is the name of your current NHS employer?");
+		assertThat(nameOfYourCurrentEmployerPage.getHeading()).matches("What is the name of your current NHS employer?");
 	}
 
 	@Given("^I am on the name of the current NHS employer page$")
@@ -38,7 +37,7 @@ public class NameOfYourCurentEmployerStepDefs2 {
 	public void iGoToTheNameOfYourCurrenttNHSEmployerPage() {
 		new Page(driver).navigateToUrl(baseUrl + "/employment-details/what-is-your-current-nhs-employer-name");
 		nameOfYourCurrentEmployerPage = new NameOfYourCurrentEmployerPage(driver);
-		//assertThat(nameOfYourCurrentEmployerPage.getHeading()).contains("What is the name of your current NHS employer?");
+		assertThat(nameOfYourCurrentEmployerPage.getHeading()).contains("What is the name of your current NHS employer?");
 	}
 
 	@Then("^the name of your current NHS employer page submission will be successful$")
