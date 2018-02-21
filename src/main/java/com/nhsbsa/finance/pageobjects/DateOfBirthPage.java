@@ -16,6 +16,9 @@ public class DateOfBirthPage extends Page {
 	private By dobAnchoredErrorMessageLocator = By.id("error-list0");
 	private By dobAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#dateOfBirth']");
 	
+	
+	SharedDateOfBirthPage sharedDateOfBirthPage = new SharedDateOfBirthPage(driver);
+	
 	public DateOfBirthPage(WebDriver driver) {
 		super(driver);
 		waitForTitleToExist(dobPageTitle);
@@ -47,6 +50,8 @@ public class DateOfBirthPage extends Page {
 	}
 
 	public void enterDobDetails(String day, String month, String year) {
+		
+		sharedDateOfBirthPage.enterDay("");
 		enterDay(day);
 		enterMonth(month);
 		enterYear(year);
