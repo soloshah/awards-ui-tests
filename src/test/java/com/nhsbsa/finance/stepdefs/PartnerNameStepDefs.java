@@ -116,7 +116,7 @@ public class PartnerNameStepDefs {
 		SharedData.firstName = "Partner Test";
 		SharedData.lastName = "Partner User";
 		partnerNamePage = new PartnerNamePage(driver);
-		partnerNamePage.submitValidPartnerDetails(SharedData.firstName, SharedData.lastName);
+		partnerNamePage.submitValidPartnerNameDetails(SharedData.firstName, SharedData.lastName);
 	}
 
 	

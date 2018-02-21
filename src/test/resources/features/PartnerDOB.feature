@@ -1,4 +1,4 @@
-@PartnerDateOfBirth @BP490-98 @WIP
+@PartnerDateOfBirth @BP490-98 
 Feature: Partner Date of Birth
 
 Background:

@@ -123,14 +123,6 @@ public class PartnerNamePage extends Page {
 		return new DynamicPartnerDateOfBirthPage(driver);
 	}
 	
-	
-	public void submitValidPartnerDetails(String firstName, String lastName) {
-		enterfirstName(firstName);
-		enterlastName(lastName);
-		nextStep();
-		
-	}
-
 	public PartnerNamePage submitInValidPartnerNameDetails() {
 		nextStep();
 		return new PartnerNamePage(driver);
