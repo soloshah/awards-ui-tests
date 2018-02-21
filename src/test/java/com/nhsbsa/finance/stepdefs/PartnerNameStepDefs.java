@@ -33,7 +33,7 @@ public class PartnerNameStepDefs {
 	public void iGoToThePartnerNamePage() {
 		new Page(driver).navigateToUrl(baseUrl + "/partner-and-child/what-is-your-partner-name");
 		partnerNamePage = new PartnerNamePage(driver);
-		//assertThat(partnerNamePage.getHeading()).contains("What is your spouse's or civil partner's name?");
+		assertThat(partnerNamePage.getHeading()).contains("What is your spouse's or civil partner's name?");
 	}
 
 	@Then("^the partner name submission will be successful$")
@@ -46,7 +46,7 @@ public class PartnerNameStepDefs {
 		SharedData.firstName = "Partner Test";
 		SharedData.lastName = "Partner User";
 		partnerNamePage = new PartnerNamePage(driver);
-		partnerNamePage.submitValidPartnerDetails(SharedData.firstName, SharedData.lastName);
+		partnerNamePage.submitValidPartnerNameDetails(SharedData.firstName, SharedData.lastName);
 	}
 
 	@Then("^the partner name submission will be unsuccessful$")

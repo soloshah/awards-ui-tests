@@ -1,4 +1,4 @@
-@DynamicValues @BP490-98 
+@DynamicValues @BP490-98 @WIP
 Feature: Verify Dynamic Values
 
 Scenario: Dynamic value of partner's first name to be displayed on Partner's DOB page

@@ -2,7 +2,6 @@ package com.nhsbsa.finance.pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import com.nhsbsa.finance.pageobjects.Page;
 
 public class PartnerNamePage extends Page {
 
@@ -30,11 +29,11 @@ public class PartnerNamePage extends Page {
 		navigateToElementBy(firstNameFieldLocator);
 		type(firstName);
 	}
-	
-	public void getFirstName(String firstName){
+
+	public void getFirstName(String firstName) {
 		navigateToRootElement();
 		enterfirstName(firstName);
-					
+
 	}
 
 	public void enterlastName(String lastName) {
@@ -117,20 +116,21 @@ public class PartnerNamePage extends Page {
 		return getElementValue();
 	}
 
-	public PartnerDateOfBirthPage submitValidPartnerNameDetails(String firstName, String lastName) {
+	public DynamicPartnerDateOfBirthPage submitValidPartnerNameDetails(String firstName, String lastName) {
 		enterfirstName(firstName);
 		enterlastName(lastName);
 		nextStep();
-		return new PartnerDateOfBirthPage(driver);
+		return new DynamicPartnerDateOfBirthPage(driver);
 	}
-
-	public void submitValidPartnerDetails(String firstName, String lastName){
+	
+	
+	public void submitValidPartnerDetails(String firstName, String lastName) {
 		enterfirstName(firstName);
 		enterlastName(lastName);
 		nextStep();
 		
 	}
-	
+
 	public PartnerNamePage submitInValidPartnerNameDetails() {
 		nextStep();
 		return new PartnerNamePage(driver);
