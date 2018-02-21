@@ -1,4 +1,4 @@
-@WorkingForNHS @BP490-118 @WIP
+@WorkingForNHS @BP490-118 
 Feature: Working for NHS Page
 
 Background:
