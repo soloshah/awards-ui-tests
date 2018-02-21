@@ -25,8 +25,6 @@ public class PartnerDateOfBirthStepDefs {
 	private String baseUrl = PropertyReader.getProperty("base.server");
 	private PartnerDateOfBirthPage partnerDateOfBirthPage;
 	
-	
-	
 	 
 	@Given("^I am on partner DOB page$")
 	public void iAmOnPartnerDOBPage() {
@@ -110,13 +108,4 @@ public class PartnerDateOfBirthStepDefs {
 		partnerDateOfBirthPage.submitInValidPartnerDOBDetails();
 	}
 	
-	@Then("^the dynamic value of partner first name is displayed on the partners DOB page$")
-	public void theDynamicValueOfPartnerFirstNameIsDisplayedOnThePartnersDOBPage() {
-   		//partnerDateOfBirthPage = new PartnerDateOfBirthPage(driver);
-   		Page page = new Page(driver);
-   		String partnerDatePageTitle = "What is " + SharedData.firstName + "'s " +  "date of birth? - Claim your NHS Pension";
-   	page.waitForTitleToExist(partnerDatePageTitle);
-		//assertThat(partnerDateOfBirthPage.getHeading().contains("What is " + SharedData.firstName + "'s " +  "date of birth?"));
-   	
 	}
-}
