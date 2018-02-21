@@ -1,4 +1,4 @@
-@LastEmployerName @BP490-122 
+@LastEmployerName @BP490-122
 Feature: What was the name of your last NHS employer
 
 Background:
@@ -6,7 +6,7 @@ Background:
 Given I am on the start page
 When I go to the name of your last NHS employer page
 
-@WIP
+
 Scenario: Valid name of your last NHS employer details
 When I enter valid name of last NHS employer details
 Then the name of your last NHS employer page submission will be successful

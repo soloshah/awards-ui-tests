@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class JobTitlePage extends Page {
 
-	private String jobPageTitle = "What was the name of your last NHS employer? - Claim your NHS Pension";
+	private String jobPageTitle = "What was your job title? - Claim your NHS Pension";
 	private By jobTitleFieldLocator = By.id("jobTitle");
 	private By nextButtonLocator = By.id("submit_button");
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");
