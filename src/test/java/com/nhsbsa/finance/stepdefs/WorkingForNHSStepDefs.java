@@ -30,7 +30,7 @@ public class WorkingForNHSStepDefs {
 	public void iGoToWorkingForNHSPage() {
 		new Page(driver).navigateToUrl(baseUrl + "/employment-details/are-you-working-in-nhs");
 		workingForNHSPage = new WorkingForNHSPage(driver);
-		assertThat(workingForNHSPage.getHeading()).contains("Are you for working the NHS?");
+		assertThat(workingForNHSPage.getHeading()).contains("Are you working for the NHS?");
 	}
 
 	@Then("^the default value for working for NHS will be blank$")
