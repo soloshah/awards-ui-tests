@@ -117,13 +117,6 @@ public class ChildNamePage extends Page {
 		return new ChildDOBPage(driver);
 	}
 
-	public TBIPage submitValidChildName(String firstName, String lastName) {
-		enterfirstName(firstName);
-		enterlastName(lastName);
-		nextStep();
-		return new TBIPage(driver);
-	}
-
 	public ChildNamePage submitInValidChildNameDetails() {
 		nextStep();
 		return new ChildNamePage(driver);
