@@ -2,10 +2,14 @@ package com.nhsbsa.finance.pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import com.nhsbsa.finance.pageobjects.Page;
 
 public class PartnerDateOfBirthPage extends Page {
 
+	
 	private String partnerDobPageTitle = "What is your spouse's or civil partner's date of birth? - Claim your NHS Pension";
+	//String firstName = "Partner Test";
+	//private String partnerDobPageTitle = "What is " + firstName + "'s " +  "date of birth? - Claim your NHS Pension";
 	private By partnerDayFieldLocator = By.id("dateOfBirth-day");
 	private By partnerMonthFieldLocator = By.id("dateOfBirth-month");
 	private By partnerYearFieldLocator = By.id("dateOfBirth-year");

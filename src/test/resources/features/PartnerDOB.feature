@@ -34,4 +34,7 @@ Examples:
 Scenario: Partner date of birth less than 16 years from today's date
 And I enter partner's dob  less than 16 years from today's date
 Then the partner date of birth submission will be unsuccessful
-And the partner date of birth for 16 years error message 'Your spouse or civil partner must be at least 16 years old' will be displayed      
+And the partner date of birth for 16 years error message 'Your spouse or civil partner must be at least 16 years old' will be displayed
+
+
+   

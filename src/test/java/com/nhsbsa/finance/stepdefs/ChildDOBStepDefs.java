@@ -20,7 +20,7 @@ public class ChildDOBStepDefs {
   @Then("^the child date of birth page will be displayed$")
   public void theChildDateOfBirthPageWillBeDisplayed() {
 	  childDOBPage = new ChildDOBPage(driver);
-    assertThat(childDOBPage.getHeading()).matches("What is your date of birth?");
+    assertThat(childDOBPage.getHeading()).matches("What is your child's date of birth?");
   }
 
 }

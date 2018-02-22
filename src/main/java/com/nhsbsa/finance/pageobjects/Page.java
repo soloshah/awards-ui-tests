@@ -18,6 +18,7 @@ public class Page {
 
 	private By headingLocator = By.id("service-name-heading-text");
 	private By createdHeadingLocator = By.id("service-name-text");
+
     private By exampleHintLocator = By.id("form-hint");
 	
 	public Page(WebDriver driver) {
@@ -108,6 +109,12 @@ public class Page {
 	public String getCreatedHeading() {
 		navigateToRootElement();
 		navigateToElementBy(createdHeadingLocator);
+		return getElementText();
+	}
+
+	public String getExampleHintMessage() {
+		navigateToRootElement();
+		navigateToElementBy(exampleHintLocator);
 		return getElementText();
 	}
 

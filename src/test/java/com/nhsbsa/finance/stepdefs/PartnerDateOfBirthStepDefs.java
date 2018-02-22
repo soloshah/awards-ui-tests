@@ -28,17 +28,15 @@ public class PartnerDateOfBirthStepDefs {
 	 
 	@Given("^I am on partner DOB page$")
 	public void iAmOnPartnerDOBPage() {
-		 SharedData.firstName = "Partner Test";
 		new Page(driver).navigateToUrl(baseUrl + "/partner-and-child/what-is-your-partner-dob");
 		partnerDateOfBirthPage = new PartnerDateOfBirthPage(driver);
-		//assertThat(partnerDateOfBirthPage.getHeading()).contains("What is" + SharedData.firstName + "date of birth?");
+		assertThat(partnerDateOfBirthPage.getHeading()).contains("What is " + SharedData.firstName + "'s " + " date of birth?");
 	}
 
 	@When("^I go to partner DOB page$")
 	public void iGoToPartnerDOBPage() {
    		new Page(driver).navigateToUrl(baseUrl + "/partner-and-child/what-is-your-partner-dob");
 		partnerDateOfBirthPage = new PartnerDateOfBirthPage(driver);
-		//assertThat(partnerDateOfBirthPage.getHeading().contains("What is" + SharedData.firstName + "their date of birth?"));
 		assertThat(partnerDateOfBirthPage.getExampleHint().matches("For example, 31 03 1980"));
 	}
 
@@ -47,10 +45,11 @@ public class PartnerDateOfBirthStepDefs {
 		new NavBarPage(driver);
 	}
 
-	@Then("^the partner date of birth page will be displayed$")
-	public void thePartnerDateOfBirthPageWillBeDisplayed() {
+	@Then("^the partners date of birth page will be displayed$")
+	public void thePartnersDateOfBirthPageWillBeDisplayed() {
 		partnerDateOfBirthPage = new PartnerDateOfBirthPage(driver);
-		//assertThat(partnerDateOfBirthPage.getHeading()).contains("What is" + SharedData.firstName + "date of birth?");
+		assertThat(partnerDateOfBirthPage.getExampleHint().matches("For example, 31 03 1980"));
+		assertThat(partnerDateOfBirthPage.getHeading()).contains("What is " + SharedData.firstName + "'s " +  "date of birth?");
 	}
 
 	@When("^I enter valid partner DOB details$")
@@ -108,5 +107,4 @@ public class PartnerDateOfBirthStepDefs {
 		partnerDateOfBirthPage.submitInValidPartnerDOBDetails();
 	}
 	
-	
-}
+	}
