@@ -30,7 +30,7 @@ public class BankAccountTypeStepDefs {
 	public void iGoToBankAccountTypePage() {
 		new Page(driver).navigateToUrl(baseUrl + "/payment-details/what-type-of-account");
 		bankAccountTypePage = new BankAccountTypePage(driver);
-		//assertThat(bankAccountTypePage.getHeading()).contains("What type of account are we making the payment to?");
+		assertThat(bankAccountTypePage.getHeading()).contains("What type of account are we making the payment to?");
 	}
 
 	@Then("^the default value for select bank account type will be blank$")
@@ -58,13 +58,13 @@ public class BankAccountTypeStepDefs {
 	@When("^I select Current Account$")
 	public void iSelectCurrentAccount() {
 		bankAccountTypePage = new BankAccountTypePage(driver);
-		bankAccountTypePage.submitValidCurrentAccount();
+		bankAccountTypePage.submitValidCurrentAccountDetails();
 	}
 
 	@When("^I select Deposit Account$")
 	public void iSelectDepositAccount() {
 		bankAccountTypePage = new BankAccountTypePage(driver);
-		bankAccountTypePage.submitValidDepositAccount();
+		bankAccountTypePage.submitValidDepositAccountDetails();
 	}
 
 	@When("^I dont select any account type$")

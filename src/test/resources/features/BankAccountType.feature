@@ -1,4 +1,4 @@
-@BankAccountType @BP490-130 
+@BankAccountType @BP490-130 @WIP
 Feature: Bank Account Type
 
 Background:
@@ -9,14 +9,12 @@ When I go to bank account type page
 
 Scenario: Select the type of account
 When I select Current Account
-Then the tbi page will be displayed
-#Then Where are you employed page is displayed
+Then enter bank details page will be displayed
 
 
 Scenario: Select the type of account
 When I select Deposit Account
-Then the tbi page will be displayed
-#Then What was the name of your last employer page will be displayed
+Then enter bank details page will be displayed
 
 
 Scenario: Type of Bank Account 
