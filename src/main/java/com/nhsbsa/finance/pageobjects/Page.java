@@ -17,9 +17,10 @@ public class Page {
 	private int explicitWaitTime = 20;
 
 	private By headingLocator = By.id("service-name-heading-text");
-	private By createdHeadingLocator = By.id("account-created-heading");
-	private By exampleHintLocator = By.id("form-hint");
+	private By createdHeadingLocator = By.id("service-name-text");
 
+    private By exampleHintLocator = By.id("form-hint");
+	
 	public Page(WebDriver driver) {
 		this.driver = driver;
 	}
@@ -99,6 +100,12 @@ public class Page {
 		return getElementText();
 	}
 
+	public String getExampleHint() {
+		navigateToRootElement();
+		navigateToElementBy(exampleHintLocator);
+		return getElementText();
+	}
+	
 	public String getCreatedHeading() {
 		navigateToRootElement();
 		navigateToElementBy(createdHeadingLocator);
