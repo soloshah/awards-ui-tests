@@ -36,7 +36,7 @@ public class NameStepDefs {
 	@Then("^the name submission will be successful$")
 	public void theNameSubmissionWillBeSuccessful() {
 		new NavBarPage(driver);
-	}
+		}
 
 	@When("^I enter valid name details$")
 	public void IenterValidNameDetails() {

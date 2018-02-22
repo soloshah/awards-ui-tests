@@ -1,22 +1,21 @@
-@DateOfBirth @BP490-88
-Feature: Date of Birth
+@AllocationDateOfBirth @BP490-112 
+Feature: Allocation Date of Birth
 
 Background:
 Given I am on the start page
-When I go to DOB page
+When I go to allocation DOB page
 
-
-Scenario: Valid date of Birth
-And I enter valid DOB details
+Scenario: Valid allocation date of Birth
+And I enter valid allocation DOB details
 #Then the date of birth submission will be successful
 #And the gender page will be displayed
 Then the tbi page will be displayed
 
 
-Scenario Outline: Date of Birth Field validations 
-And I enter DOB details using the day '<day>', month '<month>' and year '<year>'
-Then the date of birth submission will be unsuccessful
-And the date of birth error message '<errorMessage>' will be displayed
+Scenario Outline: Allocation date of birth field validations 
+And I enter allocation DOB details using the day '<day>', month '<month>' and year '<year>'
+Then the allocation date of birth submission will be unsuccessful
+And the allocation date of birth error message '<errorMessage>' will be displayed
 Examples:
            |day | month  |year| errorMessage               |
            |    |        |    | Enter a valid date of birth|   
@@ -32,8 +31,8 @@ Examples:
            |01  | 01     |1889| The date you enter must be greater than 01 01 1900|
 
 
-Scenario: Date of Birth less than 16 years from today's date
-And I enter DOB less than 16 years from today's date
-Then the date of birth submission will be unsuccessful
-And  the date of birth for 16 years error message 'You must be at least 16 years old' will be displayed      
-           
+Scenario: Allocation date of birth is greater than today's date
+And I enter allocation DOB greater than today's date
+Then the allocation date of birth submission will be unsuccessful
+And  the allocation date of birth for greater than today's date error message 'Enter a date in the past' will be displayed      
+    
