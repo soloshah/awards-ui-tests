@@ -50,13 +50,13 @@ public class WorkingForNHSStepDefs {
 	@When("^I select Yes$")
 	public void iSelectYes() {
 		workingForNHSPage = new WorkingForNHSPage(driver);
-		workingForNHSPage.submitValidYesDetails();
+		workingForNHSPage.submitValidYesNhsDetails();
 	}
 
 	@When("^I select No$")
 	public void iSelectNo() {
 		workingForNHSPage = new WorkingForNHSPage(driver);
-		workingForNHSPage.submitValidNoDetails();
+		workingForNHSPage.submitValidNoNhsDetails();
 	}
 
 	@When("^I dont select anything$")

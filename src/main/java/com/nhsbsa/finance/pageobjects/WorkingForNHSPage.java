@@ -34,14 +34,14 @@ public class WorkingForNHSPage extends Page {
 		return selected;
 	}
 
-	public WhereAreYouEmployedPage submitValidYesNhsDetails() {
+	public NameOfYourCurrentEmployerPage submitValidYesNhsDetails() {
 		navigateToRootElement();
 		navigateToElementBy(yesRadioButtonLocator);
 		click();
 		nextStep();
-		return new WhereAreYouEmployedPage(driver);
+		return new NameOfYourCurrentEmployerPage(driver);
 	}
-
+	
 	public TBIPage submitValidYesDetails() {
 		navigateToRootElement();
 		navigateToElementBy(yesRadioButtonLocator);

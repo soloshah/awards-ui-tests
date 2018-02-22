@@ -1,4 +1,4 @@
-@WorkingForNHS @BP490-118
+@WorkingForNHS @BP490-118 
 Feature: Working for NHS Page
 
 Background:
@@ -6,11 +6,11 @@ Background:
 Given I am on the start page
 When I go to working for NHS page
 
- 
+
 Scenario: Are you working for NHS
 When I select Yes
-Then the tbi page will be displayed
-#Then What is the name of your current employer page will be displayed
+#Then the tbi page will be displayed
+Then What is the name of your current employer page will be displayed
 
 
 Scenario: Are you working for NHS

@@ -7,8 +7,8 @@ public class PlanToWorkPage extends Page {
 
   private String PlanToWorkPageTitle = "Claim your NHS Pension";
   private By yesRadioButtonLocator = By.id("yes");
-  private By noRadioButtonLocator = By.id("no");
-  private By nextButtonLocator = By.id("submit");
+  //private By noRadioButtonLocator = By.id("no");
+ // private By nextButtonLocator = By.id("submit");
  
   public PlanToWorkPage(WebDriver driver) {
     super(driver);

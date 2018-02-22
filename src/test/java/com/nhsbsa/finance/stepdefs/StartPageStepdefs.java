@@ -22,7 +22,7 @@ public class StartPageStepdefs {
 	@Then("^the start page will be displayed$")
 	public void theStartPageWillBeDisplayed() {
 		startPage = new StartPage(driver);
-		assertThat(startPage.getHeading()).matches("Claim your NHS Pension");
+		assertThat(startPage.getStartPageHeading()).matches("Claim your NHS Pension");
 	}
 
 	@Given("^I am on the start page$")
@@ -36,7 +36,7 @@ public class StartPageStepdefs {
 	public void iGoToTheStartPage() {
 	new Page(driver).navigateToUrl(baseUrl);
 	startPage = new StartPage(driver);
-	assertThat(startPage.getHeading()).contains("Claim your NHS Pension");
+	assertThat(startPage.getStartPageHeading()).contains("Claim your NHS Pension");
 	}
 
 	@Then("^the estimate link will be displayed$")

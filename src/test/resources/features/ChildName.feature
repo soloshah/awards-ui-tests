@@ -1,4 +1,4 @@
-@Child'sName @BP490-106 @WIP
+@Child'sName @BP490-106
 Feature: Childs Name
 
 Background:

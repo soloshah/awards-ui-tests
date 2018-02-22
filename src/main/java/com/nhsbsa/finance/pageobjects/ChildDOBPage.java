@@ -5,15 +5,14 @@ import org.openqa.selenium.WebDriver;
 
 public class ChildDOBPage extends Page {
 
-  private String childDOBPageTitle = "What is your date of birth - Claim your NHS Pension";
-  private By dayFieldLocator = By.id("day");
-    private By nextButtonLocator = By.id("submit");
- 
-  public ChildDOBPage(WebDriver driver) {
-    super(driver);
-    waitForTitleToExist(childDOBPageTitle);
-    waitForElementToBeVisibleBy(dayFieldLocator);
-  }
+	private String childDOBPageTitle = "What is your date of birth - Claim your NHS Pension";
+	private By dayFieldLocator = By.id("day");
+	// private By nextButtonLocator = By.id("submit");
 
-  
+	public ChildDOBPage(WebDriver driver) {
+		super(driver);
+		waitForTitleToExist(childDOBPageTitle);
+		waitForElementToBeVisibleBy(dayFieldLocator);
+	}
+
 }

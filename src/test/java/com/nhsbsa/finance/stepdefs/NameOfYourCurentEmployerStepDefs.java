@@ -23,9 +23,9 @@ public class NameOfYourCurentEmployerStepDefs {
 	private NameOfYourCurrentEmployerPage nameOfYourCurrentEmployerPage;
 
 	@Then("^What is the name of your current employer page will be displayed$")
-	public void whatIsTheNameofYourCurrenttEmployerPageWillBeDisplayed() {
+	public void whatIsTheNameOfYourCurrentEmployerPageWillBeDisplayed() {
 		nameOfYourCurrentEmployerPage = new NameOfYourCurrentEmployerPage(driver);
-		assertThat(nameOfYourCurrentEmployerPage.getHeading()).matches("What is the name of your current NHS employer?");
+		assertThat(nameOfYourCurrentEmployerPage.getHeading()).contains("What is the name of your current NHS employer?");
 	}
 
 	@Given("^I am on the name of the current NHS employer page$")
@@ -34,7 +34,7 @@ public class NameOfYourCurentEmployerStepDefs {
 	}
 
 	@When("^I go to the name of your current NHS employer page$")
-	public void iGoToTheNameOfYourCurrenttNHSEmployerPage() {
+	public void iGoToTheNameOfYourCurrentNHSEmployerPage() {
 		new Page(driver).navigateToUrl(baseUrl + "/employment-details/what-is-your-current-nhs-employer-name");
 		nameOfYourCurrentEmployerPage = new NameOfYourCurrentEmployerPage(driver);
 		assertThat(nameOfYourCurrentEmployerPage.getHeading()).contains("What is the name of your current NHS employer?");
