@@ -13,6 +13,7 @@ Then the partner name submission will be successful
 And the dynamic partners date of birth page will be displayed
 
 
+@Bug 
 Scenario Outline: Partner first name field  validations 
 When I enter an invalid partner details using the firstName '<firstName>'
 Then the partner name submission will be unsuccessful
@@ -23,7 +24,7 @@ Examples:
 |In%$ £"^&*"               |Enter names using only letters a to z, spaces and hyphens           |
 |hgn-yuiom jkhe'tryu90hi237|Enter names using only letters a to z, spaces and hyphens           |
 
-
+@Bug 
 Scenario Outline: Partner last name field  validations 
 When I enter an invalid partner details using the lastName '<lastName>'
 Then the partner name submission will be unsuccessful
