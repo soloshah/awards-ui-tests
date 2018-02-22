@@ -16,8 +16,8 @@ public class Page {
 	private WebElement element = null;
 	private int explicitWaitTime = 20;
 
-	private By headingLocator = By.id("main-heading");
-	private By createdHeadingLocator = By.id("account-created-heading");
+	private By headingLocator = By.id("service-name-heading-text");
+	private By createdHeadingLocator = By.id("service-name-text");
     private By exampleHintLocator = By.id("form-hint");
 	
 	public Page(WebDriver driver) {

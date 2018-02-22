@@ -1,4 +1,4 @@
-@Partner'sName @BP490-97 
+@Partner'sName @BP490-97
 Feature: Spouse or civil partner's Name
 
 Background:
@@ -9,9 +9,9 @@ When I go to the partner name page
 
 Scenario: Valid partner Name details
 When I enter valid partner name details
-Then the tbi page will be displayed
-#Then the partner name submission will be successful
-#And the partner date of birth page will be displayed
+Then the partner name submission will be successful
+And the dynamic partners date of birth page will be displayed
+
 
 @Bug 
 Scenario Outline: Partner first name field  validations 

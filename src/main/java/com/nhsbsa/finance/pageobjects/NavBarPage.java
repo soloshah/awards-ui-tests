@@ -5,12 +5,11 @@ import org.openqa.selenium.WebDriver;
 
 public class NavBarPage extends Page {
 
-	private By serviceNameLocator = By.id("service-name-text");
+  private By secondaryHeading = By.id("service-name-text");
 
-	public NavBarPage(WebDriver driver) {
-		super(driver);
-		
-		waitForElementToBeVisibleBy(serviceNameLocator);
-	  	}
+  public NavBarPage(WebDriver driver) {
+    super(driver);
+    waitForElementToBeVisibleBy(secondaryHeading);
+    }
 
 }
