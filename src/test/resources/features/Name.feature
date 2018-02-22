@@ -5,7 +5,7 @@ Feature: Name Page
 Scenario: Valid Name details
 Given I am on the name page
 When I enter valid name details
-#Then the name submission will be successful
+Then the name submission will be successful
 Then the date of birth page will be displayed
 
 
