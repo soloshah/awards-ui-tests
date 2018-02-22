@@ -16,7 +16,6 @@ public class Page {
 	private WebElement element = null;
 	private int explicitWaitTime = 20;
 
-
 	private By headingLocator = By.id("service-name-heading-text");
 	private By createdHeadingLocator = By.id("service-name-text");
 
@@ -110,6 +109,12 @@ public class Page {
 	public String getCreatedHeading() {
 		navigateToRootElement();
 		navigateToElementBy(createdHeadingLocator);
+		return getElementText();
+	}
+
+	public String getExampleHintMessage() {
+		navigateToRootElement();
+		navigateToElementBy(exampleHintLocator);
 		return getElementText();
 	}
 
