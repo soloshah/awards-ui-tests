@@ -18,6 +18,7 @@ public class Page {
 
 	private By headingLocator = By.id("service-name-heading-text");
 	private By createdHeadingLocator = By.id("service-name-text");
+
     private By exampleHintLocator = By.id("form-hint");
 	
 	public Page(WebDriver driver) {
