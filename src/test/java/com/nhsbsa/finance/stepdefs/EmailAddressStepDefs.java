@@ -31,7 +31,7 @@ public class EmailAddressStepDefs {
 	public void iGoToTheEmailAddressPage() {
 		new Page(driver).navigateToUrl(baseUrl + "/contact-details/what-is-your-email-address");
 		emailAddressPage = new EmailAddressPage(driver);
-		//assertThat(emailAddressPage.getHeading()).contains("What is your email address?");
+		assertThat(emailAddressPage.getHeading()).contains("What is your email address?");
 	}
 
 	@Then("^the email address submission will be successful$")
