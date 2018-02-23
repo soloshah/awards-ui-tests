@@ -76,9 +76,9 @@ public class NinoStepdefs {
   
   @When ("^I enter valid national insurance number$")
   public void IenterValidNationalInsuranceNumber(){
-	 String nino = "AA123456A";
+	 SharedData.nino = "AA123456A";
 	  ninoPage = new NinoPage(driver); 
-	  ninoPage.submitValidNiDetails(nino);
+	  ninoPage.submitValidNiDetails(SharedData.nino);
 	    }
   
 }

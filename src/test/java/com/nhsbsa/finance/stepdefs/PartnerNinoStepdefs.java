@@ -9,6 +9,7 @@ import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.pageobjects.PartnerNinoPage;
 import com.nhsbsa.finance.properties.PropertyReader;
+import com.nhsbsa.finance.shared.SharedData;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -67,19 +68,11 @@ public class PartnerNinoStepdefs {
 
 	@When("^I enter valid partner national insurance number$")
 	public void IenterValidPartnerNationalInsuranceNumber() {
-		String nino = "AA123456B";
+		String partnerNino = "AA123456B";
 		partnerNinoPage = new PartnerNinoPage(driver);
-		partnerNinoPage.submitValidNiDetails(nino);
+		partnerNinoPage.submitValidNiDetails(partnerNino);
 	}
 
 	
-	@And("^I enter same nino as of main applicant$")
-	public void iEnterSameNinoAsOfMainApplicant() {
-   	
-		String nino = "AA123456A";
-		  partnerNinoPage = new PartnerNinoPage(driver); 
-		  partnerNinoPage.enterPartnerNino(nino);
-		  partnerNinoPage.submitInValidNinoDetails();
-		    }
 	
 }

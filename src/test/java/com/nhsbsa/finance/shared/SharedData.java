@@ -9,6 +9,7 @@ public class SharedData {
   public static String firstName;
   public static String lastName;
   public static String jobTitle;
+  public static String nino;
   public static String contactNumber;
   public static String employerName;
 }
