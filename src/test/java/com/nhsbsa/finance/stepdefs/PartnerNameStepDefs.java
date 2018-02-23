@@ -24,6 +24,8 @@ public class PartnerNameStepDefs {
 	private String firstName;
 	private String lastName;
 
+	
+
 	@Given("^I am on the partner name page$")
 	public void iAmOnThePartnerNamePage() {
 		new Page(driver).navigateToUrl(baseUrl + "/partner-and-child/what-is-your-partner-name");
@@ -43,8 +45,8 @@ public class PartnerNameStepDefs {
 
 	@When("^I enter valid partner name details$")
 	public void IenterValidPartnerNameDetails() {
-		SharedData.firstName = "Partner Test";
-		SharedData.lastName = "Partner User";
+		SharedData.firstName = "Partner-Test";
+		SharedData.lastName = "Partner-User";
 		partnerNamePage = new PartnerNamePage(driver);
 		partnerNamePage.submitValidPartnerNameDetails(SharedData.firstName, SharedData.lastName);
 	}
@@ -106,10 +108,19 @@ public class PartnerNameStepDefs {
 	}
 
 	private void setPartnerNameDetails() {
-		firstName = "Partner Test";
-		lastName = "Partner User";
+		firstName = "Partner-Test";
+		lastName = "Partner-User";
 
 	}
+	
+	@And("^I submit valid first and last name details$")
+	public void iSubmitValidFirstAndLastNameDetails() {
+	SharedData.firstName = "Partner-Test";
+	SharedData.lastName = "Partner-User";
+	partnerNamePage = new PartnerNamePage(driver);
+	partnerNamePage.submitValidPartnerNameDetails(SharedData.firstName, SharedData.lastName);
+}
+
 
 	@And("^I submit valid first and last name details$")
 		public void iSubmitValidFirstAndLastNameDetails() {
