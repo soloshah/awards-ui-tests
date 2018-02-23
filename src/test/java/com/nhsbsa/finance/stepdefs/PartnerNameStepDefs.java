@@ -110,5 +110,14 @@ public class PartnerNameStepDefs {
 		lastName = "Partner User";
 
 	}
+	
+	@And("^I submit valid first and last name details$")
+	public void iSubmitValidFirstAndLastNameDetails() {
+	SharedData.firstName = "Partner Test";
+	SharedData.lastName = "Partner User";
+	partnerNamePage = new PartnerNamePage(driver);
+	partnerNamePage.submitValidPartnerNameDetails(SharedData.firstName, SharedData.lastName);
+}
+
 
 }
