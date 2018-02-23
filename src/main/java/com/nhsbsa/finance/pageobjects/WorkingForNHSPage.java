@@ -6,16 +6,13 @@ import org.openqa.selenium.WebDriver;
 public class WorkingForNHSPage extends Page {
 
 	private String workingForNHSTitle = "Are you working in the NHS now? - Claim your NHS Pension";
-	// private By yesRadioButtonLocator = By.id("currentlyWorkingInNhs");
-	private By yesRadioButtonLocator = By.xpath("//*[@id='currentlyWorkingInNhs']");
-	private By noRadioButtonLocator = By.xpath("//*[@id='currentlyWorkingInNhs_group']/div/label[2]");
-	// private By selectedWorkingForNHSRadioButtonLocator =
-	// By.xpath("//input[@class,'selected']");
+	private By yesRadioButtonLocator = By.xpath("//*[@id='yesNo_group']/div/div[1]/label");
+	private By noRadioButtonLocator = By.xpath("//*[@id='yesNo_group']/div/div[2]/label");
 	private By nextButtonLocator = By.id("submit_button");
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");
 	private By errorsBelowErrorMessageLocator = By.id("error-summary-heading1");
 	private By nhsAnchoredErrorMessageLocator = By.id("error-list0");
-	private By nhsAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#currentlyWorkingInNhs']");
+	private By nhsAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#yesNo']");
 	private By nhsFieldErrorMessageLocator = By.id("fieldName-error-message");
 
 	public WorkingForNHSPage(WebDriver driver) {
@@ -23,19 +20,8 @@ public class WorkingForNHSPage extends Page {
 		waitForTitleToExist(workingForNHSTitle);
 		waitForElementToBeVisibleBy(yesRadioButtonLocator);
 	}
-
-	public void getWorkingForNhs(String working) {
-		navigateToRootElement();
-		if (working.equals("yes")) {
-			navigateToElementBy(yesRadioButtonLocator);
-		} else if (working.equals("no")) {
-			navigateToElementBy(noRadioButtonLocator);
-		}
-		click();
-	}
-
-	public WorkingForNHSPage checkWorkingForNHS() {
-
+	
+	public WorkingForNHSPage workingForNHSIsNotSelected() {
 		nextStep();
 		return new WorkingForNHSPage(driver);
 	}
@@ -48,14 +34,14 @@ public class WorkingForNHSPage extends Page {
 		return selected;
 	}
 
-	public WhereAreYouEmployedPage submitValidYesNhsDetails() {
+	public NameOfYourCurrentEmployerPage submitValidYesNhsDetails() {
 		navigateToRootElement();
 		navigateToElementBy(yesRadioButtonLocator);
 		click();
 		nextStep();
-		return new WhereAreYouEmployedPage(driver);
+		return new NameOfYourCurrentEmployerPage(driver);
 	}
-
+	
 	public TBIPage submitValidYesDetails() {
 		navigateToRootElement();
 		navigateToElementBy(yesRadioButtonLocator);

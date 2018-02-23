@@ -1,4 +1,4 @@
-@LastEmployerName @BP490-122 
+@LastEmployerName @BP490-122 @Bug @BP490-239
 Feature: What was the name of your last NHS employer
 
 Background:
@@ -6,10 +6,12 @@ Background:
 Given I am on the start page
 When I go to the name of your last NHS employer page
 
+
 Scenario: Valid name of your last NHS employer details
 When I enter valid name of last NHS employer details
-Then the job title page will be displayed
-#Then the name of your last NHS employer page submission will be successful
+Then the name of your last NHS employer page submission will be successful
+And the job title page will be displayed
+
 
 
 Scenario Outline: Name of your last NHS employer field validations 

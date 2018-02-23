@@ -39,11 +39,13 @@ public class DateOfBirthStepDefs {
 		page.navigateToUrl(baseUrl + "/personal-details/what-is-your-dob");
 		dateOfBirthPage = new DateOfBirthPage(driver);
 		assertThat(dateOfBirthPage.getHeading()).contains("What is your date of birth?");
+		assertThat(dateOfBirthPage.getExampleHintMessage().matches("For example, 31 03 1980"));
 	}
 
 	@Then("^the date of birth submission will be successful$")
 	public void theDateOfBirthSubmissionWillBeSuccessful() {
 		new NavBarPage(driver);
+		
 	}
 
 	@Then("^the date of birth page will be displayed$")

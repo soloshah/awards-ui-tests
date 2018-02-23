@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class NameOfYourLastEmployerPage extends Page {
 
-	private String lastEmployerPageTitle = "What was the name of your last NHS employer? - Claim your NHS Pension";
+	private String lastEmployerPageTitle = "What was the name of your last employer? - Claim your NHS Pension";
 	private By employerNameFieldLocator = By.id("employerName");
 	private By nextButtonLocator = By.id("submit_button");
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");
@@ -13,7 +13,8 @@ public class NameOfYourLastEmployerPage extends Page {
 	private By employerNameFieldErrorMessageLocator = By.id("employerName-error-message");
 	private By employerNameAnchoredErrorMessageLocator = By.id("error-list0");
 	private By employerNameAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#employerName']");
-
+    
+	
 	public NameOfYourLastEmployerPage(WebDriver driver) {
 		super(driver);
 		waitForTitleToExist(lastEmployerPageTitle);
@@ -78,7 +79,8 @@ public class NameOfYourLastEmployerPage extends Page {
 		nextStep();
 		return new NameOfYourLastEmployerPage(driver);
 	}
-
+	
+	
 	public SessionsExpiredPage submitValidJobtitleDetailsInExpiredSession(String employerName) {
 		enterEmployerName(employerName);
 		nextStep();

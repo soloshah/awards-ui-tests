@@ -2,19 +2,13 @@ package com.nhsbsa.finance.stepdefs;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import java.time.LocalDate;
-
 import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
-import com.nhsbsa.finance.pageobjects.DateOfBirthPage;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.NinoPage;
 import com.nhsbsa.finance.pageobjects.Page;
-import com.nhsbsa.finance.pageobjects.StartPage;
 import com.nhsbsa.finance.properties.PropertyReader;
-import com.nhsbsa.finance.shared.SharedData;
-import com.nhsbsa.finance.shared.SharedMethods;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;

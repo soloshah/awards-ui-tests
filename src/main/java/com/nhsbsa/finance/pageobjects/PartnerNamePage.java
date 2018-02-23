@@ -29,12 +29,11 @@ public class PartnerNamePage extends Page {
 		navigateToElementBy(firstNameFieldLocator);
 		type(firstName);
 	}
-	
-	public void getFirstName(String firstName){
+
+	public void getFirstName(String firstName) {
 		navigateToRootElement();
 		enterfirstName(firstName);
-		getElementValue();
-				
+
 	}
 
 	public void enterlastName(String lastName) {
@@ -123,7 +122,7 @@ public class PartnerNamePage extends Page {
 		nextStep();
 		return new DynamicDateOfBirthPage(driver);
 	}
-
+	
 	public PartnerNamePage submitInValidPartnerNameDetails() {
 		nextStep();
 		return new PartnerNamePage(driver);
