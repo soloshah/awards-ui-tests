@@ -20,7 +20,7 @@ public class Page {
 	private By createdHeadingLocator = By.id("service-name-text");
     private By startPageHeadingLocator = By.id("main-heading");
     private By exampleHintLocator = By.id("form-hint");
-	
+    	
 	public Page(WebDriver driver) {
 		this.driver = driver;
 	}
