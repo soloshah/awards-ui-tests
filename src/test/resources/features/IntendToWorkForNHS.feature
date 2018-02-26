@@ -13,7 +13,7 @@ Then the date you return to work fields will be displayed
 And I enter the valid date
 And the tbi page will be displayed
 #And the intend to work for NHS submission will be successful
-#Then check your answer page will be  displayed
+#Then check your answer page will be displayed
 
 
 Scenario Outline: Return to Work date field validation
