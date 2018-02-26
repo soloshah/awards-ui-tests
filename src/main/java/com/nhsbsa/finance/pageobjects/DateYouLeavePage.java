@@ -5,22 +5,21 @@ import org.openqa.selenium.WebDriver;
 
 public class DateYouLeavePage extends Page {
 
-	private String dateLeavePageTitle = "What was the name of your last NHS employer?-Claim your NHS Pension";
-	private By dayFieldLocator = By.id("day");
-	private By monthFieldLocator = By.id("month");
-	private By yearFieldLocator = By.id("year");
-	private By nextButtonLocator = By.id("next");
-	private By errorHeadingErrorMessageLocator = By.id("date-error-heading");
-	private By errorsBelowErrorMessageLocator = By.id("date-error-text");
-	private By dateFieldErrorMessageLocator = By.id("error-message-date");
-	private By dateAnchoredErrorMessageLocator = By.id("date-error-list1");
-	private By dateAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#date']");
-/*	private By datePastFieldErrorMessageLocator = By.id("date-past-error-message");
-	private By dateLaterFieldErrorMessageLocator = By.id("date-past-error-message");*/
+	private String dateYouLeavePageTitle = "What date did you leave? - Claim your NHS Pension";
+	private By dayFieldLocator = By.id("lastEmploymentDate-day");
+	private By monthFieldLocator = By.id("lastEmploymentDate-month");
+	private By yearFieldLocator = By.id("lastEmploymentDate-year");
+	private By nextButtonLocator = By.id("submit_button");
+	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");
+	private By errorsBelowErrorMessageLocator = By.id("error-summary-heading1");
+	private By dateFieldErrorMessageLocator = By.id("lastEmploymentDate-error-message");
+	private By dateAnchoredErrorMessageLocator = By.id("error-list0");
+	private By dateAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#lastEmploymentDate']");
+
 
 	public DateYouLeavePage(WebDriver driver) {
 		super(driver);
-		waitForTitleToExist(dateLeavePageTitle);
+		waitForTitleToExist(dateYouLeavePageTitle);
 		waitForElementToBeVisibleBy(dayFieldLocator);
 	}
 
@@ -85,17 +84,6 @@ public class DateYouLeavePage extends Page {
 		return getElementText();
 	}
 
-	/*public String getDatePastFieldErrorMessage() {
-		navigateToRootElement();
-		navigateToElementBy(datePastFieldErrorMessageLocator);
-		return getElementText();
-	}
-
-	public String getDateLaterFieldErrorMessage() {
-		navigateToRootElement();
-		navigateToElementBy(dateLaterFieldErrorMessageLocator);
-		return getElementText();
-	}*/
 
 	public PlanToWorkPage submitValidDateDetails(String day, String month, String year) {
 		enterDay(day);
@@ -104,6 +92,16 @@ public class DateYouLeavePage extends Page {
 		nextStep();
 		return new PlanToWorkPage(driver);
 	}
+	
+	
+	public TBIPage submitValidDate(String day, String month, String year) {
+		enterDay(day);
+		enterMonth(month);
+		enterYear(year);
+		nextStep();
+		return new TBIPage(driver);
+	}
+
 
 	public DateYouLeavePage submitInValidDateDetails() {
 		nextStep();
