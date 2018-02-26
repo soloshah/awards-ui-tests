@@ -38,7 +38,7 @@ public class DateYouLeaveStepDefs {
 
 		new Page(driver).navigateToUrl(baseUrl + "/employment-details/when-did-you-leave");
 		dateYouLeavePage = new DateYouLeavePage(driver);
-		assertThat(dateYouLeavePage.getHeading().contains("What is their date of birth?"));
+		assertThat(dateYouLeavePage.getHeading().contains("What date did you leave?"));
 		assertThat(dateYouLeavePage.getExampleHint().matches("For example, 31 03 1980"));
 	}
 
