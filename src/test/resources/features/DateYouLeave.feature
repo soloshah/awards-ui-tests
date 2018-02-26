@@ -1,9 +1,10 @@
-@DateYouLeave @BP490-124
+@DateYouLeave @BP490-124 
 Feature: Date you left last employment
 
 Background:
 Given I am on the start page
 When I go to date you leave page
+
 
 Scenario: Valid date you left last employment
 And I enter valid date details
