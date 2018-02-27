@@ -45,16 +45,16 @@ public class BankAccountTypePage extends Page {
 		return selected;
 	}
 
-	public DepositAccountPage submitValidCurrentAccountDetails() {
+	public CurrentAccountPage selectValidCurrentAccountDetails() {
 		navigateToRootElement();
 		navigateToElementBy(currentAccountRadioButtonLocator);
 		click();
 		nextStep();
-		return new DepositAccountPage(driver);
+		return new CurrentAccountPage(driver);
 	}
 
 
-	public DepositAccountPage submitValidDepositAccountDetails() {
+	public DepositAccountPage selectValidDepositAccountDetails() {
 		navigateToRootElement();
 		navigateToElementBy(depositAccountRadioButtonLocator);
 		click();
