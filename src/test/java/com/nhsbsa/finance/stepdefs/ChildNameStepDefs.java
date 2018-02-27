@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
+import com.nhsbsa.finance.pageobjects.ChildDOBPage;
 import com.nhsbsa.finance.pageobjects.ChildNamePage;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.Page;
@@ -36,6 +37,12 @@ public class ChildNameStepDefs {
 		assertThat(childNamePage.getHeading()).contains("What is your child's name?");
 	}
 
+	@Then("^the child name page will be displayed$")
+	public void theChildNamePageWillBeDisplayed() {
+		childNamePage = new ChildNamePage(driver);
+		assertThat(childNamePage.getHeading()).contains("What is your child's name?");
+	}
+		
 	@Then("^the child name submission will be successful$")
 	public void theChildNameSubmissionWillBeSuccessful() {
 		new NavBarPage(driver);

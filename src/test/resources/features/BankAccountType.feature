@@ -1,4 +1,4 @@
-@BankAccountType @BP490-130 
+@BankAccountType @BP490-130
 Feature: Bank Account Type
 
 Background:

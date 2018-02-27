@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
+import com.nhsbsa.finance.pageobjects.ChildNamePage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.pageobjects.WorkingForNHSPage;
 import com.nhsbsa.finance.properties.PropertyReader;
@@ -36,6 +37,12 @@ public class WorkingForNHSStepDefs {
 	@Then("^the default value for working for NHS will be blank$")
 	public void theDefaultValueForWorkingForNHSWillBeBlank() {
 		assertThat(workingForNHSPage.isWorkingForNHSRadioButtonSelected()).isFalse();
+	}
+	
+	@Then("^are you working for NHS page will be displayed$")
+	public void areYouWorkingForNHSPageWillBeDisplayed() {
+		workingForNHSPage = new WorkingForNHSPage(driver);
+		assertThat(workingForNHSPage.getHeading()).contains("Are you working for the NHS?");
 	}
 
 	@And("^the are you working for NHS Page error message '(.*)' will be displayed$")
