@@ -66,7 +66,7 @@ Examples:
            | 1234567            | Enter names using only letters a to z, spaces and hyphens|
            | 12A/ YTO           | Enter names using only letters a to z, spaces and hyphens|
            
-           
+         
 Scenario: Account Holders name field length validations 
 When I enter invalid account holder name using the name 'InvalidIn@ validInvalidIn'
 Then The length of account holder name is verified

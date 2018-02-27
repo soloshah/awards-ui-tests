@@ -1,4 +1,4 @@
-@BankAccountType @BP490-130
+@BankAccountType @BP490-130 
 Feature: Bank Account Type
 
 Background:
@@ -9,7 +9,7 @@ When I go to bank account type page
 
 Scenario: Select the type of account
 When I select Current Account
-Then enter bank details for deposit account page will be displayed
+Then enter bank details for current account page will be displayed
 
 
 Scenario: Select the type of account
