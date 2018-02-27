@@ -43,7 +43,12 @@ public class DepositAccountStepDefs {
 	public void theDepositAccountDetailsSubmissionWillBeSuccessful() {
 		new NavBarPage(driver);
 	}
-
+	
+	@Then("^enter bank details for deposit account page will be displayed$")
+	public void enterBankDetailsForDepositAccountPageWillBeDisplayed() {
+		depositAccountPage = new DepositAccountPage(driver);
+		assertThat(depositAccountPage.getHeading()).contains("Enter bank details");
+	}
 	@When("^I enter valid deposit account details$")
 	public void IenterValidDepositAccountDetails() {
 		setBankDetails();
