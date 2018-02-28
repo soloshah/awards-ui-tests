@@ -1,11 +1,10 @@
-@DependantChildren @BP490-104
+@DependantChildren @BP490-104 
 Feature: Do you have any dependant children Page
 
 Background:
 #Given I am on dependant children page
 Given I am on the start page
 When I go to dependant children page
-
 
 Scenario: Do you have any dependant children
 When I will select Yes
@@ -24,3 +23,4 @@ Then the dependant children page error message 'Select 'yes' if you have any dep
 
 Scenario: Default value for dependant children page
 Then the default value for dependant children page will be blank
+

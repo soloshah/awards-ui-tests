@@ -14,11 +14,13 @@ public class DependantChildrenPage extends Page {
 	private By dependantChildrenAnchoredErrorMessageLocator = By.id("error-list0");
 	private By dependantChildrenAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#yesNo']");
 	private By dependantChildrenFieldErrorMessageLocator = By.id("fieldName-error-message");
-
+	private By DependantChildrenLink = By.xpath("//*[@id='dependant-children-form']");
+	
 	public DependantChildrenPage(WebDriver driver) {
 		super(driver);
 		waitForTitleToExist(dependantChildrenTitle);
 		waitForElementToBeVisibleBy(yesRadioButtonLocator);
+		waitForElementToBeVisibleBy(DependantChildrenLink);
 	}
 	
 	public DependantChildrenPage dependantChildrenIsNotSelected() {
