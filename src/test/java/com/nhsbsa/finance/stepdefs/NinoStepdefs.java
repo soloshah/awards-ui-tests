@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
+import com.nhsbsa.finance.pageobjects.DateOfBirthPage;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.NinoPage;
 import com.nhsbsa.finance.pageobjects.Page;
@@ -41,6 +42,12 @@ public class NinoStepdefs {
   public void theNationalInsuranceNumberSubmissionWillBeSuccessful() {
 	 new NavBarPage(driver);
   }
+  
+	@Then("^the national insurance page will be displayed$")
+	public void theNationalInsurancePageWillBeDisplayed() {
+		ninoPage = new NinoPage(driver);
+		assertThat(ninoPage.getHeading()).contains("What is your National Insurance number?");
+	}
   
   @Then("^the national insurance number submission will be unsuccessful$")
   public void theNationalInsuranceNumberSubmissionWillBeUnsuccessful() {
