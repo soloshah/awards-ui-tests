@@ -5,7 +5,7 @@ Background:
 Given I am on the start page
 When I go to your employer address page
 
-@WIP
+
 Scenario: Valid Employer Address Details
 And I enter valid employer address details
 Then the employer address details submission will be successful
