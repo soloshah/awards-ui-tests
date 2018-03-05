@@ -7,14 +7,17 @@ import com.nhsbsa.finance.pageobjects.Page;
 public class DynamicDateOfBirthPage extends Page {
 
 	String fName = "Partner-Test";
-	private String partnerDobPageTitle = "What is " + fName + "'s " +  "date of birth? - Claim your NHS Pension";
-	private By partnerDayFieldLocator = By.id("dateOfBirth-day");
+	private String dobPageTitle = "What is " + fName + "'s " +  "date of birth? - Claim your NHS Pension";
+	//private String dobPageTitle = "Claim your NHS Pension";
+	private By dayFieldLocator = By.id("dateOfBirth-day");
 	
 
 	public DynamicDateOfBirthPage(WebDriver driver) {
 		super(driver);
-		waitForTitleToExist(partnerDobPageTitle);
-		waitForElementToBeVisibleBy(partnerDayFieldLocator);
+	//	waitForTitleToExist(dobPageTitle);
+		waitForElementToBeVisibleBy(dayFieldLocator);
 	}
 
+
+	
 }

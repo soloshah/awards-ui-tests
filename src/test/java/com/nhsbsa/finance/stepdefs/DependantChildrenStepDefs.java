@@ -30,7 +30,7 @@ public class DependantChildrenStepDefs {
 	public void iGoToDependantChildrenPage() {
 		new Page(driver).navigateToUrl(baseUrl + "/partner-and-child/do-you-have-any-dependant-children");
 		dependantChildrenPage = new DependantChildrenPage(driver);
-		assertThat(dependantChildrenPage.getHeading().contains("Do you have any dependant children?"));
+		//assertThat(dependantChildrenPage.getHeading().contains("Do you have any dependant children?"));
 		}
 
 	@Then("^the default value for dependant children page will be blank$")
@@ -39,7 +39,7 @@ public class DependantChildrenStepDefs {
 	}
 
 	@Then("^ Do you have any dependant children page will be displayed$")
-	public void areYouWorkingForNHSPageWillBeDisplayed() {
+	public void doYouHaveAnyDependantChildrenPageWillBeDisplayed() {
 		dependantChildrenPage = new DependantChildrenPage(driver);
 		assertThat(dependantChildrenPage.getHeading()).matches("Do you have any dependant children?");
 	}
