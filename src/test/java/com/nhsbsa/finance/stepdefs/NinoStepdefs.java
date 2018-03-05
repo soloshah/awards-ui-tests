@@ -73,7 +73,7 @@ public class NinoStepdefs {
   public void IenterValidNationalInsuranceNumber(){
 	 SharedData.nino = "AA123456A";
 	  ninoPage = new NinoPage(driver); 
-	  ninoPage.submitValidNiDetails(SharedData.nino);
+	  ninoPage.submitValidNinoDetails(SharedData.nino);
 	    }
   
 }

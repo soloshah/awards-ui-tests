@@ -48,7 +48,7 @@ public class ChildDOBStepDefs {
 	@Then("^the child date of birth page will be displayed$")
 	public void theChildDateOfBirthPageWillBeDisplayed() {
 		childDOBPage = new ChildDOBPage(driver);
-		assertThat(childDOBPage.getHeading()).matches("What is your child's date of birth?");
+		assertThat(childDOBPage.getHeading()).contains("What is your child's date of birth?");
 	}
 
 	@When("^I enter valid child DOB details$")
@@ -62,6 +62,24 @@ public class ChildDOBStepDefs {
 		childDOBPage.submitValidChildDOB(SharedData.day, SharedData.month, SharedData.year);
 	}
 
+	@When("^I enter valid child date of birth details$")
+	public void IenterValidChildDateOfBirthDetails() {
+		String randomDateString = SharedMethods.randomDateGenerator();
+		LocalDate localDate = LocalDate.parse(randomDateString);
+		SharedData.day = SharedMethods.formatDay(localDate);
+		SharedData.month = SharedMethods.formatMonth(localDate);
+		SharedData.year = SharedMethods.formatYear(localDate);
+		childDOBPage = new ChildDOBPage(driver);
+		childDOBPage.submitValidChildDateOfBirth(SharedData.day, SharedData.month, SharedData.year);
+	}
+	
+	@When("^I enter valid child date of birth details using the day '(.*)', month '(.*)' and year '(.*)$")
+	public void IenterValidChildDateOfBirthDetailsUsingTheDayMonthAndYear(String day, String month, String year) {
+	
+		childDOBPage = new ChildDOBPage(driver);
+		childDOBPage.submitValidChildDateOfBirth(day,month,year);
+	}
+	
 	@Then("^the child date of birth submission will be unsuccessful$")
 	public void theChildDateOfBirthSubmissionWillBeUnsuccessful() {
 		childDOBPage = new ChildDOBPage(driver);

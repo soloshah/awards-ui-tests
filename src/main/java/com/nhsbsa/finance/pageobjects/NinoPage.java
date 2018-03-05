@@ -67,7 +67,7 @@ public class NinoPage extends Page {
 	  
 	  public CheckYourAnswerPage submitValidNinoDetails(String nino) {
 		  enterNino(nino);
-	  nextStep();
+	       nextStep();
 		    return new CheckYourAnswerPage(driver);
 		  }
 	  

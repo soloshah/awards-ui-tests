@@ -2,6 +2,8 @@ package com.nhsbsa.finance.stepdefs;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
@@ -45,8 +47,8 @@ public class PartnerNameStepDefs {
 
 	@When("^I enter valid partner name details$")
 	public void IenterValidPartnerNameDetails() {
-		SharedData.firstName = "Partner-Test";
-		SharedData.lastName = "Partner-User";
+		SharedData.firstName =  RandomStringUtils.randomAlphabetic(10);
+		SharedData.lastName =  RandomStringUtils.randomAlphabetic(10);
 		partnerNamePage = new PartnerNamePage(driver);
 		partnerNamePage.submitValidPartnerNameDetails(SharedData.firstName, SharedData.lastName);
 	}
@@ -108,15 +110,19 @@ public class PartnerNameStepDefs {
 	}
 
 	private void setPartnerNameDetails() {
-		firstName = "Partner-Test";
-		lastName = "Partner-User";
+		firstName = RandomStringUtils.randomAlphabetic(10);
+		lastName = RandomStringUtils.randomAlphabetic(10);
 
 	}
 	
 	@And("^I submit valid first and last name details$")
 	public void iSubmitValidFirstAndLastNameDetails() {
-	SharedData.firstName = "Partner-Test";
-	SharedData.lastName = "Partner-User";
+		SharedData.firstName = "Partner-Test";
+		SharedData.lastName = "User";
+		/*final String inputFirstName = RandomStringUtils.randomAlphabetic(10);
+		SharedData.firstName = inputFirstName.toLowerCase().substring(0, 1).toUpperCase() + inputFirstName.toLowerCase().substring(1);;
+		final String inputLastName = RandomStringUtils.randomAlphabetic(10);
+		SharedData.lastName = inputLastName.toLowerCase().substring(0, 1).toUpperCase() + inputLastName.toLowerCase().substring(1);*/
 	partnerNamePage = new PartnerNamePage(driver);
 	partnerNamePage.submitValidPartnerNameDetails(SharedData.firstName, SharedData.lastName);
 }

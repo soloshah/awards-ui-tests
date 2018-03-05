@@ -22,19 +22,19 @@ public class ChildDOBPage extends Page {
 		waitForElementToBeVisibleBy(childDayFieldLocator);
 	}
 	
-	private void enterPartnerDay(String day) {
+	private void enterDay(String day) {
 		navigateToRootElement();
 		navigateToElementBy(childDayFieldLocator);
 		type(day);
 	}
 
-	private void enterPartnerMonth(String month) {
+	private void enterMonth(String month) {
 		navigateToRootElement();
 		navigateToElementBy(childMonthFieldLocator);
 		type(month);
 	}
 
-	private void enterPartnerYear(String year) {
+	private void enterYear(String year) {
 		navigateToRootElement();
 		navigateToElementBy(childYearFieldLocator);
 		type(year);
@@ -47,9 +47,9 @@ public class ChildDOBPage extends Page {
 	}
 
 	public void enterChildDobDetails(String day, String month, String year) {
-		enterPartnerDay(day);
-		enterPartnerMonth(month);
-		enterPartnerYear(year);
+		enterDay(day);
+		enterMonth(month);
+		enterYear(year);
 	}
 
 	public String getErrorHeadingErrorMessage() {
@@ -92,11 +92,19 @@ public class ChildDOBPage extends Page {
 	}*/
 
 	public TBIPage submitValidChildDOB(String day, String month, String year) {
-		enterPartnerDay(day);
-		enterPartnerMonth(month);
-		enterPartnerYear(year);
+		enterDay(day);
+		enterMonth(month);
+		enterYear(year);
 		nextStep();
 		return new TBIPage(driver);
+	}
+
+	public OtherDependantChildrenPage submitValidChildDateOfBirth(String day, String month, String year) {
+		enterDay(day);
+		enterMonth(month);
+		enterYear(year);
+		nextStep();
+		return new OtherDependantChildrenPage(driver);
 	}
 
 	public ChildDOBPage submitInValidChildDOBDetails() {
@@ -105,9 +113,9 @@ public class ChildDOBPage extends Page {
 	}
 
 	public SessionsExpiredPage submitValidChildDOBDetailsInExpiredSession(String day, String month, String year) {
-		enterPartnerDay(day);
-		enterPartnerMonth(month);
-		enterPartnerYear(year);
+		enterDay(day);
+		enterMonth(month);
+		enterYear(year);
 		nextStep();
 		return new SessionsExpiredPage(driver);
 	}
