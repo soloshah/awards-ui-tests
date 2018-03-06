@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
+import com.nhsbsa.finance.pageobjects.EmailAddressPage;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.pageobjects.TelephoneNumberPage;
@@ -42,6 +43,13 @@ public class TelephoneNumberStepDefs {
 	public void IenterValidTelephoneNumberDetailsUsingTheNumber(String number) {
 		telephoneNumberPage = new TelephoneNumberPage(driver);
 		telephoneNumberPage.submitValidTelephoneNumber(number);
+	}
+
+	
+	@Then("^What is your telephone number page will be displayed$")
+	public void whatisYourTelephoneNumberPageWillBeDisplayed() {
+		telephoneNumberPage = new TelephoneNumberPage(driver);
+		assertThat(telephoneNumberPage.getHeading()).contains("What is your telephone number?");
 	}
 
 	@Then("^the telephone number submission will be unsuccessful$")
