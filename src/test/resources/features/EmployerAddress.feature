@@ -8,7 +8,7 @@ When I go to your employer address page
 
 Scenario: Valid Employer Address Details
 And I enter valid employer address details
-Then the employer address details submission will be successful
+#Then the employer address details submission will be successful
 And the tbi page will be displayed
 
 
