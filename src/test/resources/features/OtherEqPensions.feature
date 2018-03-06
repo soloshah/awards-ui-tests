@@ -1,4 +1,4 @@
-@OtherEQPensions @BP490-198 
+@OtherEQPensions @BP490-198  
 Feature: Other Pensions paid by Equiniti Paymaster Page
 
 Background:
@@ -8,6 +8,7 @@ When I go to other eq pension page
 
 Scenario: You have any other pensions paid by Equiniti Paymaster
 When I pick Yes
+#Then the eq paymaster name page will be displayed
 Then the tbi page will be displayed
 
 Scenario: You have any other pensions paid by Equiniti Paymaster
