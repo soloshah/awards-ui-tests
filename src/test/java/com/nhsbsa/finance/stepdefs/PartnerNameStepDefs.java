@@ -26,8 +26,6 @@ public class PartnerNameStepDefs {
 	private String firstName;
 	private String lastName;
 
-	
-
 	@Given("^I am on the partner name page$")
 	public void iAmOnThePartnerNamePage() {
 		new Page(driver).navigateToUrl(baseUrl + "/partner-and-child/what-is-your-partner-name");
@@ -47,10 +45,13 @@ public class PartnerNameStepDefs {
 
 	@When("^I enter valid partner name details$")
 	public void IenterValidPartnerNameDetails() {
-		SharedData.firstName =  RandomStringUtils.randomAlphabetic(10);
-		SharedData.lastName =  RandomStringUtils.randomAlphabetic(10);
+		
+		  final String inputFirstName = RandomStringUtils.randomAlphabetic(10);
+		  SharedData.firstName = inputFirstName.toLowerCase().substring(0,1).toUpperCase() + inputFirstName.toLowerCase().substring(1); final
+		  String inputLastName = RandomStringUtils.randomAlphabetic(10);
+		  SharedData.lastName = inputLastName.toLowerCase().substring(0,1).toUpperCase() + inputLastName.toLowerCase().substring(1);
 		partnerNamePage = new PartnerNamePage(driver);
-		partnerNamePage.submitValidPartnerNameDetails(SharedData.firstName, SharedData.lastName);
+		partnerNamePage.submitValidPartnerName(SharedData.firstName, SharedData.lastName);
 	}
 
 	@Then("^the partner name submission will be unsuccessful$")
@@ -114,18 +115,13 @@ public class PartnerNameStepDefs {
 		lastName = RandomStringUtils.randomAlphabetic(10);
 
 	}
-	
-	@And("^I submit valid first and last name details$")
-	public void iSubmitValidFirstAndLastNameDetails() {
+
+	@And("^I submit valid partner first and last name details$")
+	public void iSubmitValidPartnerFirstAndLastNameDetails() {
 		SharedData.firstName = "Partner-Test";
 		SharedData.lastName = "User";
-		/*final String inputFirstName = RandomStringUtils.randomAlphabetic(10);
-		SharedData.firstName = inputFirstName.toLowerCase().substring(0, 1).toUpperCase() + inputFirstName.toLowerCase().substring(1);;
-		final String inputLastName = RandomStringUtils.randomAlphabetic(10);
-		SharedData.lastName = inputLastName.toLowerCase().substring(0, 1).toUpperCase() + inputLastName.toLowerCase().substring(1);*/
-	partnerNamePage = new PartnerNamePage(driver);
-	partnerNamePage.submitValidPartnerNameDetails(SharedData.firstName, SharedData.lastName);
-}
+		partnerNamePage = new PartnerNamePage(driver);
+		partnerNamePage.submitValidPartnerNameDetails(SharedData.firstName, SharedData.lastName);
+	}
 
-	
 }
