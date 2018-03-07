@@ -15,7 +15,7 @@ Scenario: You have any other pensions paid by Equiniti Paymaster
 When I pick No
 Then the tbi page will be displayed
 
-@Bug @ErrorMessagemissingsinglequoteonyes
+@Bug @BP490-270
 Scenario: You have any other pensions paid by Equiniti Paymaster
 When I dont select anything and click next
 Then other Pensions paid by Equiniti Paymaster Page error message 'Select 'yes' if you have any other pensions paid by Equiniti Paymaster' will be displayed 
