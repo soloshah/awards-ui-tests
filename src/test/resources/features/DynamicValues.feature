@@ -5,7 +5,7 @@ Feature: Verify Dynamic Values
 Scenario: Dynamic value of partner's first name to be displayed on Partner's DOB page
 Given I am on the start page
 When I go to the partner name page
-And I submit valid first and last name details
+And I submit valid partner first and last name details
 Then the dynamic partners date of birth page will be displayed
 And the dynamic value of partner first name is displayed on the partners DOB page
 
@@ -13,7 +13,7 @@ And the dynamic value of partner first name is displayed on the partners DOB pag
 Scenario: Dynamic value validation for Partner's Nino
 Given I am on the start page
 When I go to the partner name page
-And I submit valid first and last name details
+And I submit valid partner first and last name details
 And I go to dynamic partner nino page
 Then the dynamic value of partners name will be displayed on partner's nino page
 
@@ -23,7 +23,7 @@ Given I am on the start page
 When I go to nino page
 And I enter valid national insurance number
 And I go to the partner name page
-And I submit valid first and last name details
+And I submit valid partner first and last name details
 And I go to dynamic partner nino page
 And I enter same nino as of main applicant
 Then the dynamic national insurance number submission will be unsuccessful

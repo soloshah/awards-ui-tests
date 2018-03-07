@@ -41,6 +41,13 @@ public class DynamicNinoStepDefs {
 				.contains("What is " + SharedData.firstName + "'s " + "National Insurance number?"));
 
 	}
+	
+	@Then("^the dynamic partners nino page will be displayed$")
+	public void theDynamicPartnersNinoPageWillBeDisplayed() {
+		dynamicNinoPage = new DynamicNinoPage(driver);
+		assertThat(dynamicNinoPage.getHeading())
+				.contains("What is " + SharedData.firstName + "'s " + "National Insurance number?");
+	}
 
 	@And("^I enter same nino as of main applicant$")
 	public void iEnterSameNinoAsOfMainApplicant() {
