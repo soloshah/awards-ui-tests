@@ -1,4 +1,4 @@
-@EmailAddress @BP490-117 
+@EmailAddress @BP490-117
 Feature: What is your email address
 
 Background:

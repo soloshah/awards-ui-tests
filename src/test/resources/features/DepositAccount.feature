@@ -9,7 +9,7 @@ When I go to deposit account details page
 Scenario: Valid Deposit Account Details
 And I enter valid deposit account details
 #Then the deposit account details submission will be successful
-#And bank account details page will be displayed
+#And enter bank details page will be displayed
 Then the tbi page will be displayed
 
 @Bug @BP490-278

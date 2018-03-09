@@ -13,7 +13,6 @@ Then the name of your last NHS employer page submission will be successful
 And the job title page will be displayed
 
 
-
 Scenario Outline: Name of your last NHS employer field validations 
 When I enter name of last NHS employer details using the name '<name>'
 Then the name of your last NHS employer page submission will be unsuccessful

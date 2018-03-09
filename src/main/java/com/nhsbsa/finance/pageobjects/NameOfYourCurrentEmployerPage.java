@@ -68,17 +68,12 @@ public class NameOfYourCurrentEmployerPage extends Page {
 		return getElementText();
 	}
 
-/*	public EmployerAddressPage submitValidJobTitleDetails(String employerName) {
+	public EmployerAddressPage submitValidEmployerNameDetails(String employerName) {
 		enterEmployerName(employerName);
 		nextStep();
 		return new EmployerAddressPage(driver);
 	}
-*/
-	public TBIPage submitValidEmployerNameDetails(String employerName) {
-		enterEmployerName(employerName);
-		nextStep();
-		return new TBIPage(driver);
-	}
+
 	
 	
 	public NameOfYourCurrentEmployerPage submitInValidEmployerNameDetails() {

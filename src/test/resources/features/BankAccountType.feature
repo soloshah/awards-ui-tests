@@ -9,12 +9,12 @@ When I go to bank account type page
 
 Scenario: Select the type of account
 When I select Current Account
-Then enter bank details page will be displayed
+Then enter bank details for current account page will be displayed
 
 
 Scenario: Select the type of account
 When I select Deposit Account
-Then enter bank details page will be displayed
+Then enter bank details for deposit account page will be displayed
 
 
 Scenario: Type of Bank Account 

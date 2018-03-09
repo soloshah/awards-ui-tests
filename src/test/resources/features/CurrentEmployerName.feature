@@ -1,4 +1,4 @@
-@CurrentEmployerName @BP490-119 
+@CurrentEmployerName @BP490-119
 Feature: What is the name of your current NHS employer
 
 Background:
@@ -6,12 +6,11 @@ Background:
 Given I am on the start page
 When I go to the name of your current NHS employer page
 
+
 Scenario: Valid name of your current NHS employer details
 When I enter valid name of current NHS employer details
-#Then the name of your current NHS employer page submission will be successful
-#And the employers address page will be displayed
-Then the tbi page will be displayed
-
+And the name of your current NHS employer page submission will be successful
+Then the employers address page will be displayed
 
 
 Scenario Outline: Name of your current NHS employer field validations 

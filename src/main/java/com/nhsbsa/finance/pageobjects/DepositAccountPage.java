@@ -32,6 +32,7 @@ public class DepositAccountPage extends Page {
 		super(driver);
 		waitForTitleToExist(depositAccountPageTitle);
 		waitForElementToBeVisibleBy(accountNumberFieldLocator);
+		waitForElementToBeVisibleBy(rollNumberFieldLocator);
 	}
 
 	public void enterAccountNumber(String accountNumber) {

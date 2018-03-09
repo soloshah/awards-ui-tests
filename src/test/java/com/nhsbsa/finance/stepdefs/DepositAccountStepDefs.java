@@ -43,7 +43,12 @@ public class DepositAccountStepDefs {
 	public void theDepositAccountDetailsSubmissionWillBeSuccessful() {
 		new NavBarPage(driver);
 	}
-
+	
+	@Then("^enter bank details for deposit account page will be displayed$")
+	public void enterBankDetailsForDepositAccountPageWillBeDisplayed() {
+		depositAccountPage = new DepositAccountPage(driver);
+		assertThat(depositAccountPage.getHeading()).contains("Enter bank details");
+	}
 	@When("^I enter valid deposit account details$")
 	public void IenterValidDepositAccountDetails() {
 		setBankDetails();
@@ -78,7 +83,7 @@ public class DepositAccountStepDefs {
 	}
 
 	@And("^the sort code error message '(.*)' will be displayed$")
-	public void theSortCoderErrorMessageWillBeDisplayed(String errorMessage) {
+	public void theSortCodeErrorMessageWillBeDisplayed(String errorMessage) {
 		depositAccountPage = new DepositAccountPage(driver);
 		assertThat(depositAccountPage.doesSortCodeErrorMessageHaveAnchor()).isTrue();
 		assertThat(depositAccountPage.getSortCodeAnchoredErrorMessage()).matches(errorMessage);
@@ -133,8 +138,10 @@ public class DepositAccountStepDefs {
 
 	@When("^I enter invalid account holder name using the name '(.*)'$")
 	public void iEnterInvalidAccountHolderNameUsingTheName(String Name) {
+		setBankDetails();
 		depositAccountPage = new DepositAccountPage(driver);
-		depositAccountPage.enterAccountHolderName(Name);
+		depositAccountPage.enterBankDetails(accountNumber, rollNumber, sortCodeFirstField, sortCodeSecondField,
+				sortCodeThirdField, Name);
 		depositAccountPage.submitInValidBankDetails();
 	}
 

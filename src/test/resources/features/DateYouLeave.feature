@@ -1,4 +1,4 @@
-@DateYouLeave @BP490-124 
+@DateYouLeave @BP490-124
 Feature: Date you left last employment
 
 Background:
