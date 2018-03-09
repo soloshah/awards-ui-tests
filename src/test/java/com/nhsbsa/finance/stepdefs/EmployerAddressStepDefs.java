@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
+import com.nhsbsa.finance.pageobjects.DepositAccountPage;
 import com.nhsbsa.finance.pageobjects.EmployerAddressPage;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.Page;
@@ -40,6 +41,13 @@ public class EmployerAddressStepDefs {
 	@Then("^the employer address details submission will be successful$")
 	public void theEmployerAddressDetailsSubmissionWillBeSuccessful() {
 		new NavBarPage(driver);
+	}
+	
+	
+	@Then("^the employer address page will be displayed$")
+	public void enterBankDetailsForDepositAccountPageWillBeDisplayed() {
+		employerAddressPage = new EmployerAddressPage(driver);
+		assertThat(employerAddressPage.getHeading()).contains("What is your employer's address?");
 	}
 
 	@When("^I enter valid employer address details$")

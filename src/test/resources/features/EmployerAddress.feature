@@ -1,4 +1,4 @@
-@EmployerAddress @BP490-120 
+@EmployerAddress @BP490-120
 Feature: What is your employers Address
 
 Background:
@@ -33,7 +33,7 @@ Examples:
            | hgn-yuiom jkhe'tr  | Enter address using only numbers, letters a to z, spaces and hyphens|
           
           
-@Bug @ErrorMessage         
+@Bug @BP490-276         
 Scenario Outline: Town or city field validations 
 And I enter invalid employer address details using the town '<town>'
 Then the employer address details submission will be unsuccessful
