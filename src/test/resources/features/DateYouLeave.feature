@@ -17,7 +17,7 @@ And I enter invalid date using the day '<day>', month '<month>' and year '<year>
 Then the date you leave submission will be unsuccessful
 And the date you leave error message '<errorMessage>' will be displayed
 Examples:
-           |day | month  |year| errorMessage               |
+           |day | month  |year| errorMessage       |
            |    |        |    | Enter a valid date |   
            |    |  12    |1982| Enter a valid date |
            |10  |        |1965| Enter a valid date |
