@@ -6,6 +6,7 @@ Background:
 Given I am on the start page
 When I go to other dependant children page
 
+@Bug @BP490-296
 Scenario: Do you have any other dependant children
 When I select Yes button
 Then the child name page will be displayed
