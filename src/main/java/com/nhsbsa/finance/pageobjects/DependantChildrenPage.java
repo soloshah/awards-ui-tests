@@ -14,13 +14,14 @@ public class DependantChildrenPage extends Page {
 	private By dependantChildrenAnchoredErrorMessageLocator = By.id("error-list0");
 	private By dependantChildrenAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#yesNo']");
 	private By dependantChildrenFieldErrorMessageLocator = By.id("fieldName-error-message");
-	private By DependantChildrenLink = By.xpath("//*[@id='dependant-children-form']");
+	private By DependantChildrenLinkLocator = By.className("summary");
+	private By DependentChildLinkTextLocator = By.xpath("//*[@id='details-content-0']/p[1]");
 	
 	public DependantChildrenPage(WebDriver driver) {
 		super(driver);
 		waitForTitleToExist(dependantChildrenTitle);
 		waitForElementToBeVisibleBy(yesRadioButtonLocator);
-		waitForElementToBeVisibleBy(DependantChildrenLink);
+		waitForElementToBeVisibleBy(DependantChildrenLinkLocator);
 	}
 	
 	public DependantChildrenPage dependantChildrenIsNotSelected() {
@@ -90,4 +91,26 @@ public class DependantChildrenPage extends Page {
 		navigateToElementBy(dependantChildrenAnchoredErrorMessageLocator);
 		return getElementText();
 	}
+	
+	
+	public void verifyDependantChildLink() {
+		try {
+			navigateToRootElement();
+			navigateToElementBy(DependantChildrenLinkLocator);
+			Thread.sleep(1000);
+			click();
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			System.out.print("Link message not success: " + e.getMessage());
+			e.printStackTrace();
+		}
+	}
+
+	public String verifyDependantChildLinkText() {
+		navigateToRootElement();
+		navigateToElementBy(DependentChildLinkTextLocator);
+		return getElementText();
+
+	}
+
 }

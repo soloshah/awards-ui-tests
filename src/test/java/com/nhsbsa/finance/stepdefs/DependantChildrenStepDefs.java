@@ -70,4 +70,18 @@ public class DependantChildrenStepDefs {
 		dependantChildrenPage = new DependantChildrenPage(driver);
 		dependantChildrenPage.dependantChildrenIsNotSelected();
 	}
+	
+	@When("^I click on the link Who's classed as a dependant child$")
+	public void iClickOnTheLinkWhosClassedAsADependantChild() {
+		dependantChildrenPage = new DependantChildrenPage(driver);
+		dependantChildrenPage.verifyDependantChildLink();
+	}
+
+	@Then("^the dependant child information will be displayed$")
+	public void theDependantChildInformationWillBeDisplayed() {
+		dependantChildrenPage = new DependantChildrenPage(driver);
+		assertThat(dependantChildrenPage.verifyDependantChildLinkText()
+				.contains("Where your Scheme membership extends to or beyond 1 April 2008, a dependant child is:"));
+	}
+
 }

@@ -24,3 +24,7 @@ Then the dependant children page error message 'Select 'yes' if you have any dep
 Scenario: Default value for dependant children page
 Then the default value for dependant children page will be blank
 
+
+Scenario: Verify the Dependant child link
+When I click on the link Who's classed as a dependant child
+Then the dependant child information will be displayed
