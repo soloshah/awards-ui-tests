@@ -83,12 +83,12 @@ public class ChildDOBPage extends Page {
 		return getElementText();
 	}
 
-/*	public ChildGenderPage submitValidChildDOBDetails(String day, String month, String year) {
+/*	public DependantChildrenPage submitValidChildDOBDetails(String day, String month, String year) {
 		enterPartnerDay(day);
 		enterPartnerMonth(month);
 		enterPartnerYear(year);
 		nextStep();
-		return new ChildGenderPage(driver);
+		return new DependantChildrenPage(driver);
 	}*/
 
 	public TBIPage submitValidChildDOB(String day, String month, String year) {
