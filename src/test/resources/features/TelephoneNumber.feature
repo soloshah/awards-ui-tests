@@ -20,14 +20,14 @@ Examples:
 |+44 455565        |
 
 
-@to-be-discussed @MandatoryErrorMessage
+@Bug @BP490-271
 Scenario Outline: telephone number field validations 
 When I enter invalid telephone number details using the number '<number>'
 Then the telephone number submission will be unsuccessful
 And the telephone number error message '<errorMessage>' will be displayed
 Examples:
 | number            | errorMessage                   |
-|                   |Enter a phone number            | 
+|                   |Enter a telephone number        | 
 |)(*&^%$£"!~@}{#?   |Enter a valid telephone number  |
 |+66895-6930251     |Enter a valid telephone number  | 
 |12345678           |Enter a valid telephone number  |
