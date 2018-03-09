@@ -17,7 +17,7 @@ public class NameOfYourLastEmployerPage extends Page {
 	
 	public NameOfYourLastEmployerPage(WebDriver driver) {
 		super(driver);
-		waitForTitleToExist(lastEmployerPageTitle);
+		//waitForTitleToExist(lastEmployerPageTitle);
 		waitForElementToBeVisibleBy(employerNameFieldLocator);
 	}
 

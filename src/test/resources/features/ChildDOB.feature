@@ -9,9 +9,8 @@ When I go to child DOB page
 
 Scenario: Valid child date of Birth
 And I enter valid child DOB details
-#Then the child date of birth submission will be successful
-#And do you have any other depandant children page will be displayed
-Then the tbi page will be displayed
+Then the child date of birth submission will be successful
+And do you have any other depandant children page will be displayed
 
 Scenario Outline: Child date of birth field validations 
 And I enter child DOB details using the day '<day>', month '<month>' and year '<year>'

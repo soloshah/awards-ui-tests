@@ -61,7 +61,7 @@ public class PartnerDateOfBirthStepDefs {
 		SharedData.month = SharedMethods.formatMonth(localDate);
 		SharedData.year = SharedMethods.formatYear(localDate);
 		partnerDateOfBirthPage = new PartnerDateOfBirthPage(driver);
-		partnerDateOfBirthPage.submitValidPartnerDOB(SharedData.day, SharedData.month, SharedData.year);
+		partnerDateOfBirthPage.submitValidPartnerDOBDetails(SharedData.day, SharedData.month, SharedData.year);
 	}
 
 	@Then("^the partner date of birth submission will be unsuccessful$")

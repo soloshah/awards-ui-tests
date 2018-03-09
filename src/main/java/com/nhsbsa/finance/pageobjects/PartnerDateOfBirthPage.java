@@ -95,14 +95,6 @@ public class PartnerDateOfBirthPage extends Page {
 		return new PartnerGenderPage(driver);
 	}
 
-	public TBIPage submitValidPartnerDOB(String day, String month, String year) {
-		enterPartnerDay(day);
-		enterPartnerMonth(month);
-		enterPartnerYear(year);
-		nextStep();
-		return new TBIPage(driver);
-	}
-
 	public PartnerDateOfBirthPage submitInValidPartnerDOBDetails() {
 		nextStep();
 		return new PartnerDateOfBirthPage(driver);

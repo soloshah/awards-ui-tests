@@ -86,7 +86,7 @@ public class JobTitleStepDefs {
 	@Then("^the length of job title is verified$")
 	public void theLengthOfJobTitleIsVerified() {
 		jobTitlePage = new JobTitlePage(driver);
-		assertThat(jobTitlePage.readJobTitleField()).matches("InvalidInvalidInvalid@In");
+		assertThat(jobTitlePage.readJobTitleField().matches("InvalidInvalidInvalid@In"));
 
 	}
 

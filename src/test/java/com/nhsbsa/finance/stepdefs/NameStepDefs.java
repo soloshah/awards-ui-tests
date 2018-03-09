@@ -41,8 +41,11 @@ public class NameStepDefs {
 
 	@When("^I enter valid name details$")
 	public void IenterValidNameDetails() {
-		SharedData.firstName =  RandomStringUtils.randomAlphabetic(10);
-		SharedData.lastName =  RandomStringUtils.randomAlphabetic(10);
+		final String inputFirstName = RandomStringUtils.randomAlphabetic(10);
+		SharedData.firstName = inputFirstName.toLowerCase().substring(0, 1).toUpperCase() + inputFirstName.toLowerCase().substring(1);
+		final String inputLastName = RandomStringUtils.randomAlphabetic(10);
+		SharedData.lastName = inputLastName.toLowerCase().substring(0, 1).toUpperCase() + inputLastName.toLowerCase().substring(1);
+		
 		namePage = new NamePage(driver);
 		namePage.submitValidNameDetails(SharedData.firstName, SharedData.lastName);
 	}

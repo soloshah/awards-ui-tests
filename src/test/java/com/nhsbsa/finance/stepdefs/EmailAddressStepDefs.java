@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
 import com.nhsbsa.finance.pageobjects.EmailAddressPage;
+import com.nhsbsa.finance.pageobjects.JobTitlePage;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.properties.PropertyReader;
@@ -37,6 +38,12 @@ public class EmailAddressStepDefs {
 	@Then("^the email address submission will be successful$")
 	public void theEmailAddressSubmissionWillBeSuccessful() {
 		new NavBarPage(driver);
+	}
+	
+	@Then("^What is your email address page will be displayed$")
+	public void whatisYourEmailAddressPageWillBeDisplayed() {
+		emailAddressPage = new EmailAddressPage(driver);
+		assertThat(emailAddressPage.getHeading()).contains("What is your email address?");
 	}
 
 	@When("^I enter valid email address details using the email '(.*)'$")

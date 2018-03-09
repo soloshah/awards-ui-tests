@@ -14,7 +14,7 @@ public class DynamicDateOfBirthPage extends Page {
 
 	public DynamicDateOfBirthPage(WebDriver driver) {
 		super(driver);
-	//	waitForTitleToExist(dobPageTitle);
+		waitForTitleToExist(dobPageTitle);
 		waitForElementToBeVisibleBy(dayFieldLocator);
 	}
 

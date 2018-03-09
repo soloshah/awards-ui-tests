@@ -28,19 +28,19 @@ And I enter invalid address details using the streetLineTwo '<streetLineTwo>'
 Then the address details submission will be unsuccessful
 And the building and street line two error message '<errorMessage>' will be displayed
 Examples:
-           |streetLineTwo       | errorMessage                                                        |
-           | "£$%^&*@?/()       | Enter address using only numbers, letters a to z, spaces and hyphens|
-           | hgn-yuiom jkhe'tr  | Enter address using only numbers, letters a to z, spaces and hyphens|
+          |streetLineTwo    | errorMessage                                                        |
+          |"£$%^&*@?/()     | Enter address using only numbers, letters a to z, spaces and hyphens|
+          |hgn-yuiom jkhe'tr| Enter address using only numbers, letters a to z, spaces and hyphens|
           
           
-@Bug @ErrorMessage         
+@Bug @BP490-276      
 Scenario Outline: Town or city field validations 
 And I enter invalid address details using the town '<town>'
 Then the address details submission will be unsuccessful
 And the town or city error message '<errorMessage>' will be displayed
 Examples:
-           | town            | errorMessage                         |
-           |                 | You must enter your town or city     | 
+           | town            | errorMessage                                                |
+           |                 | You must enter your town or city                            | 
            | "£$%^&*@?/()    | Enter address using only letters a to z, spaces and hyphens |
            |  12345095       | Enter address using only letters a to z, spaces and hyphens |
           
@@ -60,7 +60,7 @@ Examples:
            | P12 3T0            | You must enter a valid postcode|
            | NA234TY            | You must enter a valid postcode|
  
-@Bug @ErrorMessage           
+@Bug @BP490-276          
 Scenario Outline: Country field validations 
 And I enter invalid address details using the country '<country>'
 Then the address details submission will be unsuccessful

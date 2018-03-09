@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import com.nhsbsa.finance.driver.Config;
 import com.nhsbsa.finance.pageobjects.DepositAccountPage;
 import com.nhsbsa.finance.pageobjects.EmployerAddressPage;
+import com.nhsbsa.finance.pageobjects.NameOfYourCurrentEmployerPage;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.properties.PropertyReader;
@@ -43,12 +44,12 @@ public class EmployerAddressStepDefs {
 		new NavBarPage(driver);
 	}
 	
-	
-	@Then("^the employer address page will be displayed$")
-	public void enterBankDetailsForDepositAccountPageWillBeDisplayed() {
+	@Then("^the employers address page will be displayed$")
+	public void theEmployersAddressPageWillBeDisplayed() {
 		employerAddressPage = new EmployerAddressPage(driver);
 		assertThat(employerAddressPage.getHeading()).contains("What is your employer's address?");
 	}
+
 
 	@When("^I enter valid employer address details$")
 	public void IenterValidEmployerAddressDetails() {
