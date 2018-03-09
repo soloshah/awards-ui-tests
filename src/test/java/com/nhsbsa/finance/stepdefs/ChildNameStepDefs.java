@@ -35,8 +35,7 @@ public class ChildNameStepDefs {
 	public void iGoToTheChildNamePage() {
 		new Page(driver).navigateToUrl(baseUrl + "/partner-and-child/what-is-your-child-name");
 		childNamePage = new ChildNamePage(driver);
-		// assertThat(childNamePage.getHeading()).contains("What is your child's
-		// name?");
+		 assertThat(childNamePage.getHeading()).contains("What is your child's name?");
 	}
 
 	@Then("^the child name page will be displayed$")

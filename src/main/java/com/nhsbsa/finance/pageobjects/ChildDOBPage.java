@@ -83,22 +83,6 @@ public class ChildDOBPage extends Page {
 		return getElementText();
 	}
 
-/*	public ChildGenderPage submitValidChildDOBDetails(String day, String month, String year) {
-		enterPartnerDay(day);
-		enterPartnerMonth(month);
-		enterPartnerYear(year);
-		nextStep();
-		return new ChildGenderPage(driver);
-	}*/
-
-	public TBIPage submitValidChildDOB(String day, String month, String year) {
-		enterDay(day);
-		enterMonth(month);
-		enterYear(year);
-		nextStep();
-		return new TBIPage(driver);
-	}
-
 	public OtherDependantChildrenPage submitValidChildDateOfBirth(String day, String month, String year) {
 		enterDay(day);
 		enterMonth(month);

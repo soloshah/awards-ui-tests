@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
+import com.nhsbsa.finance.pageobjects.ChildDOBPage;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.pageobjects.PartnerNamePage;
@@ -36,6 +37,7 @@ public class PartnerNameStepDefs {
 		assertThat(partnerNamePage.getHeading()).contains("What is your spouse's or civil partner's name?");
 	}
 
+	
 	@Then("^the partner name submission will be successful$")
 	public void thePartnerNameSubmissionWillBeSuccessful() {
 		new NavBarPage(driver);

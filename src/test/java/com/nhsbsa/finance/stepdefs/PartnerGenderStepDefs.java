@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
+import com.nhsbsa.finance.pageobjects.ChildDOBPage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.pageobjects.PartnerGenderPage;
 import com.nhsbsa.finance.properties.PropertyReader;
@@ -33,6 +34,12 @@ public class PartnerGenderStepDefs {
 		partnerGenderPage = new PartnerGenderPage(driver);
 		assertThat(partnerGenderPage.getHeading())
 				.contains("What is " + SharedData.firstName + "'s " + "legally recognised gender?");
+	}
+	
+	@Then("^the partner gender page will be displayed$")
+	public void thePartnerGenderPageWillBeDisplayed() {
+		partnerGenderPage = new PartnerGenderPage(driver);
+		assertThat(partnerGenderPage.getHeading()).contains("What is null's legally recognised gender?");
 	}
 
 	@Then("^the dynamic value of partner first name is displayed on the partners gender page$")

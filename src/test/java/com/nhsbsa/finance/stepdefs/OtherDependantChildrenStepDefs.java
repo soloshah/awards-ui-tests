@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import com.nhsbsa.finance.driver.Config;
 import com.nhsbsa.finance.pageobjects.OtherDependantChildrenPage;
 import com.nhsbsa.finance.pageobjects.Page;
+import com.nhsbsa.finance.pageobjects.PartnerDateOfBirthPage;
 import com.nhsbsa.finance.properties.PropertyReader;
 import com.nhsbsa.finance.shared.SharedData;
 
@@ -35,7 +36,13 @@ public class OtherDependantChildrenStepDefs {
 		otherDependantChildrenPage = new OtherDependantChildrenPage(driver);
 		assertThat(otherDependantChildrenPage.getHeading().contains("Do you have any other dependant children?"));
 	}
-
+	
+	@Then("^do you have any other depandant children page will be displayed$")
+	public void doYouHaveAnyOtherDependantPageWillBeDisplayed() {
+		otherDependantChildrenPage = new OtherDependantChildrenPage(driver);
+		assertThat(otherDependantChildrenPage.getHeading()).contains("Do you have any other dependant children?");
+	}
+	
 	@Then("^the default value for any other dependant children page will be blank$")
 	public void theDefaultValueForAnyOtherDependantChildrenPageWillBeBlank() {
 		assertThat(otherDependantChildrenPage.isOtherDependantChildrenRadioButtonSelected()).isFalse();
