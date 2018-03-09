@@ -1,4 +1,4 @@
-@OtherEQPensions @BP490-198  
+@OtherEQPensions @BP490-198
 Feature: Other Pensions paid by Equiniti Paymaster Page
 
 Background:

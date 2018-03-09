@@ -1,4 +1,4 @@
-@DynamicValues 
+@DynamicValues
 Feature: Verify Dynamic Values
 
 @BP490-98

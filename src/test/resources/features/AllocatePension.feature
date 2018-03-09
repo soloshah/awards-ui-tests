@@ -1,4 +1,4 @@
-@AllocatPension @BP490-110 @WIP
+@AllocatPension @BP490-110
 Feature: Do you want to allocate part of your pension
 
 Background:

@@ -1,4 +1,4 @@
-@AllocationDateOfBirth @BP490-112 
+@AllocationDateOfBirth @BP490-112
 Feature: Allocation Date of Birth
 
 Background:

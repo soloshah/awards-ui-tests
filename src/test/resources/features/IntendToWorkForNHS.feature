@@ -1,4 +1,4 @@
-@IntendToWorkForNHS @BP490-125 
+@IntendToWorkForNHS @BP490-125
 Feature: Intend To work for NHS after Retirement Page
 
 Background:

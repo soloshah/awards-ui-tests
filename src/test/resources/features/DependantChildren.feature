@@ -1,4 +1,4 @@
-@DependantChildren @BP490-104 
+@DependantChildren @BP490-104
 Feature: Do you have any dependant children Page
 
 Background:
