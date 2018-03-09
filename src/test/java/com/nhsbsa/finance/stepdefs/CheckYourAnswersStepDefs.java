@@ -20,7 +20,7 @@ public class CheckYourAnswersStepDefs {
   @Then("^Check your answers page is displayed$")
   public void checkYourAnswersPageWillBeDisplayed() {
 	  checkYourAnswerPage = new CheckYourAnswerPage(driver);
-    assertThat(checkYourAnswerPage.getHeading()).matches("Check Your Answers");
+    assertThat(checkYourAnswerPage.getHeading()).contains("Check your answers");
   }
 
 

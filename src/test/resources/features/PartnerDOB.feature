@@ -8,9 +8,9 @@ When I go to partner DOB page
 
 Scenario: Valid partner date of Birth
 And I enter valid partner DOB details
-#Then the partner date of birth submission will be successful
-#And the partner gender page will be displayed
-Then the tbi page will be displayed
+Then the partner date of birth submission will be successful
+And the partner gender page will be displayed
+
 
 Scenario Outline: Partner date of birth field validations 
 And I enter partner DOB details using the day '<day>', month '<month>' and year '<year>'

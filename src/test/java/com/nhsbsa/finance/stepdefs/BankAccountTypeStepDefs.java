@@ -58,13 +58,13 @@ public class BankAccountTypeStepDefs {
 	@When("^I select Current Account$")
 	public void iSelectCurrentAccount() {
 		bankAccountTypePage = new BankAccountTypePage(driver);
-		bankAccountTypePage.submitValidCurrentAccountDetails();
+		bankAccountTypePage.selectValidCurrentAccountDetails();
 	}
 
 	@When("^I select Deposit Account$")
 	public void iSelectDepositAccount() {
 		bankAccountTypePage = new BankAccountTypePage(driver);
-		bankAccountTypePage.submitValidDepositAccountDetails();
+		bankAccountTypePage.selectValidDepositAccountDetails();
 	}
 
 	@When("^I dont select any account type$")

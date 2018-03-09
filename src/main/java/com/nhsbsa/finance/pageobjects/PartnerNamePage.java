@@ -128,11 +128,11 @@ public class PartnerNamePage extends Page {
 		return new PartnerNamePage(driver);
 	}
 
-	public TBIPage submitValidPartnerName(String firstName, String lastName) {
+	public PartnerDateOfBirthPage submitValidPartnerName(String firstName, String lastName) {
 		enterfirstName(firstName);
 		enterlastName(lastName);
 		nextStep();
-		return new TBIPage(driver);
+		return new PartnerDateOfBirthPage(driver);
 	}
 
 	public SessionsExpiredPage submitValidPartnerNameDetailsInExpiredSession(String firstName, String lastName) {
