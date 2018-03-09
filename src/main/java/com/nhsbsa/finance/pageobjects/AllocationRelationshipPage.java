@@ -3,7 +3,7 @@ package com.nhsbsa.finance.pageobjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class RelationshipPage extends Page {
+public class AllocationRelationshipPage extends Page {
 
 	private String relationshipPageTitle = "What is their relationship to you? - Claim your NHS Pension";
 	private By relationshipNameFieldLocator = By.id("relationship");
@@ -14,7 +14,7 @@ public class RelationshipPage extends Page {
 	private By relationshipAnchoredErrorMessageLocator = By.id("error-list1");
 	private By relationshipAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#relationship']");
 
-	public RelationshipPage(WebDriver driver) {
+	public AllocationRelationshipPage(WebDriver driver) {
 		super(driver);
 		waitForTitleToExist(relationshipPageTitle);
 		waitForElementToBeVisibleBy(relationshipNameFieldLocator);
@@ -81,9 +81,9 @@ public class RelationshipPage extends Page {
 		return new TBIPage(driver);
 	}
 
-	public RelationshipPage submitInValidRelationshipDetails() {
+	public AllocationRelationshipPage submitInValidRelationshipDetails() {
 		nextStep();
-		return new RelationshipPage(driver);
+		return new AllocationRelationshipPage(driver);
 	}
 
 

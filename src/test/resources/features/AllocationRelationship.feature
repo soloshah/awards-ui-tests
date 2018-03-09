@@ -18,6 +18,6 @@ When I enter relationship name details using the name '<name>'
 Then the relationship submission will be unsuccessful
 And the relationship name error message '<errorMessage>' will be displayed
 Examples:
-| name     | errorMessage                                                     |
-|           |You must enter the person's relationship to you                  | 
-|In56drf%$ £"^&*"|Enter names using only letters a to z, spaces and hyphens   |
+| name           | errorMessage                                            |
+|                |You must enter the person's relationship to you          | 
+|In56drf%$ £"^&*"|Enter names using only letters a to z, spaces and hyphens|
