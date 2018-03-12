@@ -13,7 +13,7 @@ Then the tbi page will be displayed
 #Then the allocation name submission will be successful
 #And the allocation date of birth page will be displayed
 
-@Bug @mandatoryfield-error-message-change
+
 Scenario Outline: Allocation first name field  validations 
 When I enter an invalid allocation details using the firstName '<firstName>'
 Then the allocation name submission will be unsuccessful
@@ -24,16 +24,16 @@ Examples:
 |In%$ £"^&*"                |Enter names using only letters a to z, spaces and hyphens |
 |hgn-yuiom jkhe'tryu90hi237 |Enter names using only letters a to z, spaces and hyphens |
 
-@Bug @mandatoryfield-error-message-change
+
 Scenario Outline: Allocation last name field  validations 
 When I enter an invalid allocation details using the lastName '<lastName>'
 Then the allocation name submission will be unsuccessful
 And the allocation last name error message '<errorMessage>' will be displayed
 Examples:
-| lastName                         | errorMessage                                             |
-|                                  | You must enter their last name                           |
-|In%$ £"^&*"                       |Enter names using only letters a to z, spaces and hyphens |
-|hgn-yuiom jkhe'tryu90hi23bhgfrtde |Enter names using only letters a to z, spaces and hyphens |
+| lastName                  | errorMessage                                             |
+|                           | You must enter their last name                           |
+|In%$ £"^&*"                |Enter names using only letters a to z, spaces and hyphens |
+|hgn-yuiom jkhe'tryu90hi23  |Enter names using only letters a to z, spaces and hyphens |
 
 @Bug @BP490-228
 Scenario: Allocation first and last name field length validations 
