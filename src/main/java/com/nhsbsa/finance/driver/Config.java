@@ -44,9 +44,9 @@ public class Config {
 
   private static WebDriver chromeDriver() {
     if (SystemUtils.IS_OS_MAC) {
-      exe = new File("src/main/resources/binaries/chrome/2.34/chromedriver");
+      exe = new File("src/main/resources/binaries/chrome/2.36/chromedriver");
     } else if (SystemUtils.IS_OS_WINDOWS) {
-      exe = new File("src/main/resources/binaries/chrome/2.34/chromedriver.exe");
+      exe = new File("src/main/resources/binaries/chrome/2.36/chromedriver.exe");
     }
     System.setProperty("webdriver.chrome.driver", exe.getAbsolutePath());
     WebDriver driver = new ChromeDriver(chromeCapabilities());
