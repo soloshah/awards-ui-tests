@@ -46,7 +46,7 @@ public class PartnerNameStepDefs {
 		SharedData.firstName = "Partner Test";
 		SharedData.lastName = "Partner User";
 		partnerNamePage = new PartnerNamePage(driver);
-		partnerNamePage.submitValidPartnerName(SharedData.firstName, SharedData.lastName);
+		partnerNamePage.submitValidPartnerNameDetails(SharedData.firstName, SharedData.lastName);
 	}
 
 	@Then("^the partner name submission will be unsuccessful$")
@@ -111,4 +111,13 @@ public class PartnerNameStepDefs {
 
 	}
 
+	@And("^I submit valid first and last name details$")
+		public void iSubmitValidFirstAndLastNameDetails() {
+		SharedData.firstName = "Partner Test";
+		SharedData.lastName = "Partner User";
+		partnerNamePage = new PartnerNamePage(driver);
+		partnerNamePage.submitValidPartnerNameDetails(SharedData.firstName, SharedData.lastName);
+	}
+
+	
 }
