@@ -30,13 +30,14 @@ public class PartnerDateOfBirthStepDefs {
 	public void iAmOnPartnerDOBPage() {
 		new Page(driver).navigateToUrl(baseUrl + "/partner-and-child/what-is-your-partner-dob");
 		partnerDateOfBirthPage = new PartnerDateOfBirthPage(driver);
-		assertThat(partnerDateOfBirthPage.getHeading()).contains("What is " + SharedData.firstName + "'s " + " date of birth?");
+		assertThat(partnerDateOfBirthPage.getHeading()).contains("What is your spouse's or civil partner's date of birth?");
 	}
 
 	@When("^I go to partner DOB page$")
 	public void iGoToPartnerDOBPage() {
    		new Page(driver).navigateToUrl(baseUrl + "/partner-and-child/what-is-your-partner-dob");
 		partnerDateOfBirthPage = new PartnerDateOfBirthPage(driver);
+		assertThat(partnerDateOfBirthPage.getHeading()).contains("What is your spouse's or civil partner's date of birth?");
 		assertThat(partnerDateOfBirthPage.getExampleHint().matches("For example, 31 03 1980"));
 	}
 
@@ -60,11 +61,11 @@ public class PartnerDateOfBirthStepDefs {
 		SharedData.month = SharedMethods.formatMonth(localDate);
 		SharedData.year = SharedMethods.formatYear(localDate);
 		partnerDateOfBirthPage = new PartnerDateOfBirthPage(driver);
-		partnerDateOfBirthPage.submitValidPartnerDOB(SharedData.day, SharedData.month, SharedData.year);
+		partnerDateOfBirthPage.submitValidPartnerDOBDetails(SharedData.day, SharedData.month, SharedData.year);
 	}
 
 	@Then("^the partner date of birth submission will be unsuccessful$")
-	public void theAllocationDateOfBirthSubmissionWillBeUnsuccessful() {
+	public void thePartnerDateOfBirthSubmissionWillBeUnsuccessful() {
 		partnerDateOfBirthPage = new PartnerDateOfBirthPage(driver);
 		assertThat(partnerDateOfBirthPage.getErrorHeadingErrorMessage())
 				.matches("Some questions have not been answered correctly:");
@@ -72,7 +73,7 @@ public class PartnerDateOfBirthStepDefs {
 	}
 
 	@When("^I enter partner DOB details using the day '(.*)', month '(.*)' and year '(.*)$")
-	public void iEnterDOBDetailsUsingTheDayMonthAndYear(String day, String month, String year) {
+	public void iEnterPartnerDOBDetailsUsingTheDayMonthAndYear(String day, String month, String year) {
 
 		partnerDateOfBirthPage = new PartnerDateOfBirthPage(driver);
 		partnerDateOfBirthPage.enterPartnerDobDetails(day, month, year);
@@ -81,7 +82,7 @@ public class PartnerDateOfBirthStepDefs {
 	}
 
 	@And("^the partner date of birth error message '(.*)' will be displayed$")
-	public void theAllocationDateOfBirthErrorMessageWillBeDisplayed(String errorMessage) {
+	public void thePartnerDateOfBirthErrorMessageWillBeDisplayed(String errorMessage) {
 		partnerDateOfBirthPage = new PartnerDateOfBirthPage(driver);
 		assertThat(partnerDateOfBirthPage.doesPartnerDobErrorMessageHaveAnchor()).isTrue();
 		assertThat(partnerDateOfBirthPage.getPartnerDobAnchoredErrorMessage()).matches(errorMessage);

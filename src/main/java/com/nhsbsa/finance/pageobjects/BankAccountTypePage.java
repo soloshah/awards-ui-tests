@@ -45,37 +45,23 @@ public class BankAccountTypePage extends Page {
 		return selected;
 	}
 
-/*	public BankDetailsPage submitValidCurrentAccountDetails() {
+	public CurrentAccountPage selectValidCurrentAccountDetails() {
 		navigateToRootElement();
 		navigateToElementBy(currentAccountRadioButtonLocator);
 		click();
 		nextStep();
-		return new BankDetailsPage(driver);
-	}*/
-
-	public TBIPage submitValidCurrentAccount() {
-		navigateToRootElement();
-		navigateToElementBy(currentAccountRadioButtonLocator);
-		click();
-		nextStep();
-		return new TBIPage(driver);
+		return new CurrentAccountPage(driver);
 	}
 
-	/*public BankDetailsPage submitValidDepositAccountDetails() {
+
+	public DepositAccountPage selectValidDepositAccountDetails() {
 		navigateToRootElement();
 		navigateToElementBy(depositAccountRadioButtonLocator);
 		click();
 		nextStep();
-		return new BankDetailsPage(driver);
-	}*/
-
-	public TBIPage submitValidDepositAccount() {
-		navigateToRootElement();
-		navigateToElementBy(depositAccountRadioButtonLocator);
-		click();
-		nextStep();
-		return new TBIPage(driver);
+		return new DepositAccountPage(driver);
 	}
+
 
 	public String getErrorHeadingErrorMessage() {
 		navigateToRootElement();

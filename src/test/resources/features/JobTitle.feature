@@ -1,4 +1,4 @@
-@JobTitle @BP490-123 
+@JobTitle @BP490-123
 Feature: What was your job title
 
 Background:

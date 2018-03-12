@@ -33,12 +33,19 @@ public class AllocationNameStepDefs {
 	public void iGoToTheAllocationNamePage() {
 		new Page(driver).navigateToUrl(baseUrl + "/pension-allocation-details/what-is-allocation-name");
 		allocationNamePage = new AllocationNamePage(driver);
-		assertThat(allocationNamePage.getHeading()).contains("What is the name of the person you want to allocate some of your pension to?");
+		assertThat(allocationNamePage.getHeading())
+				.contains("What is the name of the person you want to allocate some of your pension to?");
 	}
 
 	@Then("^the allocation name submission will be successful$")
 	public void theAllocationNameSubmissionWillBeSuccessful() {
 		new NavBarPage(driver);
+	}
+
+	@Then("^the allocation name page will be displayed$")
+	public void theAllocationNamePageWillBeDisplayed() {
+		allocationNamePage = new AllocationNamePage(driver);
+		assertThat(allocationNamePage.getHeading()).contains("What is the name of the person you want to allocate some of your pension to?");
 	}
 
 	@When("^I enter valid allocation name details$")

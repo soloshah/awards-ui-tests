@@ -2,6 +2,7 @@ package com.nhsbsa.finance.stepdefs;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
@@ -40,8 +41,11 @@ public class NameStepDefs {
 
 	@When("^I enter valid name details$")
 	public void IenterValidNameDetails() {
-		SharedData.firstName = "Test";
-		SharedData.lastName = "User";
+		final String inputFirstName = RandomStringUtils.randomAlphabetic(10);
+		SharedData.firstName = inputFirstName.toLowerCase().substring(0, 1).toUpperCase() + inputFirstName.toLowerCase().substring(1);
+		final String inputLastName = RandomStringUtils.randomAlphabetic(10);
+		SharedData.lastName = inputLastName.toLowerCase().substring(0, 1).toUpperCase() + inputLastName.toLowerCase().substring(1);
+		
 		namePage = new NamePage(driver);
 		namePage.submitValidNameDetails(SharedData.firstName, SharedData.lastName);
 	}

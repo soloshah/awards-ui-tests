@@ -1,4 +1,4 @@
-@LastEmployerName @BP490-122
+@LastEmployerName @BP490-122 @Bug @BP490-239
 Feature: What was the name of your last NHS employer
 
 Background:
