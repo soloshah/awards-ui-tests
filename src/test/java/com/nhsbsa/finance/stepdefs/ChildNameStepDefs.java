@@ -47,7 +47,7 @@ public class ChildNameStepDefs {
 		SharedData.firstName = "Child Test";
 		SharedData.lastName = "User";
 		childNamePage = new ChildNamePage(driver);
-		childNamePage.submitValidChildName(SharedData.firstName, SharedData.lastName);
+		childNamePage.submitValidChildNameDetails(SharedData.firstName, SharedData.lastName);
 	}
 
 	@Then("^the child name submission will be unsuccessful$")
