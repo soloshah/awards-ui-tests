@@ -48,7 +48,6 @@ public class DateOfBirthPage extends Page {
 
 	public void enterDobDetails(String day, String month, String year) {
 		
-		sharedDateOfBirthPage.enterDay("");
 		enterDay(day);
 		enterMonth(month);
 		enterYear(year);
