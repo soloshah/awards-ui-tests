@@ -38,11 +38,13 @@ public class NameOfYourLastEmployerStepDefs {
 		new Page(driver).navigateToUrl(baseUrl + "/employment-details/what-was-last-nhs-employer-name");
 		nameOfYourLastEmployerPage = new NameOfYourLastEmployerPage(driver);
 		assertThat(nameOfYourLastEmployerPage.getHeading()).contains("What was the name of your last NHS employer?");
+		assertThat(nameOfYourLastEmployerPage.getExampleHintMessage().matches("For example, NHS Business Services Authority."));
 	}
 
 	@Then("^the name of your last NHS employer page submission will be successful$")
 	public void theNameOfYourLastNHSEmployerPageSubmissionWillBeSuccessful() {
 		new NavBarPage(driver);
+			
 	}
 
 	@When("^I enter valid name of last NHS employer details$")

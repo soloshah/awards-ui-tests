@@ -31,17 +31,17 @@ public class DynamicPartnerDateOfBirthStepDefs {
 	public void theDynamicPartnersDateOfBirthPageWillBeDisplayed() {
 		dynamicPartnerDateOfBirthPage = new DynamicPartnerDateOfBirthPage(driver);
 		assertThat(dynamicPartnerDateOfBirthPage.getExampleHint().matches("For example, 31 03 1980"));
-		//assertThat(partnerDateOfBirthPage.getHeading()).contains("What is " + SharedData.firstName + "'s " +  "date of birth?");
+		assertThat(dynamicPartnerDateOfBirthPage.getHeading()).contains("What is " + SharedData.firstName + "'s " +  "date of birth?");
 	}
 
 		
 	@Then("^the dynamic value of partner first name is displayed on the partners DOB page$")
 	public void theDynamicValueOfPartnerFirstNameIsDisplayedOnThePartnersDOBPage() {
-   		//partnerDateOfBirthPage = new PartnerDateOfBirthPage(driver);
    		Page page = new Page(driver);
    		String partnerDatePageTitle = "What is " + SharedData.firstName + "'s " +  "date of birth? - Claim your NHS Pension";
    	page.waitForTitleToExist(partnerDatePageTitle);
-		//assertThat(partnerDateOfBirthPage.getHeading().contains("What is " + SharedData.firstName + "'s " +  "date of birth?"));
+   	dynamicPartnerDateOfBirthPage = new DynamicPartnerDateOfBirthPage(driver);
+		assertThat(dynamicPartnerDateOfBirthPage.getHeading().contains("What is " + SharedData.firstName + "'s " +  "date of birth?"));
    	
 	}
 }
