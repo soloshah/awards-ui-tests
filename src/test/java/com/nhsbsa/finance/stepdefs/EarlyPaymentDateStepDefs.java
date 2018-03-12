@@ -83,8 +83,8 @@ public class EarlyPaymentDateStepDefs {
 		assertThat(earlyPaymentDatePage.getPaymentDateFieldErrorMessage()).matches(errorMessage);
 	}
 
-	@And("^I verify early payment date error message date before 6 months from now$")
-	public void iVerifyEarlyPaymentDateErrorMessageDateBefore6MonthsFromNow() {
+	@And("^I verify early payment date error message with date before 6 months from now$")
+	public void iVerifyEarlyPaymentDateErrorMessageWithDateBefore6MonthsFromNow() {
 		earlyPaymentDatePage = new EarlyPaymentDatePage(driver);
 		LocalDate limitDate =  LocalDate.now().plusMonths(6);
 		DateTimeFormatter formatters = DateTimeFormatter.ofPattern("dd/MM/yyyy");

@@ -34,7 +34,7 @@ Examples:
 Scenario Outline: Date between 01/04/2000 and current date plus 6 months
 And I enter early payment date details using the day '<day>', month '<month>' and year '<year>'
 Then the early payment date submission will be unsuccessful
-And I verify early payment date error message date before 6 months from now
+And I verify early payment date error message with date before 6 months from now
 Examples:
            |day | month  |year| 
            | 01 |  01    |1889| 
