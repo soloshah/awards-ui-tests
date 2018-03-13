@@ -3,7 +3,7 @@ package com.nhsbsa.finance.pageobjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class EarlyPaymentDatePage extends Page {
+public class EarlyPaymentDate_1995Page extends Page {
 
 	private String paymentDatePageTitle = "When should the early payment of deferred benefit start? - Claim your NHS Pension - NHSBSA";
 	private By dayFieldLocator = By.id("paymentDate-day");
@@ -16,7 +16,7 @@ public class EarlyPaymentDatePage extends Page {
 	private By paymentDateAnchoredErrorMessageLocator = By.id("error-list0");
 	private By paymentDateAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#paymentDate']");
 		
-	public EarlyPaymentDatePage(WebDriver driver) {
+	public EarlyPaymentDate_1995Page(WebDriver driver) {
 		super(driver);
 		waitForTitleToExist(paymentDatePageTitle);
 		waitForElementToBeVisibleBy(dayFieldLocator);
@@ -93,9 +93,9 @@ public class EarlyPaymentDatePage extends Page {
 	}
 
 
-	public EarlyPaymentDatePage submitInValidPaymentDateDetails() {
+	public EarlyPaymentDate_1995Page submitInValidPaymentDateDetails() {
 		nextStep();
-		return new EarlyPaymentDatePage(driver);
+		return new EarlyPaymentDate_1995Page(driver);
 	}
 
 	public SessionsExpiredPage submitValidPaymentDateDetailsInExpiredSession(String day, String month, String year) {
