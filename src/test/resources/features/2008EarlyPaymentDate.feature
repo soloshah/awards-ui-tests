@@ -1,21 +1,21 @@
-@1995EarlyPaymentDate @BP490-135
-Feature: Early payment date for deferred benefit after 1995
+@2008EarlyPaymentDate @BP490-136
+Feature: Early payment date for deferred benefit after 2008
 
 Background:
 Given I am on the start page
-When I go to the 1995 early payment date page
+When I go to the 2008 early payment date page
 
 
 Scenario: Valid early payment date
-And I enter valid 1995 early payment date details
-#Then the 1995 early payment date submission will be successful
+And I enter valid 2008 early payment date details
+#Then the 2008 early payment date submission will be successful
 Then the tbi page will be displayed
 
 
-Scenario Outline: 1995 Early Payment Date Field validations 
-And I enter 1995 early payment date details using the day '<day>', month '<month>' and year '<year>'
-Then the 1995 early payment date submission will be unsuccessful
-And the 1995 early payment date error message '<errorMessage>' will be displayed
+Scenario Outline: Early Payment Date Field validations 
+And I enter 2008 early payment date details using the day '<day>', month '<month>' and year '<year>'
+Then the 2008 early payment date submission will be unsuccessful
+And the 2008 early payment date error message '<errorMessage>' will be displayed
 Examples:
            |day | month  |year| errorMessage       |
            |    |        |    | Enter a valid date |
@@ -31,10 +31,10 @@ Examples:
    
            
 
-Scenario Outline: Date between 01/04/2000 and current date plus 6 months
-And I enter 1995 early payment date details using the day '<day>', month '<month>' and year '<year>'
-Then the 1995 early payment date submission will be unsuccessful
-And I verify 1995 early payment date error message with date before 6 months from now
+Scenario Outline: Date between 01/04/2008 and current date plus 6 months
+And I enter 2008 early payment date details using the day '<day>', month '<month>' and year '<year>'
+Then the 2008 early payment date submission will be unsuccessful
+And I verify 2008 early payment date error message with date before 6 months from now
 Examples:
            |day | month  |year| 
            | 01 |  01    |1889| 

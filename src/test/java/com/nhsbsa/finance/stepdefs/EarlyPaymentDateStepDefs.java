@@ -26,30 +26,30 @@ public class EarlyPaymentDateStepDefs {
 	private String baseUrl = PropertyReader.getProperty("base.server");
 	private EarlyPaymentDatePage earlyPaymentDatePage;
 
-	@Given("^I am on early payment date page$")
-	public void iAmOnTheEarlyPaymentDatePage() {
+	@Given("^I am on the 1995 early payment date page$")
+	public void iAmOnThe1995EarlyPaymentDatePage() {
 
 		new Page(driver).navigateToUrl(baseUrl + "/pension-scheme-details/1995-early-payment-date");
 		earlyPaymentDatePage = new EarlyPaymentDatePage(driver);
 		assertThat(earlyPaymentDatePage.getHeading()).contains("When should the early payment of deferred benefit start?");
 	}
 
-	@When("^I go to the early payment date page$")
-	public void iGoToTheEarlyPaymentDatePage() {
+	@When("^I go to the 1995 early payment date page$")
+	public void iGoToThe1995EarlyPaymentDatePage() {
 		Page page = new Page(driver);
 		page.navigateToUrl(baseUrl + "/pension-scheme-details/1995-early-payment-date");
 		earlyPaymentDatePage = new EarlyPaymentDatePage(driver);
 		assertThat(earlyPaymentDatePage.getHeading()).contains("When should the early payment of deferred benefit start?");
 	}
 
-	@Then("^the early payment date submission will be successful$")
-	public void theEarlyPaymentDateSubmissionWillBeSuccessful() {
+	@Then("^the 1995 early payment date submission will be successful$")
+	public void the1995EarlyPaymentDateSubmissionWillBeSuccessful() {
 		new NavBarPage(driver);
 		
 	}
 	
-	@When("^I enter valid early payment date details$")
-	public void IenterValidEarlyPaymentDateDetails() {
+	@When("^I enter valid 1995 early payment date details$")
+	public void IenterValid1995EarlyPaymentDateDetails() {
 		LocalDate localDate = LocalDate.now();
 		SharedData.day = SharedMethods.formatDay(localDate);
 		SharedData.month = SharedMethods.formatMonth(localDate);
@@ -58,16 +58,16 @@ public class EarlyPaymentDateStepDefs {
 		earlyPaymentDatePage.submitValidPaymentDateDetails(SharedData.day, SharedData.month, SharedData.year);
 	}
 
-	@Then("^the early payment date submission will be unsuccessful$")
-	public void theEarlyPaymentDateSubmissionWillBeUnsuccessful() {
+	@Then("^the 1995 early payment date submission will be unsuccessful$")
+	public void the1995EarlyPaymentDateSubmissionWillBeUnsuccessful() {
 		earlyPaymentDatePage = new EarlyPaymentDatePage(driver);
 		assertThat(earlyPaymentDatePage.getErrorHeadingErrorMessage())
 				.matches("Some questions have not been answered correctly:");
 		assertThat(earlyPaymentDatePage.getErrorsBelowErrorMessage()).matches("Please see the errors below.");
 	}
 
-	@When("^I enter early payment date details using the day '(.*)', month '(.*)' and year '(.*)$")
-	public void iEnterEarlyPaymentDateDetailsUsingTheDayMonthAndYear(String day, String month, String year) {
+	@When("^I enter 1995 early payment date details using the day '(.*)', month '(.*)' and year '(.*)$")
+	public void iEnter1995EarlyPaymentDateDetailsUsingTheDayMonthAndYear(String day, String month, String year) {
 
 		earlyPaymentDatePage = new EarlyPaymentDatePage(driver);
 		earlyPaymentDatePage.enterPaymentDateDetails(day, month, year);
@@ -75,16 +75,16 @@ public class EarlyPaymentDateStepDefs {
 
 	}
 
-	@And("^the early payment date error message '(.*)' will be displayed$")
-	public void theEarlyPaymentDateErrorMessageWillBeDisplayed(String errorMessage) {
+	@And("^the 1995 early payment date error message '(.*)' will be displayed$")
+	public void the1995EarlyPaymentDateErrorMessageWillBeDisplayed(String errorMessage) {
 		earlyPaymentDatePage = new EarlyPaymentDatePage(driver);
 		assertThat(earlyPaymentDatePage.doesPaymentDateErrorMessageHaveAnchor()).isTrue();
 		assertThat(earlyPaymentDatePage.getPaymentDateAnchoredErrorMessage()).matches(errorMessage);
 		assertThat(earlyPaymentDatePage.getPaymentDateFieldErrorMessage()).matches(errorMessage);
 	}
 
-	@And("^I verify early payment date error message with date before 6 months from now$")
-	public void iVerifyEarlyPaymentDateErrorMessageWithDateBefore6MonthsFromNow() {
+	@And("^I verify 1995 early payment date error message with date before 6 months from now$")
+	public void iVerify1995EarlyPaymentDateErrorMessageWithDateBefore6MonthsFromNow() {
 		earlyPaymentDatePage = new EarlyPaymentDatePage(driver);
 		LocalDate limitDate =  LocalDate.now().plusMonths(6);
 		DateTimeFormatter formatters = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -95,8 +95,8 @@ public class EarlyPaymentDateStepDefs {
 		assertThat(earlyPaymentDatePage.getPaymentDateFieldErrorMessage()).matches(errorMessage);
 	}
 	
-	@And("^I enter invalid early payment date details the day '(.*)', month '(.*)' and year '(.*)$")
-	public void iEnterInvalidEarlyPaymentDateDetailsUsingTheDayMonthAndYear(String day, String month, String year) {
+	@And("^I enter invalid 1995 early payment date details the day '(.*)', month '(.*)' and year '(.*)$")
+	public void iEnterInvalid1995EarlyPaymentDateDetailsUsingTheDayMonthAndYear(String day, String month, String year) {
 		earlyPaymentDatePage = new EarlyPaymentDatePage(driver);
 		earlyPaymentDatePage.enterPaymentDateDetails(day, month, year);
 		earlyPaymentDatePage.submitInValidPaymentDateDetails();
