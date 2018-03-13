@@ -6,8 +6,8 @@ import org.openqa.selenium.WebDriver;
 public class PartnerGenderPage extends Page {
 
 	private String partnerGenderPageTitle = "What is your spouse's or civil partner's legally recognised gender? - Claim your NHS Pension - NHSBSA";
-	private By femaleRadioButtonLocator = By.xpath("//*[@id='gender_group']/fieldset/div[1]/label");
-	private By maleRadioButtonLocator = By.xpath("//*[@id='gender_group']/fieldset/div[2]/label");
+	private By femaleRadioButtonLocator = By.xpath("//*[@id='gender_group']/div[1]/label");
+	private By maleRadioButtonLocator = By.xpath("//*[@id='gender_group']/div[2]/label");
 	private By nextButtonLocator = By.id("submit_button");
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");
 	private By errorsBelowErrorMessageLocator = By.id("error-summary-heading1");
