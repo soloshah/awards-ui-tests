@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
 import com.nhsbsa.finance.pageobjects.YourAddressPage;
+import com.nhsbsa.finance.pageobjects.DateOfBirthPage;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.properties.PropertyReader;
@@ -51,6 +52,12 @@ public class YourAddressStepDefs {
 		yourAddressPage.submitValidAddressDetails(streetLineOne,streetLineTwo,town,postCode,country);
 	}
 
+	@Then("^your address page will be displayed$")
+	public void yourAddressPageWillBeDisplayed() {
+		yourAddressPage = new YourAddressPage(driver);
+		assertThat(yourAddressPage.getHeading()).contains("What is your address?");
+	}
+	
 	@Then("^the address details submission will be unsuccessful$")
 	public void theAddressDetailsSubmissionWillBeUnsuccessful() {
 		yourAddressPage = new YourAddressPage(driver);
