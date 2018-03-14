@@ -8,7 +8,6 @@ When I go to allocation DOB page
 Scenario: Valid allocation date of Birth
 And I enter valid allocation DOB details
 #Then the date of birth submission will be successful
-#And the gender page will be displayed
 Then the tbi page will be displayed
 
 
