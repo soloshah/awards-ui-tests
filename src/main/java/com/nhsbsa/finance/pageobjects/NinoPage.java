@@ -83,12 +83,5 @@ public class NinoPage extends Page {
 	 	  nextStep();
 	    return new NinoPage(driver);
 	  }
-  
-	  
-	  public SessionsExpiredPage submitValidNinoDetailsInExpiredSession(String nino) {
-		  enterNino(nino);
-		  nextStep();
-		    return new SessionsExpiredPage(driver);
-		  }
-	  
+  	  
 }

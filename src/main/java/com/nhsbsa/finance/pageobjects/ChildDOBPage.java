@@ -96,12 +96,5 @@ public class ChildDOBPage extends Page {
 		return new ChildDOBPage(driver);
 	}
 
-	public SessionsExpiredPage submitValidChildDOBDetailsInExpiredSession(String day, String month, String year) {
-		enterDay(day);
-		enterMonth(month);
-		enterYear(year);
-		nextStep();
-		return new SessionsExpiredPage(driver);
-	}
 
 }

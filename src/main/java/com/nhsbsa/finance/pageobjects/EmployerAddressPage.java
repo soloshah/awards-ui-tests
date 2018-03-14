@@ -168,11 +168,5 @@ public class EmployerAddressPage extends Page {
 		return new EmployerAddressPage(driver);
 	}
 
-	public SessionsExpiredPage submitValidBankdetailsInExpiredSession(String streetLineOne, String streetLineTwo,
-			String town, String postCode) {
-		enterEmployerAddressDetails(streetLineOne, streetLineTwo, town, postCode);
-		nextStep();
-		return new SessionsExpiredPage(driver);
-	}
 
 }

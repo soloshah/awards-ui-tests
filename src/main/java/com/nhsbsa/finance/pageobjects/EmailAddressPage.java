@@ -93,12 +93,5 @@ public class EmailAddressPage extends Page {
 		return getElementValue();
 	}
 
-	public SessionsExpiredPage submitValidJobtitleDetailsInExpiredSession(String email) {
-		enterEmail(email);
 
-		nextStep();
-		return new SessionsExpiredPage(driver);
-	}
-
-	
 }

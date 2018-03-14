@@ -81,10 +81,5 @@ public class NameOfYourLastEmployerPage extends Page {
 	}
 	
 	
-	public SessionsExpiredPage submitValidJobtitleDetailsInExpiredSession(String employerName) {
-		enterEmployerName(employerName);
-		nextStep();
-		return new SessionsExpiredPage(driver);
-	}
 
 }

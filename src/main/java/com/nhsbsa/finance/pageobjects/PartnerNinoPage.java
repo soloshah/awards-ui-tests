@@ -80,10 +80,4 @@ public class PartnerNinoPage extends Page {
 		return new PartnerNinoPage(driver);
 	}
 
-	public SessionsExpiredPage submitValidNinoDetailsInExpiredSession(String nino) {
-		enterPartnerNino(nino);
-		nextStep();
-		return new SessionsExpiredPage(driver);
-	}
-
 }

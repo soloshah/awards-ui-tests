@@ -83,21 +83,13 @@ public class DateOfBirthPage extends Page {
 		navigateToElementBy(dobFieldErrorMessageLocator);
 		return getElementText();
 	}
-
-	public GenderPage submitValidDOBDetails(String day, String month, String year) {
-		enterDay(day);
-		enterMonth(month);
-		enterYear(year);
-		nextStep();
-		return new GenderPage(driver);
-	}
 	
-	public TBIPage submitValidDateDetails(String day, String month, String year) {
+	public YourGenderPage submitValidDateDetails(String day, String month, String year) {
 		enterDay(day);
 		enterMonth(month);
 		enterYear(year);
 		nextStep();
-		return new TBIPage(driver);
+		return new YourGenderPage(driver);
 	}
 
 
@@ -106,12 +98,5 @@ public class DateOfBirthPage extends Page {
 		return new DateOfBirthPage(driver);
 	}
 
-	public SessionsExpiredPage submitValidDOBDetailsInExpiredSession(String day, String month, String year) {
-		enterDay(day);
-		enterMonth(month);
-		enterYear(year);
-		nextStep();
-		return new SessionsExpiredPage(driver);
-	}
 
 }

@@ -135,11 +135,4 @@ public class PartnerNamePage extends Page {
 		return new PartnerDateOfBirthPage(driver);
 	}
 
-	public SessionsExpiredPage submitValidPartnerNameDetailsInExpiredSession(String firstName, String lastName) {
-		enterfirstName(firstName);
-		enterlastName(lastName);
-		nextStep();
-		return new SessionsExpiredPage(driver);
-	}
-
 }

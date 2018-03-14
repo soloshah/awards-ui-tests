@@ -87,13 +87,5 @@ public class AllocationRelationshipPage extends Page {
 	}
 
 
-	public SessionsExpiredPage submitValidJobtitleDetailsInExpiredSession(String relationship) {
-		enterRelationship(relationship);
-
-		nextStep();
-		return new SessionsExpiredPage(driver);
-	}
-
-
 
 }

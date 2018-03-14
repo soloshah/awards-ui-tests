@@ -129,11 +129,4 @@ public class AllocationNamePage extends Page {
 		return new AllocationNamePage(driver);
 	}
 
-	public SessionsExpiredPage submitValidAllocationNameDetailsInExpiredSession(String firstName, String lastName) {
-		enterfirstName(firstName);
-		enterlastName(lastName);
-		nextStep();
-		return new SessionsExpiredPage(driver);
-	}
-
 }

@@ -91,10 +91,4 @@ public class JobTitlePage extends Page {
 		return getElementValue();
 	}
 
-	public SessionsExpiredPage submitValidJobtitleDetailsInExpiredSession(String jobTitle) {
-		enterjobTitle(jobTitle);
-		nextStep();
-		return new SessionsExpiredPage(driver);
-	}
-
 }

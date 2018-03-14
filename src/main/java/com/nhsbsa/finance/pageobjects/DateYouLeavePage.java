@@ -108,12 +108,5 @@ public class DateYouLeavePage extends Page {
 		return new DateYouLeavePage(driver);
 	}
 
-	public SessionsExpiredPage submitValidDateDetailsInExpiredSession(String day, String month, String year) {
-		enterDay(day);
-		enterMonth(month);
-		enterYear(year);
-		nextStep();
-		return new SessionsExpiredPage(driver);
-	}
 
 }

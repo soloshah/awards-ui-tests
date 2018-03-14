@@ -130,11 +130,4 @@ public class ChildNamePage extends Page {
 		return new ChildNamePage(driver);
 	}
 
-	public SessionsExpiredPage submitValidChildNameDetailsInExpiredSession(String firstName, String lastName) {
-		enterfirstName(firstName);
-		enterlastName(lastName);
-		nextStep();
-		return new SessionsExpiredPage(driver);
-	}
-
 }

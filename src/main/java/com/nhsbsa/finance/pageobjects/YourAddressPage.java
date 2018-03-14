@@ -200,10 +200,5 @@ public class YourAddressPage extends Page {
 		return new YourAddressPage(driver);
 	}
 
-	public SessionsExpiredPage submitValidBankdetailsInExpiredSession(String streetLineOne, String streetLineTwo, String town, String postCode, String country) {
-		enterAddressDetails(streetLineOne,streetLineTwo,town,postCode,country);
-		nextStep();
-		return new SessionsExpiredPage(driver);
-	}
 
 }

@@ -176,10 +176,5 @@ public class CurrentAccountPage extends Page {
 		return new CurrentAccountPage(driver);
 	}
 
-	public SessionsExpiredPage submitValidBankdetailsInExpiredSession(String accountNumber, String firstField, String secondField, String thirdField, String accountHolderName) {
-		enterBankDetails(accountNumber, firstField, secondField, thirdField, accountHolderName);
-		nextStep();
-		return new SessionsExpiredPage(driver);
-	}
 
 }

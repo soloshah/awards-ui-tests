@@ -100,12 +100,5 @@ public class PartnerDateOfBirthPage extends Page {
 		return new PartnerDateOfBirthPage(driver);
 	}
 
-	public SessionsExpiredPage submitValidPartnerDOBDetailsInExpiredSession(String day, String month, String year) {
-		enterPartnerDay(day);
-		enterPartnerMonth(month);
-		enterPartnerYear(year);
-		nextStep();
-		return new SessionsExpiredPage(driver);
-	}
 
 }

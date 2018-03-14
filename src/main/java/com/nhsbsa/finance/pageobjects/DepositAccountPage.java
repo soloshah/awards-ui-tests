@@ -208,10 +208,5 @@ public class DepositAccountPage extends Page {
 		return new DepositAccountPage(driver);
 	}
 
-	public SessionsExpiredPage submitValidBankdetailsInExpiredSession(String accountNumber, String rollNumber, String firstField, String secondField, String thirdField, String accountHolderName) {
-		enterBankDetails(accountNumber, rollNumber, firstField, secondField, thirdField, accountHolderName);
-		nextStep();
-		return new SessionsExpiredPage(driver);
-	}
 
 }

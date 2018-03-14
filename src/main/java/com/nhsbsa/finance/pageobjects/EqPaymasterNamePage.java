@@ -86,11 +86,6 @@ public class EqPaymasterNamePage extends Page {
 		return getElementValue();
 	}
 
-	public SessionsExpiredPage submitValidEqPaymasterNameDetailsInExpiredSession(String name) {
-		enterEqPaymasterName(name);
-		nextStep();
-		return new SessionsExpiredPage(driver);
-	}
 
 	
 }

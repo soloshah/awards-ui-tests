@@ -98,12 +98,5 @@ public class EarlyPaymentDate_2008Page extends Page {
 		return new EarlyPaymentDate_2008Page(driver);
 	}
 
-	public SessionsExpiredPage submitValidPaymentDate2008DetailsInExpiredSession(String day, String month, String year) {
-		enterDay(day);
-		enterMonth(month);
-		enterYear(year);
-		nextStep();
-		return new SessionsExpiredPage(driver);
-	}
 
 }

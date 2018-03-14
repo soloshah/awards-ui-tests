@@ -84,10 +84,5 @@ public class TelephoneNumberPage extends Page {
 		return new TelephoneNumberPage(driver);
 	}
 
-	public SessionsExpiredPage submitValidTelephoneDetailsInExpiredSession(String number) {
-		enterNumber(number);
-		nextStep();
-		return new SessionsExpiredPage(driver);
-	}
 
 }

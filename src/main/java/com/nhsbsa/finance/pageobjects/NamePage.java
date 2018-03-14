@@ -122,11 +122,5 @@ public class NamePage extends Page {
 		return new NamePage(driver);
 	}
 
-	public SessionsExpiredPage submitValidNameDetailsInExpiredSession(String firstName, String lastName) {
-		enterfirstName(firstName);
-		enterlastName(lastName);
-		nextStep();
-		return new SessionsExpiredPage(driver);
-	}
 
 }
