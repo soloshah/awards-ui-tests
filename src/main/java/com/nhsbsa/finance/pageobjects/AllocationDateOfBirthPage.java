@@ -83,14 +83,6 @@ public class AllocationDateOfBirthPage extends Page {
 		return getElementText();
 	}
 
-	public GenderPage submitValidAllocationDOBDetails(String day, String month, String year) {
-		enterAllocationDay(day);
-		enterAllocationMonth(month);
-		enterAllocationYear(year);
-		nextStep();
-		return new GenderPage(driver);
-	}
-
 	public TBIPage submitValidAllocationDateDetails(String day, String month, String year) {
 		enterAllocationDay(day);
 		enterAllocationMonth(month);
@@ -102,14 +94,6 @@ public class AllocationDateOfBirthPage extends Page {
 	public AllocationDateOfBirthPage submitInValidAllocationDOBDetails() {
 		nextStep();
 		return new AllocationDateOfBirthPage(driver);
-	}
-
-	public SessionsExpiredPage submitValidAllocationDOBDetailsInExpiredSession(String day, String month, String year) {
-		enterAllocationDay(day);
-		enterAllocationMonth(month);
-		enterAllocationYear(year);
-		nextStep();
-		return new SessionsExpiredPage(driver);
 	}
 
 }
