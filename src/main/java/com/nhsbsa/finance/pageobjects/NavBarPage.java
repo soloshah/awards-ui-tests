@@ -5,11 +5,12 @@ import org.openqa.selenium.WebDriver;
 
 public class NavBarPage extends Page {
 
-  private By logOutLink = By.id("logout-link");
+	private By serviceNameLocator = By.id("service-name-text");
 
-  public NavBarPage(WebDriver driver) {
-    super(driver);
-    waitForElementToBeVisibleBy(logOutLink);
-  }
+	public NavBarPage(WebDriver driver) {
+		super(driver);
+		
+		waitForElementToBeVisibleBy(serviceNameLocator);
+	  	}
 
 }

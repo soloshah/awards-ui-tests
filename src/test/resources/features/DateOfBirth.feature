@@ -5,6 +5,7 @@ Background:
 Given I am on the start page
 When I go to DOB page
 
+
 Scenario: Valid date of Birth
 And I enter valid DOB details
 #Then the date of birth submission will be successful

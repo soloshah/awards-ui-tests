@@ -5,11 +5,13 @@ Background:
 Given I am on the start page
 When I go to nino page
 
+
 Scenario: Valid NINO 
 #Given I am on the national insurance page
 And I enter valid national insurance number 
-Then the tbi page will be displayed
 #Then the national insurance number submission will be successful
+And the tbi page will be displayed
+
 #And Check your answers page is displayed
 
 Scenario Outline: NINO Field validations 

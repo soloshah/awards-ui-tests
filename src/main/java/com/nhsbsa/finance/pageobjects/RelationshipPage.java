@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class RelationshipPage extends Page {
 
-	private String relationshipPageTitle = "What is their relationship to you?"; //- Claim your NHS Pension";
+	private String relationshipPageTitle = "What is their relationship to you? - Claim your NHS Pension";
 	private By relationshipNameFieldLocator = By.id("relationship");
 	private By nextButtonLocator = By.id("submit_button");
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");
