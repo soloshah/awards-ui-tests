@@ -5,9 +5,9 @@ import org.openqa.selenium.WebDriver;
 
 public class CheckYourAnswerPage extends Page {
 
-  private String CheckYouAnswersPageTitle = "Check your answers - Claim your NHS Pension";
-  private By fullNameFieldLocator = By.id("full-name");
-    private By continueButtonLocator = By.id("submit");
+  private String CheckYouAnswersPageTitle = "Check your answers - Claim your NHS Pension - NHSBSA";
+  private By fullNameFieldLocator = By.id("name");
+  //  private By continueButtonLocator = By.id("submit");
  
   public CheckYourAnswerPage(WebDriver driver) {
     super(driver);

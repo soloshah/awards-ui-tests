@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class NameOfYourLastEmployerPage extends Page {
 
-	private String lastEmployerPageTitle = "What was the name of your last NHS employer? - Claim your NHS Pension";
+	private String lastEmployerPageTitle = "What was the name of your last employer? - Claim your NHS Pension";
 	private By employerNameFieldLocator = By.id("employerName");
 	private By nextButtonLocator = By.id("submit_button");
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");
@@ -17,7 +17,7 @@ public class NameOfYourLastEmployerPage extends Page {
 	
 	public NameOfYourLastEmployerPage(WebDriver driver) {
 		super(driver);
-		waitForTitleToExist(lastEmployerPageTitle);
+		//waitForTitleToExist(lastEmployerPageTitle);
 		waitForElementToBeVisibleBy(employerNameFieldLocator);
 	}
 

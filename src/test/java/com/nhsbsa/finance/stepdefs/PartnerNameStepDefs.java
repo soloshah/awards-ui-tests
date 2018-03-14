@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
+import com.nhsbsa.finance.pageobjects.ChildDOBPage;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.pageobjects.PartnerNamePage;
@@ -36,6 +37,7 @@ public class PartnerNameStepDefs {
 		assertThat(partnerNamePage.getHeading()).contains("What is your spouse's or civil partner's name?");
 	}
 
+	
 	@Then("^the partner name submission will be successful$")
 	public void thePartnerNameSubmissionWillBeSuccessful() {
 		new NavBarPage(driver);
@@ -43,10 +45,15 @@ public class PartnerNameStepDefs {
 
 	@When("^I enter valid partner name details$")
 	public void IenterValidPartnerNameDetails() {
-		SharedData.firstName = "Partner Test";
-		SharedData.lastName = "Partner User";
+		
+		 /* final String inputFirstName = RandomStringUtils.randomAlphabetic(10);
+		  SharedData.firstName = inputFirstName.toLowerCase().substring(0,1).toUpperCase() + inputFirstName.toLowerCase().substring(1); final
+		  String inputLastName = RandomStringUtils.randomAlphabetic(10);
+		  SharedData.lastName = inputLastName.toLowerCase().substring(0,1).toUpperCase() + inputLastName.toLowerCase().substring(1);*/
+		  SharedData.firstName = "Partner-Test";
+		  SharedData.lastName = "User";
 		partnerNamePage = new PartnerNamePage(driver);
-		partnerNamePage.submitValidPartnerName(SharedData.firstName, SharedData.lastName);
+		partnerNamePage.submitValidPartnerNameDetails(SharedData.firstName, SharedData.lastName);
 	}
 
 	@Then("^the partner name submission will be unsuccessful$")
@@ -106,9 +113,17 @@ public class PartnerNameStepDefs {
 	}
 
 	private void setPartnerNameDetails() {
-		firstName = "Partner Test";
-		lastName = "Partner User";
+		firstName = "Partner-Test";
+		lastName = "User";
 
+	}
+
+	@And("^I submit valid partner first and last name details$")
+	public void iSubmitValidPartnerFirstAndLastNameDetails() {
+		SharedData.firstName = "Partner-Test";
+		SharedData.lastName = "User";
+		partnerNamePage = new PartnerNamePage(driver);
+		partnerNamePage.submitValidPartnerNameDetails(SharedData.firstName, SharedData.lastName);
 	}
 
 }

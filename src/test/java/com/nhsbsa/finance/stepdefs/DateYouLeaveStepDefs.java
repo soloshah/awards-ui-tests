@@ -7,7 +7,6 @@ import java.time.LocalDate;
 import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
-import com.nhsbsa.finance.pageobjects.DateOfBirthPage;
 import com.nhsbsa.finance.pageobjects.DateYouLeavePage;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.Page;
@@ -26,15 +25,27 @@ public class DateYouLeaveStepDefs {
 	private String baseUrl = PropertyReader.getProperty("base.server");
 	private DateYouLeavePage dateYouLeavePage;
 
-/*	@Given("^I am on DOB page$")
-	public void iAmOnTheDOBPage() {
-		new Page(driver).navigateToUrl(baseUrl + "/dob");
+	@Given("^I am on date you leave page$")
+	public void iAmOnDateYouLeavePage() {
+
+		new Page(driver).navigateToUrl(baseUrl + "/employment-details/when-did-you-leave");
+		dateYouLeavePage = new DateYouLeavePage(driver);
+		assertThat(dateYouLeavePage.getHeading()).contains("What date did you leave?");
 	}
 
-	@Then("^the date of birth submission will be successful$")
-	public void theDateOfBirthSubmissionWillBeSuccessful() {
+	@When("^I go to date you leave page$")
+	public void iGoToDateYouLeavePage() {
+
+		new Page(driver).navigateToUrl(baseUrl + "/employment-details/when-did-you-leave");
+		dateYouLeavePage = new DateYouLeavePage(driver);
+		assertThat(dateYouLeavePage.getHeading().contains("What date did you leave?"));
+		assertThat(dateYouLeavePage.getExampleHint().matches("For example, 31 03 1980"));
+	}
+
+	@Then("^the the date you leave submission will be successful$")
+	public void theDateYouleaveSubmissionWillBeSuccessful() {
 		new NavBarPage(driver);
-	}*/
+	}
 
 	@Then("^the date you leave page will be displayed$")
 	public void theDateOfBirthPageWillBeDisplayed() {
@@ -42,80 +53,49 @@ public class DateYouLeaveStepDefs {
 		assertThat(dateYouLeavePage.getHeading()).matches("What date did you leave?");
 	}
 
-	/*@When("^I enter valid DOB details$")
-	public void IenterValidDOBDetails() {
+	@When("^I enter valid date details$")
+	public void IenterValidDateDetails() {
 		String randomDateString = SharedMethods.randomDateGenerator();
 		LocalDate localDate = LocalDate.parse(randomDateString);
 		SharedData.day = SharedMethods.formatDay(localDate);
 		SharedData.month = SharedMethods.formatMonth(localDate);
 		SharedData.year = SharedMethods.formatYear(localDate);
-		dateOfBirthPage = new DateOfBirthPage(driver);
-		dateOfBirthPage.submitValidDOBDetails(SharedData.day, SharedData.month, SharedData.year);
+		dateYouLeavePage = new DateYouLeavePage(driver);
+		dateYouLeavePage.submitValidDate(SharedData.day, SharedData.month, SharedData.year);
 	}
 
-	@Then("^the date of birth submission will be unsuccessful$")
-	public void theDateOfBirthSubmissionWillBeUnsuccessful() {
-		dateOfBirthPage = new DateOfBirthPage(driver);
-		assertThat(dateOfBirthPage.getErrorHeadingErrorMessage())
-				.matches("Some questions have not been answered correctly.");
-		assertThat(dateOfBirthPage.getErrorsBelowErrorMessage()).matches("Please see the errors below.");
+	@Then("^the date you leave submission will be unsuccessful$")
+	public void theDateYouLeaveSubmissionWillBeUnsuccessful() {
+		dateYouLeavePage = new DateYouLeavePage(driver);
+		assertThat(dateYouLeavePage.getErrorHeadingErrorMessage())
+				.matches("Some questions have not been answered correctly:");
+		assertThat(dateYouLeavePage.getErrorsBelowErrorMessage()).matches("Please see the errors below.");
 	}
 
-	@When("^I enter DOB details using the day '(.*)', month '(.*)' and year '(.*)$")
-	public void iEnterDOBDetailsUsingTheDayMonthAndYear(String day, String month, String year) {
+	@When("^I enter invalid date using the day '(.*)', month '(.*)' and year '(.*)$")
+	public void iEnterInvalidDateUsingTheDayMonthAndYear(String day, String month, String year) {
 
-		dateOfBirthPage = new DateOfBirthPage(driver);
-		dateOfBirthPage.enterDobDetails(SharedData.day, SharedData.month, SharedData.year);
-		dateOfBirthPage.submitInValidDOBDetails();
-
+		dateYouLeavePage = new DateYouLeavePage(driver);
+		dateYouLeavePage.enterDateDetails(day, month, year);
+		dateYouLeavePage.submitInValidDateDetails();
 	}
 
-	@And("^the date of birth error message '(.*)' will be displayed$")
-	public void theDateOfBirthErrorMessageWillBeDisplayed(String errorMessage) {
-		dateOfBirthPage = new DateOfBirthPage(driver);
-		assertThat(dateOfBirthPage.doesDobErrorMessageHaveAnchor()).isTrue();
-		assertThat(dateOfBirthPage.getDobAnchoredErrorMessage()).matches(errorMessage);
-		assertThat(dateOfBirthPage.getDobFieldErrorMessage()).matches(errorMessage);
+	@And("^the date you leave error message '(.*)' will be displayed$")
+	public void theDateYouLeaveErrorMessageWillBeDisplayed(String errorMessage) {
+		dateYouLeavePage = new DateYouLeavePage(driver);
+		assertThat(dateYouLeavePage.doesDateErrorMessageHaveAnchor()).isTrue();
+		assertThat(dateYouLeavePage.getDateAnchoredErrorMessage()).matches(errorMessage);
+		assertThat(dateYouLeavePage.getDateFieldErrorMessage()).matches(errorMessage);
 	}
 
-	@Then("^the past date of birth error message '(.*)' will be displayed$")
-	public void thePastDateOfBirthErrorMessageWillBeDisplayed(String errorMessage) {
-		dateOfBirthPage = new DateOfBirthPage(driver);
-		assertThat(dateOfBirthPage.doesDobErrorMessageHaveAnchor()).isTrue();
-		assertThat(dateOfBirthPage.getDobAnchoredErrorMessage()).matches(errorMessage);
-		assertThat(dateOfBirthPage.getDobPastFieldErrorMessage()).matches(errorMessage);
+	@And("^I enter the date greater than today's date$")
+	public void iEnterTheDateGreaterThanTodaysDate() {
+		LocalDate pastdate = LocalDate.now().plusDays(1);
+		SharedData.day = SharedMethods.formatDay(pastdate);
+		SharedData.month = SharedMethods.formatMonth(pastdate);
+		SharedData.year = SharedMethods.formatYear(pastdate);
+		dateYouLeavePage = new DateYouLeavePage(driver);
+		dateYouLeavePage.enterDateDetails(SharedData.day, SharedData.month, SharedData.year);
+		dateYouLeavePage.submitInValidDateDetails();
 	}
-
-	@Then("^the date of birth for 16 years error message '(.*)' will be displayed$")
-	public void theDateOfBirthFor16YearsErrorMessageWillBeDisplayed(String errorMessage) {
-		dateOfBirthPage = new DateOfBirthPage(driver);
-		assertThat(dateOfBirthPage.doesDobErrorMessageHaveAnchor()).isTrue();
-		assertThat(dateOfBirthPage.getDobAnchoredErrorMessage()).matches(errorMessage);
-		assertThat(dateOfBirthPage.getDobLaterFieldErrorMessage()).matches(errorMessage);
-	}
-
-	@When("^I enter DOB equal or greater than today's date$")
-	public void iEnterDOBEqualorGreaterThanTodaysDate() {
-
-		LocalDate date = LocalDate.now().plusDays(1);
-		SharedData.day = SharedMethods.formatDay(date);
-		SharedData.month = SharedMethods.formatMonth(date);
-		SharedData.year = SharedMethods.formatYear(date);
-
-		dateOfBirthPage = new DateOfBirthPage(driver);
-		dateOfBirthPage.enterDobDetails(SharedData.day, SharedData.month, SharedData.year);
-		dateOfBirthPage.submitInValidDOBDetails();
-
-	}
-
-	@When("^I enter DOB less than 16 years from today's date$")
-	public void iEnterDOBLessThan16YearsFromTodaysDate() {
-		LocalDate date = LocalDate.now().minusYears(16);
-		SharedData.day = SharedMethods.formatDay(date);
-		SharedData.month = SharedMethods.formatMonth(date);
-		SharedData.year = SharedMethods.formatYear(date);
-		dateOfBirthPage = new DateOfBirthPage(driver);
-		dateOfBirthPage.enterDobDetails(SharedData.day, SharedData.month, SharedData.year);
-		dateOfBirthPage.submitInValidDOBDetails();
-	}*/
 }

@@ -2,9 +2,11 @@ package com.nhsbsa.finance.stepdefs;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
+import com.nhsbsa.finance.pageobjects.ChildDOBPage;
 import com.nhsbsa.finance.pageobjects.ChildNamePage;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.Page;
@@ -33,6 +35,12 @@ public class ChildNameStepDefs {
 	public void iGoToTheChildNamePage() {
 		new Page(driver).navigateToUrl(baseUrl + "/partner-and-child/what-is-your-child-name");
 		childNamePage = new ChildNamePage(driver);
+		 assertThat(childNamePage.getHeading()).contains("What is your child's name?");
+	}
+
+	@Then("^the child name page will be displayed$")
+	public void theChildNamePageWillBeDisplayed() {
+		childNamePage = new ChildNamePage(driver);
 		assertThat(childNamePage.getHeading()).contains("What is your child's name?");
 	}
 
@@ -44,10 +52,11 @@ public class ChildNameStepDefs {
 	@When("^I enter valid child name details$")
 	public void IenterValidChildNameDetails() {
 
-		SharedData.firstName = "Child Test";
-		SharedData.lastName = "User";
+		SharedData.firstName = RandomStringUtils.randomAlphabetic(10);
+		SharedData.lastName = RandomStringUtils.randomAlphabetic(10);
+
 		childNamePage = new ChildNamePage(driver);
-		childNamePage.submitValidChildName(SharedData.firstName, SharedData.lastName);
+		childNamePage.submitValidChildNameDetails(SharedData.firstName, SharedData.lastName);
 	}
 
 	@Then("^the child name submission will be unsuccessful$")
@@ -106,9 +115,19 @@ public class ChildNameStepDefs {
 		assertThat(childNamePage.readChildLastNameField()).matches("InvalidIn@validInvalidIn");
 	}
 
+	@When("^I enter valid child first and last name details$")
+	public void IenterValidChildFirstAndLastNameDetails() {
+
+		SharedData.firstName = RandomStringUtils.randomAlphabetic(10);
+		SharedData.lastName = RandomStringUtils.randomAlphabetic(10);
+		SharedData.fullName.add(SharedData.firstName + " " + SharedData.lastName);
+		childNamePage = new ChildNamePage(driver);
+		childNamePage.submitValidChildName(SharedData.firstName, SharedData.lastName);
+	}
+
 	private void setChildNameDetails() {
-		firstName = "Child Test";
-		lastName = "Child User";
+		firstName = RandomStringUtils.randomAlphabetic(10);
+		lastName = RandomStringUtils.randomAlphabetic(10);
 
 	}
 
