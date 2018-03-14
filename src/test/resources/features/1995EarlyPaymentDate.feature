@@ -1,4 +1,4 @@
-@1995EarlyPaymentDate @BP490-135 @WIP
+@1995EarlyPaymentDate @BP490-135
 Feature: 1995 Early payment date for deferred benefit
 
 Background:
