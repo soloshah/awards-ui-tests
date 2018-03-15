@@ -1,9 +1,10 @@
-@2008EarlyPaymentDate @BP490-136
-Feature: Early payment date for deferred benefit after 2008
+@2015EarlyPaymentDate @BP490-137
+Feature: Early payment date for deferred benefit after 2015
 
 Background:
 Given I am on the start page
-When I go to the 2008 early payment date page
+When I go to the 2015 early payment date page
+
 
 Scenario: Valid early payment date
 And I enter valid early payment date details
@@ -30,15 +31,15 @@ Examples:
    
            
 
-Scenario Outline: Date between 01/04/2008 and current date plus 6 months
+Scenario Outline: Date between 01/04/2015 and current date plus 6 months
 And I enter early payment date details using the day '<day>', month '<month>' and year '<year>'
 Then the early payment date submission will be unsuccessful
-And I verify 2008 early payment date error message with date before 6 months from now
+And I verify 2015 early payment date error message with date before 6 months from now
 Examples:
            |day | month  |year| 
            | 01 |  01    |1889| 
            | 31 |  03    |2000|
            | 29 |  02    |2000|
-           | 20 |  03    |2008|
+           | 30 |  03    |2015|
            | 31 |  12    |2019|
           
