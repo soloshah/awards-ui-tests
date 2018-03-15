@@ -69,10 +69,10 @@ public class EqPaymasterNamePage extends Page {
 	}
 
 	
-	public TBIPage submitValidEqPaymasterName(String name) {
+	public EqPaymasterReferencePage submitValidEqPaymasterName(String name) {
 		enterEqPaymasterName(name);
 		nextStep();
-		return new TBIPage(driver);
+		return new EqPaymasterReferencePage(driver);
 	}
 
 	public EqPaymasterNamePage submitInValidEqPaymasterNameDetails() {

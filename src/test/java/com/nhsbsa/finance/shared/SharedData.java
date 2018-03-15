@@ -15,5 +15,6 @@ public class SharedData {
   public static String nino;
   public static String contactNumber;
   public static String employerName;
+  public static String eqPaymasterName;
   public static List<String> fullName = new ArrayList<>();
 }

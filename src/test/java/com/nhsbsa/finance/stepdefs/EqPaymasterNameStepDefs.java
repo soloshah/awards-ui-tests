@@ -9,6 +9,7 @@ import com.nhsbsa.finance.pageobjects.EqPaymasterNamePage;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.properties.PropertyReader;
+import com.nhsbsa.finance.shared.SharedData;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -46,9 +47,9 @@ public class EqPaymasterNameStepDefs {
 
 	@When("^I enter valid eq paymaster name details$")
 	public void IenterValidEqPaymasterNameDetails() {
-		String name = "NHS-England";
+		SharedData.eqPaymasterName = "NHS-England";
 		eqPaymasterNamePage = new EqPaymasterNamePage(driver);
-		eqPaymasterNamePage.submitValidEqPaymasterName(name);
+		eqPaymasterNamePage.submitValidEqPaymasterName(SharedData.eqPaymasterName);
 	}
 
 	@Then("^the eq paymaster name submission will be unsuccessful$")
