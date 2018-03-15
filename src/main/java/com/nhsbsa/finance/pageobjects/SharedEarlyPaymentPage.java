@@ -3,22 +3,22 @@ package com.nhsbsa.finance.pageobjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class EarlyPaymentDate_2008Page extends Page {
+public class SharedEarlyPaymentPage extends Page {
 
-	private String paymentDate2008PageTitle = "When should the early payment of deferred benefit start? - Claim your NHS Pension - NHSBSA";
+	private String paymentDatePageTitle = "When should the early payment of deferred benefit start? - Claim your NHS Pension - NHSBSA";
 	private By dayFieldLocator = By.id("paymentDate-day");
 	private By monthFieldLocator = By.id("paymentDate-month");
 	private By yearFieldLocator = By.id("paymentDate-year");
 	private By nextButtonLocator = By.id("submit_button");
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");
 	private By errorsBelowErrorMessageLocator = By.id("error-summary-heading1");
-	private By paymentDate2008FieldErrorMessageLocator = By.id("paymentDate-error-message");
-	private By paymentDate2008AnchoredErrorMessageLocator = By.id("error-list0");
-	private By paymentDate2008AnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#paymentDate']");
+	private By paymentDateFieldErrorMessageLocator = By.id("paymentDate-error-message");
+	private By paymentDateAnchoredErrorMessageLocator = By.id("error-list0");
+	private By paymentDateAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#paymentDate']");
 		
-	public EarlyPaymentDate_2008Page(WebDriver driver) {
+	public SharedEarlyPaymentPage(WebDriver driver) {
 		super(driver);
-		waitForTitleToExist(paymentDate2008PageTitle);
+		waitForTitleToExist(paymentDatePageTitle);
 		waitForElementToBeVisibleBy(dayFieldLocator);
 	}
 
@@ -46,7 +46,7 @@ public class EarlyPaymentDate_2008Page extends Page {
 		click();
 	}
 
-	public void enterPaymentDate2008Details(String day, String month, String year) {
+	public void enterPaymentDateDetails(String day, String month, String year) {
 		
 		enterDay(day);
 		enterMonth(month);
@@ -65,26 +65,26 @@ public class EarlyPaymentDate_2008Page extends Page {
 		return getElementText();
 	}
 
-	public boolean doesPaymentDate2008ErrorMessageHaveAnchor() {
+	public boolean doesPaymentDateErrorMessageHaveAnchor() {
 		navigateToRootElement();
-		navigateToElementBy(paymentDate2008AnchoredErrorMessageLocator);
+		navigateToElementBy(paymentDateAnchoredErrorMessageLocator);
 		navigateToParentElement();
-		return getPresenceOfElement(paymentDate2008AnchoredErrorMessageAnchorLocator);
+		return getPresenceOfElement(paymentDateAnchoredErrorMessageAnchorLocator);
 	}
 
-	public String getPaymentDate2008AnchoredErrorMessage() {
+	public String getPaymentDateAnchoredErrorMessage() {
 		navigateToRootElement();
-		navigateToElementBy(paymentDate2008AnchoredErrorMessageLocator);
+		navigateToElementBy(paymentDateAnchoredErrorMessageLocator);
 		return getElementText();
 	}
 
-	public String getPaymentDate2008FieldErrorMessage() {
+	public String getPaymentDateFieldErrorMessage() {
 		navigateToRootElement();
-		navigateToElementBy(paymentDate2008FieldErrorMessageLocator);
+		navigateToElementBy(paymentDateFieldErrorMessageLocator);
 		return getElementText();
 	}
 
-		public TBIPage submitValidPaymentDate2008Details(String day, String month, String year) {
+		public TBIPage submitValidPaymentDateDetails(String day, String month, String year) {
 		enterDay(day);
 		enterMonth(month);
 		enterYear(year);
@@ -93,9 +93,9 @@ public class EarlyPaymentDate_2008Page extends Page {
 	}
 
 
-	public EarlyPaymentDate_2008Page submitInValidPaymentDate2008Details() {
+	public SharedEarlyPaymentPage submitInValidPaymentDateDetails() {
 		nextStep();
-		return new EarlyPaymentDate_2008Page(driver);
+		return new SharedEarlyPaymentPage(driver);
 	}
 
 
