@@ -8,18 +8,18 @@ When I go to do you want to allocate page
 
 
 Scenario: Do you want to allocate
-When I select yes on do you want to allocate page
+When I select Yes
 Then the allocation name page will be displayed
 
 
 Scenario: Do you want to allocate
-When I select no on do you want to allocate page
+When I select No
 Then the tbi page will be displayed
 
 @Bug @BP490-274
 Scenario: Do you want to allocate
-When I dont select anything on do you want to allocate page
-Then do you want to allocate page error message 'Select 'yes' if you want to allocate part of your pension' will be displayed 
+When I dont select anything
+Then the radio button not selected error message 'Select 'yes' if you want to allocate part of your pension' will be displayed 
 
 Scenario: Default value for allocate your pension
 Then the default value for allocate your pension will be blank

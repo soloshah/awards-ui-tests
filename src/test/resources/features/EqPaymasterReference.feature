@@ -8,7 +8,6 @@ And I enter valid eq paymaster name details
 When I go to eq paymaster reference page
 Then the dynamic eq paymaster name will be displayed on eq paymaster reference page
 
-
 Scenario: Valid paymaster reference number 
 And I enter valid eq paymaster reference number
 Then the tbi page will be displayed
