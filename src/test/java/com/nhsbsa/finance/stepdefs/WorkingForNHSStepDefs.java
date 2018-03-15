@@ -5,15 +5,13 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
-import com.nhsbsa.finance.pageobjects.ChildNamePage;
 import com.nhsbsa.finance.pageobjects.Page;
+import com.nhsbsa.finance.pageobjects.SharedYesNoPage;
 import com.nhsbsa.finance.pageobjects.WorkingForNHSPage;
 import com.nhsbsa.finance.properties.PropertyReader;
 
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 
 public class WorkingForNHSStepDefs {
 
@@ -21,6 +19,8 @@ public class WorkingForNHSStepDefs {
 	private String baseUrl = PropertyReader.getProperty("base.server");
 
 	private WorkingForNHSPage workingForNHSPage;
+
+	SharedYesNoPage sharedYesNoPage;
 
 	@Given("^I am on working for NHS page$")
 	public void iAmOnWorkingForNHSPage() {
@@ -38,37 +38,11 @@ public class WorkingForNHSStepDefs {
 	public void theDefaultValueForWorkingForNHSWillBeBlank() {
 		assertThat(workingForNHSPage.isWorkingForNHSRadioButtonSelected()).isFalse();
 	}
-	
+
 	@Then("^are you working for NHS page will be displayed$")
 	public void areYouWorkingForNHSPageWillBeDisplayed() {
 		workingForNHSPage = new WorkingForNHSPage(driver);
 		assertThat(workingForNHSPage.getHeading()).contains("Are you working for the NHS?");
 	}
 
-	@And("^the are you working for NHS Page error message '(.*)' will be displayed$")
-	public void theAreYouWorkingForNhsPageErrorMessageWillBeDisplayed(String errorMessage) {
-		workingForNHSPage = new WorkingForNHSPage(driver);
-		assertThat(workingForNHSPage.getNhsFieldErrorMessage()).matches(errorMessage);
-		assertThat(workingForNHSPage.doesNhsErrorMessageHaveAnchor()).isTrue();
-		assertThat(workingForNHSPage.getNhsAnchoredErrorMessage()).matches(errorMessage);
-
-	}
-
-	@When("^I select Yes$")
-	public void iSelectYes() {
-		workingForNHSPage = new WorkingForNHSPage(driver);
-		workingForNHSPage.submitValidYesNhsDetails();
-	}
-
-	@When("^I select No$")
-	public void iSelectNo() {
-		workingForNHSPage = new WorkingForNHSPage(driver);
-		workingForNHSPage.submitValidNoNhsDetails();
-	}
-
-	@When("^I dont select anything$")
-	public void iDontSelectAnything() {
-		workingForNHSPage = new WorkingForNHSPage(driver);
-		workingForNHSPage.workingForNHSIsNotSelected();
-	}
 }

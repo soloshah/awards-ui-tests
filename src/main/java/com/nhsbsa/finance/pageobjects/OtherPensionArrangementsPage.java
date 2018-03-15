@@ -3,21 +3,19 @@ package com.nhsbsa.finance.pageobjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class OtherEqPensionsPage extends Page {
+public class OtherPensionArrangementsPage extends Page {
 
-	private String otherEqPensionsTitle = "Do you have any other pensions paid by Equiniti Paymaster? - Claim your NHS Pension - NHSBSA";
+	private String otherPensionArrangementsTitle = "Do you have any other pension arrangements? - Claim your NHS Pension - NHSBSA";
 	private By yesRadioButtonLocator = By.xpath("//*[@id='yesNo_group']/div/div[1]/label");
 	private By noRadioButtonLocator = By.xpath("//*[@id='yesNo_group']/div/div[2]/label");
 
-
-	public OtherEqPensionsPage(WebDriver driver) {
+	public OtherPensionArrangementsPage(WebDriver driver) {
 		super(driver);
-		waitForTitleToExist(otherEqPensionsTitle);
+		waitForTitleToExist(otherPensionArrangementsTitle);
 		waitForElementToBeVisibleBy(yesRadioButtonLocator);
 	}
 
-
-	public boolean isOtherEqPensionsRadioButtonSelected() {
+	public boolean isAnyRadioButtonSelected() {
 		boolean selected = true;
 
 		if (!isElementSelected(yesRadioButtonLocator) && !isElementSelected(noRadioButtonLocator))

@@ -9,7 +9,6 @@ import com.nhsbsa.finance.pageobjects.AllocatePensionPage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.properties.PropertyReader;
 
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -36,33 +35,6 @@ public class AllocatePensionStepDefs {
 	@Then("^the default value for allocate your pension will be blank$")
 	public void theDefaultValueForAllocateYourPensionWillBeBlank() {
 		assertThat(allocatePensionPage.isAllocatePensionRadioButtonSelected()).isFalse();
-	}
-
-	@And("^do you want to allocate page error message '(.*)' will be displayed$")
-	public void doYouWantToAllocatePageErrorMessageWillBeDisplayed(String errorMessage) {
-		allocatePensionPage = new AllocatePensionPage(driver);
-		assertThat(allocatePensionPage.getAllocatePensionFieldErrorMessage()).matches(errorMessage);
-		assertThat(allocatePensionPage.doesAllocatePensionErrorMessageHaveAnchor()).isTrue();
-		assertThat(allocatePensionPage.getAllocatePensionAnchoredErrorMessage()).matches(errorMessage);
-
-	}
-
-	@When("^I select yes on do you want to allocate page$")
-	public void iSelectYesOnDoYouWantToAllocatePage() {
-		allocatePensionPage = new AllocatePensionPage(driver);
-		allocatePensionPage.selectYesButton();
-	}
-
-	@When("^I select no on do you want to allocate page$")
-	public void iSelectNoOnDoYouWantToAllocatePage() {
-		allocatePensionPage = new AllocatePensionPage(driver);
-		allocatePensionPage.selectNoButton();
-	}
-
-	@When("^I dont select anything on do you want to allocate page$")
-	public void iDontSelectAnythingOnDoYouWantToAllocatePage() {
-		allocatePensionPage = new AllocatePensionPage(driver);
-		allocatePensionPage.allocatePensionIsNotSelected();
 	}
 
 	@When("^I click on the link what is allocation$")
