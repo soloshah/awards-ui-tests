@@ -159,12 +159,6 @@ public class CurrentAccountPage extends Page {
 	}
 
 
-	public CheckYourAnswerPage submitValidBankDetails(String accountNumber, String firstField, String secondField, String thirdField, String accountHolderName) {
-		enterBankDetails(accountNumber, firstField, secondField, thirdField, accountHolderName);
-		nextStep();
-		return new CheckYourAnswerPage(driver);
-	}
-
 	public TBIPage submitValidBankAccountDetails(String accountNumber, String firstField, String secondField, String thirdField, String accountHolderName) {
 		enterBankDetails(accountNumber, firstField, secondField, thirdField, accountHolderName);
 		nextStep();

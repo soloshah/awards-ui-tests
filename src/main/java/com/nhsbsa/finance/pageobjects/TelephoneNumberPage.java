@@ -68,12 +68,7 @@ public class TelephoneNumberPage extends Page {
 		return getElementText();
 	}
 
-	public CheckYourAnswerPage submitValidTelephoneDetails(String number) {
-		enterNumber(number);
-		nextStep();
-		return new CheckYourAnswerPage(driver);
-	}
-
+	
 	public TBIPage submitValidTelephoneNumber(String number) {
 		enterTelephoneNumber(number);
 		return new TBIPage(driver);

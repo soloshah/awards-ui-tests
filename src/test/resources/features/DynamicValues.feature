@@ -33,42 +33,42 @@ And the partner nino error message 'Spouse or Civil Partner National Insurance n
 Scenario: Enter 6 dependant children
 Given I am on the start page
 When I go to dependant children page
-And I will select Yes
+And I select Yes
 Then I go to the child name page
 And I enter valid child first and last name details
 Then the dynamic child date of birth page will be displayed
 And I enter valid child date of birth details
 And I am on other dependant children page
 And the dynamic value of child first and last name will be displayed
-And I select Yes button
+And I select Yes
 Then I go to the child name page
 And I enter valid child first and last name details
 Then the dynamic child date of birth page will be displayed
 And I enter valid child date of birth details
 And I am on other dependant children page
 And the dynamic value of child first and last name will be displayed
-And I select Yes button
+And I select Yes
 Then I go to the child name page
 And I enter valid child first and last name details
 Then the dynamic child date of birth page will be displayed
 And I enter valid child date of birth details
 And I am on other dependant children page
 And the dynamic value of child first and last name will be displayed
-And I select Yes button
+And I select Yes
 Then I go to the child name page
 And I enter valid child first and last name details
 Then the dynamic child date of birth page will be displayed
 And I enter valid child date of birth details
 And I am on other dependant children page
 And the dynamic value of child first and last name will be displayed
-And I select Yes button
+And I select Yes
 Then I go to the child name page
 And I enter valid child first and last name details
 Then the dynamic child date of birth page will be displayed
 And I enter valid child date of birth details
 And I am on other dependant children page
 And the dynamic value of child first and last name will be displayed
-And I select Yes button
+And I select Yes
 Then I go to the child name page
 And I enter valid child first and last name details
 Then the dynamic child date of birth page will be displayed

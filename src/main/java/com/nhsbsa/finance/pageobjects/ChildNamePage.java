@@ -124,6 +124,12 @@ public class ChildNamePage extends Page {
 		return new DynamicDateOfBirthPage(driver);
 	}
 	
+	public void submitValidChildNames(String firstName, String lastName) {
+		enterfirstName(firstName);
+		enterlastName(lastName);
+		nextStep();
+	
+	}
 	
 	public ChildNamePage submitInValidChildNameDetails() {
 		nextStep();

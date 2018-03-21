@@ -2,13 +2,15 @@ package com.nhsbsa.finance.stepdefs;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
-import com.nhsbsa.finance.pageobjects.DateOfBirthPage;
+import com.nhsbsa.finance.pageobjects.NamePage;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.NinoPage;
 import com.nhsbsa.finance.pageobjects.Page;
+import com.nhsbsa.finance.pageobjects.YourAddressPage;
 import com.nhsbsa.finance.properties.PropertyReader;
 import com.nhsbsa.finance.shared.SharedData;
 
@@ -49,6 +51,25 @@ public class NinoStepdefs {
 		assertThat(ninoPage.getHeading()).contains("What is your National Insurance number?");
 	}
   
+	@When("^I click next on national insurance page$")
+	public void iClickNextOnNationalInsurancePage() {
+		ninoPage = new NinoPage(driver);
+		ninoPage.nextStep();
+	}
+
+	@Then("^the nino details are sustained$")
+	public void theNinoDetailsAreSustained() {
+		ninoPage = new NinoPage(driver);
+		assertThat(ninoPage.getNino()).matches(SharedData.nino);
+		}
+	
+	@When("^I enter nino details using different valid details$")
+	public void iEnterNinoDetailsUsingDifferentDetails() {
+		SharedData.nino = "AA123489B";
+		ninoPage = new NinoPage(driver);
+		ninoPage.submitValidNinoDetails(SharedData.nino);
+	}
+	
   @Then("^the national insurance number submission will be unsuccessful$")
   public void theNationalInsuranceNumberSubmissionWillBeUnsuccessful() {
 	  ninoPage = new NinoPage(driver);

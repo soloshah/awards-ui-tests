@@ -34,18 +34,44 @@ public class NameStepDefs {
 		startPage.startNow();
 	}
 
+	@When("^I go to the name page$")
+	public void iGoToTheNamePage() {
+		namePage = new NamePage(driver);
+		new Page(driver).navigateToUrl(baseUrl + "/personal-details/what-is-your-name");
+	}
+
+	@Then("^the name page will be displayed$")
+	public void theChildNamePageWillBeDisplayed() {
+		namePage = new NamePage(driver);
+		assertThat(namePage.getHeading()).contains("What is your name?");
+	}
+
+	@Then("^the name details are sustained$")
+	public void theNameDetailsAreSustained() {
+		namePage = new NamePage(driver);
+		assertThat(namePage.getFirstNameDetails()).matches(SharedData.firstName);
+		assertThat(namePage.getLastNameDetails()).matches(SharedData.lastName);
+	}
+
+	@When("^I enter name details using different valid details$")
+	public void iEnterNameDetailsUsingDifferentDetails() {
+		IenterValidNameDetails();
+	}
+
 	@Then("^the name submission will be successful$")
 	public void theNameSubmissionWillBeSuccessful() {
 		new NavBarPage(driver);
-		}
+	}
 
 	@When("^I enter valid name details$")
 	public void IenterValidNameDetails() {
 		final String inputFirstName = RandomStringUtils.randomAlphabetic(10);
-		SharedData.firstName = inputFirstName.toLowerCase().substring(0, 1).toUpperCase() + inputFirstName.toLowerCase().substring(1);
+		SharedData.firstName = inputFirstName.toLowerCase().substring(0, 1).toUpperCase()
+				+ inputFirstName.toLowerCase().substring(1);
 		final String inputLastName = RandomStringUtils.randomAlphabetic(10);
-		SharedData.lastName = inputLastName.toLowerCase().substring(0, 1).toUpperCase() + inputLastName.toLowerCase().substring(1);
-		
+		SharedData.lastName = inputLastName.toLowerCase().substring(0, 1).toUpperCase()
+				+ inputLastName.toLowerCase().substring(1);
+
 		namePage = new NamePage(driver);
 		namePage.submitValidNameDetails(SharedData.firstName, SharedData.lastName);
 	}

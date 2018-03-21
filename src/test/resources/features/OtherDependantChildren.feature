@@ -8,18 +8,17 @@ When I go to other dependant children page
 
 @Bug @BP490-296
 Scenario: Do you have any other dependant children
-When I select Yes button
+When I select Yes
 Then the child name page will be displayed
 
-
 Scenario: Do you have any other dependant children
-When I select No button
+When I select No
 Then the tbi page will be displayed
 
 
 Scenario: Do you have any other dependant children
 When I dont click anything
-Then the other dependant children page error message 'Select 'yes' if you have any dependant children' will be displayed 
+Then the radio button not selected error message 'Select 'yes' if you have any dependant children' will be displayed 
 
 
 Scenario: Default value for any other dependant children page

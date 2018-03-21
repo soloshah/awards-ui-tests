@@ -9,7 +9,6 @@ import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.pageobjects.PartnerNinoPage;
 import com.nhsbsa.finance.properties.PropertyReader;
-import com.nhsbsa.finance.shared.SharedData;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;

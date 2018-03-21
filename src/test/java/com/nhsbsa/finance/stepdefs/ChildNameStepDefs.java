@@ -6,7 +6,6 @@ import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
-import com.nhsbsa.finance.pageobjects.ChildDOBPage;
 import com.nhsbsa.finance.pageobjects.ChildNamePage;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.Page;
@@ -118,11 +117,15 @@ public class ChildNameStepDefs {
 	@When("^I enter valid child first and last name details$")
 	public void IenterValidChildFirstAndLastNameDetails() {
 
-		SharedData.firstName = RandomStringUtils.randomAlphabetic(10);
-		SharedData.lastName = RandomStringUtils.randomAlphabetic(10);
+		/*SharedData.firstName = RandomStringUtils.randomAlphabetic(10);
+		SharedData.lastName = RandomStringUtils.randomAlphabetic(10);*/
+		final String inputFirstName = RandomStringUtils.randomAlphabetic(10);
+		SharedData.firstName = inputFirstName.toLowerCase().substring(0, 1).toUpperCase() + inputFirstName.toLowerCase().substring(1);
+		final String inputLastName = RandomStringUtils.randomAlphabetic(10);
+		SharedData.lastName = inputLastName.toLowerCase().substring(0, 1).toUpperCase() + inputLastName.toLowerCase().substring(1);
 		SharedData.fullName.add(SharedData.firstName + " " + SharedData.lastName);
 		childNamePage = new ChildNamePage(driver);
-		childNamePage.submitValidChildName(SharedData.firstName, SharedData.lastName);
+		childNamePage.submitValidChildNameDetails(SharedData.firstName, SharedData.lastName);
 	}
 
 	private void setChildNameDetails() {

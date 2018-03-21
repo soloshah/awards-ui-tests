@@ -4,8 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class YourGenderPage extends Page {
-	
-    private String yourGenderPageTitle = "What is your legally recognised gender? - Claim your NHS Pension - NHSBSA";
+
+	private String yourGenderPageTitle = "What is your legally recognised gender? - Claim your NHS Pension - NHSBSA";
 	private By femaleRadioButtonLocator = By.xpath("//*[@id='gender_group']/div[1]/label");
 	private By maleRadioButtonLocator = By.xpath("//*[@id='gender_group']/div[2]/label");
 	private By nextButtonLocator = By.id("submit_button");
@@ -16,11 +16,13 @@ public class YourGenderPage extends Page {
 	private By GenderFieldErrorMessageLocator = By.id("'error-message-'+${fieldName}");
 	private By genderIdentifyLinkLocator = By.className("summary");
 	private By genderInformationLinkLocator = By.linkText("more guidance on legally recognised gender available");
+	private By selectedFemaleRadioButtonLocator = By.xpath("//input[@checked='checked']");
+	private By selectedMaleRadioButtonLocator = By.xpath("//input[@checked='checked']");
 
 	public YourGenderPage(WebDriver driver) {
 		super(driver);
 		waitForTitleToExist(yourGenderPageTitle);
-	 waitForElementToBeVisibleBy(femaleRadioButtonLocator);
+		waitForElementToBeVisibleBy(femaleRadioButtonLocator);
 	}
 
 	public void nextStep() {
@@ -28,8 +30,7 @@ public class YourGenderPage extends Page {
 		navigateToElementBy(nextButtonLocator);
 		click();
 	}
-	
-	
+
 	public boolean isGenderRadioButtonSelected() {
 		boolean selected = true;
 
@@ -37,7 +38,6 @@ public class YourGenderPage extends Page {
 			selected = false;
 		return selected;
 	}
-
 
 	public String getErrorHeadingErrorMessage() {
 		navigateToRootElement();
@@ -50,7 +50,6 @@ public class YourGenderPage extends Page {
 		navigateToElementBy(errorsBelowErrorMessageLocator);
 		return getElementText();
 	}
-
 
 	public String getGenderFieldErrorMessage() {
 		navigateToRootElement();
@@ -71,7 +70,6 @@ public class YourGenderPage extends Page {
 		return getElementText();
 	}
 
-	
 	public YourAddressPage selectGenderFemale() {
 		navigateToRootElement();
 		navigateToElementBy(femaleRadioButtonLocator);
@@ -87,7 +85,7 @@ public class YourGenderPage extends Page {
 		nextStep();
 		return new YourAddressPage(driver);
 	}
-	
+
 	public YourGenderPage genderIsNotSelected() {
 		nextStep();
 		return new YourGenderPage(driver);
@@ -116,4 +114,17 @@ public class YourGenderPage extends Page {
 
 	}
 
+	public String getGenderFemale() {
+		navigateToRootElement();
+		navigateToElementBy(selectedFemaleRadioButtonLocator);
+		navigateToParentElement();
+		return getElementText();
+	}
+
+	public String getGenderMale() {
+		navigateToRootElement();
+		navigateToElementBy(selectedMaleRadioButtonLocator);
+		navigateToParentElement();
+		return getElementText();
+	}
 }

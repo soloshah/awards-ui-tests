@@ -152,14 +152,6 @@ public class IntendToWorkForNHSPage extends Page {
 		return new IntendToWorkForNHSPage(driver);
 	}
 
-	public CheckYourAnswerPage submitValidNoNhsDetails() {
-		navigateToRootElement();
-		navigateToElementBy(noRadioButtonLocator);
-		click();
-		nextStep();
-		return new CheckYourAnswerPage(driver);
-	}
-
 	public TBIPage submitValidNoDetails() {
 		navigateToRootElement();
 		navigateToElementBy(noRadioButtonLocator);

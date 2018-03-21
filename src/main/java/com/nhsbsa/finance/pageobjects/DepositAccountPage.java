@@ -191,12 +191,6 @@ public class DepositAccountPage extends Page {
 	}
 
 
-	public CheckYourAnswerPage submitValidBankDetails(String accountNumber, String rollNumber, String firstField, String secondField, String thirdField, String accountHolderName) {
-		enterBankDetails(accountNumber, rollNumber, firstField, secondField, thirdField, accountHolderName);
-		nextStep();
-		return new CheckYourAnswerPage(driver);
-	}
-
 	public TBIPage submitValidBankAccountDetails(String accountNumber, String rollNumber, String firstField, String secondField, String thirdField, String accountHolderName) {
 		enterBankDetails(accountNumber, rollNumber, firstField, secondField, thirdField, accountHolderName);
 		nextStep();

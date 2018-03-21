@@ -34,7 +34,7 @@ public class YourAddressPage extends Page {
 		super(driver);
 		waitForTitleToExist(yourAddressPageTitle);
 		waitForElementToBeVisibleBy(streetLine1FieldLocator);
-		}
+	}
 
 	public void enterStreetLine1(String streetLineOne) {
 		navigateToRootElement();
@@ -53,36 +53,34 @@ public class YourAddressPage extends Page {
 		navigateToElementBy(townFieldLocator);
 		type(town);
 	}
-	
+
 	public void enterPostCode(String postCode) {
 		navigateToRootElement();
 		navigateToElementBy(postCodeFieldLocator);
 		type(postCode);
 	}
-	
+
 	public void enterCountry(String country) {
 		navigateToRootElement();
 		navigateToElementBy(countryFieldLocator);
 		type(country);
 	}
 
-		
-	private void nextStep() {
-	navigateToRootElement();
-	navigateToElementBy(nextButtonLocator);
-	click();
-   } 
-	
-		
-	public void enterAddressDetails(String streetLineOne, String streetLineTwo, String town, String postCode, String country) {
+	public void nextStep() {
+		navigateToRootElement();
+		navigateToElementBy(nextButtonLocator);
+		click();
+	}
+
+	public void enterAddressDetails(String streetLineOne, String streetLineTwo, String town, String postCode,
+			String country) {
 		enterStreetLine1(streetLineOne);
 		enterStreetLine2(streetLineTwo);
 		enterTown(town);
 		enterPostCode(postCode);
 		enterCountry(country);
-		}
-	
-		
+	}
+
 	public String getErrorHeadingErrorMessage() {
 		navigateToRootElement();
 		navigateToElementBy(errorHeadingErrorMessageLocator);
@@ -115,20 +113,21 @@ public class YourAddressPage extends Page {
 		navigateToParentElement();
 		return getPresenceOfElement(townAnchoredErrorMessageAnchorLocator);
 	}
-	
+
 	public boolean doesPostCodeErrorMessageHaveAnchor() {
 		navigateToRootElement();
 		navigateToElementBy(postCodeAnchoredErrorMessageLocator);
 		navigateToParentElement();
 		return getPresenceOfElement(postCodeAnchoredErrorMessageAnchorLocator);
 	}
-	
+
 	public boolean doesCountryErrorMessageHaveAnchor() {
 		navigateToRootElement();
 		navigateToElementBy(countryAnchoredErrorMessageLocator);
 		navigateToParentElement();
 		return getPresenceOfElement(countryAnchoredErrorMessageAnchorLocator);
 	}
+
 	public String getStreetLineOneAnchoredErrorMessage() {
 		navigateToRootElement();
 		navigateToElementBy(streetLine1AnchoredErrorMessageLocator);
@@ -152,12 +151,13 @@ public class YourAddressPage extends Page {
 		navigateToElementBy(postCodeAnchoredErrorMessageLocator);
 		return getElementText();
 	}
-	
+
 	public String getCountryAnchoredErrorMessage() {
 		navigateToRootElement();
 		navigateToElementBy(countryAnchoredErrorMessageLocator);
 		return getElementText();
 	}
+
 	public String getStreetLineOneFieldErrorMessage() {
 		navigateToRootElement();
 		navigateToElementBy(streetLine1FieldErrorMessageLocator);
@@ -187,18 +187,47 @@ public class YourAddressPage extends Page {
 		navigateToElementBy(countryFieldErrorMessageLocator);
 		return getElementText();
 	}
-	
-		public NinoPage submitValidAddressDetails(String streetLineOne, String streetLineTwo, String town, String postCode, String country) {
-		enterAddressDetails(streetLineOne,streetLineTwo,town,postCode,country);
+
+	public NinoPage submitValidAddressDetails(String streetLineOne, String streetLineTwo, String town, String postCode,
+			String country) {
+		enterAddressDetails(streetLineOne, streetLineTwo, town, postCode, country);
 		nextStep();
 		return new NinoPage(driver);
 	}
 
-		
+	public String getAddressLineOneDetails() {
+		navigateToRootElement();
+		navigateToElementBy(streetLine1FieldLocator);
+		return getElementValue();
+	}
+
+	public String getAddressLineTwoDetails() {
+		navigateToRootElement();
+		navigateToElementBy(streetLine2FieldLocator);
+		return getElementValue();
+	}
+
+	public String getAddressTownDetails() {
+		navigateToRootElement();
+		navigateToElementBy(townFieldLocator);
+		return getElementValue();
+	}
+
+	public String getAddressPostcodeDetails() {
+		navigateToRootElement();
+		navigateToElementBy(postCodeFieldLocator);
+		return getElementValue();
+	}
+
+	public String getAddressCountryDetails() {
+		navigateToRootElement();
+		navigateToElementBy(countryFieldLocator);
+		return getElementValue();
+	}
+
 	public YourAddressPage submitInValidAddressDetails() {
 		nextStep();
 		return new YourAddressPage(driver);
 	}
-
 
 }

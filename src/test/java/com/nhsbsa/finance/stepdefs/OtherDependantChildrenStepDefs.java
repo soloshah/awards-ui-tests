@@ -9,14 +9,13 @@ import org.openqa.selenium.WebDriver;
 import com.nhsbsa.finance.driver.Config;
 import com.nhsbsa.finance.pageobjects.OtherDependantChildrenPage;
 import com.nhsbsa.finance.pageobjects.Page;
-import com.nhsbsa.finance.pageobjects.PartnerDateOfBirthPage;
+import com.nhsbsa.finance.pageobjects.SharedYesNoPage;
 import com.nhsbsa.finance.properties.PropertyReader;
 import com.nhsbsa.finance.shared.SharedData;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 
 public class OtherDependantChildrenStepDefs {
 
@@ -24,6 +23,7 @@ public class OtherDependantChildrenStepDefs {
 	private String baseUrl = PropertyReader.getProperty("base.server");
 
 	private OtherDependantChildrenPage otherDependantChildrenPage;
+	SharedYesNoPage sharedYesNoPage;
 
 	@Given("^I am on other dependant children page$")
 	public void iAmOnOtherDependantChildrenPage() {
@@ -36,49 +36,16 @@ public class OtherDependantChildrenStepDefs {
 		otherDependantChildrenPage = new OtherDependantChildrenPage(driver);
 		assertThat(otherDependantChildrenPage.getHeading().contains("Do you have any other dependant children?"));
 	}
-	
+
 	@Then("^do you have any other depandant children page will be displayed$")
 	public void doYouHaveAnyOtherDependantPageWillBeDisplayed() {
 		otherDependantChildrenPage = new OtherDependantChildrenPage(driver);
 		assertThat(otherDependantChildrenPage.getHeading()).contains("Do you have any other dependant children?");
 	}
-	
+
 	@Then("^the default value for any other dependant children page will be blank$")
 	public void theDefaultValueForAnyOtherDependantChildrenPageWillBeBlank() {
 		assertThat(otherDependantChildrenPage.isOtherDependantChildrenRadioButtonSelected()).isFalse();
-	}
-
-	@Then("^ Do you have any other dependant children page will be displayed$")
-	public void doYouHaveAnyOtherDependantChildrenPageWillBeDisplayed() {
-		otherDependantChildrenPage = new OtherDependantChildrenPage(driver);
-		assertThat(otherDependantChildrenPage.getHeading()).matches("Do you have any other dependant children?");
-	}
-
-	@And("^the other dependant children page error message '(.*)' will be displayed$")
-	public void theDependantChildrenPageErrorMessageWillBeDisplayed(String errorMessage) {
-		otherDependantChildrenPage = new OtherDependantChildrenPage(driver);
-		assertThat(otherDependantChildrenPage.getOtherDependantChildrenFieldErrorMessage()).matches(errorMessage);
-		assertThat(otherDependantChildrenPage.doesOtherDependantChildrenErrorMessageHaveAnchor()).isTrue();
-		assertThat(otherDependantChildrenPage.getOtherDependantChildrenAnchoredErrorMessage()).matches(errorMessage);
-
-	}
-
-	@When("^I select Yes button$")
-	public void iSelectYesButton() {
-		otherDependantChildrenPage = new OtherDependantChildrenPage(driver);
-		otherDependantChildrenPage.selectValidYesDetails();
-	}
-
-	@When("^I select No button$")
-	public void iSelectNoButton() {
-		otherDependantChildrenPage = new OtherDependantChildrenPage(driver);
-		otherDependantChildrenPage.selectValidNoDetails();
-	}
-
-	@When("^I dont click anything$")
-	public void iDontClickAnything() {
-		otherDependantChildrenPage = new OtherDependantChildrenPage(driver);
-		otherDependantChildrenPage.otherDependantChildrenIsNotSelected();
 	}
 
 	@Then("^the dynamic value of child first and last name will be displayed$")
@@ -91,13 +58,22 @@ public class OtherDependantChildrenStepDefs {
 			assertThat(otherDependantChildrenPage.readDynamicNameDetails(i))
 					.matches(enteredFullNames.get(enteredFullNames.size() - 1 - i));
 		}
+	}
+
+	@And("^the other dependant children page error message '(.*)' will be displayed$")
+	public void theOtherDependantChildrenPageErrorMessageWillBeDisplayed(String errorMessage) {
+		otherDependantChildrenPage = new OtherDependantChildrenPage(driver);
+		sharedYesNoPage = new SharedYesNoPage(driver);
+		assertThat(sharedYesNoPage.getSharedFieldErrorMessage()).matches(errorMessage);
+		assertThat(sharedYesNoPage.doesSharedErrorMessageHaveAnchor()).isTrue();
+		assertThat(sharedYesNoPage.getSharedAnchoredErrorMessage()).matches(errorMessage);
 
 	}
 
 	@And("^I try to enter more than 6 dependant children details$")
 	public void iTryToEnterMoreThan6DependantChildrenDetails() {
-		otherDependantChildrenPage = new OtherDependantChildrenPage(driver);
-		otherDependantChildrenPage.selectYes();
+		sharedYesNoPage = new SharedYesNoPage(driver);
+		sharedYesNoPage.selectYes();
 
 	}
 
