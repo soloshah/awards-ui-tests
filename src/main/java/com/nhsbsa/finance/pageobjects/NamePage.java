@@ -36,6 +36,19 @@ public class NamePage extends Page {
 		type(lastName);
 	}
 
+	
+	 public String getFirstNameDetails() {
+		    navigateToRootElement();
+		    navigateToElementBy(firstNameFieldLocator);
+		    return getElementValue();
+		  }
+	
+	 public String getLastNameDetails() {
+		    navigateToRootElement();
+		    navigateToElementBy(lastNameFieldLocator);
+		    return getElementValue();
+		  }
+	 
 	public void enterNameDetails(String firstName, String lastName) {
 		enterfirstName(firstName);
 		enterlastName(lastName);

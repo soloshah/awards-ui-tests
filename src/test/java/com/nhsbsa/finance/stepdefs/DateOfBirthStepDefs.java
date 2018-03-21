@@ -45,13 +45,33 @@ public class DateOfBirthStepDefs {
 	@Then("^the date of birth submission will be successful$")
 	public void theDateOfBirthSubmissionWillBeSuccessful() {
 		new NavBarPage(driver);
-		
+
+	}
+
+	@Then("^the dob details are sustained$")
+	public void theDobDetailsAreSustained() {
+		dateOfBirthPage = new DateOfBirthPage(driver);
+		assertThat(dateOfBirthPage.getDay()).matches(SharedData.day);
+		assertThat(dateOfBirthPage.getMonth()).matches(SharedData.month);
+		assertThat(dateOfBirthPage.getYear()).matches(SharedData.year);
+
+	}
+
+	@When("^I enter dob details using different valid details$")
+	public void iEnterDOBDetailsUsingDifferentDetails() {
+		IenterValidDOBDetails();
 	}
 
 	@Then("^the date of birth page will be displayed$")
 	public void theDateOfBirthPageWillBeDisplayed() {
 		dateOfBirthPage = new DateOfBirthPage(driver);
 		assertThat(dateOfBirthPage.getHeading()).contains("What is your date of birth?");
+	}
+
+	@When("^I click next on date of birth page$")
+	public void iClickNextOnDateOfBirthPage() {
+		dateOfBirthPage = new DateOfBirthPage(driver);
+		dateOfBirthPage.nextStep();
 	}
 
 	@When("^I enter valid DOB details$")

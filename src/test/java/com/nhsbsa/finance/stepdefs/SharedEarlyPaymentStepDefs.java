@@ -11,7 +11,6 @@ import com.nhsbsa.finance.driver.Config;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.pageobjects.SharedEarlyPaymentPage;
-import com.nhsbsa.finance.pageobjects.SharedEarlyPaymentPage;
 import com.nhsbsa.finance.properties.PropertyReader;
 import com.nhsbsa.finance.shared.SharedData;
 import com.nhsbsa.finance.shared.SharedMethods;

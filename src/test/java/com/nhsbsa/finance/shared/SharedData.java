@@ -16,5 +16,11 @@ public class SharedData {
   public static String contactNumber;
   public static String employerName;
   public static String eqPaymasterName;
+  public static String streetLineOne;
+  public static String streetLineTwo;
+  public static String town;
+  public static String postCode;
+  public static String country;
+  public static String gender;
   public static List<String> fullName = new ArrayList<>();
 }

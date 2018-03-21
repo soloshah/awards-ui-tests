@@ -68,11 +68,6 @@ public class AllocationRelationshipPage extends Page {
 		return getElementText();
 	}
 
-	public CheckYourAnswerPage submitValidRelationshipDetails(String relationship) {
-		enterRelationship(relationship);
-		nextStep();
-		return new CheckYourAnswerPage(driver);
-	}
 
 	public TBIPage submitValidJobTitle(String relationship) {
 		enterRelationship(relationship);

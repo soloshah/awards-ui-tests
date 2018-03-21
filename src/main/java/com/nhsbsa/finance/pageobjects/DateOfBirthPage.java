@@ -40,7 +40,7 @@ public class DateOfBirthPage extends Page {
 		type(year);
 	}
 
-	private void nextStep() {
+	public void nextStep() {
 		navigateToRootElement();
 		navigateToElementBy(nextButtonLocator);
 		click();
@@ -83,6 +83,25 @@ public class DateOfBirthPage extends Page {
 		navigateToElementBy(dobFieldErrorMessageLocator);
 		return getElementText();
 	}
+	
+	 public String getDay() {
+		    navigateToRootElement();
+		    navigateToElementBy(dayFieldLocator);
+		    return getElementValue();
+		  }
+
+	 public String getMonth() {
+		    navigateToRootElement();
+		    navigateToElementBy(monthFieldLocator);
+		    return getElementValue();
+		  }
+	
+	 public String getYear() {
+		    navigateToRootElement();
+		    navigateToElementBy(yearFieldLocator);
+		    return getElementValue();
+		  }
+	
 	
 	public YourGenderPage submitValidDateDetails(String day, String month, String year) {
 		enterDay(day);

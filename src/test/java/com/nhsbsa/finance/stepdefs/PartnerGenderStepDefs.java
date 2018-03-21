@@ -5,7 +5,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
-import com.nhsbsa.finance.pageobjects.ChildDOBPage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.pageobjects.PartnerGenderPage;
 import com.nhsbsa.finance.properties.PropertyReader;

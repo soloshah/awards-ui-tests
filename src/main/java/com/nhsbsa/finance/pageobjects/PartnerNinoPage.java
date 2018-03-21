@@ -63,12 +63,6 @@ public class PartnerNinoPage extends Page {
 		return getElementText();
 	}
 
-	public CheckYourAnswerPage submitValidNinoDetails(String nino) {
-		enterPartnerNino(nino);
-		nextStep();
-		return new CheckYourAnswerPage(driver);
-	}
-
 	public TBIPage submitValidNiDetails(String nino) {
 		enterPartnerNino(nino);
 		nextStep();

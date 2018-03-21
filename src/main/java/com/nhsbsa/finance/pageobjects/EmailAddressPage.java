@@ -68,13 +68,7 @@ public class EmailAddressPage extends Page {
 		return getElementText();
 	}
 
-	public CheckYourAnswerPage submitValidEmailDetails(String email) {
-		enterEmail(email);
-
-		nextStep();
-		return new CheckYourAnswerPage(driver);
-	}
-
+	
 	public TBIPage submitValidEmailAddress(String email) {
 		enterEmail(email);
 

@@ -25,7 +25,7 @@ public class NameOfYourLastEmployerStepDefs {
 	@Then("^What was the name of your last employer page will be displayed$")
 	public void whatWasTheNameofYourLastEmployerPageWillBeDisplayed() {
 		nameOfYourLastEmployerPage = new NameOfYourLastEmployerPage(driver);
-		assertThat(nameOfYourLastEmployerPage.getHeading()).matches("What was the name of your last NHS employer?");
+		assertThat(nameOfYourLastEmployerPage.getHeading()).contains("What was the name of your last NHS employer?");
 	}
 
 	@Given("^I am on the name of the last NHS employer page$")

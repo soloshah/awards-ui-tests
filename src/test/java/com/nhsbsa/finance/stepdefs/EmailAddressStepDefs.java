@@ -6,11 +6,9 @@ import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
 import com.nhsbsa.finance.pageobjects.EmailAddressPage;
-import com.nhsbsa.finance.pageobjects.JobTitlePage;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.properties.PropertyReader;
-import com.nhsbsa.finance.shared.SharedData;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
