@@ -34,7 +34,7 @@ public class EqPaymasterNameStepDefs {
 		assertThat(eqPaymasterNamePage.getHeading()).contains("Give the name of the pension paid by Equiniti Paymaster");
 	}
 	
-	@Then("^the eq paymaster name page will be displayed$")
+	@Then("^the eqPaymasterName page will be displayed$")
 	public void theEqPaymasterNamePageWillBeDisplayed() {
 		eqPaymasterNamePage = new EqPaymasterNamePage(driver);
 		assertThat(eqPaymasterNamePage.getHeading()).contains("Give the name of the pension paid by Equiniti Paymaster");
@@ -44,6 +44,13 @@ public class EqPaymasterNameStepDefs {
 	public void theEqPaymasterNameSubmissionWillBeSuccessful() {
 		new NavBarPage(driver);
 	}
+	
+	@When("^I enter eqPaymasterName details using different valid option$")
+	public void iEnterEqPaymasterNameDetailsUsingDifferentValidOption(){
+		SharedData.eqPaymasterName = "NHS-Ireland";
+		eqPaymasterNamePage = new EqPaymasterNamePage(driver);
+		eqPaymasterNamePage.submitValidEqPaymasterName(SharedData.eqPaymasterName);
+	}
 
 	@When("^I enter valid eq paymaster name details$")
 	public void IenterValidEqPaymasterNameDetails() {
@@ -51,7 +58,20 @@ public class EqPaymasterNameStepDefs {
 		eqPaymasterNamePage = new EqPaymasterNamePage(driver);
 		eqPaymasterNamePage.submitValidEqPaymasterName(SharedData.eqPaymasterName);
 	}
+	
+	@When("^I click next on eq paymaster name page$")
+	public void iClickNextOnEqPaymasterNamePage() {
+		eqPaymasterNamePage = new EqPaymasterNamePage(driver);
+		eqPaymasterNamePage.nextStep();
+	}
 
+	@And("^the eqPaymasterName details are sustained$")
+	public void theeqPaymasterNameDetailsAreSustained() {
+		eqPaymasterNamePage = new EqPaymasterNamePage(driver);
+		assertThat(eqPaymasterNamePage.getEqPaymasterName()).matches(SharedData.eqPaymasterName);
+		
+	}
+	
 	@Then("^the eq paymaster name submission will be unsuccessful$")
 	public void theEqPaymasterNameSubmissionWillBeUnsuccessful() {
 		eqPaymasterNamePage = new EqPaymasterNamePage(driver);

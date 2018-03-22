@@ -5,10 +5,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
+import com.nhsbsa.finance.pageobjects.BankAccountTypePage;
 import com.nhsbsa.finance.pageobjects.CurrentAccountPage;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.properties.PropertyReader;
+import com.nhsbsa.finance.shared.SharedData;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -53,9 +55,18 @@ public class CurrentAccountStepDefs {
 	public void IenterValidCurrentAccountDetails() {
 		setBankDetails();
 		currentAccountPage = new CurrentAccountPage(driver);
-		currentAccountPage.submitValidBankAccountDetails(accountNumber, sortCodeFirstField, sortCodeSecondField,
-				sortCodeThirdField, accountHolderName);
+		currentAccountPage.submitValidBankAccountDetails(SharedData.accountNumber, SharedData.sortCodeFirstField, SharedData.sortCodeSecondField,
+				SharedData.sortCodeThirdField, SharedData.accountHolderName);
 	}
+	
+	@When("^I click next on current account page$")
+	public void iClickNextOnCurrentAccountPage() {
+		currentAccountPage = new CurrentAccountPage(driver);
+		currentAccountPage.nextStep();
+	}
+	
+
+	
 
 	@Then("^the current account details submission will be unsuccessful$")
 	public void theCurrentAccountDetailsSubmissionWillBeUnsuccessful() {
@@ -93,7 +104,7 @@ public class CurrentAccountStepDefs {
 	@When("^I enter invalid current account details using the (.*) '(.*)'$")
 	public void iEnterInvalidCurrentAccountDetailsUsingFieldValue(String field, String value) {
 
-		setBankDetails();
+		setInvalidBankDetails();
 
 		switch (field) {
 		case "accountNumber":
@@ -104,8 +115,8 @@ public class CurrentAccountStepDefs {
 			break;
 		}
 		currentAccountPage = new CurrentAccountPage(driver);
-		currentAccountPage.enterBankDetails(accountNumber, sortCodeFirstField, sortCodeSecondField, sortCodeThirdField,
-				accountHolderName);
+		currentAccountPage.enterBankDetails(SharedData.accountNumber, SharedData.sortCodeFirstField, SharedData.sortCodeSecondField, SharedData.sortCodeThirdField,
+				SharedData.accountHolderName);
 		currentAccountPage.submitInValidBankDetails();
 	}
 
@@ -127,7 +138,7 @@ public class CurrentAccountStepDefs {
 
 	@When("^I enter invalid current account holder name using the name '(.*)'$")
 	public void iEnterInvalidCurrentAccountHolderNameUsingTheName(String Name) {
-		setBankDetails();
+		setInvalidBankDetails();
 		currentAccountPage = new CurrentAccountPage(driver);
 		currentAccountPage.enterBankDetails(accountNumber, sortCodeFirstField, sortCodeSecondField, sortCodeThirdField,
 				Name);
@@ -135,16 +146,26 @@ public class CurrentAccountStepDefs {
 	}
 
 	private void setBankDetails() {
-		accountNumber = "12345678";
-		accountHolderName = "Test-User";
-		sortCodeFirstField = "12";
-		sortCodeSecondField = "34";
-		sortCodeThirdField = "56";
+		SharedData.accountNumber = "12345678";
+		SharedData.accountHolderName = "Test-User";
+		SharedData.sortCodeFirstField = "12";
+		SharedData.sortCodeSecondField = "34";
+		SharedData.sortCodeThirdField = "56";
 	}
 
 	private void setBankAccountDetails() {
 		accountNumber = "12345678";
 		accountHolderName = "Test-User";
 	}
+	
+	private void setInvalidBankDetails() {
+	    accountNumber = "12345678";
+		accountHolderName = "Test-User";
+		sortCodeFirstField = "12";
+		sortCodeSecondField = "34";
+		sortCodeThirdField = "56";
+	}
+
+	
 
 }

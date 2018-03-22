@@ -31,7 +31,7 @@ public class EqPaymasterNamePage extends Page {
 		nextStep();
 	}
 
-	private void nextStep() {
+	public void nextStep() {
 		navigateToRootElement();
 		navigateToElementBy(nextButtonLocator);
 		click();
@@ -69,10 +69,10 @@ public class EqPaymasterNamePage extends Page {
 	}
 
 	
-	public EqPaymasterReferencePage submitValidEqPaymasterName(String name) {
+	public void submitValidEqPaymasterName(String name) {
 		enterEqPaymasterName(name);
 		nextStep();
-		return new EqPaymasterReferencePage(driver);
+	
 	}
 
 	public EqPaymasterNamePage submitInValidEqPaymasterNameDetails() {
@@ -86,6 +86,11 @@ public class EqPaymasterNamePage extends Page {
 		return getElementValue();
 	}
 
-
+	 public String getEqPaymasterName() {
+		    navigateToRootElement();
+		    navigateToElementBy(eqPaymasterNameFieldLocator);
+		    return getElementValue();
+		  }
+	
 	
 }

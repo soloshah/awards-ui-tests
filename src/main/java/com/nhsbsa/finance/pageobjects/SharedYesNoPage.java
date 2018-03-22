@@ -13,6 +13,9 @@ public class SharedYesNoPage extends Page {
 	private By sharedAnchoredErrorMessageLocator = By.id("error-list0");
 	private By sharedAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#yesNo']");
 	private By sharedFieldErrorMessageLocator = By.id("fieldName-error-message");
+	private By selectedYesRadioButtonLocator = By.xpath("//input[@checked='checked']");
+	private By selectedNoRadioButtonLocator = By.xpath("//input[@checked='checked']");
+
 
 	public SharedYesNoPage(WebDriver driver) {
 		super(driver);
@@ -50,7 +53,7 @@ public class SharedYesNoPage extends Page {
 		return getElementText();
 	}
 
-	private void nextStep() {
+	public void nextStep() {
 		navigateToRootElement();
 		navigateToElementBy(nextButtonLocator);
 		click();
@@ -72,6 +75,21 @@ public class SharedYesNoPage extends Page {
 	public String getSharedAnchoredErrorMessage() {
 		navigateToRootElement();
 		navigateToElementBy(sharedAnchoredErrorMessageLocator);
+		return getElementText();
+	}
+	
+
+	public String getYesRadioButton() {
+		navigateToRootElement();
+		navigateToElementBy(selectedYesRadioButtonLocator);
+		navigateToParentElement();
+		return getElementText();
+	}
+
+	public String getNoradioButton() {
+		navigateToRootElement();
+		navigateToElementBy(selectedNoRadioButtonLocator);
+		navigateToParentElement();
 		return getElementText();
 	}
 }

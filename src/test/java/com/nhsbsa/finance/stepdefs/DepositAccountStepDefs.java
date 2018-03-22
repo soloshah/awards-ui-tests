@@ -6,9 +6,11 @@ import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
 import com.nhsbsa.finance.pageobjects.DepositAccountPage;
+import com.nhsbsa.finance.pageobjects.EqPaymasterNamePage;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.properties.PropertyReader;
+import com.nhsbsa.finance.shared.SharedData;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -44,17 +46,63 @@ public class DepositAccountStepDefs {
 		new NavBarPage(driver);
 	}
 	
+	@Then("^I enter the sort code using different details$")
+	public void iEnterTheSortCodeUsingDifferentDetails() {
+		SharedData.sortCodeFirstField = "10";
+		SharedData.sortCodeSecondField = "20";
+		SharedData.sortCodeThirdField = "30";
+		depositAccountPage = new DepositAccountPage(driver);
+		depositAccountPage.enterSortCode(SharedData.sortCodeFirstField,SharedData.sortCodeSecondField, SharedData.sortCodeThirdField);
+		depositAccountPage.nextStep();
+	}
+	
 	@Then("^enter bank details for deposit account page will be displayed$")
 	public void enterBankDetailsForDepositAccountPageWillBeDisplayed() {
 		depositAccountPage = new DepositAccountPage(driver);
 		assertThat(depositAccountPage.getHeading()).contains("Enter bank details");
 	}
+	
+	
+	@When("^I enter (.*) with different valid details$")
+	public void iEnterDetailsUsingDifferentValidDetails(String field){
+		depositAccountPage = new DepositAccountPage(driver);
+		switch (field) {
+		case "accountNumber":
+		SharedData.accountNumber = "9876543";
+		depositAccountPage.enterAccountNumber(SharedData.accountNumber);
+		depositAccountPage.nextStep();
+			break;
+		case "rollNumber":
+			SharedData.rollNumber = "A12345/9B";
+			depositAccountPage.enterRollNumber(SharedData.rollNumber);
+			depositAccountPage.nextStep();
+				break;
+		case "accountHolderName":
+			SharedData.accountHolderName = "Testuser A";
+			depositAccountPage.enterAccountHolderName(SharedData.accountHolderName);
+			depositAccountPage.nextStep();
+				break;
+     
+		}
+	}
+
+	@And("^the account details are sustained$")
+	public void theAccountDetailsAreSustained() {
+		depositAccountPage = new DepositAccountPage(driver);
+		assertThat(depositAccountPage.getAccountHolderName()).matches(SharedData.accountHolderName);
+		assertThat(depositAccountPage.getAccountNumber()).matches(SharedData.accountNumber);
+		assertThat(depositAccountPage.getRollNumber()).matches(SharedData.rollNumber);
+		assertThat(depositAccountPage.getSortCodeFirstField()).matches(SharedData.sortCodeFirstField);
+		assertThat(depositAccountPage.getSortCodeSecondField()).matches(SharedData.sortCodeSecondField);
+		assertThat(depositAccountPage.getSortCodeThirdField()).matches(SharedData.sortCodeThirdField);
+	}
+	
 	@When("^I enter valid deposit account details$")
 	public void IenterValidDepositAccountDetails() {
 		setBankDetails();
 		depositAccountPage = new DepositAccountPage(driver);
-		depositAccountPage.submitValidBankAccountDetails(accountNumber, rollNumber, sortCodeFirstField,
-				sortCodeSecondField, sortCodeThirdField, accountHolderName);
+		depositAccountPage.submitValidBankAccountDetails(SharedData.accountNumber, SharedData.rollNumber, SharedData.sortCodeFirstField,
+				SharedData.sortCodeSecondField, SharedData.sortCodeThirdField, SharedData.accountHolderName);
 	}
 
 	@Then("^the deposit account details submission will be unsuccessful$")
@@ -101,7 +149,7 @@ public class DepositAccountStepDefs {
 	@When("^I enter invalid deposit account details using the (.*) '(.*)'$")
 	public void iEnterInvalidDepositAccountDetailsUsingFieldValue(String field, String value) {
 
-		setBankDetails();
+		setInvalidBankDetails();
 
 		switch (field) {
 		case "accountNumber":
@@ -138,7 +186,7 @@ public class DepositAccountStepDefs {
 
 	@When("^I enter invalid account holder name using the name '(.*)'$")
 	public void iEnterInvalidAccountHolderNameUsingTheName(String Name) {
-		setBankDetails();
+		setInvalidBankDetails();
 		depositAccountPage = new DepositAccountPage(driver);
 		depositAccountPage.enterBankDetails(accountNumber, rollNumber, sortCodeFirstField, sortCodeSecondField,
 				sortCodeThirdField, Name);
@@ -146,6 +194,15 @@ public class DepositAccountStepDefs {
 	}
 
 	private void setBankDetails() {
+		SharedData.accountNumber = "12345678";
+		SharedData.rollNumber = "AA-12345/9P";
+		SharedData.accountHolderName = "Test-User";
+		SharedData.sortCodeFirstField = "12";
+		SharedData.sortCodeSecondField = "34";
+		SharedData.sortCodeThirdField = "56";
+	}
+	
+	private void setInvalidBankDetails() {
 		accountNumber = "12345678";
 		rollNumber = "AA-12345/9P";
 		accountHolderName = "Test-User";
@@ -159,5 +216,11 @@ public class DepositAccountStepDefs {
 		rollNumber = "AA-12345/9P";
 		accountHolderName = "Test-User";
 	}
+	
+	private void setUpdatedBankDetails() {
+		SharedData.accountNumber = "12345678";
+		SharedData.rollNumber = "AA-12345/9P";
+		SharedData.accountHolderName = "Test-User";
+			}
 
 }
