@@ -19,15 +19,15 @@ public class RetirementReason_1995StepDefs {
 	private String baseUrl = PropertyReader.getProperty("base.server");
 	private ReasonForRetirement_1995Page reasonForRetirement_1995Page;
 
-	@Then("^the reason for retirement submission will be successful$")
-	public void theReasonForRetirementSubmissionWillBeSuccessful() {
+	@Then("^the 1995 reason for retirement submission will be successful$")
+	public void the1995ReasonForRetirementSubmissionWillBeSuccessful() {
 		reasonForRetirement_1995Page = new ReasonForRetirement_1995Page(driver);
 		reasonForRetirement_1995Page.selectValidRetirementReason();
 		// new NavBarPage(driver);
 	}
 
-	@When("^I select valid retirement reason using (.*)$")
-	public void IenterValidRetirementReasonUsing(String field) {
+	@When("^I select valid 1995 retirement reason using (.*)$")
+	public void IenterValid1995RetirementReasonUsing(String field) {
 		reasonForRetirement_1995Page = new ReasonForRetirement_1995Page(driver);
 		switch (field) {
 		case "retirementAge":
@@ -45,8 +45,8 @@ public class RetirementReason_1995StepDefs {
 		}
 	}
 
-	@When("^the valid retirement reason text for (.*) will be displayed$")
-	public void theValidRetirementReasonTextForWillBeDisplayed(String field) {
+	@When("^the valid 1995 retirement reason text for (.*) will be displayed$")
+	public void theValid1995RetirementReasonTextForWillBeDisplayed(String field) {
 		reasonForRetirement_1995Page = new ReasonForRetirement_1995Page(driver);
 		switch (field) {
 		case "age":
@@ -72,36 +72,29 @@ public class RetirementReason_1995StepDefs {
 		}
 	}
 
-	@Then("^the reason for retirement submission will be unsuccessful$")
-	public void theReasonForRetirementSubmissionWillBeUnsuccessful() {
+	@Then("^the 1995 reason for retirement submission will be unsuccessful$")
+	public void the1995ReasonForRetirementSubmissionWillBeUnsuccessful() {
 		reasonForRetirement_1995Page = new ReasonForRetirement_1995Page(driver);
 		assertThat(reasonForRetirement_1995Page.getErrorHeadingErrorMessage()).matches("Your form contains errors");
 		assertThat(reasonForRetirement_1995Page.getErrorsBelowErrorMessage()).matches("Check your answer:");
 	}
 
-	@When("^I dont select any reason for retirement$")
-	public void iDontSelectAnyReasonForRetirement() {
+	@When("^I dont select any 1995 reason for retirement$")
+	public void iDontSelectAny1995ReasonForRetirement() {
 
 		reasonForRetirement_1995Page = new ReasonForRetirement_1995Page(driver);
 		reasonForRetirement_1995Page.isRetirementReasonNotSelected();
 
 	}
 
-	@Then("^the default value for reason for retirement will be blank$")
-	public void theDefaultValueForReasonForRetirementWillBeBlank() {
+	@Then("^the default value of 1995 reason for retirement will be blank$")
+	public void theDefaultValueOf1995ReasonForRetirementWillBeBlank() {
 		assertThat(reasonForRetirement_1995Page.isRetirementReasonRadioButtonSelected()).isFalse();
 	}
 
-	@And("^the valid retirement reason text '(.*)' will be displayed$")
-	public void theValidRetirementReasonTextWillBeDisplayed(String errorMessage) {
-		reasonForRetirement_1995Page = new ReasonForRetirement_1995Page(driver);
-		assertThat(reasonForRetirement_1995Page.doesRetirementReasonErrorMessageHaveAnchor()).isTrue();
-		assertThat(reasonForRetirement_1995Page.getRetirementReasonAnchoredErrorMessage()).matches(errorMessage);
-		assertThat(reasonForRetirement_1995Page.getRetirementReasonFieldErrorMessage()).matches(errorMessage);
-	}
-
-	@And("^the reason for retirement error message '(.*)' will be displayed$")
-	public void theReasonForRetirementErrorMessageWillBeDisplayed(String errorMessage) {
+	
+	@And("^the 1995 reason for retirement error message '(.*)' will be displayed$")
+	public void the1995ReasonForRetirementErrorMessageWillBeDisplayed(String errorMessage) {
 		reasonForRetirement_1995Page = new ReasonForRetirement_1995Page(driver);
 		assertThat(reasonForRetirement_1995Page.doesRetirementReasonErrorMessageHaveAnchor()).isTrue();
 		assertThat(reasonForRetirement_1995Page.getRetirementReasonAnchoredErrorMessage()).matches(errorMessage);

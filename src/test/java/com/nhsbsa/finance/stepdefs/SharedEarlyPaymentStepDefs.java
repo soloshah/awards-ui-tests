@@ -162,4 +162,11 @@ public class SharedEarlyPaymentStepDefs {
 		assertThat(sharedEarlyPaymentPage.getPaymentDateFieldErrorMessage()).matches(errorMessage);
 	}
 	
+	@Then("^the early payment date page will be displayed$")
+	public void theEarlyPaymentDatePageWillBeDisplayed() {
+		sharedEarlyPaymentPage = new SharedEarlyPaymentPage(driver);
+		assertThat(sharedEarlyPaymentPage.getHeading()).contains("When should the early payment of deferred benefit start?");
+	}
+
+	
 }
