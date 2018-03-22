@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import com.nhsbsa.finance.driver.Config;
 import com.nhsbsa.finance.pageobjects.IntendToWorkForNHSPage;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
+import com.nhsbsa.finance.pageobjects.OtherEqPensionsPage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.properties.PropertyReader;
 import com.nhsbsa.finance.shared.SharedData;
@@ -37,6 +38,14 @@ public class IntendToWorkForNHSStepDefs {
 		intendToWorkForNHSPage = new IntendToWorkForNHSPage(driver);
 		assertThat(intendToWorkForNHSPage.getHeading()).contains("Do you plan to work for the NHS after you get your pension?");
 	}
+	
+	@Then("^the intend to work for NHS page will be displayed$")
+	public void theIntendToWorkForNHSPageWillbeDisplayed() {
+		intendToWorkForNHSPage = new IntendToWorkForNHSPage(driver);
+		assertThat(intendToWorkForNHSPage.getHeading()).contains("Do you plan to work for the NHS after you get your pension?");
+
+		}
+
 
 	@Then("^the default value for intend to work for NHS will be blank$")
 	public void theDefaultValueForIntendToWorkForNHSWillBeBlank() {
