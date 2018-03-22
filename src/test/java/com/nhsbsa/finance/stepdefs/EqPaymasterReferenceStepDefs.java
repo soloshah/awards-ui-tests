@@ -21,7 +21,7 @@ public class EqPaymasterReferenceStepDefs {
 	private WebDriver driver = Config.getDriver();
 	private String baseUrl = PropertyReader.getProperty("base.server");
 	private EqPaymasterReferencePage eqPaymasterReferencePage;
-	
+
 	@Given("^I am on the eq paymaster reference page$")
 	public void iAmOnTheEqPaymasterReferencePage() {
 		new Page(driver).navigateToUrl(baseUrl + "/payment-details/eq-paymaster-reference");
@@ -34,17 +34,43 @@ public class EqPaymasterReferenceStepDefs {
 		assertThat(eqPaymasterReferencePage.getHeading()
 				.contains("Give the reference number of " + SharedData.eqPaymasterName));
 	}
-	
-	@Then("^the eq paymaster reference page will be displayed$")
+
+	@Then("^the eqPaymasterReference page will be displayed$")
 	public void theEqPaymasterReferencePageWillBeDisplayed() {
+		Page page = new Page(driver);
+		String eqPaymasterReferencePageTitle = "Give the reference number of " + SharedData.eqPaymasterName
+				+ " - Claim your NHS Pension - NHSBSA";
+		page.waitForTitleToExist(eqPaymasterReferencePageTitle);
 		eqPaymasterReferencePage = new EqPaymasterReferencePage(driver);
-		assertThat(eqPaymasterReferencePage.getHeading()).contains("Give the reference number of " + SharedData.eqPaymasterName);
+		assertThat(eqPaymasterReferencePage.getHeading())
+				.contains("Give the reference number of " + SharedData.eqPaymasterName);
 	}
-	
+
+	@When("^I click next on eq paymaster reference page$")
+	public void iClickNextOnEqpaymasterReferencePage() {
+		eqPaymasterReferencePage = new EqPaymasterReferencePage(driver);
+		eqPaymasterReferencePage.nextStep();
+	}
+
+	@And("^the eqPaymasterReference details are sustained$")
+	public void theeqPaymasterReferenceDetailsAreSustained() {
+		eqPaymasterReferencePage = new EqPaymasterReferencePage(driver);
+		assertThat(eqPaymasterReferencePage.getEqPaymasterRef()).matches(SharedData.eqPaymasterRef);
+
+	}
+
+	@When("^I enter eqPaymasterReference details using different valid option$")
+	public void iEnterEqPaymasterReferenceDetailsUsingDifferentValidOption() {
+		SharedData.eqPaymasterRef = "9876543B";
+		eqPaymasterReferencePage = new EqPaymasterReferencePage(driver);
+		eqPaymasterReferencePage.submitValidReferenceNumber(SharedData.eqPaymasterRef);
+	}
+
 	@Then("^the dynamic eq paymaster name will be displayed on eq paymaster reference page$")
 	public void theDynamicEqPaymasterNameWillBeDisplayedOnEqPaymasterReferencePage() {
 		eqPaymasterReferencePage = new EqPaymasterReferencePage(driver);
-		assertThat(eqPaymasterReferencePage.getHeading().contains("Give the reference number of " + SharedData.eqPaymasterName));
+		assertThat(eqPaymasterReferencePage.getHeading()
+				.contains("Give the reference number of " + SharedData.eqPaymasterName));
 	}
 
 	@Then("^the eq paymaster reference submission will be successful$")
@@ -54,9 +80,9 @@ public class EqPaymasterReferenceStepDefs {
 
 	@When("^I enter valid eq paymaster reference number$")
 	public void IenterValidEqPaymasterReferenceNumber() {
-		String reference = "1234567A";
+		SharedData.eqPaymasterRef = "1234567A";
 		eqPaymasterReferencePage = new EqPaymasterReferencePage(driver);
-		eqPaymasterReferencePage.submitValidReferenceNumber(reference);
+		eqPaymasterReferencePage.submitValidReferenceNumber(SharedData.eqPaymasterRef);
 	}
 
 	@Then("^the eq paymaster reference submission will be unsuccessful$")
@@ -85,16 +111,17 @@ public class EqPaymasterReferenceStepDefs {
 	@When("^I dont enter eq paymaster reference number$")
 	public void iEnterValidEqPaymasterNameUsingTheName(String name) {
 		eqPaymasterReferencePage = new EqPaymasterReferencePage(driver);
-	   eqPaymasterReferencePage.submitInValidReferenceNumber();
+		eqPaymasterReferencePage.submitInValidReferenceNumber();
 	}
 
 	@And("^I verify eq paymaster reference error message with the dynamic value of eq paymaster name$")
 	public void iVerifyEqPaymasterReferenceErrorMessageWithTheDynamicValueOfEqPaymasterName() {
 		eqPaymasterReferencePage = new EqPaymasterReferencePage(driver);
-		String errorMessage = "Enter a valid reference number" + SharedData.eqPaymasterName + ".This must be 8 characters, which includes 7 numbers and 1 letter";
+		String errorMessage = "Enter a valid reference number" + SharedData.eqPaymasterName
+				+ ".This must be 8 characters, which includes 7 numbers and 1 letter";
 		assertThat(eqPaymasterReferencePage.doesReferenceErrorMessageHaveAnchor()).isTrue();
 		assertThat(eqPaymasterReferencePage.getReferenceAnchoredErrorMessage()).matches(errorMessage);
 		assertThat(eqPaymasterReferencePage.getReferenceFieldErrorMessage()).matches(errorMessage);
 	}
-	
+
 }

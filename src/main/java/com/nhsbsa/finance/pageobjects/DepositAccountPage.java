@@ -71,7 +71,7 @@ public class DepositAccountPage extends Page {
 		type(accountHolderName);
 	}
 	
-	private void nextStep() {
+	public void nextStep() {
 	navigateToRootElement();
 	navigateToElementBy(nextButtonLocator);
 	click();
@@ -191,16 +191,51 @@ public class DepositAccountPage extends Page {
 	}
 
 
-	public TBIPage submitValidBankAccountDetails(String accountNumber, String rollNumber, String firstField, String secondField, String thirdField, String accountHolderName) {
+	public OtherEqPensionsPage submitValidBankAccountDetails(String accountNumber, String rollNumber, String firstField, String secondField, String thirdField, String accountHolderName) {
 		enterBankDetails(accountNumber, rollNumber, firstField, secondField, thirdField, accountHolderName);
 		nextStep();
-		return new TBIPage(driver);
+		return new OtherEqPensionsPage(driver);
 	}
 	
 	public DepositAccountPage submitInValidBankDetails() {
 		nextStep();
 		return new DepositAccountPage(driver);
 	}
-
-
+	
+	 public String getAccountHolderName() {
+		    navigateToRootElement();
+		    navigateToElementBy(accountHolderNameFieldLocator);
+		    return getElementValue();
+		  }
+	
+	 public String getAccountNumber() {
+		    navigateToRootElement();
+		    navigateToElementBy(accountNumberFieldLocator);
+		    return getElementValue();
+		  }
+	 
+	 public String getRollNumber() {
+		    navigateToRootElement();
+		    navigateToElementBy(rollNumberFieldLocator);
+		    return getElementValue();
+		  }
+	 
+	 public String getSortCodeFirstField() {
+		    navigateToRootElement();
+		    navigateToElementBy(sortCodeFirstFieldLocator);
+		    return getElementValue();
+		  }
+	
+	 public String getSortCodeSecondField() {
+		    navigateToRootElement();
+		    navigateToElementBy(sortCodeSecondFieldLocator);
+		    return getElementValue();
+		  }
+	 
+	 public String getSortCodeThirdField() {
+		    navigateToRootElement();
+		    navigateToElementBy(sortCodeThirdFieldLocator);
+		    return getElementValue();
+		  }
+	
 }

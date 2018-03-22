@@ -14,6 +14,8 @@ public class BankAccountTypePage extends Page {
 	private By bankAccountTypeAnchoredErrorMessageLocator = By.id("error-list0");
 	private By bankAccountTypeAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#accountType']");
 	private By bankAccountTypeFieldErrorMessageLocator = By.id("'error-message-'+${fieldName}");
+	private By selectedCurrentAccountRadioButtonLocator = By.xpath("//input[@checked='checked']");
+	private By selectedDepositAccountRadioButtonLocator = By.xpath("//input[@checked='checked']");
 
 	public BankAccountTypePage(WebDriver driver) {
 		super(driver);
@@ -75,7 +77,7 @@ public class BankAccountTypePage extends Page {
 		return getElementText();
 	}
 
-	private void nextStep() {
+	public void nextStep() {
 		navigateToRootElement();
 		navigateToElementBy(nextButtonLocator);
 		click();
@@ -97,6 +99,20 @@ public class BankAccountTypePage extends Page {
 	public String getBankAccountAnchoredErrorMessage() {
 		navigateToRootElement();
 		navigateToElementBy(bankAccountTypeAnchoredErrorMessageLocator);
+		return getElementText();
+	}
+	
+	public String getCurrentAccount() {
+		navigateToRootElement();
+		navigateToElementBy(selectedCurrentAccountRadioButtonLocator);
+		navigateToParentElement();
+		return getElementText();
+	}
+
+	public String getDepositAccount() {
+		navigateToRootElement();
+		navigateToElementBy(selectedDepositAccountRadioButtonLocator);
+		navigateToParentElement();
 		return getElementText();
 	}
 }

@@ -60,7 +60,7 @@ public class CurrentAccountPage extends Page {
 		type(accountHolderName);
 	}
 	
-	private void nextStep() {
+	public void nextStep() {
 	navigateToRootElement();
 	navigateToElementBy(nextButtonLocator);
 	click();
@@ -159,10 +159,10 @@ public class CurrentAccountPage extends Page {
 	}
 
 
-	public TBIPage submitValidBankAccountDetails(String accountNumber, String firstField, String secondField, String thirdField, String accountHolderName) {
+	public OtherEqPensionsPage submitValidBankAccountDetails(String accountNumber, String firstField, String secondField, String thirdField, String accountHolderName) {
 		enterBankDetails(accountNumber, firstField, secondField, thirdField, accountHolderName);
 		nextStep();
-		return new TBIPage(driver);
+		return new OtherEqPensionsPage(driver);
 	}
 	
 	public CurrentAccountPage submitInValidBankDetails() {

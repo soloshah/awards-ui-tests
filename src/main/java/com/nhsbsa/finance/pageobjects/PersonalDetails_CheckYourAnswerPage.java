@@ -174,10 +174,10 @@ public class PersonalDetails_CheckYourAnswerPage extends Page {
 		return new NinoPage(driver);
 	}
 
-	public TBIPage submitPersonalDetails() {
+	public SummaryPage submitPersonalDetails() {
 		navigateToRootElement();
 		navigateToElementBy(continueButtonLocator);
 		click();
-		return new TBIPage(driver);
+		return new SummaryPage(driver);
 	}
 }

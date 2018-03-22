@@ -29,8 +29,16 @@ public class OtherEqPensionsStepDefs {
 		new Page(driver).navigateToUrl(baseUrl + "/payment-details/other-eq-pensions");
 		otherEqPensionsPage = new OtherEqPensionsPage(driver);
 		assertThat(otherEqPensionsPage.getHeading())
-				.contains("Do you have any other pensions paid by Equiniti Paymaster?");
+		.contains("Do you have any other pensions paid by Equiniti Paymaster?");
 	}
+	
+	
+	@Then("^the otherEqPensions page will be displayed$")
+	public void theOtherEqpensionsPageWillbeDisplayed() {
+		otherEqPensionsPage = new OtherEqPensionsPage(driver);	
+		assertThat(otherEqPensionsPage.getHeading()).contains("Do you have any other pensions paid by Equiniti Paymaster?");
+
+		}
 
 	@Then("^the default value for other pensions paid by Equiniti Paymaster will be blank$")
 	public void theDefaultValueForOtherPensionsPaidByEquinityPaymasterWillBeBlank() {

@@ -8,6 +8,7 @@ import com.nhsbsa.finance.driver.Config;
 import com.nhsbsa.finance.pageobjects.BankAccountTypePage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.properties.PropertyReader;
+import com.nhsbsa.finance.shared.SharedData;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -37,7 +38,25 @@ public class BankAccountTypeStepDefs {
 	public void theDefaultValueForSelectBankAccountTypeWillBeBlank() {
 		assertThat(bankAccountTypePage.isBankAccountRadioButtonSelected()).isFalse();
 	}
-	
+
+	@Then("^the bank account type page will be displayed$")
+	public void theEqPaymasterNamePageWillBeDisplayed() {
+		bankAccountTypePage = new BankAccountTypePage(driver);
+		assertThat(bankAccountTypePage.getHeading()).contains("What type of account are we making the payment to?");
+	}
+
+	@When("^I select different account type using different valid option$")
+	public void theSelectDifferentAccountTypeUsingDifferentValidOption() {
+		iSelectCurrentAccount();
+	}
+
+	@And("^the account type details are sustained$")
+	public void theAccountTypeDetailsAreSustained() {
+		bankAccountTypePage = new BankAccountTypePage(driver);
+		assertThat(bankAccountTypePage.getDepositAccount()).matches(SharedData.accountType);
+
+	}
+
 	@Then("^the bank account type submission will be unsuccessful$")
 	public void theBankAccountTypeSubmissionWillBeUnsuccessful() {
 		bankAccountTypePage = new BankAccountTypePage(driver);
@@ -57,12 +76,14 @@ public class BankAccountTypeStepDefs {
 
 	@When("^I select Current Account$")
 	public void iSelectCurrentAccount() {
+		SharedData.accountType = "Current Account";
 		bankAccountTypePage = new BankAccountTypePage(driver);
 		bankAccountTypePage.selectValidCurrentAccountDetails();
 	}
 
 	@When("^I select Deposit Account$")
 	public void iSelectDepositAccount() {
+		SharedData.accountType = "Deposit Account";
 		bankAccountTypePage = new BankAccountTypePage(driver);
 		bankAccountTypePage.selectValidDepositAccountDetails();
 	}

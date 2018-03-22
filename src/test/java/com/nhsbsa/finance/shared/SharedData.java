@@ -15,12 +15,21 @@ public class SharedData {
   public static String nino;
   public static String contactNumber;
   public static String employerName;
+  public static String sharedRadioButton;
   public static String eqPaymasterName;
+  public static String eqPaymasterRef;
   public static String streetLineOne;
   public static String streetLineTwo;
   public static String town;
   public static String postCode;
   public static String country;
   public static String gender;
+  public static String accountType;
+  public static String accountHolderName;
+  public static String accountNumber;
+  public static String rollNumber;
+  public static String sortCodeFirstField;
+  public static String sortCodeSecondField;
+  public static String sortCodeThirdField;
   public static List<String> fullName = new ArrayList<>();
 }
