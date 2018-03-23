@@ -3,25 +3,25 @@ package com.nhsbsa.finance.pageobjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class ReasonForRetirement_1995Page extends Page {
+public class ReasonForRetirement_2008Page extends Page {
 
-	private String retirementPageTitle = "Why are you claiming your deferred benefits for the 1995 Section? - Claim your NHS Pension - NHSBSA";
-	private By retirementAgeRadioButtonLocator = By.xpath("//*[@id='why-1995-form']/fieldset/div/div[1]/label");
-	private By paymentDeferredBenefitRadioButtonLocator = By.xpath("//*[@id='why-1995-form']/fieldset/div/div[3]/label");
-	private By deferredBenefitIllRadioButtonLocator = By.xpath("//*[@id='why-1995-form']/fieldset/div/div[5]/label");
-	private By commutedEarlyPaymentRadioButtonLocator = By.xpath("//*[@id='why-1995-form']/fieldset/div/div[7]/label");
+	private String retirementPageTitle = "Why are you claiming your deferred benefits for the 2008 Section? - Claim your NHS Pension - NHSBSA";
+	private By retirementAgeRadioButtonLocator = By.xpath("//*[@id='why-2008-form']/fieldset/div/div[1]/label");
+	private By paymentDeferredBenefitRadioButtonLocator = By.xpath("//*[@id='why-2008-form']/fieldset/div/div[3]/label");
+	private By deferredBenefitIllRadioButtonLocator = By.xpath("//*[@id='why-2008-form']/fieldset/div/div[5]/label");
+	private By commutedEarlyPaymentRadioButtonLocator = By.xpath("//*[@id='why-2008-form']/fieldset/div/div[7]/label");
 	private By retirementAgeTextLocator = By.id("retirement");
 	private By paymentDeferredBenefitTextLocator = By.xpath("//*[@id='deferred-benefit']/p");
 	private By deferredBenefitHealthTextLocator = By.xpath("//*[@id='deferred-benefits-health']/p");
-	private By commutedEarlyPaymentTextLocator = By.cssSelector("#early-payment-health > ul > li:nth-child(2)");
+	private By commutedEarlyPaymentTextLocator = By.xpath("//*[@id='early-payment-health']/p");
 	private By nextButtonLocator = By.id("submit_button");
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");
 	private By errorsBelowErrorMessageLocator = By.id("error-summary-heading1");
-	private By retirementReasonFieldErrorMessageLocator = By.id("error-message-why-1995");
+	private By retirementReasonFieldErrorMessageLocator = By.id("error-message-why-2008");
 	private By retirementReasonAnchoredErrorMessageLocator = By.id("error-list0");
 	private By retirementReasonAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#retirementReason']");
 		
-	public ReasonForRetirement_1995Page(WebDriver driver) {
+	public ReasonForRetirement_2008Page(WebDriver driver) {
 		super(driver);
 		waitForTitleToExist(retirementPageTitle);
 		waitForElementToBeVisibleBy(retirementAgeRadioButtonLocator);
@@ -115,14 +115,13 @@ public class ReasonForRetirement_1995Page extends Page {
 	}
 
 		public void selectValidRetirementReason(){
+			nextStep();
+		}
+
+
+	public void isRetirementReasonNotSelected() {
 		nextStep();
 		
-	}
-
-
-	public ReasonForRetirement_1995Page isRetirementReasonNotSelected() {
-		nextStep();
-		return new ReasonForRetirement_1995Page(driver);
 	}
 
 	public boolean isRetirementReasonRadioButtonSelected() {
