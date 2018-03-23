@@ -9,6 +9,7 @@ import com.nhsbsa.finance.pageobjects.SharedYesNoPage;
 import com.nhsbsa.finance.shared.SharedData;
 
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
 public class SharedYeNoStepDefs {
@@ -61,6 +62,20 @@ public class SharedYeNoStepDefs {
 		sharedYesNoPage = new SharedYesNoPage(driver);
 		assertThat(sharedYesNoPage.getYesRadioButton()).matches(SharedData.sharedRadioButton);
 
+	}
+
+	@When("^I click on the link increase in lump sum affects benefits$")
+	public void iClickOnTheLinkIncreaseinLumpSumAffectsBenefits() {
+		sharedYesNoPage = new SharedYesNoPage(driver);
+		sharedYesNoPage.verifyLumpSumLink();
+	}
+
+	@Then("^the lump sum benefits information text will be displayed$")
+	public void theLumpSumBenefitsInformationTextWillBeDisplayed() {
+		sharedYesNoPage = new SharedYesNoPage(driver);
+		assertThat(sharedYesNoPage.verifyLumpSumInformationText())
+				.contains("For every £1 of pension exchanged you’ll receive £12 of lump sum.");
+		assertThat(sharedYesNoPage.verifyLumpSumMoreInformationText()).contains("For example, if you exchange £100 of your pension, you’d get £1200 of lump sum.");
 	}
 
 }
