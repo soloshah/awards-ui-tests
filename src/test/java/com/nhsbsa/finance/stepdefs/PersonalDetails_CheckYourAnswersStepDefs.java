@@ -143,7 +143,7 @@ public class PersonalDetails_CheckYourAnswersStepDefs {
 	}
 
 	@When("^I click on change for (.*) details$")
-	public void iClickOnChangeForAccountDetails(String field) {
+	public void iClickOnChangeForNameDetails(String field) {
 		personalDetails_CheckYourAnswerPage = new PersonalDetails_CheckYourAnswerPage(driver);
 		switch (field) {
 		case "name":

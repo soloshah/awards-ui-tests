@@ -31,7 +31,7 @@ public class EmailAddressPage extends Page {
 		nextStep();
 	}
 
-	private void nextStep() {
+	public void nextStep() {
 		navigateToRootElement();
 		navigateToElementBy(nextButtonLocator);
 		click();
@@ -69,11 +69,11 @@ public class EmailAddressPage extends Page {
 	}
 
 	
-	public TBIPage submitValidEmailAddress(String email) {
+	public ContactDetails_CheckYourAnswerPage submitValidEmailAddress(String email) {
 		enterEmail(email);
 
 		nextStep();
-		return new TBIPage(driver);
+		return new ContactDetails_CheckYourAnswerPage(driver);
 	}
 
 	public EmailAddressPage submitInValidEmailDetails() {
@@ -86,6 +86,12 @@ public class EmailAddressPage extends Page {
 		navigateToElementBy(emailAddressFieldLocator);
 		return getElementValue();
 	}
+
+	public String getEmailAddress() {
+	    navigateToRootElement();
+	    navigateToElementBy(emailAddressFieldLocator);
+	    return getElementValue();
+	  }
 
 
 }

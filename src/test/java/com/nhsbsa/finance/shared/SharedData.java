@@ -13,8 +13,10 @@ public class SharedData {
   public static String lastName;
   public static String jobTitle;
   public static String nino;
-  public static String contactNumber;
+  public static String phoneNumber;
+  public static String emailAddress;
   public static String employerName;
+  public static String sharedCheckBox;
   public static String sharedRadioButton;
   public static String eqPaymasterName;
   public static String eqPaymasterRef;
