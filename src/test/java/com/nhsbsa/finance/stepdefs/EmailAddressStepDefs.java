@@ -9,6 +9,7 @@ import com.nhsbsa.finance.pageobjects.EmailAddressPage;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.properties.PropertyReader;
+import com.nhsbsa.finance.shared.SharedData;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -43,12 +44,41 @@ public class EmailAddressStepDefs {
 		emailAddressPage = new EmailAddressPage(driver);
 		assertThat(emailAddressPage.getHeading()).contains("What is your email address?");
 	}
+	
+	@When("^I enter emailAddress using different valid details$")
+	public void iEnterEmailAddressDetailsUsingDifferentDetails() {
+		SharedData.emailAddress = "xyz@testuser.com";
+		emailAddressPage = new EmailAddressPage(driver);
+		emailAddressPage.submitValidEmailAddress(SharedData.emailAddress);
+	}
+	
+	@Then("^the email details are sustained$")
+	public void theEmailDetailsAreSustained() {
+		emailAddressPage = new EmailAddressPage(driver);
+		assertThat(emailAddressPage.getEmailAddress()).matches(SharedData.emailAddress);
+		
+	}
+	
 
 	@When("^I enter valid email address details using the email '(.*)'$")
 	public void IenterValidEmailAddressDetailsUsingTheEmail(String email) {
 		emailAddressPage = new EmailAddressPage(driver);
 		emailAddressPage.submitValidEmailAddress(email);
 	}
+	
+	@When("^I click next on emailAddress page$")
+	public void iClickNextOnEmailAddressPage() {
+		emailAddressPage = new EmailAddressPage(driver);
+		emailAddressPage.nextStep();
+	}
+	
+	@When("^I enter valid email address details$")
+	public void IenterValidEmailAddressDetails() {
+		SharedData.emailAddress = "abc@test.com";
+		emailAddressPage = new EmailAddressPage(driver);
+		emailAddressPage.submitValidEmailAddress(SharedData.emailAddress);
+	}
+		
 
 	@Then("^the email address submission will be unsuccessful$")
 	public void theEmailAddressSubmissionWillBeUnsuccessful() {

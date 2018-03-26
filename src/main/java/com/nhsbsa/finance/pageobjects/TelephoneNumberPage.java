@@ -31,7 +31,7 @@ public class TelephoneNumberPage extends Page {
 		nextStep();
 	}
 
-	private void nextStep() {
+	public void nextStep() {
 		navigateToRootElement();
 		navigateToElementBy(nextButtonLocator);
 		click();
@@ -69,15 +69,23 @@ public class TelephoneNumberPage extends Page {
 	}
 
 	
-	public TBIPage submitValidTelephoneNumber(String number) {
+	public void submitValidTelephoneNumber(String number) {
+		
 		enterTelephoneNumber(number);
-		return new TBIPage(driver);
+		
 	}
 
 	public TelephoneNumberPage submitInValidTelephoneDetails() {
 		nextStep();
 		return new TelephoneNumberPage(driver);
 	}
+	
+	 public String getPhoneNumber() {
+		    navigateToRootElement();
+		    navigateToElementBy(telephoneNumberFieldLocator);
+		    return getElementValue();
+		  }
+	
 
 
 }

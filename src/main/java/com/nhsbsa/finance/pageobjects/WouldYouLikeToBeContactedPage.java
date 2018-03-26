@@ -15,7 +15,11 @@ public class WouldYouLikeToBeContactedPage extends Page {
 	private By contactAnchoredErrorMessageLocator = By.id("error-list0");
 	private By contactAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#errorMessage']");
 	private By contactFieldErrorMessageLocator = By.id("fieldName-error-message");
+	private By selectedNoContactCheckBoxLocator = By.id("contactPref2");
+	private By selectedEmailCheckBoxLocator = By.xpath("//input[@checked='checked']");
+	private By selectedPhoneCheckBoxLocator = By.xpath("//input[@checked='checked']");
 
+	
 	public WouldYouLikeToBeContactedPage(WebDriver driver) {
 		super(driver);
 		waitForTitleToExist(wouldYouLikeToBeContactedTitle);
@@ -68,12 +72,12 @@ public class WouldYouLikeToBeContactedPage extends Page {
 		return new TelephoneNumberPage(driver);
 	}
 
-	public TBIPage selectNotToBeContactedCheckbox() {
+	public ContactDetails_CheckYourAnswerPage selectNotToBeContactedCheckbox() {
 		navigateToRootElement();
 		navigateToElementBy(noContactCheckboxLocator);
 		click();
 		nextStep();
-		return new TBIPage(driver);
+		return new ContactDetails_CheckYourAnswerPage(driver);
 	}
 
 	public String getErrorHeadingErrorMessage() {
@@ -88,7 +92,7 @@ public class WouldYouLikeToBeContactedPage extends Page {
 		return getElementText();
 	}
 
-	private void nextStep() {
+	public void nextStep() {
 		navigateToRootElement();
 		navigateToElementBy(nextButtonLocator);
 		click();
@@ -112,4 +116,31 @@ public class WouldYouLikeToBeContactedPage extends Page {
 		navigateToElementBy(contactAnchoredErrorMessageLocator);
 		return getElementText();
 	}
+	
+	
+	public String getNoContactCheckBox() {
+		navigateToRootElement();
+		navigateToElementBy(selectedNoContactCheckBoxLocator);
+		navigateToParentElement();
+		return getElementText();
+	}
+
+		
+	public boolean isEmailCheckboxSelected() {
+		navigateToRootElement();
+		boolean checked=isElementSelected(selectedEmailCheckBoxLocator);
+
+	return checked;
+
+		}
+	
+	
+	public boolean isPhoneCheckboxSelected() {
+		navigateToRootElement();
+		boolean checked= isElementSelected(selectedPhoneCheckBoxLocator);
+    
+          return checked;
+	}
+
+
 }

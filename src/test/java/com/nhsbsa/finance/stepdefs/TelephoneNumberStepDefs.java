@@ -9,6 +9,7 @@ import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.pageobjects.TelephoneNumberPage;
 import com.nhsbsa.finance.properties.PropertyReader;
+import com.nhsbsa.finance.shared.SharedData;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -43,12 +44,40 @@ public class TelephoneNumberStepDefs {
 		telephoneNumberPage = new TelephoneNumberPage(driver);
 		telephoneNumberPage.submitValidTelephoneNumber(number);
 	}
+	
+	@When("^I enter valid telephone number details$")
+	public void IenterValidTelephoneNumberDetails() {
+		SharedData.phoneNumber = "0123456789";
+		telephoneNumberPage = new TelephoneNumberPage(driver);
+		telephoneNumberPage.submitValidTelephoneNumber(SharedData.phoneNumber);
+	}
 
 	
 	@Then("^What is your telephone number page will be displayed$")
 	public void whatisYourTelephoneNumberPageWillBeDisplayed() {
 		telephoneNumberPage = new TelephoneNumberPage(driver);
 		assertThat(telephoneNumberPage.getHeading()).contains("What is your telephone number?");
+	}
+	
+
+	@When("^I enter telephoneNumber using different valid details$")
+	public void iEnterTelephoneNumberDetailsUsingDifferentDetails() {
+		SharedData.phoneNumber = "9876543210";
+		telephoneNumberPage = new TelephoneNumberPage(driver);
+		telephoneNumberPage.submitValidTelephoneNumber(SharedData.phoneNumber);
+	}
+	
+	@Then("^the telephoneNumber details are sustained$")
+	public void theTelephoneNumberDetailsAreSustained() {
+		telephoneNumberPage = new TelephoneNumberPage(driver);
+		assertThat(telephoneNumberPage.getPhoneNumber()).matches(SharedData.phoneNumber);
+		
+	}
+	
+	@When("^I click next on telephoneNumber page$")
+	public void iClickNextOnTelephoneNumberPage() {
+		telephoneNumberPage = new TelephoneNumberPage(driver);
+		telephoneNumberPage.nextStep();
 	}
 
 	@Then("^the telephone number submission will be unsuccessful$")
