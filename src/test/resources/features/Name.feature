@@ -1,4 +1,4 @@
-@NameDetails @BP490-87
+@NameDetails @BP490-87 @BP490-250
 Feature: Name Page
 
 
@@ -8,12 +8,41 @@ When I enter valid name details
 Then the name submission will be successful
 Then the date of birth page will be displayed
 
+
+Scenario Outline:  Valid titles
+Given I am on the name page
+When I enter valid title using the title '<title>'
+And I enter valid first and last name 
+Then the name submission will be successful
+And the date of birth page will be displayed
+Examples:
+|title|
+|DR   |
+|M/S  |
+|MISS |
+|MR   |
+|MRS  |
+|MS   |
+|PROF |
+|REV  |
+|SIR  |
+|dr   |
+|m/s  |
+|miss |
+|mr   |
+|Mrs  |
+|ms   |
+|prof |
+|rev  |
+|sir  |
+
+
 @Bug @BP490-281
 Scenario Outline: First name field  validations 
 Given I am on the name page
-When I enter an invalid name using the firstName '<firstName>'
+When I enter an invalid details using the firstName '<firstName>'
 Then the name submission will be unsuccessful
-And the first name error message '<errorMessage>' will be displayed
+And the firstName error message '<errorMessage>' will be displayed
 Examples:
 | firstName                | errorMessage                                            |
 |                          | You must enter your first name                          |
@@ -23,9 +52,9 @@ Examples:
 @Bug @BP490-281
 Scenario Outline: last name field  validations 
 Given I am on the name page
-When I enter an invalid name using the lastName '<lastName>'
+When I enter an invalid details using the lastName '<lastName>'
 Then the name submission will be unsuccessful
-And the last name error message '<errorMessage>' will be displayed
+And the lastName error message '<errorMessage>' will be displayed
 Examples:
 | lastName                 | errorMessage                                            |
 |                          | You must enter your last name                           |
@@ -35,10 +64,26 @@ Examples:
 
 Scenario Outline: First and last name field length validations 
 Given I am on the name page
-When I enter valid name details using the firstName '<firstName>' and lastName '<lastName>'
-Then The length of first and last name is verified
+When I enter valid name details using the title '<title>', firstName '<firstName>' and lastName '<lastName>'
+Then The length of title,first and last name is verified
 And the name submission will be unsuccessful
 Examples:
-|firstName                    |lastName                             |
-|InvalidIn@validInvalidInvalid|InvalidIn@validInvalidInvalidInvalid |
+|title |firstName                    |lastName                             |
+|AA@AS |InvalidIn@validInvalidInvalid|InvalidIn@validInvalidInvalidInvalid |
 
+
+Scenario Outline: Title Field Validations
+Given I am on the name page
+When I enter an invalid details using the title '<title>'
+Then the name submission will be unsuccessful
+And the title error message '<errorMessage>' will be displayed
+Examples:
+| title   | errorMessage              |
+|         |You must enter your title  | 
+| £$%"    |Enter a valid title        |
+|M45      |Enter a valid title        |
+|Mr.      |Enter a valid title        |
+|Mr-s     |Enter a valid title        |
+|abc      |Enter a valid title        |
+|XYZ      |Enter a valid title        |
+|123      |Enter a valid title        |

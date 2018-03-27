@@ -66,18 +66,16 @@ public class PersonalDetails_CheckYourAnswersStepDefs {
 		personalDetails_CheckYourAnswerPage = new PersonalDetails_CheckYourAnswerPage(driver);
 		assertThat(personalDetails_CheckYourAnswerPage.getPresenceOfFullName()).isEqualTo(true);
 		assertThat(personalDetails_CheckYourAnswerPage.getFullname())
-				.matches(SharedData.firstName + " " + SharedData.lastName);
+				.matches(SharedData.title + " " + SharedData.firstName + " " + SharedData.lastName);
 		assertThat(personalDetails_CheckYourAnswerPage.getPresenceOfDOB()).isEqualTo(true);
-		// assertThat(personalDetails_CheckYourAnswerPage.getDob()).matches(SharedData.day + "/" + SharedData.month + "/" + SharedData.year);
-		assertThat(personalDetails_CheckYourAnswerPage.getDob()).matches(SharedData.year + "-" + SharedData.month + "-" + SharedData.day);
+		assertThat(personalDetails_CheckYourAnswerPage.getDob())
+				.matches(SharedData.day + "/" + SharedData.month + "/" + SharedData.year);
 		assertThat(personalDetails_CheckYourAnswerPage.getPresenceOfGender()).isEqualTo(true);
 		assertThat(personalDetails_CheckYourAnswerPage.getGender()).matches(SharedData.gender);
 		assertThat(personalDetails_CheckYourAnswerPage.getPresenceOfAddress()).isEqualTo(true);
-		assertThat(personalDetails_CheckYourAnswerPage.getAddressLineOne()).matches(SharedData.streetLineOne);
-		assertThat(personalDetails_CheckYourAnswerPage.getAddressLineTwo()).matches(SharedData.streetLineTwo);
-		assertThat(personalDetails_CheckYourAnswerPage.getAddressTown()).matches(SharedData.town);
-		assertThat(personalDetails_CheckYourAnswerPage.getAddressPostcode()).matches(SharedData.postCode);
-		assertThat(personalDetails_CheckYourAnswerPage.getAddressCountry()).matches(SharedData.country);
+		assertThat(personalDetails_CheckYourAnswerPage.getAddress())
+				.matches(SharedData.streetLineOne + "\n" + SharedData.streetLineTwo + "\n" + SharedData.town + "\n"
+						+ SharedData.postCode + "\n" + SharedData.country);
 		assertThat(personalDetails_CheckYourAnswerPage.getPresenceOfNino()).isEqualTo(true);
 		assertThat(personalDetails_CheckYourAnswerPage.getNino()).matches(SharedData.nino);
 
@@ -89,21 +87,19 @@ public class PersonalDetails_CheckYourAnswersStepDefs {
 		switch (field) {
 		case "name":
 			assertThat(personalDetails_CheckYourAnswerPage.getFullname())
-					.matches(SharedData.firstName + " " + SharedData.lastName);
+					.matches(SharedData.title + " " + SharedData.firstName + " " + SharedData.lastName);
 			break;
 		case "dob":
-			// assertThat(personalDetails_CheckYourAnswerPage.getDob()).matches(SharedData.day + "/" + SharedData.month + "/" + SharedData.year);
-			assertThat(personalDetails_CheckYourAnswerPage.getDob()).matches(SharedData.year + "-" + SharedData.month + "-" + SharedData.day);
+			assertThat(personalDetails_CheckYourAnswerPage.getDob())
+					.matches(SharedData.day + "/" + SharedData.month + "/" + SharedData.year);
 			break;
 		case "gender":
 			assertThat(personalDetails_CheckYourAnswerPage.getGender()).matches(SharedData.gender);
 			break;
 		case "address":
-			assertThat(personalDetails_CheckYourAnswerPage.getAddressLineOne()).matches(SharedData.streetLineOne);
-			assertThat(personalDetails_CheckYourAnswerPage.getAddressLineTwo()).matches(SharedData.streetLineTwo);
-			assertThat(personalDetails_CheckYourAnswerPage.getAddressTown()).matches(SharedData.town);
-			assertThat(personalDetails_CheckYourAnswerPage.getAddressPostcode()).matches(SharedData.postCode);
-			assertThat(personalDetails_CheckYourAnswerPage.getAddressCountry()).matches(SharedData.country);
+			assertThat(personalDetails_CheckYourAnswerPage.getAddress())
+					.matches(SharedData.streetLineOne + "\n" + SharedData.streetLineTwo + "\n" + SharedData.town + "\n"
+							+ SharedData.postCode + "\n" + SharedData.country);
 			break;
 		case "nino":
 			assertThat(personalDetails_CheckYourAnswerPage.getNino()).matches(SharedData.nino);
@@ -142,7 +138,7 @@ public class PersonalDetails_CheckYourAnswersStepDefs {
 
 	}
 
-	@When("^I click on change for (.*) details$")
+	@When("^I select on change for (.*) details$")
 	public void iClickOnChangeForNameDetails(String field) {
 		personalDetails_CheckYourAnswerPage = new PersonalDetails_CheckYourAnswerPage(driver);
 		switch (field) {
