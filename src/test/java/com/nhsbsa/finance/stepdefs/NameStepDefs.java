@@ -23,6 +23,7 @@ public class NameStepDefs {
 	private WebDriver driver = Config.getDriver();
 	private String baseUrl = PropertyReader.getProperty("base.server");
 	private NamePage namePage;
+	private String title;
 	private String firstName;
 	private String lastName;
 
@@ -49,13 +50,23 @@ public class NameStepDefs {
 	@Then("^the name details are sustained$")
 	public void theNameDetailsAreSustained() {
 		namePage = new NamePage(driver);
+		assertThat(namePage.getTitleDetails()).matches(SharedData.title);
 		assertThat(namePage.getFirstNameDetails()).matches(SharedData.firstName);
 		assertThat(namePage.getLastNameDetails()).matches(SharedData.lastName);
 	}
 
+	@When("^I enter valid title using the title '(.*)'$")
+	public void IenterValidTitleUsingTitle(String title) {
+		namePage = new NamePage(driver);
+		namePage.enterTitle(title);
+	}
+
 	@When("^I enter name details using different valid details$")
 	public void iEnterNameDetailsUsingDifferentDetails() {
-		IenterValidNameDetails();
+		SharedData.title = "M/S";
+		namePage = new NamePage(driver);
+		namePage.enterTitle(SharedData.title);
+		IenterValidFirstAndLastName();
 	}
 
 	@Then("^the name submission will be successful$")
@@ -63,8 +74,8 @@ public class NameStepDefs {
 		new NavBarPage(driver);
 	}
 
-	@When("^I enter valid name details$")
-	public void IenterValidNameDetails() {
+	@When("^I enter valid first and last name$")
+	public void IenterValidFirstAndLastName() {
 		final String inputFirstName = RandomStringUtils.randomAlphabetic(10);
 		SharedData.firstName = inputFirstName.toLowerCase().substring(0, 1).toUpperCase()
 				+ inputFirstName.toLowerCase().substring(1);
@@ -73,37 +84,59 @@ public class NameStepDefs {
 				+ inputLastName.toLowerCase().substring(1);
 
 		namePage = new NamePage(driver);
-		namePage.submitValidNameDetails(SharedData.firstName, SharedData.lastName);
+		namePage.enterNames(SharedData.firstName, SharedData.lastName);
+	}
+
+	@When("^I enter valid name details$")
+	public void IenterValidNameDetails() {
+		SharedData.title = "MR";
+		final String inputFirstName = RandomStringUtils.randomAlphabetic(10);
+		SharedData.firstName = inputFirstName.toLowerCase().substring(0, 1).toUpperCase()
+				+ inputFirstName.toLowerCase().substring(1);
+		final String inputLastName = RandomStringUtils.randomAlphabetic(10);
+		SharedData.lastName = inputLastName.toLowerCase().substring(0, 1).toUpperCase()
+				+ inputLastName.toLowerCase().substring(1);
+
+		namePage = new NamePage(driver);
+		namePage.submitValidNameDetails(SharedData.title, SharedData.firstName, SharedData.lastName);
 	}
 
 	@Then("^the name submission will be unsuccessful$")
 	public void theNameSubmissionWillBeUnsuccessful() {
 		namePage = new NamePage(driver);
-		assertThat(namePage.getErrorHeadingErrorMessage()).matches("Some questions have not been answered correctly:");
-		assertThat(namePage.getErrorsBelowErrorMessage()).matches("Please see the errors below.");
+		assertThat(namePage.getErrorHeadingErrorMessage()).matches("Your form contains errors");
+		assertThat(namePage.getErrorsBelowErrorMessage()).matches("Check your answer:");
 	}
 
-	@And("^the first name error message '(.*)' will be displayed$")
-	public void theFirstNameErrorMessageWillBeDisplayed(String errorMessage) {
+	@And("^the (.*) error message '(.*)' will be displayed$")
+	public void theErrorMessageWillBeDisplayed(String field, String errorMessage) {
 		namePage = new NamePage(driver);
-		assertThat(namePage.doesFirstNameErrorMessageHaveAnchor()).isTrue();
-		assertThat(namePage.getFirstNameAnchoredErrorMessage()).matches(errorMessage);
-		assertThat(namePage.getFirstNameFieldErrorMessage()).matches(errorMessage);
-
+		switch (field) {
+		case "firstName":
+			assertThat(namePage.doesFirstNameErrorMessageHaveAnchor()).isTrue();
+			assertThat(namePage.getFirstNameAnchoredErrorMessage()).matches(errorMessage);
+			assertThat(namePage.getFirstNameFieldErrorMessage()).matches(errorMessage);
+			break;
+		case "lastName":
+			assertThat(namePage.doesLastNameErrorMessageHaveAnchor()).isTrue();
+			assertThat(namePage.getLastNameAnchoredErrorMessage()).matches(errorMessage);
+			assertThat(namePage.getLastNameFieldErrorMessage()).matches(errorMessage);
+			break;
+		case "title":
+			assertThat(namePage.doesTitleErrorMessageHaveAnchor()).isTrue();
+			assertThat(namePage.getTitleAnchoredErrorMessage()).matches(errorMessage);
+			assertThat(namePage.getTitleFieldErrorMessage()).matches(errorMessage);
+			break;
+		}
 	}
 
-	@And("^the last name error message '(.*)' will be displayed$")
-	public void theLastNameErrorMessageWillBeDisplayed(String errorMessage) {
-		namePage = new NamePage(driver);
-		assertThat(namePage.doesLastNameErrorMessageHaveAnchor()).isTrue();
-		assertThat(namePage.getLastNameAnchoredErrorMessage()).matches(errorMessage);
-		assertThat(namePage.getLastNameFieldErrorMessage()).matches(errorMessage);
-	}
-
-	@When("^I enter an invalid name using the (.*) '(.*)'$")
-	public void iEnterAnInvalidNameUsingFieldValue(String field, String value) {
+	@When("^I enter an invalid details using the (.*) '(.*)'$")
+	public void iEnterAnInvalidDetailsUsingFieldValue(String field, String value) {
 		setNameDetails();
 		switch (field) {
+		case "title":
+			title = value;
+			break;
 		case "firstName":
 			firstName = value;
 			break;
@@ -112,25 +145,28 @@ public class NameStepDefs {
 			break;
 		}
 		namePage = new NamePage(driver);
-		namePage.enterNameDetails(firstName, lastName);
+		namePage.enterNameDetails(title, firstName, lastName);
 		namePage.submitInValidNameDetails();
 	}
 
-	@When("^I enter valid name details using the firstName '(.*)' and lastName '(.*)'$")
-	public void iEnterValidNameDetailsUsingTheFirstNameAndLastName(String firstName, String lastName) {
+	@When("^I enter valid name details using the title '(.*)', firstName '(.*)' and lastName '(.*)'$")
+	public void iEnterValidNameDetailsUsingTheTitleFirstNameAndLastName(String title, String firstName,
+			String lastName) {
 		namePage = new NamePage(driver);
-		namePage.enterNameDetails(firstName, lastName);
+		namePage.enterNameDetails(title, firstName, lastName);
 		namePage.submitInValidNameDetails();
 	}
 
-	@Then("^The length of first and last name is verified$")
-	public void theLengthOfFirstAndLastNameIsVerified() {
+	@Then("^The length of title,first and last name is verified$")
+	public void theLengthOfTitleFirstAndLastNameIsVerified() {
 		namePage = new NamePage(driver);
+		assertThat(namePage.readTitleField()).matches("AA@A");
 		assertThat(namePage.readFirstNameField()).matches("InvalidIn@validInvalidInv");
 		assertThat(namePage.readLastNameField()).matches("InvalidIn@validInvalidInvalidInv");
 	}
 
 	private void setNameDetails() {
+		title = "Mrs";
 		firstName = "Test";
 		lastName = "User";
 

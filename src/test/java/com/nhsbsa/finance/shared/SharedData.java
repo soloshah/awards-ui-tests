@@ -8,7 +8,7 @@ public class SharedData {
   public static String month;
   public static String year;
   public static String username;
-  public static String password;
+  public static String title;
   public static String firstName;
   public static String lastName;
   public static String jobTitle;

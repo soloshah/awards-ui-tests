@@ -6,27 +6,22 @@ import org.openqa.selenium.WebDriver;
 public class PersonalDetails_CheckYourAnswerPage extends Page {
 
 	private String checkYouAnswersPageTitle = "Check your answers - Claim your NHS Pension - NHSBSA";
-	private By fullNameFieldLocator = By.id("name");
-	private By dobFieldLocator = By.id("dob");
-	private By genderFieldLocator = By.id("gender");
-	private By addressFieldLocator = By.id("address");
-	private By ninoFieldLocator = By.id("nino");
+	private By fullNameFieldLocator = By.id("personalDetails.checkYourAnswers.fullname");
+	private By dobFieldLocator = By.id("personalDetails.checkYourAnswers.dob");
+	private By genderFieldLocator = By.id("personalDetails.checkYourAnswers.gender");
+	private By addressFieldLocator = By.id("personalDetails.checkYourAnswers.address");
+	private By ninoFieldLocator = By.id("personalDetails.checkYourAnswers.ni");
 	private By continueButtonLocator = By.id("continue_button");
-	private By fullNameChangeLinkLocator = By.id("name-change");
-	private By dobChangeLinkLocator = By.id("dob-change");
-	private By genderChangeLinkLocator = By.id("gender-change");
-	private By addressChangeLinkLocator = By.id("address-change");
-	private By ninoChangeLinkLocator = By.id("nino-change");
-	private By fullNameTextLocator = By.id("name-answer");
-	private By dobTextLocator = By.id("dob-answer");
-	private By genderTextLocator = By.id("gender-answer");
-	private By addressTextLocator = By.id("address-answer");
-	private By addressLine1TextLocator = By.id("address-line-one");
-	private By addressLine2TextLocator = By.id("address-line-two");
-	private By addressTownTextLocator = By.id("town-or-city");
-	private By addressPostcodeTextLocator = By.id("postcode");
-	private By addressCountryTextLocator = By.id("country");
-	private By ninoTextLocator = By.id("nino-answer");
+	private By fullNameChangeLinkLocator = By.id("personalDetails.checkYourAnswers.fullname-chgit snge");
+	private By dobChangeLinkLocator = By.id("personalDetails.checkYourAnswers.dob-chgit snge");
+	private By genderChangeLinkLocator = By.id("personalDetails.checkYourAnswers.gender-chgit snge");
+	private By addressChangeLinkLocator = By.id("personalDetails.checkYourAnswers.address-chgit snge");
+	private By ninoChangeLinkLocator = By.id("personalDetails.checkYourAnswers.ni-chgit snge");
+	private By fullNameTextLocator = By.id("personalDetails.checkYourAnswers.fullname-answer");
+	private By dobTextLocator = By.id("personalDetails.checkYourAnswers.dob-answer");
+	private By genderTextLocator = By.id("personalDetails.checkYourAnswers.gender-answer");
+	private By addressTextLocator = By.id("personalDetails.checkYourAnswers.address-answer");
+	private By ninoTextLocator = By.id("personalDetails.checkYourAnswers.ni-answer");
 
 	public PersonalDetails_CheckYourAnswerPage(WebDriver driver) {
 		super(driver);
@@ -82,37 +77,7 @@ public class PersonalDetails_CheckYourAnswerPage extends Page {
 		navigateToElementBy(addressTextLocator);
 		return getElementText();
 	}
-
-	public String getAddressLineOne() {
-		navigateToRootElement();
-		navigateToElementBy(addressLine1TextLocator);
-		return getElementText();
-	}
-
-	public String getAddressLineTwo() {
-		navigateToRootElement();
-		navigateToElementBy(addressLine2TextLocator);
-		return getElementText();
-	}
-
-	public String getAddressTown() {
-		navigateToRootElement();
-		navigateToElementBy(addressTownTextLocator);
-		return getElementText();
-	}
-
-	public String getAddressPostcode() {
-		navigateToRootElement();
-		navigateToElementBy(addressPostcodeTextLocator);
-		return getElementText();
-	}
-
-	public String getAddressCountry() {
-		navigateToRootElement();
-		navigateToElementBy(addressCountryTextLocator);
-		return getElementText();
-	}
-
+	
 	public String getNino() {
 		navigateToRootElement();
 		navigateToElementBy(ninoTextLocator);
