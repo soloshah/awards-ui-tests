@@ -84,12 +84,12 @@ public class SharedEarlyPaymentPage extends Page {
 		return getElementText();
 	}
 
-		public TBIPage submitValidPaymentDateDetails(String day, String month, String year) {
+		public void submitValidPaymentDateDetails(String day, String month, String year) {
 		enterDay(day);
 		enterMonth(month);
 		enterYear(year);
 		nextStep();
-		return new TBIPage(driver);
+		
 	}
 
 

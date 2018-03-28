@@ -30,5 +30,11 @@ public class LumpSumChoice_2015StepDefs {
 	public void theDefaultValueFor2015LumpSumChoiceWillBeBlank() {
 		assertThat(lumpSumChoice_2015Page.isLumpSum2015RadioButtonSelected()).isFalse();
 	}
+	
+	@Then("^the 2015 lumpsum choice page will be displayed$")
+	public void the2015LumpsumChoicePageWillBeDisplayed() {
+		lumpSumChoice_2015Page = new LumpSumChoice_2015Page(driver);
+		assertThat(lumpSumChoice_2015Page.getHeading()).contains("Do you want to give up part of your 2015 Section pension to receive a lump sum?");
+	}
 
 }
