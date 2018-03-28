@@ -9,7 +9,7 @@ Scenario: Valid Reason for retirement
 And I select valid 2008 retirement reason using retirementAge
 Then the 2008 valid retirement reason text for age will be displayed
 And the 2008 reason for retirement submission will be successful
-And the tbi page will be displayed
+And the 2008 lumpsum choice page will be displayed
 
 Scenario: Valid Reason for retirement
 And I select valid 2008 retirement reason using deferredBenefit
@@ -22,7 +22,7 @@ Scenario: Valid Reason for retirement
 And I select valid 2008 retirement reason using deferredBenefitHealth
 Then the 2008 valid retirement reason text for deferredBenefitHealth will be displayed
 And the 2008 reason for retirement submission will be successful
-And the tbi page will be displayed
+And the 2008 lumpsum choice page will be displayed
 
 
 Scenario: Valid Reason for retirement
@@ -34,7 +34,7 @@ And the tbi page will be displayed
 Scenario: 2008 Reason for retirement validation 
 And I dont select any 2008 reason for retirement
 Then the 2008 reason for retirement submission will be unsuccessful
-And the 2008 reason for retirement error message 'Select the reason you are claiming your deferred benefits' will be displayed
+And the error message 'Select the reason you are claiming your deferred benefits' for 2008 reason for retirement will be displayed
 
 Scenario: Default value of 2008 reason for retirement
 Then the default value of 2008 reason for retirement will be blank

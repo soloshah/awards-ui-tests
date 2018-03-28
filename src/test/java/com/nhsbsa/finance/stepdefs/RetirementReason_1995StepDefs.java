@@ -93,8 +93,8 @@ public class RetirementReason_1995StepDefs {
 	}
 
 	
-	@And("^the 1995 reason for retirement error message '(.*)' will be displayed$")
-	public void the1995ReasonForRetirementErrorMessageWillBeDisplayed(String errorMessage) {
+	@And("^the error message '(.*)' for 1995 reason for retirement will be displayed$")
+	public void theErrorMessageFor1995ReasonForRetirementWillBeDisplayed(String errorMessage) {
 		reasonForRetirement_1995Page = new ReasonForRetirement_1995Page(driver);
 		assertThat(reasonForRetirement_1995Page.doesRetirementReasonErrorMessageHaveAnchor()).isTrue();
 		assertThat(reasonForRetirement_1995Page.getRetirementReasonAnchoredErrorMessage()).matches(errorMessage);
@@ -108,6 +108,12 @@ public class RetirementReason_1995StepDefs {
 		reasonForRetirement_1995Page = new ReasonForRetirement_1995Page(driver);
 		assertThat(reasonForRetirement_1995Page.getHeading())
 				.contains("Why are you claiming your deferred benefits for the 1995 Section?");
+	}
+	
+	@Then("^the 1995 reason for retirement page will be displayed$")
+	public void the1995ReasonForRetirementPageWillBeDisplayed() {
+		reasonForRetirement_1995Page = new ReasonForRetirement_1995Page(driver);
+		assertThat(reasonForRetirement_1995Page.getHeading()).contains("Why are you claiming your deferred benefits for the 1995 Section?");
 	}
 
 }

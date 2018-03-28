@@ -32,4 +32,10 @@ public class LumpSumChoice_1995StepDefs {
 		assertThat(lumpSumChoice_1995Page.isLumpSum1995RadioButtonSelected()).isFalse();
 	}
 
+	@Then("^the 1995 lumpsum choice page will be displayed$")
+	public void the1995LumpsumChoicePageWillBeDisplayed() {
+		lumpSumChoice_1995Page = new LumpSumChoice_1995Page(driver);
+		assertThat(lumpSumChoice_1995Page.getHeading()).contains("You are already entitled to a lump sum. Do you want to increase your lump sum by giving up part of your 1995 pension?");
+	}
+	
 }

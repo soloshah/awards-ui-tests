@@ -91,8 +91,8 @@ public class RetirementReason_2008StepDefs {
 	}
 
 	
-	@And("^the 2008 reason for retirement error message '(.*)' will be displayed$")
-	public void the2008ReasonForRetirementErrorMessageWillBeDisplayed(String errorMessage) {
+	@And("^the error message '(.*)' for 2008 reason for retirement will be displayed$")
+	public void theErrorMessageFor2008ReasonForRetirementWillBeDisplayed(String errorMessage) {
 		reasonForRetirement_2008Page = new ReasonForRetirement_2008Page(driver);
 		assertThat(reasonForRetirement_2008Page.doesRetirementReasonErrorMessageHaveAnchor()).isTrue();
 		assertThat(reasonForRetirement_2008Page.getRetirementReasonAnchoredErrorMessage()).matches(errorMessage);
@@ -108,4 +108,10 @@ public class RetirementReason_2008StepDefs {
 				.contains("Why are you claiming your deferred benefits for the 2008 Section?");
 	}
 
+	
+	@Then("^the 2008 reason for retirement page will be displayed$")
+	public void the2008ReasonForRetirementPageWillBeDisplayed() {
+		reasonForRetirement_2008Page = new ReasonForRetirement_2008Page(driver);
+		assertThat(reasonForRetirement_2008Page.getHeading()).contains("Why are you claiming your deferred benefits for the 2008 Section?");
+	}
 }

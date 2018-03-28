@@ -8,14 +8,14 @@ When I go to the 1995 early payment date page
 
 Scenario: Valid early payment date
 And I enter valid early payment date details
-#Then the early payment date submission will be successful
-Then the tbi page will be displayed
+Then the early payment date submission will be successful
+Then the 1995 lumpsum choice page will be displayed
 
 
 Scenario Outline: 1995 Early Payment Date Field validations 
 And I enter early payment date details using the day '<day>', month '<month>' and year '<year>'
 Then the early payment date submission will be unsuccessful
-And the early payment dates error message '<errorMessage>' will be displayed
+And the error message '<errorMessage>' for early payment dates will be displayed
 Examples:
            |day | month  |year| errorMessage       |
            |    |        |    | Enter a valid date |

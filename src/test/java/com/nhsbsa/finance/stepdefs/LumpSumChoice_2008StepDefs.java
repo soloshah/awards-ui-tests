@@ -30,5 +30,11 @@ public class LumpSumChoice_2008StepDefs {
 	public void theDefaultValueFor2008LumpSumChoiceWillBeBlank() {
 		assertThat(lumpSumChoice_2008Page.isLumpSum2008RadioButtonSelected()).isFalse();
 	}
+	
+	@Then("^the 2008 lumpsum choice page will be displayed$")
+	public void the2008LumpsumChoicePageWillBeDisplayed() {
+		lumpSumChoice_2008Page = new LumpSumChoice_2008Page(driver);
+		assertThat(lumpSumChoice_2008Page.getHeading()).contains("Do you want to give up part of your 2008 Section pension to receive a lump sum?");
+	}
 
 }

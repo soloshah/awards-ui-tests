@@ -93,8 +93,8 @@ public class RetirementReason_2015StepDefs {
 	}
 
 	
-	@And("^the 2015 reason for retirement error message '(.*)' will be displayed$")
-	public void the2015ReasonForRetirementErrorMessageWillBeDisplayed(String errorMessage) {
+	@And("^the error message '(.*)' for 2015 reason for retirement will be displayed$")
+	public void theErrorMessageFor2015ReasonForRetirementWillBeDisplayed(String errorMessage) {
 		reasonForRetirement_2015Page = new ReasonForRetirement_2015Page(driver);
 		assertThat(reasonForRetirement_2015Page.doesRetirementReasonErrorMessageHaveAnchor()).isTrue();
 		assertThat(reasonForRetirement_2015Page.getRetirementReasonAnchoredErrorMessage()).matches(errorMessage);
@@ -108,6 +108,12 @@ public class RetirementReason_2015StepDefs {
 		reasonForRetirement_2015Page = new ReasonForRetirement_2015Page(driver);
 		assertThat(reasonForRetirement_2015Page.getHeading())
 				.contains("Why are you claiming your deferred benefits for the 2015 Section?");
+	}
+	
+	@Then("^the 2015 reason for retirement page will be displayed$")
+	public void the2015ReasonForRetirementPageWillBeDisplayed() {
+		reasonForRetirement_2015Page = new ReasonForRetirement_2015Page(driver);
+		assertThat(reasonForRetirement_2015Page.getHeading()).contains("Why are you claiming your deferred benefits for the 2015 Section?");
 	}
 
 }

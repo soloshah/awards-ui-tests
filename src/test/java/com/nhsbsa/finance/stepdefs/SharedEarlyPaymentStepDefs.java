@@ -58,8 +58,8 @@ public class SharedEarlyPaymentStepDefs {
 
 	}
 
-	@And("^the early payment dates error message '(.*)' will be displayed$")
-	public void theEarlyPaymentDateErrorMessageWillBeDisplayed(String errorMessage) {
+	@And("^the error message '(.*)' for early payment dates will be displayed$")
+	public void theErrorMessageForEarlyPaymentDateWillBeDisplayed(String errorMessage) {
 		sharedEarlyPaymentPage = new SharedEarlyPaymentPage(driver);
 		assertThat(sharedEarlyPaymentPage.doesPaymentDateErrorMessageHaveAnchor()).isTrue();
 		assertThat(sharedEarlyPaymentPage.getPaymentDateAnchoredErrorMessage()).matches(errorMessage);
