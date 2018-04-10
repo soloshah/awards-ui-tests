@@ -69,7 +69,7 @@ public class PersonalDetails_CheckYourAnswersStepDefs {
 				.matches(SharedData.title + " " + SharedData.firstName + " " + SharedData.lastName);
 		assertThat(personalDetails_CheckYourAnswerPage.getPresenceOfDOB()).isEqualTo(true);
 		assertThat(personalDetails_CheckYourAnswerPage.getDob())
-				.matches(SharedData.day + "/" + SharedData.month + "/" + SharedData.year);
+				.matches(SharedData.day + " " + SharedData.month + " " + SharedData.year);
 		assertThat(personalDetails_CheckYourAnswerPage.getPresenceOfGender()).isEqualTo(true);
 		assertThat(personalDetails_CheckYourAnswerPage.getGender()).matches(SharedData.gender);
 		assertThat(personalDetails_CheckYourAnswerPage.getPresenceOfAddress()).isEqualTo(true);
@@ -91,7 +91,7 @@ public class PersonalDetails_CheckYourAnswersStepDefs {
 			break;
 		case "dob":
 			assertThat(personalDetails_CheckYourAnswerPage.getDob())
-					.matches(SharedData.day + "/" + SharedData.month + "/" + SharedData.year);
+					.matches(SharedData.day + " " + SharedData.month + " " + SharedData.year);
 			break;
 		case "gender":
 			assertThat(personalDetails_CheckYourAnswerPage.getGender()).matches(SharedData.gender);

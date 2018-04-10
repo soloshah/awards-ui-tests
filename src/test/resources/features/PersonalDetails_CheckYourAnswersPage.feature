@@ -1,4 +1,4 @@
-@CheckYourAnswers @BP490-129
+@CheckYourAnswers @BP490-129 @BP490-279
 Feature: Check Your Answers for personal details
 
 Background:
