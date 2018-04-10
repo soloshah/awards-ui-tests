@@ -4,10 +4,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class YourGenderPage extends Page {
-
+	
 	private String yourGenderPageTitle = "What is your legally recognised gender? - Claim your NHS Pension - NHSBSA";
-	private By femaleRadioButtonLocator = By.xpath("//*[@id='gender_group']/div[1]/label");
-	private By maleRadioButtonLocator = By.xpath("//*[@id='gender_group']/div[2]/label");
+	private By femaleRadioButtonLocator = By.xpath("//*[@id='gender']/div[1]/label");
+	private By maleRadioButtonLocator = By.xpath("//*[@id='gender']/div[2]/label");
 	private By nextButtonLocator = By.id("submit_button");
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");
 	private By errorsBelowErrorMessageLocator = By.id("error-summary-heading1");

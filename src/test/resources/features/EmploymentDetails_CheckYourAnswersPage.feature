@@ -1,7 +1,7 @@
 @EmploymentDetailsCheckYourAnswers @BP490-215
 Feature: Check Your Answers for employment details
 
-
+@Bug @BP490-352
 Scenario: Working for NHS
 Given I have filled in current employment details
 And Check your answers page for employment details will be displayed

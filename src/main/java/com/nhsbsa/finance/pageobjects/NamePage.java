@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class NamePage extends Page {
 
-	private String namePageTitle = "What is your name? - Claim your NHS Pension";
+	private String namePageTitle = "What is your name? - Claim your NHS Pension - NHSBSA";
 	private By titleFieldLocator = By.id("title");
 	private By firstNameFieldLocator = By.id("firstName");
 	private By lastNameFieldLocator = By.id("lastName");
