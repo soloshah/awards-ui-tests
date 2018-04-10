@@ -2,15 +2,12 @@ package com.nhsbsa.finance.stepdefs;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
-import com.nhsbsa.finance.pageobjects.NamePage;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.pageobjects.YourAddressPage;
-import com.nhsbsa.finance.pageobjects.YourGenderPage;
 import com.nhsbsa.finance.properties.PropertyReader;
 import com.nhsbsa.finance.shared.SharedData;
 

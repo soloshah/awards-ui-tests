@@ -9,7 +9,6 @@ import org.openqa.selenium.WebDriver;
 import com.nhsbsa.finance.driver.Config;
 import com.nhsbsa.finance.pageobjects.IntendToWorkForNHSPage;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
-import com.nhsbsa.finance.pageobjects.OtherEqPensionsPage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.properties.PropertyReader;
 import com.nhsbsa.finance.shared.SharedData;
@@ -36,16 +35,23 @@ public class IntendToWorkForNHSStepDefs {
 	public void iGoToIntendToWorkForNHSPage() {
 		new Page(driver).navigateToUrl(baseUrl + "/employment-details/do-you-intend-to-work-for-nhs");
 		intendToWorkForNHSPage = new IntendToWorkForNHSPage(driver);
-		assertThat(intendToWorkForNHSPage.getHeading()).contains("Do you plan to work for the NHS after you get your pension?");
+		assertThat(intendToWorkForNHSPage.getHeading())
+				.contains("Do you plan to work for the NHS after you get your pension?");
 	}
-	
+
 	@Then("^the intend to work for NHS page will be displayed$")
 	public void theIntendToWorkForNHSPageWillbeDisplayed() {
 		intendToWorkForNHSPage = new IntendToWorkForNHSPage(driver);
-		assertThat(intendToWorkForNHSPage.getHeading()).contains("Do you plan to work for the NHS after you get your pension?");
+		assertThat(intendToWorkForNHSPage.getHeading())
+				.contains("Do you plan to work for the NHS after you get your pension?");
 
-		}
+	}
 
+	@When("^I click next on intend to work page$")
+	public void iClickNextOnIntendToWorkPage() {
+		intendToWorkForNHSPage = new IntendToWorkForNHSPage(driver);
+		intendToWorkForNHSPage.nextStep();
+	}
 
 	@Then("^the default value for intend to work for NHS will be blank$")
 	public void theDefaultValueForIntendToWorkForNHSWillBeBlank() {
@@ -63,12 +69,14 @@ public class IntendToWorkForNHSStepDefs {
 
 	@When("^I choose Yes$")
 	public void iChooseYes() {
+		SharedData.sharedNHSRadioButton = "Yes";
 		intendToWorkForNHSPage = new IntendToWorkForNHSPage(driver);
 		intendToWorkForNHSPage.submitValidYesNhsDetails();
 	}
 
 	@When("^I choose No$")
 	public void iChooseNo() {
+		SharedData.sharedNHSRadioButton = "No";
 		intendToWorkForNHSPage = new IntendToWorkForNHSPage(driver);
 		intendToWorkForNHSPage.submitValidNoDetails();
 	}
@@ -78,27 +86,25 @@ public class IntendToWorkForNHSStepDefs {
 		intendToWorkForNHSPage = new IntendToWorkForNHSPage(driver);
 		intendToWorkForNHSPage.intendToWorkForNHSIsNotSelected();
 	}
-	
 
 	@When("^the date you return to work fields will be displayed$")
 	public void theDateYouReturnToWorkfieldsWillBeDisplayed() {
-	
+
 		intendToWorkForNHSPage = new IntendToWorkForNHSPage(driver);
-	assertThat(intendToWorkForNHSPage.getDateHeading().contains("What date will you be returning work?"));
-	assertThat(intendToWorkForNHSPage.getExampleHint().matches("For example, 31 3 1980"));
+		assertThat(intendToWorkForNHSPage.getDateHeading().contains("What date will you be returning work?"));
+		assertThat(intendToWorkForNHSPage.getExampleHint().matches("For example, 31 3 1980"));
 
 	}
-	
-	
+
 	@When("^I enter the valid date$")
 	public void IenterTheValidDate() {
 		String randomDateString = SharedMethods.randomDateGenerator();
 		LocalDate localDate = LocalDate.parse(randomDateString);
-		SharedData.day = SharedMethods.formatDay(localDate);
-		SharedData.month = SharedMethods.formatMonth(localDate);
-		SharedData.year = SharedMethods.formatYear(localDate);
+		SharedData.returnDay = SharedMethods.formatDay(localDate);
+		SharedData.returnMonth = SharedMethods.formatMonth(localDate);
+		SharedData.returnYear = SharedMethods.formatYear(localDate);
 		intendToWorkForNHSPage = new IntendToWorkForNHSPage(driver);
-		intendToWorkForNHSPage.submitValidDate(SharedData.day, SharedData.month, SharedData.year);
+		intendToWorkForNHSPage.submitValidDate(SharedData.returnDay, SharedData.returnMonth, SharedData.returnYear);
 	}
 
 	@When("^I enter invalid date details using the day '(.*)', month '(.*)' and year '(.*)$")
@@ -118,7 +124,6 @@ public class IntendToWorkForNHSStepDefs {
 		assertThat(intendToWorkForNHSPage.getDateFieldErrorMessage()).matches(errorMessage);
 	}
 
-	
 	@Then("^the intend to work for NHS submission will be unsuccessful$")
 	public void theIntendToWorkForNHSSubmissionWillBeUnsuccessful() {
 		intendToWorkForNHSPage = new IntendToWorkForNHSPage(driver);
@@ -127,11 +132,25 @@ public class IntendToWorkForNHSStepDefs {
 		assertThat(intendToWorkForNHSPage.getErrorsBelowErrorMessage()).matches("Please see the errors below.");
 	}
 
-	
 	@Then("^the intend to work for NHS submission will be successful$")
 	public void theIntendToWorkForNHSSubmissionWillBeSuccessful() {
 		new NavBarPage(driver);
 	}
-	
-	
+
+	@Then("^the intend to work details are sustained$")
+	public void theIntendToWorkDetailsAreSustained() {
+		intendToWorkForNHSPage = new IntendToWorkForNHSPage(driver);
+		System.out.println("@@@@@@@" + intendToWorkForNHSPage.getYesRadioButton());
+		assertThat(intendToWorkForNHSPage.getYesRadioButton()).matches(SharedData.sharedRadioButton);
+		assertThat(intendToWorkForNHSPage.getDay()).matches(SharedData.returnDay);
+		assertThat(intendToWorkForNHSPage.getMonth()).matches(SharedData.returnMonth);
+		assertThat(intendToWorkForNHSPage.getYear()).matches(SharedData.returnYear);
+
+	}
+
+	@When("^I enter return date using different valid details$")
+	public void iEnterReturnDateUsingDifferentDetails() {
+		IenterTheValidDate();
+	}
+
 }

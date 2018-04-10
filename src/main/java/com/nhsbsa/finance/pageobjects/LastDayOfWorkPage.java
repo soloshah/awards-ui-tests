@@ -42,11 +42,30 @@ public class LastDayOfWorkPage extends Page {
 		type(year);
 	}
 
-	private void nextStep() {
+	public void nextStep() {
 		navigateToRootElement();
 		navigateToElementBy(nextButtonLocator);
 		click();
 	}
+	
+	
+	 public String getDay() {
+		    navigateToRootElement();
+		    navigateToElementBy(dayFieldLocator);
+		    return getElementValue();
+		  }
+
+	 public String getMonth() {
+		    navigateToRootElement();
+		    navigateToElementBy(monthFieldLocator);
+		    return getElementValue();
+		  }
+	
+	 public String getYear() {
+		    navigateToRootElement();
+		    navigateToElementBy(yearFieldLocator);
+		    return getElementValue();
+		  }
 
 	public String getExampleDateHint() {
 		navigateToRootElement();

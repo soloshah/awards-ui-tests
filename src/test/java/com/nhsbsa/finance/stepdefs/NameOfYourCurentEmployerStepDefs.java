@@ -25,7 +25,8 @@ public class NameOfYourCurentEmployerStepDefs {
 	@Then("^What is the name of your current employer page will be displayed$")
 	public void whatIsTheNameOfYourCurrentEmployerPageWillBeDisplayed() {
 		nameOfYourCurrentEmployerPage = new NameOfYourCurrentEmployerPage(driver);
-		assertThat(nameOfYourCurrentEmployerPage.getHeading()).contains("What is the name of your current NHS employer?");
+		assertThat(nameOfYourCurrentEmployerPage.getHeading())
+				.contains("What is the name of your current NHS employer?");
 	}
 
 	@Given("^I am on the name of the current NHS employer page$")
@@ -33,11 +34,25 @@ public class NameOfYourCurentEmployerStepDefs {
 		new Page(driver).navigateToUrl(baseUrl + "/employment-details/what-is-your-current-nhs-employer-name");
 	}
 
+	@When("^I click next on current employer name page$")
+	public void iClickNextOnCurrentEmployerNamePage() {
+		nameOfYourCurrentEmployerPage = new NameOfYourCurrentEmployerPage(driver);
+		nameOfYourCurrentEmployerPage.nextStep();
+	}
+
+	@Then("^the currentEmploymentName details are sustained$")
+	public void theCurrentEmploymentNameDetailsAreSustained() {
+		nameOfYourCurrentEmployerPage = new NameOfYourCurrentEmployerPage(driver);
+		assertThat(nameOfYourCurrentEmployerPage.getEmployerNameDetails()).matches(SharedData.employerName);
+
+	}
+
 	@When("^I go to the name of your current NHS employer page$")
 	public void iGoToTheNameOfYourCurrentNHSEmployerPage() {
 		new Page(driver).navigateToUrl(baseUrl + "/employment-details/what-is-your-current-nhs-employer-name");
 		nameOfYourCurrentEmployerPage = new NameOfYourCurrentEmployerPage(driver);
-		assertThat(nameOfYourCurrentEmployerPage.getHeading()).contains("What is the name of your current NHS employer?");
+		assertThat(nameOfYourCurrentEmployerPage.getHeading())
+				.contains("What is the name of your current NHS employer?");
 	}
 
 	@Then("^the name of your current NHS employer page submission will be successful$")
@@ -73,6 +88,14 @@ public class NameOfYourCurentEmployerStepDefs {
 		assertThat(nameOfYourCurrentEmployerPage.doesEmployerNameErrorMessageHaveAnchor()).isTrue();
 		assertThat(nameOfYourCurrentEmployerPage.getEmployerNameAnchoredErrorMessage()).matches(errorMessage);
 		assertThat(nameOfYourCurrentEmployerPage.getEmployerNameFieldErrorMessage()).matches(errorMessage);
+	}
+
+	@When("^I enter currentEmployerName using different valid details$")
+	public void iEntercurrentEmployerNameUsingDifferentDetails() {
+		SharedData.employerName = "NHS Scotland";
+		nameOfYourCurrentEmployerPage = new NameOfYourCurrentEmployerPage(driver);
+		nameOfYourCurrentEmployerPage.submitValidEmployerNameDetails(SharedData.employerName);
+
 	}
 
 }

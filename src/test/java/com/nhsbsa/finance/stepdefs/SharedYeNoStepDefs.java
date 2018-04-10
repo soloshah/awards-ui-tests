@@ -63,6 +63,14 @@ public class SharedYeNoStepDefs {
 		assertThat(sharedYesNoPage.getYesRadioButton()).matches(SharedData.sharedRadioButton);
 
 	}
+	
+	@And("^the working for nhs details are sustained$")
+	public void theWorkingForNHSDetailsAreSustained() {
+		sharedYesNoPage = new SharedYesNoPage(driver);
+		assertThat(sharedYesNoPage.getYesRadioButton()).matches(SharedData.sharedRadioButton);
+
+	}
+
 
 	@When("^I click on the link increase in lump sum affects benefits$")
 	public void iClickOnTheLinkIncreaseinLumpSumAffectsBenefits() {

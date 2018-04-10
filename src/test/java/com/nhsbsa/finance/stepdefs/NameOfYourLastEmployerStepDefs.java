@@ -38,20 +38,21 @@ public class NameOfYourLastEmployerStepDefs {
 		new Page(driver).navigateToUrl(baseUrl + "/employment-details/what-was-last-nhs-employer-name");
 		nameOfYourLastEmployerPage = new NameOfYourLastEmployerPage(driver);
 		assertThat(nameOfYourLastEmployerPage.getHeading()).contains("What was the name of your last NHS employer?");
-		assertThat(nameOfYourLastEmployerPage.getExampleHintMessage().matches("For example, NHS Business Services Authority."));
+		assertThat(nameOfYourLastEmployerPage.getExampleHintMessage()
+				.matches("For example, NHS Business Services Authority."));
 	}
 
 	@Then("^the name of your last NHS employer page submission will be successful$")
 	public void theNameOfYourLastNHSEmployerPageSubmissionWillBeSuccessful() {
 		new NavBarPage(driver);
-			
+
 	}
 
 	@When("^I enter valid name of last NHS employer details$")
 	public void IenterValidNameOfLastNHSEmployerDetails() {
 		SharedData.employerName = "NHS BSA AUTHORITY";
 		nameOfYourLastEmployerPage = new NameOfYourLastEmployerPage(driver);
-		nameOfYourLastEmployerPage.submitValidJobTitleDetails(SharedData.employerName);
+		nameOfYourLastEmployerPage.submitValidEmployerNameDetails(SharedData.employerName);
 	}
 
 	@Then("^the name of your last NHS employer page submission will be unsuccessful$")
@@ -75,6 +76,21 @@ public class NameOfYourLastEmployerStepDefs {
 		assertThat(nameOfYourLastEmployerPage.doesEmployerNameErrorMessageHaveAnchor()).isTrue();
 		assertThat(nameOfYourLastEmployerPage.getEmployerNameAnchoredErrorMessage()).matches(errorMessage);
 		assertThat(nameOfYourLastEmployerPage.getEmployerNameFieldErrorMessage()).matches(errorMessage);
+	}
+
+	@Then("^the last employer name details are sustained$")
+	public void theLastEmployerNameDetailsAreSustained() {
+		nameOfYourLastEmployerPage = new NameOfYourLastEmployerPage(driver);
+		assertThat(nameOfYourLastEmployerPage.getEmployerNameDetails()).matches(SharedData.employerName);
+
+	}
+
+	@When("^I enter last employer name using different valid details$")
+	public void iEnterLastEmployerNameUsingDifferentDetails() {
+		SharedData.employerName = "DWP Pensions";
+		nameOfYourLastEmployerPage = new NameOfYourLastEmployerPage(driver);
+		nameOfYourLastEmployerPage.submitValidEmployerNameDetails(SharedData.employerName);
+
 	}
 
 }

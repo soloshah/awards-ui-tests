@@ -56,7 +56,7 @@ public class EmployerAddressPage extends Page {
 		type(postCode);
 	}
 
-	private void nextStep() {
+	public void nextStep() {
 		navigateToRootElement();
 		navigateToElementBy(nextButtonLocator);
 		click();
@@ -156,11 +156,36 @@ public class EmployerAddressPage extends Page {
 		navigateToElementBy(postCodeFieldErrorMessageLocator);
 		return getElementText();
 	}
+	
+	
+	public String getAddressLineOneDetails() {
+		navigateToRootElement();
+		navigateToElementBy(streetLine1FieldLocator);
+		return getElementValue();
+	}
 
-	public TBIPage submitValidAddressDetails(String streetLineOne, String streetLineTwo, String town, String postCode) {
+	public String getAddressLineTwoDetails() {
+		navigateToRootElement();
+		navigateToElementBy(streetLine2FieldLocator);
+		return getElementValue();
+	}
+
+	public String getAddressTownDetails() {
+		navigateToRootElement();
+		navigateToElementBy(townFieldLocator);
+		return getElementValue();
+	}
+
+	public String getAddressPostcodeDetails() {
+		navigateToRootElement();
+		navigateToElementBy(postCodeFieldLocator);
+		return getElementValue();
+	}
+
+	public LastDayOfWorkPage submitValidAddressDetails(String streetLineOne, String streetLineTwo, String town, String postCode) {
 		enterEmployerAddressDetails(streetLineOne, streetLineTwo, town, postCode);
 		nextStep();
-		return new TBIPage(driver);
+		return new LastDayOfWorkPage(driver);
 	}
 
 	public EmployerAddressPage submitInValidEmployerAddressDetails() {
