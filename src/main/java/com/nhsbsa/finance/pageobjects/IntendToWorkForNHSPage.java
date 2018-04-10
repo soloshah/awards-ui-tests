@@ -6,8 +6,8 @@ import org.openqa.selenium.WebDriver;
 public class IntendToWorkForNHSPage extends Page {
 
 	private String intendToWorkForNHSTitle = "Claim your NHS Pension";
-	private By yesRadioButtonLocator = By.xpath("//*[@id='yesNoValue_group']/div/div[1]/label");
-	private By noRadioButtonLocator = By.xpath("//*[@id='yesNoValue_group']/div/div[2]/label");
+	private By yesRadioButtonLocator = By.xpath("//*[@id='yesNoValue']/div/div[1]/label");
+	private By noRadioButtonLocator = By.xpath("//*[@id='yesNoValue']/div/div[2]/label");
 	private By nextButtonLocator = By.id("submit_button");
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");
 	private By errorsBelowErrorMessageLocator = By.id("error-summary-heading1");
@@ -21,7 +21,10 @@ public class IntendToWorkForNHSPage extends Page {
 	private By monthFieldLocator = By.id("dateValue-month");
 	private By yearFieldLocator = By.id("dateValue-year");
 	private By dateHeaderLocator = By.id("label-text");
-
+	private By selectedYesRadioButtonLocator = By.xpath("//input[@checked='checked']");
+	private By selectedNoRadioButtonLocator = By.xpath("//input[@checked='checked']");
+	
+	
 	public IntendToWorkForNHSPage(WebDriver driver) {
 		super(driver);
 		waitForTitleToExist(intendToWorkForNHSTitle);
@@ -47,11 +50,29 @@ public class IntendToWorkForNHSPage extends Page {
 	}
 
 	
-	private void nextStep() {
+	public void nextStep() {
 		navigateToRootElement();
 		navigateToElementBy(nextButtonLocator);
 		click();
 	}
+	
+	 public String getDay() {
+		    navigateToRootElement();
+		    navigateToElementBy(dayFieldLocator);
+		    return getElementValue();
+		  }
+
+	 public String getMonth() {
+		    navigateToRootElement();
+		    navigateToElementBy(monthFieldLocator);
+		    return getElementValue();
+		  }
+	
+	 public String getYear() {
+		    navigateToRootElement();
+		    navigateToElementBy(yearFieldLocator);
+		    return getElementValue();
+		  }
 	
 	public String getDateHeading() {
 		navigateToRootElement();
@@ -59,6 +80,19 @@ public class IntendToWorkForNHSPage extends Page {
 		return getElementText();
 	}
 	
+	public String getYesRadioButton() {
+		navigateToRootElement();
+		navigateToElementBy(selectedYesRadioButtonLocator);
+		navigateToParentElement();
+		return getElementText();
+	}
+	
+	public String getNoRadioButton() {
+		navigateToRootElement();
+		navigateToElementBy(selectedNoRadioButtonLocator);
+		navigateToParentElement();
+		return getElementText();
+	}
 	
 	
 	public String getErrorHeadingErrorMessage() {
@@ -139,12 +173,12 @@ public class IntendToWorkForNHSPage extends Page {
 		return new IntendToWorkForNHSPage(driver);
 	}
 	
-	public TBIPage submitValidDate(String day, String month, String year) {
+	public EmploymentDetails_CheckYourAnswerPage submitValidDate(String day, String month, String year) {
 		enterDay(day);
 		enterMonth(month);
 		enterYear(year);
 		nextStep();
-		return new TBIPage(driver);
+		return new EmploymentDetails_CheckYourAnswerPage(driver);
 	}
 	
 	public IntendToWorkForNHSPage submitInValidDateDetails() {
@@ -152,12 +186,12 @@ public class IntendToWorkForNHSPage extends Page {
 		return new IntendToWorkForNHSPage(driver);
 	}
 
-	public TBIPage submitValidNoDetails() {
+	public EmploymentDetails_CheckYourAnswerPage submitValidNoDetails() {
 		navigateToRootElement();
 		navigateToElementBy(noRadioButtonLocator);
 		click();
 		nextStep();
-		return new TBIPage(driver);
+		return new EmploymentDetails_CheckYourAnswerPage(driver);
 	}
 
 }

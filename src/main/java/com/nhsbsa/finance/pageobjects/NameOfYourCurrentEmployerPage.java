@@ -31,7 +31,7 @@ public class NameOfYourCurrentEmployerPage extends Page {
 		nextStep();
 	}
 
-	private void nextStep() {
+	public void nextStep() {
 		navigateToRootElement();
 		navigateToElementBy(nextButtonLocator);
 		click();
@@ -72,6 +72,12 @@ public class NameOfYourCurrentEmployerPage extends Page {
 		enterEmployerName(employerName);
 		nextStep();
 		return new EmployerAddressPage(driver);
+	}
+
+	public String getEmployerNameDetails() {
+		navigateToRootElement();
+		navigateToElementBy(employerNameFieldLocator);
+		return getElementValue();
 	}
 
 	

@@ -33,13 +33,18 @@ public class JobTitleStepDefs {
 		jobTitlePage = new JobTitlePage(driver);
 		assertThat(jobTitlePage.getHeading()).contains("What was your job title?");
 	}
-	
+
 	@Then("^the job title page will be displayed$")
 	public void theJobTitlePageWillBeDisplayed() {
 		jobTitlePage = new JobTitlePage(driver);
 		assertThat(jobTitlePage.getHeading()).contains("What was your job title?");
 	}
 
+	@When("^I click next on job title page$")
+	public void iClickNextOnJobTitlePage() {
+		jobTitlePage = new JobTitlePage(driver);
+		jobTitlePage.nextStep();
+	}
 
 	@Then("^the job title submission will be successful$")
 	public void theJobTitleSubmissionWillBeSuccessful() {
@@ -87,6 +92,21 @@ public class JobTitleStepDefs {
 	public void theLengthOfJobTitleIsVerified() {
 		jobTitlePage = new JobTitlePage(driver);
 		assertThat(jobTitlePage.readJobTitleField().matches("InvalidInvalidInvalid@In"));
+
+	}
+
+	@Then("^the job title details are sustained$")
+	public void theJobTitleDetailsAreSustained() {
+		jobTitlePage = new JobTitlePage(driver);
+		assertThat(jobTitlePage.getJobTitleDetails()).matches(SharedData.jobTitle);
+
+	}
+
+	@When("^I enter job title using different valid details$")
+	public void iEnterJobTitleUsingDifferentDetails() {
+		SharedData.jobTitle = "Test Analyst";
+		jobTitlePage = new JobTitlePage(driver);
+		jobTitlePage.submitValidJobTitle(SharedData.jobTitle);
 
 	}
 

@@ -31,7 +31,7 @@ public class JobTitlePage extends Page {
 		nextStep();
 	}
 
-	private void nextStep() {
+	public void nextStep() {
 		navigateToRootElement();
 		navigateToElementBy(nextButtonLocator);
 		click();
@@ -68,16 +68,11 @@ public class JobTitlePage extends Page {
 		return getElementText();
 	}
 
-	public DateYouLeavePage submitValidJobTitleDetails(String jobTitle) {
+
+	public DateYouLeavePage submitValidJobTitle(String jobTitle) {
 		enterjobTitle(jobTitle);
 		nextStep();
 		return new DateYouLeavePage(driver);
-	}
-
-	public TBIPage submitValidJobTitle(String jobTitle) {
-		enterjobTitle(jobTitle);
-		nextStep();
-		return new TBIPage(driver);
 	}
 
 	public JobTitlePage submitInValidJobTitleDetails() {
@@ -91,4 +86,10 @@ public class JobTitlePage extends Page {
 		return getElementValue();
 	}
 
+	
+	public String getJobTitleDetails() {
+		navigateToRootElement();
+		navigateToElementBy(jobTitleFieldLocator);
+		return getElementValue();
+	}
 }

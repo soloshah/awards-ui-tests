@@ -48,9 +48,9 @@ public class DateYouLeaveStepDefs {
 	}
 
 	@Then("^the date you leave page will be displayed$")
-	public void theDateOfBirthPageWillBeDisplayed() {
+	public void theDateYouleavePageWillBeDisplayed() {
 		dateYouLeavePage = new DateYouLeavePage(driver);
-		assertThat(dateYouLeavePage.getHeading()).matches("What date did you leave?");
+		assertThat(dateYouLeavePage.getHeading()).contains("What date did you leave?");
 	}
 
 	@When("^I enter valid date details$")
@@ -62,6 +62,12 @@ public class DateYouLeaveStepDefs {
 		SharedData.year = SharedMethods.formatYear(localDate);
 		dateYouLeavePage = new DateYouLeavePage(driver);
 		dateYouLeavePage.submitValidDate(SharedData.day, SharedData.month, SharedData.year);
+	}
+
+	@When("^I click next on date you leave page$")
+	public void iClickNextOnDateYouLeavePage() {
+		dateYouLeavePage = new DateYouLeavePage(driver);
+		dateYouLeavePage.nextStep();
 	}
 
 	@Then("^the date you leave submission will be unsuccessful$")
@@ -97,5 +103,18 @@ public class DateYouLeaveStepDefs {
 		dateYouLeavePage = new DateYouLeavePage(driver);
 		dateYouLeavePage.enterDateDetails(SharedData.day, SharedData.month, SharedData.year);
 		dateYouLeavePage.submitInValidDateDetails();
+	}
+
+	@Then("^the date you leave details are sustained$")
+	public void theDateYouLeaveDetailsAreSustained() {
+		dateYouLeavePage = new DateYouLeavePage(driver);
+		assertThat(dateYouLeavePage.getDay()).matches(SharedData.day);
+		assertThat(dateYouLeavePage.getMonth()).matches(SharedData.month);
+		assertThat(dateYouLeavePage.getYear()).matches(SharedData.year);
+	}
+
+	@When("^I enter date you leave using different valid details$")
+	public void iEnterDateYouLeaveUsingDifferentDetails() {
+		IenterValidDateDetails();
 	}
 }

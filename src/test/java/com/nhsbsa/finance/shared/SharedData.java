@@ -7,6 +7,9 @@ public class SharedData {
   public static String day;
   public static String month;
   public static String year;
+  public static String returnDay;
+  public static String returnMonth;
+  public static String returnYear;
   public static String username;
   public static String title;
   public static String firstName;
@@ -17,6 +20,7 @@ public class SharedData {
   public static String emailAddress;
   public static String employerName;
   public static String sharedCheckBox;
+  public static String sharedNHSRadioButton;
   public static String sharedRadioButton;
   public static String eqPaymasterName;
   public static String eqPaymasterRef;

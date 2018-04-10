@@ -13,11 +13,10 @@ public class NameOfYourLastEmployerPage extends Page {
 	private By employerNameFieldErrorMessageLocator = By.id("employerName-error-message");
 	private By employerNameAnchoredErrorMessageLocator = By.id("error-list0");
 	private By employerNameAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#employerName']");
-    
-	
+
 	public NameOfYourLastEmployerPage(WebDriver driver) {
 		super(driver);
-		//waitForTitleToExist(lastEmployerPageTitle);
+		// waitForTitleToExist(lastEmployerPageTitle);
 		waitForElementToBeVisibleBy(employerNameFieldLocator);
 	}
 
@@ -69,7 +68,7 @@ public class NameOfYourLastEmployerPage extends Page {
 		return getElementText();
 	}
 
-	public JobTitlePage submitValidJobTitleDetails(String employerName) {
+	public JobTitlePage submitValidEmployerNameDetails(String employerName) {
 		enterEmployerName(employerName);
 		nextStep();
 		return new JobTitlePage(driver);
@@ -79,7 +78,11 @@ public class NameOfYourLastEmployerPage extends Page {
 		nextStep();
 		return new NameOfYourLastEmployerPage(driver);
 	}
-	
-	
+
+	public String getEmployerNameDetails() {
+		navigateToRootElement();
+		navigateToElementBy(employerNameFieldLocator);
+		return getElementValue();
+	}
 
 }

@@ -41,7 +41,25 @@ public class DateYouLeavePage extends Page {
 		type(year);
 	}
 
-	private void nextStep() {
+	 public String getDay() {
+		    navigateToRootElement();
+		    navigateToElementBy(dayFieldLocator);
+		    return getElementValue();
+		  }
+
+	 public String getMonth() {
+		    navigateToRootElement();
+		    navigateToElementBy(monthFieldLocator);
+		    return getElementValue();
+		  }
+	
+	 public String getYear() {
+		    navigateToRootElement();
+		    navigateToElementBy(yearFieldLocator);
+		    return getElementValue();
+		  }
+	 
+	public void nextStep() {
 		navigateToRootElement();
 		navigateToElementBy(nextButtonLocator);
 		click();
@@ -94,12 +112,12 @@ public class DateYouLeavePage extends Page {
 	}
 	
 	
-	public TBIPage submitValidDate(String day, String month, String year) {
+	public IntendToWorkForNHSPage submitValidDate(String day, String month, String year) {
 		enterDay(day);
 		enterMonth(month);
 		enterYear(year);
 		nextStep();
-		return new TBIPage(driver);
+		return new IntendToWorkForNHSPage(driver);
 	}
 
 

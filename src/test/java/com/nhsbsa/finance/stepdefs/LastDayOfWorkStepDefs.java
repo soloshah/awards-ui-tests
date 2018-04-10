@@ -41,9 +41,31 @@ public class LastDayOfWorkStepDefs {
 	@Then("^the last day of work page will be displayed$")
 	public void theLastDayOfWorkPageWillBeDisplayed() {
 		lastDayOfWorkPage = new LastDayOfWorkPage(driver);
-		assertThat(lastDayOfWorkPage.getHeading()).matches("When will be your last day of work?");
+		assertThat(lastDayOfWorkPage.getHeading()).contains("When will be your last day of work?");
+	}
+	
+
+	@When("^I click next on last day of work page$")
+	public void iClickNextOnLastDayOfWorkPage() {
+		lastDayOfWorkPage = new LastDayOfWorkPage(driver);
+		lastDayOfWorkPage.nextStep();
 	}
 
+	@Then("^the lastDayOfWork details are sustained$")
+	public void theLastDayOfWorkDetailsAreSustained() {
+		lastDayOfWorkPage = new LastDayOfWorkPage(driver);
+		assertThat(lastDayOfWorkPage.getDay()).matches(SharedData.day);
+		assertThat(lastDayOfWorkPage.getMonth()).matches(SharedData.month);
+		assertThat(lastDayOfWorkPage.getYear()).matches(SharedData.year);
+
+	}
+
+	@When("^I enter lastDayOfWork using different valid details$")
+	public void iEnterLastDayOfWorkUsingDifferentDetails() {
+		IenterValidDateForLastDayOfWork();
+	}
+
+	
 	@When("^I enter valid date for last day of work$")
 	public void IenterValidDateForLastDayOfWork() {
 		LocalDate futureDate = LocalDate.now().plusDays(1);
