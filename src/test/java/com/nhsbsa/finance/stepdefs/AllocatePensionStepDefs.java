@@ -22,12 +22,12 @@ public class AllocatePensionStepDefs {
 
 	@Given("^I am on do you want to allocate page$")
 	public void iAmOnDoYouWantToAllocatePage() {
-		new Page(driver).navigateToUrl(baseUrl + "/pension-allocation-details/do-you-want-to-allocate");
+		new Page(driver).navigateToUrl(baseUrl + "/dependant-details/do-you-want-to-allocate");
 	}
 
 	@Given("^I go to do you want to allocate page$")
 	public void iGoToDoYouWantToAllocatePage() {
-		new Page(driver).navigateToUrl(baseUrl + "/pension-allocation-details/do-you-want-to-allocate");
+		new Page(driver).navigateToUrl(baseUrl + "/dependant-details/do-you-want-to-allocate");
 		allocatePensionPage = new AllocatePensionPage(driver);
 		assertThat(allocatePensionPage.getHeading()).contains("Do you want to allocate part of your pension?");
 	}

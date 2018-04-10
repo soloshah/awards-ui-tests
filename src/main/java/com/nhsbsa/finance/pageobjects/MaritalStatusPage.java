@@ -6,12 +6,12 @@ import org.openqa.selenium.WebDriver;
 public class MaritalStatusPage extends Page {
 
 	private String maritalStatusTitle = "What is your marital status? - Claim your NHS Pension - NHSBSA";
-	private By singleRadioButtonLocator = By.xpath("//*[@id='marital-status-form']/fieldset/div/div[1]/label");
-	private By marriedRadioButtonLocator = By.xpath("//*[@id='marital-status-form']/fieldset/div/div[2]/label");
+	private By singleRadioButtonLocator = By.xpath("//*[@id='status']/fieldset/div/div[1]/label");
+	private By marriedRadioButtonLocator = By.xpath("//*[@id='status']/fieldset/div/div[2]/label");
 	private By civilPartnershipRadioButtonLocator = By
 			.xpath("//*[@id='marital-status-form']/fieldset/div/div[4]/label");
-	private By widowedRadioButtonLocator = By.xpath("//*[@id='marital-status-form']/fieldset/div/div[6]/label");
-	private By divorcedRadioButtonLocator = By.xpath("//*[@id='marital-status-form']/fieldset/div/div[8]/label");
+	private By widowedRadioButtonLocator = By.xpath("//*[@id='status']/fieldset/div/div[6]/label");
+	private By divorcedRadioButtonLocator = By.xpath("//*[@id='status']/fieldset/div/div[8]/label");
 	private By nextButtonLocator = By.id("submit_button");
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");
 	private By errorsBelowErrorMessageLocator = By.id("error-summary-heading1");

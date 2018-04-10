@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class AllocationDateOfBirthPage extends Page {
 
-	private String allocationDobPageTitle = "What is their date of birth? - Claim your NHS Pension";
+	private String allocationDobPageTitle = "What is their date of birth? - Claim your NHS Pension - NHSBSA";
 	private By allocationDayFieldLocator = By.id("dateOfBirth-day");
 	private By allocationMonthFieldLocator = By.id("dateOfBirth-month");
 	private By allocationYearFieldLocator = By.id("dateOfBirth-year");
@@ -15,7 +15,8 @@ public class AllocationDateOfBirthPage extends Page {
 	private By allocationDobFieldErrorMessageLocator = By.id("dateOfBirth-error-message");
 	private By allocationDobAnchoredErrorMessageLocator = By.id("error-list0");
 	private By allocationDobAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#dateOfBirth']");
-
+    private By exampleFormHintLocator = By.id("dateOfBirth-form-hint");
+    
 	public AllocationDateOfBirthPage(WebDriver driver) {
 		super(driver);
 		waitForTitleToExist(allocationDobPageTitle);
@@ -83,12 +84,12 @@ public class AllocationDateOfBirthPage extends Page {
 		return getElementText();
 	}
 
-	public TBIPage submitValidAllocationDateDetails(String day, String month, String year) {
+	public AllocationRelationshipPage submitValidAllocationDateDetails(String day, String month, String year) {
 		enterAllocationDay(day);
 		enterAllocationMonth(month);
 		enterAllocationYear(year);
 		nextStep();
-		return new TBIPage(driver);
+		return new AllocationRelationshipPage(driver);
 	}
 
 	public AllocationDateOfBirthPage submitInValidAllocationDOBDetails() {
@@ -96,4 +97,9 @@ public class AllocationDateOfBirthPage extends Page {
 		return new AllocationDateOfBirthPage(driver);
 	}
 
+	public String getExampleFormHint() {
+		navigateToRootElement();
+		navigateToElementBy(exampleFormHintLocator);
+		return getElementText();
+	}
 }

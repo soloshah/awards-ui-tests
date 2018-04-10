@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class AllocationRelationshipPage extends Page {
 
-	private String relationshipPageTitle = "What is their relationship to you? - Claim your NHS Pension";
+	private String relationshipPageTitle = "What is their relationship to you? - Claim your NHS Pension - NHSBSA";
 	private By relationshipNameFieldLocator = By.id("relationship");
 	private By nextButtonLocator = By.id("submit_button");
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");

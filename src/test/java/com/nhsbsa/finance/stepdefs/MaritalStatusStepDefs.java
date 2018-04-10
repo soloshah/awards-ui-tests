@@ -28,12 +28,12 @@ public class MaritalStatusStepDefs {
 
 	@Given("^I am on marital status page$")
 	public void iAmOnMaritalStatusPage() {
-		new Page(driver).navigateToUrl(baseUrl + "/partner-and-child/what-is-your-marital-status");
+		new Page(driver).navigateToUrl(baseUrl + "/dependant-details/what-is-your-marital-status");
 	}
 
 	@Given("^I go to the marital status page$")
 	public void iGoToTheMaritalStatusPage() {
-		new Page(driver).navigateToUrl(baseUrl + "/partner-and-child/what-is-your-marital-status");
+		new Page(driver).navigateToUrl(baseUrl + "/dependant-details/what-is-your-marital-status");
 		maritalStatusPage = new MaritalStatusPage(driver);
 		assertThat(maritalStatusPage.getHeading()).contains("What is your marital status?");
 	}

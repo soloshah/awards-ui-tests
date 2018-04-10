@@ -5,10 +5,11 @@ Background:
 Given I am on the start page
 When I go to allocation DOB page
 
+
 Scenario: Valid allocation date of Birth
 And I enter valid allocation DOB details
-#Then the date of birth submission will be successful
-Then the tbi page will be displayed
+Then the date of birth submission will be successful
+Then the allocation relationship page will be displayed
 
 
 Scenario Outline: Allocation date of birth field validations 

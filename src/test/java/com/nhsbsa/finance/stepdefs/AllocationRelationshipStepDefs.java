@@ -23,12 +23,12 @@ public class AllocationRelationshipStepDefs {
 
 	@Given("^I am on the relationship page$")
 	public void iAmOnTheRelationshipPage() {
-		new Page(driver).navigateToUrl(baseUrl + "/pension-allocation-details/what-is-allocation-relationship");
+		new Page(driver).navigateToUrl(baseUrl + "/dependant-details/what-is-allocation-relationship");
 	}
 
 	@Given("^I go to the relationship page$")
 	public void iGoToTheRelationshipPage() {
-		new Page(driver).navigateToUrl(baseUrl + "/pension-allocation-details/what-is-allocation-relationship");
+		new Page(driver).navigateToUrl(baseUrl + "/dependant-details/what-is-allocation-relationship");
 		allocationRelationshipPage = new AllocationRelationshipPage(driver);
 		assertThat(allocationRelationshipPage.getHeading()).contains("What is their relationship to you?");
 	}
@@ -38,6 +38,13 @@ public class AllocationRelationshipStepDefs {
 		new NavBarPage(driver);
 	}
 
+	@Then("^the allocation relationship page will be displayed$")
+	public void theAllocationRelationshipPageWillBeDisplayed() {
+		allocationRelationshipPage = new AllocationRelationshipPage(driver);
+		assertThat(allocationRelationshipPage.getHeading()).contains("What is their relationship to you?");
+	}
+
+	
 	@When("^I enter valid relationship details$")
 	public void IenterValidRelationshipDetails() {
 		String relationship = "Wife";

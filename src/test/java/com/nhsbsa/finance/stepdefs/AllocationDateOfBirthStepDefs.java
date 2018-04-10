@@ -28,7 +28,7 @@ public class AllocationDateOfBirthStepDefs {
 	@Given("^I am on allocation DOB page$")
 	public void iAmOnAllocationDOBPage() {
 
-		new Page(driver).navigateToUrl(baseUrl + "/pension-allocation-details/what-is-allocation-dob");
+		new Page(driver).navigateToUrl(baseUrl + "/dependant-details/what-is-allocation-dob");
 		allocationDateOfBirthPage = new AllocationDateOfBirthPage(driver);
 		assertThat(allocationDateOfBirthPage.getHeading()).contains("What is their date of birth?");
 	}
@@ -36,10 +36,10 @@ public class AllocationDateOfBirthStepDefs {
 	@When("^I go to allocation DOB page$")
 	public void iGoToAllocationDOBPage() {
 
-		new Page(driver).navigateToUrl(baseUrl + "/pension-allocation-details/what-is-allocation-dob");
+		new Page(driver).navigateToUrl(baseUrl + "/dependant-details/what-is-allocation-dob");
 		allocationDateOfBirthPage = new AllocationDateOfBirthPage(driver);
 		assertThat(allocationDateOfBirthPage.getHeading().contains("What is their date of birth?"));
-		assertThat(allocationDateOfBirthPage.getExampleHint().matches("For example, 31 03 1980"));
+		assertThat(allocationDateOfBirthPage.getExampleFormHint().matches("For example, 31 03 1980"));
 	}
 
 	@Then("^the allocation date of birth submission will be successful$")

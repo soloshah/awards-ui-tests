@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class DependantChildrenPage extends Page {
 
-	private String dependantChildrenTitle = "Do you have any dependant children? - Claim your NHS Pension";
+	private String dependantChildrenTitle = "Do you have any dependant children? - Claim your NHS Pension - NHSBSA";
 	private By yesRadioButtonLocator = By.xpath("//*[@id='yesNo_group']/div/div[1]/label");
 	private By noRadioButtonLocator = By.xpath("//*[@id='yesNo_group']/div/div[2]/label");
 	private By DependantChildrenLinkLocator = By.className("summary");

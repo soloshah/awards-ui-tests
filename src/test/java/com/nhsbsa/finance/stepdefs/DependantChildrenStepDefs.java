@@ -22,12 +22,12 @@ public class DependantChildrenStepDefs {
 
 	@Given("^I am on dependant children page$")
 	public void iAmOnDependantChildrenPage() {
-		new Page(driver).navigateToUrl(baseUrl + "/partner-and-child/do-you-have-any-dependant-children");
+		new Page(driver).navigateToUrl(baseUrl + "/dependant-details/do-you-have-any-dependant-children");
 	}
 
 	@Given("^I go to dependant children page$")
 	public void iGoToDependantChildrenPage() {
-		new Page(driver).navigateToUrl(baseUrl + "/partner-and-child/do-you-have-any-dependant-children");
+		new Page(driver).navigateToUrl(baseUrl + "/dependant-details/do-you-have-any-dependant-children");
 		dependantChildrenPage = new DependantChildrenPage(driver);
 		assertThat(dependantChildrenPage.getHeading().contains("Do you have any dependant children?"));
 	}

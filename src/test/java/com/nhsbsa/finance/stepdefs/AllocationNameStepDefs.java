@@ -26,12 +26,12 @@ public class AllocationNameStepDefs {
 
 	@Given("^I am on the allocation name page$")
 	public void iAmOnTheAllocationNamePage() {
-		new Page(driver).navigateToUrl(baseUrl + "/pension-allocation-details/what-is-allocation-name");
+		new Page(driver).navigateToUrl(baseUrl + "/dependant-details/what-is-allocation-name");
 	}
 
 	@Given("^I go to the allocation name page$")
 	public void iGoToTheAllocationNamePage() {
-		new Page(driver).navigateToUrl(baseUrl + "/pension-allocation-details/what-is-allocation-name");
+		new Page(driver).navigateToUrl(baseUrl + "/dependant-details/what-is-allocation-name");
 		allocationNamePage = new AllocationNamePage(driver);
 		assertThat(allocationNamePage.getHeading())
 				.contains("What is the name of the person you want to allocate some of your pension to?");

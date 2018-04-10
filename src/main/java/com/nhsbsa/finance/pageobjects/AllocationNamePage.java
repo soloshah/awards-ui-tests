@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class AllocationNamePage extends Page {
 
-	private String allocationNamePageTitle = "What is the name of the person you want to allocate some of your pension to? - Claim your NHS Pension";
+	private String allocationNamePageTitle = "What is the name of the person you want to allocate some of your pension to? - Claim your NHS Pension - NHSBSA";
 	private By firstNameFieldLocator = By.id("firstName");
 	private By lastNameFieldLocator = By.id("lastName");
 	private By nextButtonLocator = By.id("submit_button");
