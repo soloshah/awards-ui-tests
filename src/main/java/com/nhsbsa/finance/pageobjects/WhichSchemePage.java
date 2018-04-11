@@ -17,6 +17,8 @@ public class WhichSchemePage extends Page {
 	private By whichSchemeAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#errorMessage']");
 	private By schemeInformationLink = By.xpath("//*[@id='which-scheme-form']/fieldset/p[1]/a");
 
+    
+    
 	public WhichSchemePage(WebDriver driver) {
 		super(driver);
 		waitForTitleToExist(whichSchemePageTitle);
@@ -103,5 +105,7 @@ public class WhichSchemePage extends Page {
 			selected = false;
 		return selected;
 	}
+	
+
 
 }

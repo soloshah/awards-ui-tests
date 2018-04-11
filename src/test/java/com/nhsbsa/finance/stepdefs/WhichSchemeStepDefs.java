@@ -144,5 +144,14 @@ public class WhichSchemeStepDefs {
 		whichSchemePage.select2015Section();
 		whichSchemePage.selectWhichScheme();
 	}
+	
+	@And("^I click on scheme information link$")
+	public void iClickOnSchemeInformationLink() {
+		whichSchemePage = new WhichSchemePage(driver);
+		whichSchemePage.selectSchemeInformation();
+}
+	
+	
 
+	
 }
