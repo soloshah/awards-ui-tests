@@ -26,6 +26,14 @@ public class RetirementReason_2008StepDefs {
 		// new NavBarPage(driver);
 	}
 
+	@When("^I select 2008 retirement reason as retirementAge$")
+	public void ISelect2008RetirementReasonAsRetirementAge() {
+		reasonForRetirement_2008Page = new ReasonForRetirement_2008Page(driver);
+		reasonForRetirement_2008Page.selectRetirementReasonAge();
+		reasonForRetirement_2008Page.selectValidRetirementReason();
+
+	}
+	
 	@When("^I select valid 2008 retirement reason using (.*)$")
 	public void iSelectValid2008RetirementReasonUsing(String field) {
 		reasonForRetirement_2008Page = new ReasonForRetirement_2008Page(driver);

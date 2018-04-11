@@ -4,10 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class SharedYesNoPage extends Page {
-	//*[@id="yesNo"]/div/div[1]/label
-	//*[@id="yesNo"]/div/div[1]/label
-	//*[@id="yesNo"]/div/div[1]/label
-	//*[@id="yesNo"]/div/div[1]/label
+	
 	private By yesRadioButtonLocator = By.xpath("//*[@id='yesNo']/div/div[1]/label");
 	private By noRadioButtonLocator = By.xpath("//*[@id='yesNo']/div/div[2]/label");
 	private By nextButtonLocator = By.id("submit_button");

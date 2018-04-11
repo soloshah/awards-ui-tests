@@ -27,6 +27,7 @@ public class PaymentDetails_CheckYourAnswersStepDefs {
 	private EqPaymasterNameStepDefs eqPaymasterNameSteps;
 	private EqPaymasterReferenceStepDefs eqPaymasterReferenceSteps;
 
+	
 	@Given("^I have filled in a payment details$")
 	public void iHaveFilledInAPaymentDetails() throws Throwable {
 		startSteps = new StartPageStepdefs();
