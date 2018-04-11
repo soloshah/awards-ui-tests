@@ -6,8 +6,8 @@ import org.openqa.selenium.WebDriver;
 public class LumpSumChoice_2008Page extends Page {
 
 	private String lumpSumChoice2008Title = "Do you want to give up part of your 2008 Section pension to receive a lump sum? - Claim your NHS Pension - NHSBSA";
-	private By yesRadioButtonLocator = By.xpath("//*[@id='yesNo_group']/div/div[1]/label");
-	private By noRadioButtonLocator = By.xpath("//*[@id='yesNo_group']/div/div[2]/label");
+	private By yesRadioButtonLocator = By.xpath("//*[@id='yesNo']/div/div[1]/label");
+	private By noRadioButtonLocator = By.xpath("//*[@id='yesNo']/div/div[2]/label");
 	
 
 	public LumpSumChoice_2008Page(WebDriver driver) {

@@ -19,6 +19,14 @@ public class RetirementReason_1995StepDefs {
 	private String baseUrl = PropertyReader.getProperty("base.server");
 	private ReasonForRetirement_1995Page reasonForRetirement_1995Page;
 
+	@When("^I select 1995 retirement reason as retirementAge$")
+	public void ISelect1995RetirementReasonAsRetirementAge() {
+		reasonForRetirement_1995Page = new ReasonForRetirement_1995Page(driver);
+		reasonForRetirement_1995Page.selectRetirementReasonAge();
+		reasonForRetirement_1995Page.selectValidRetirementReason();
+
+	}
+
 	@Then("^the 1995 reason for retirement submission will be successful$")
 	public void the1995ReasonForRetirementSubmissionWillBeSuccessful() {
 		reasonForRetirement_1995Page = new ReasonForRetirement_1995Page(driver);
@@ -92,7 +100,6 @@ public class RetirementReason_1995StepDefs {
 		assertThat(reasonForRetirement_1995Page.isRetirementReasonRadioButtonSelected()).isFalse();
 	}
 
-	
 	@And("^the error message '(.*)' for 1995 reason for retirement will be displayed$")
 	public void theErrorMessageFor1995ReasonForRetirementWillBeDisplayed(String errorMessage) {
 		reasonForRetirement_1995Page = new ReasonForRetirement_1995Page(driver);
@@ -109,11 +116,12 @@ public class RetirementReason_1995StepDefs {
 		assertThat(reasonForRetirement_1995Page.getHeading())
 				.contains("Why are you claiming your deferred benefits for the 1995 Section?");
 	}
-	
+
 	@Then("^the 1995 reason for retirement page will be displayed$")
 	public void the1995ReasonForRetirementPageWillBeDisplayed() {
 		reasonForRetirement_1995Page = new ReasonForRetirement_1995Page(driver);
-		assertThat(reasonForRetirement_1995Page.getHeading()).contains("Why are you claiming your deferred benefits for the 1995 Section?");
+		assertThat(reasonForRetirement_1995Page.getHeading())
+				.contains("Why are you claiming your deferred benefits for the 1995 Section?");
 	}
 
 }
