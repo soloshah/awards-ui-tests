@@ -24,7 +24,7 @@ Then the 2008 valid retirement reason text for deferredBenefitHealth will be dis
 And the 2008 reason for retirement submission will be successful
 And the 2008 lumpsum choice page will be displayed
 
-
+@Bug @BP490-355
 Scenario: Valid Reason for retirement
 And I select valid 2008 retirement reason using earlyPaymentHealth
 Then the 2008 valid retirement reason text for earlyPaymentHealth will be displayed

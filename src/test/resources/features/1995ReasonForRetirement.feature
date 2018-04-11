@@ -1,4 +1,4 @@
-@1995ReasonForRetirement @BP490-138 
+@1995ReasonForRetirement @BP490-138
 Feature: 1995 Reason for retirement
 
 Background:
@@ -26,7 +26,7 @@ And the 1995 reason for retirement submission will be successful
 And the 1995 lumpsum choice page will be displayed
 
 
-
+@Bug @BP490-355
 Scenario: Valid Reason for retirement
 And I select valid 1995 retirement reason using earlyPaymentHealth
 Then the valid 1995 retirement reason text for earlyPaymentHealth will be displayed
