@@ -9,12 +9,12 @@ When I go to other pension arrangements page
 
 Scenario: Do you have any other pension arrangements
 When I select Yes
-Then the tbi page will be displayed
+Then the pension over 30k page will be displayed
 
 
 Scenario: Do you have any other pension arrangements
 When I select No
-Then the tbi page will be displayed
+Then the lifetime allowance page will be displayed
 
 @Bug @BP490-274
 Scenario: Do you have any other pension arrangements
