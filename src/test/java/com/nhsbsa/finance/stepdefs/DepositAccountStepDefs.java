@@ -6,7 +6,6 @@ import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
 import com.nhsbsa.finance.pageobjects.DepositAccountPage;
-import com.nhsbsa.finance.pageobjects.EqPaymasterNamePage;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.properties.PropertyReader;
@@ -217,10 +216,5 @@ public class DepositAccountStepDefs {
 		accountHolderName = "Test-User";
 	}
 	
-	private void setUpdatedBankDetails() {
-		SharedData.accountNumber = "12345678";
-		SharedData.rollNumber = "AA-12345/9P";
-		SharedData.accountHolderName = "Test-User";
-			}
-
+	
 }

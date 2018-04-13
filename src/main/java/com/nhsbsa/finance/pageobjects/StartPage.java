@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class StartPage extends Page {
 
-	private String startPageTitle = "Claim your NHS Pension";
+	private String startPageTitle = "Claim your NHS Pension - NHSBSA";
 	private By startNowButtonLocator = By.id("next-button");
 	private By estimateLinkAnchorLocator = By
 			.xpath("//a[@href='https://www.nhsbsa.nhs.uk/member-hub/getting-estimate-your-pension']");

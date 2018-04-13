@@ -9,6 +9,7 @@ import com.nhsbsa.finance.pageobjects.LifetimeAllowancePage;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.properties.PropertyReader;
+import com.nhsbsa.finance.shared.SharedData;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -48,13 +49,15 @@ public class LifetimeAllowanceStepDefs {
 	}
 
 	@When("^I select Yes on lifetime allowance page$")
-	public void iSelectYes() {
+	public void iSelectYesOnLifetimeAllowancePage() {
+		SharedData.sharedNHSRadioButton = "Yes";
 		lifetimeAllowancePage = new LifetimeAllowancePage(driver);
 		lifetimeAllowancePage.selectYes();
 	}
 
 	@When("^I select No on lifetime allowance page$")
-	public void iChooseNo() {
+	public void iSelectNoOnLifetimeAllowancePage() {
+		SharedData.sharedNHSRadioButton = "No";
 		lifetimeAllowancePage = new LifetimeAllowancePage(driver);
 		lifetimeAllowancePage.selectNo();
 	}
@@ -65,6 +68,26 @@ public class LifetimeAllowanceStepDefs {
 		lifetimeAllowancePage = new LifetimeAllowancePage(driver);
 		assertThat(lifetimeAllowancePage.getCertNumberHeading().contains("Certificates or reference number"));
 
+	}
+
+	@When("^I enter the valid certificate number$")
+	public void IenterTheValidCertificateNumber() {
+		SharedData.certNumber = "A5528888";
+		lifetimeAllowancePage = new LifetimeAllowancePage(driver);
+		lifetimeAllowancePage.submitValidCertNumber(SharedData.certNumber);
+	}
+
+	@When("^I enter certificateNumber with different valid value$")
+	public void IenterCertificateNumberWithDifferenrtValidValue() {
+		SharedData.certNumber = "FP1612345678912";
+		lifetimeAllowancePage = new LifetimeAllowancePage(driver);
+		lifetimeAllowancePage.submitValidCertNumber(SharedData.certNumber);
+	}
+
+	@When("^the certificateNumber details are sustained$")
+	public void theCertificateNumberDetailsAreSustained() {
+		lifetimeAllowancePage = new LifetimeAllowancePage(driver);
+		assertThat(lifetimeAllowancePage.getCertNumberValue()).matches(SharedData.certNumber);
 	}
 
 	@When("^I enter the valid certificate number using the certNumber '(.*)'$")
@@ -106,6 +129,24 @@ public class LifetimeAllowanceStepDefs {
 	@Then("^the lifetime allowance submission will be successful$")
 	public void theLifetimeAllowanceSubmissionWillBeSuccessful() {
 		new NavBarPage(driver);
+	}
+
+	@Then("^the lifetime allowance page will be displayed$")
+	public void theLifetimeAllowancePageWillBeDisplayed() {
+		lifetimeAllowancePage = new LifetimeAllowancePage(driver);
+		assertThat(lifetimeAllowancePage.getHeading()).contains("Do you have HMRC Lifetime Allowance protection?");
+	}
+
+	@Then("^the lifetime allowance details are sustained$")
+	public void theLifetimeAllowanceDetailsAreSustained() {
+		lifetimeAllowancePage = new LifetimeAllowancePage(driver);
+		assertThat(lifetimeAllowancePage.getYesRadioButton()).matches(SharedData.sharedNHSRadioButton);
+
+	}
+
+	@When("^I select lifetimeAllowance with different valid option$")
+	public void iSelectLifetimeAllowanceWithDifferentValidOption() {
+		iSelectNoOnLifetimeAllowancePage();
 	}
 
 }
