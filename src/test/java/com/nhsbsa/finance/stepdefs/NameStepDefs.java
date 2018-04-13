@@ -108,7 +108,7 @@ public class NameStepDefs {
 		assertThat(namePage.getErrorsBelowErrorMessage()).matches("Check your answer:");
 	}
 
-	@And("^the (.*) error message '(.*)' will be displayed$")
+	@And("^the invalid (.*) error message '(.*)' will be displayed$")
 	public void theErrorMessageWillBeDisplayed(String field, String errorMessage) {
 		namePage = new NamePage(driver);
 		switch (field) {
