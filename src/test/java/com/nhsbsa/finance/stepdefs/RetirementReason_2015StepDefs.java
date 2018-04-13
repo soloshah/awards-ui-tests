@@ -25,6 +25,15 @@ public class RetirementReason_2015StepDefs {
 		reasonForRetirement_2015Page.selectValidRetirementReason();
 		// new NavBarPage(driver);
 	}
+	
+
+	@When("^I select deferredBenefitHealth as 2015 retirement reason$")
+	public void iSelectdeferredBenefitHealth2015RetirementReason() {
+		reasonForRetirement_2015Page = new ReasonForRetirement_2015Page(driver);
+		reasonForRetirement_2015Page.selectRetirementReasonDeferredBenefitHealth();
+		reasonForRetirement_2015Page.selectValidRetirementReason();
+	}
+	
 
 	@When("^I select valid 2015 retirement reason using (.*)$")
 	public void iSelectValid2015RetirementReasonUsing(String field) {

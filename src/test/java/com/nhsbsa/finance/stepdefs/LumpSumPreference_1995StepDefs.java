@@ -8,6 +8,7 @@ import com.nhsbsa.finance.driver.Config;
 import com.nhsbsa.finance.pageobjects.LumpSumPreference_1995Page;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.properties.PropertyReader;
+import com.nhsbsa.finance.shared.SharedData;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
@@ -23,12 +24,34 @@ public class LumpSumPreference_1995StepDefs {
 	@Then("^the 1995 lumpsum preference submission will be successful$")
 	public void the1995LumpsumPreferenceSubmissionWillBeSuccessful() {
 		lumpSumPreference_1995Page = new LumpSumPreference_1995Page(driver);
-		lumpSumPreference_1995Page.selectValidLumpSumAmount();
+		lumpSumPreference_1995Page.selectValidLumpSumPref();
 		// new NavBarPage(driver);
 	}
+	
+	@When("^I select LessTaxFreeAmount as 1995 lumpsum preference$")
+	public void ISelectLessTaxFreeAmountAs1995LumpSumPreference() {
+		SharedData.sharedNHSRadioButton = "An additional amount less than the maximum tax-free amount permitted";
+		amount = "1440";
+		lumpSumPreference_1995Page = new LumpSumPreference_1995Page(driver);
+		lumpSumPreference_1995Page.selectLessThanMaxTaxFreeAmount();
+		lumpSumPreference_1995Page.submitValidLumpSumAmount(amount);
+
+	}
+	
+		
+	@When("^I select MaxTaxFreeAmount as 1995 lumpsum preference$")
+	public void ISelectMaxTaxFreeAmountAs1995LumpSumPreference() {
+		SharedData.sharedNHSRadioButton = "Maximum tax-free amount";
+		lumpSumPreference_1995Page = new LumpSumPreference_1995Page(driver);
+		lumpSumPreference_1995Page.selectMaxtaxFreeAmount();
+		lumpSumPreference_1995Page.selectValidLumpSumPref();
+
+	}
+	
+		
 
 	@When("^I select valid 1995 lumpsum preference using (.*)$")
-	public void IenterValid1995LumpSumPreferenceUsing(String field) {
+	public void ISelectValid1995LumpSumPreferenceUsing(String field) {
 		lumpSumPreference_1995Page = new LumpSumPreference_1995Page(driver);
 		switch (field) {
 		case "MaxTaxFreeAmount":
@@ -134,5 +157,23 @@ public class LumpSumPreference_1995StepDefs {
 		lumpSumPreference_1995Page = new LumpSumPreference_1995Page(driver);
 		lumpSumPreference_1995Page.enterAmount(amount);
 		lumpSumPreference_1995Page.submitInvalidAmount();
+	}
+	
+	@When("^I click next on 1995 lumpsum pref page$")
+	public void iClickNextOn1995LumpsumPrefPage() {
+		lumpSumPreference_1995Page = new LumpSumPreference_1995Page(driver);
+		lumpSumPreference_1995Page.nextStep();
+	}
+	
+	@Then("^the lumpSum preference details are sustained$")
+	public void thelumpSumPreferenceDetailsAreSustained() {
+		lumpSumPreference_1995Page = new LumpSumPreference_1995Page(driver);
+		assertThat(lumpSumPreference_1995Page.getLumpsumPref()).matches(SharedData.sharedNHSRadioButton);
+
+	}
+
+	@When("^I select lumpSum preference using different valid option$")
+	public void iSelectLumpsumPreferenceUsingDifferentValidOption() {
+		ISelectMaxTaxFreeAmountAs1995LumpSumPreference();
 	}
 }

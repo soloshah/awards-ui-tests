@@ -167,6 +167,27 @@ public class SharedEarlyPaymentStepDefs {
 		sharedEarlyPaymentPage = new SharedEarlyPaymentPage(driver);
 		assertThat(sharedEarlyPaymentPage.getHeading()).contains("When should the early payment of deferred benefit start?");
 	}
+	
+	@When("^I click next on early payment date page$")
+	public void iClickNextOnEarlyPaymentDatePage() {
+		sharedEarlyPaymentPage = new SharedEarlyPaymentPage(driver);
+		sharedEarlyPaymentPage.nextStep();
+	}
 
+	
+
+	@Then("^the earlyPaymentDate details are sustained$")
+	public void theEarlyPaymentDateDetailsAreSustained() {
+		sharedEarlyPaymentPage = new SharedEarlyPaymentPage(driver);
+		//assertThat(sharedEarlyPaymentPage.getDay()).matches(SharedData.day);
+		//assertThat(sharedEarlyPaymentPage.getMonth()).matches(SharedData.month);
+		assertThat(sharedEarlyPaymentPage.getYear()).matches(SharedData.year);
+
+	}
+
+	@When("^I enter earlyPaymentDate using different valid date$")
+	public void iEnterEarlyPaymewntDateUsingDifferentDate() {
+		IenterValidEarlyPaymentDateDetails();
+	}
 	
 }

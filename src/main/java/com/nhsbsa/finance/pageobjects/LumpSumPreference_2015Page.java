@@ -144,10 +144,10 @@ public class LumpSumPreference_2015Page extends Page {
 		
 	}
 		
-	public TBIPage submitValidLumpSumAmount(String amount) {
+	public PensionDetails_CheckYourAnswerPage submitValidLumpSumAmount(String amount) {
 			enterAmount(amount);
 			nextStep();
-			return new TBIPage(driver);	
+			return new PensionDetails_CheckYourAnswerPage(driver);	
 		}
 	
 	public LumpSumPreference_2015Page submitInvalidAmount() {
