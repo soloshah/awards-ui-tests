@@ -89,6 +89,21 @@ public class SharedYeNoStepDefs {
 		iSelectNo();
 	}
 
+	
+	
+	@And("^the otherPensionArrangement details are sustained$")
+	public void theOtherPensionArrangementDetailsAreSustained() {
+		sharedYesNoPage = new SharedYesNoPage(driver);
+		assertThat(sharedYesNoPage.getYesRadioButton()).matches(SharedData.sharedRadioButton);
+
+	}	
+	
+	@When("^I select different pensionArrangement using different valid option$")
+	public void iSelectDifferentPensionArrangementUsingDifferentValidOption() {
+		iSelectYes();
+	}
+
+	
 
 	@When("^I click on the link increase in lump sum affects benefits$")
 	public void iClickOnTheLinkIncreaseinLumpSumAffectsBenefits() {
