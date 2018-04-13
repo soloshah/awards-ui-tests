@@ -51,6 +51,12 @@ public class SharedYeNoStepDefs {
 		sharedYesNoPage = new SharedYesNoPage(driver);
 		sharedYesNoPage.nextStep();
 	}
+	
+	@When("^I click next on 1995 lumpsum choice page$")
+	public void iClickNextOn1995LumpsumChoicePage() {
+		sharedYesNoPage = new SharedYesNoPage(driver);
+		sharedYesNoPage.nextStep();
+	}
 
 	@When("^I select otherEqPensions details using different valid option$")
 	public void iSelectotherEqPensionsDetailsUsingDifferentValidOption() {
@@ -69,6 +75,18 @@ public class SharedYeNoStepDefs {
 		sharedYesNoPage = new SharedYesNoPage(driver);
 		assertThat(sharedYesNoPage.getYesRadioButton()).matches(SharedData.sharedRadioButton);
 
+	}
+	
+	@And("^the lumpsum choice details are sustained$")
+	public void theLumpsumChoiceDetailsAreSustained() {
+		sharedYesNoPage = new SharedYesNoPage(driver);
+		assertThat(sharedYesNoPage.getYesRadioButton()).matches(SharedData.sharedRadioButton);
+
+	}	
+	
+	@When("^I select lumpsum choice using different details$")
+	public void iSelectLumpSumChoiceUsingDifferentDetails() {
+		iSelectNo();
 	}
 
 

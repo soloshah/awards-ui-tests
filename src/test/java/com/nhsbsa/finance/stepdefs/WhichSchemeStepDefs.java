@@ -46,24 +46,26 @@ public class WhichSchemeStepDefs {
 		sharedYesNoSteps.iSelectNo();
 	}
 
-	@When("^I select (.*) Section scheme$")
-	public void IselectSectionScheme(String field) {
+	@When("^I select 1995 Section scheme$")
+	public void Iselect1995SectionScheme() {
 		whichSchemePage = new WhichSchemePage(driver);
-		switch (field) {
-		case "1995":
-			whichSchemePage.select1995Section();
-			whichSchemePage.selectWhichScheme();
-			break;
-		case "2008":
-			whichSchemePage.select2008Section();
-			whichSchemePage.selectWhichScheme();
-			break;
-		case "2015":
-			whichSchemePage.select2015Section();
-			whichSchemePage.selectWhichScheme();
-			break;
+		whichSchemePage.select1995Section();
+		whichSchemePage.selectWhichScheme();
+	}
 
-		}
+	@When("^I select 2008 Section scheme$")
+	public void Iselect2008SectionScheme() {
+		whichSchemePage = new WhichSchemePage(driver);
+		whichSchemePage.select2008Section();
+		whichSchemePage.selectWhichScheme();
+	}
+
+	@When("^I select 2015 Section scheme$")
+	public void Iselect2015SectionScheme() {
+		whichSchemePage = new WhichSchemePage(driver);
+		whichSchemePage.select2015Section();
+		whichSchemePage.selectWhichScheme();
+
 	}
 
 	@Then("^the scheme selection submission will be unsuccessful$")
@@ -144,14 +146,26 @@ public class WhichSchemeStepDefs {
 		whichSchemePage.select2015Section();
 		whichSchemePage.selectWhichScheme();
 	}
-	
+
 	@And("^I click on scheme information link$")
 	public void iClickOnSchemeInformationLink() {
 		whichSchemePage = new WhichSchemePage(driver);
 		whichSchemePage.selectSchemeInformation();
-}
+	}
 	
-	
+	@Then("^the which scheme details are sustained$")
+	public void theWhichSchemeDetailsAreSustained() {
+		whichSchemePage = new WhichSchemePage(driver);
+		assertThat(whichSchemePage.is1995CheckboxSelected()).isTrue();
 
+	}
 	
+	@When("^I select one more scheme using different valid option$")
+	public void iSelectOneMoreSchemeUsingDifferentValidOption() {
+		whichSchemePage = new WhichSchemePage(driver);
+		whichSchemePage.select2008Section();
+		whichSchemePage.selectWhichScheme();
+
+	}
+
 }

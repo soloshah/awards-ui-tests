@@ -21,6 +21,7 @@ public class SharedData {
   public static String employerName;
   public static String sharedCheckBox;
   public static String sharedNHSRadioButton;
+  public static String shared1995RadioButton;
   public static String sharedRadioButton;
   public static String eqPaymasterName;
   public static String eqPaymasterRef;

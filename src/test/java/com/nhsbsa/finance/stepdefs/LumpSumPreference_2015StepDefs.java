@@ -27,8 +27,16 @@ public class LumpSumPreference_2015StepDefs {
 		// new NavBarPage(driver);
 	}
 
+	@When("^I select MaxAdditionalLumpSum as 2015 lumpsum preference$")
+	public void ISelectMaxAdditionalLumpSumAs2015LumpSumPreference() {
+		lumpSumPreference_2015Page = new LumpSumPreference_2015Page(driver);
+		lumpSumPreference_2015Page.selectAdditionalLumpSumAmount();
+		lumpSumPreference_2015Page.selectValidLumpSumAmount();
+	}
+	
+	
 	@When("^I select valid 2015 lumpsum preference using (.*)$")
-	public void IenterValid2015LumpSumPreferenceUsing(String field) {
+	public void ISelectValid2015LumpSumPreferenceUsing(String field) {
 		lumpSumPreference_2015Page = new LumpSumPreference_2015Page(driver);
 		switch (field) {
 		case "MaxTaxFreeAmount":

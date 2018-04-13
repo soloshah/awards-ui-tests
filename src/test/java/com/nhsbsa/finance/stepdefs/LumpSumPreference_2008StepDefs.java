@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
+import com.nhsbsa.finance.pageobjects.LumpSumChoice_1995Page;
 import com.nhsbsa.finance.pageobjects.LumpSumPreference_2008Page;
 import com.nhsbsa.finance.pageobjects.OtherDependantChildrenPage;
 import com.nhsbsa.finance.pageobjects.Page;
@@ -27,9 +28,20 @@ public class LumpSumPreference_2008StepDefs {
 		lumpSumPreference_2008Page.selectValidLumpSumAmount();
 		// new NavBarPage(driver);
 	}
+	
+	
+	@When("^I select MaxTaxFreeAmount as 2008 lumpsum preference$")
+	public void ISelectMaxTaxFreeAmountAs2008LumpSumPreference() {
+		lumpSumPreference_2008Page = new LumpSumPreference_2008Page(driver);
+		lumpSumPreference_2008Page.selectMaxtaxFreeAmount();
+		lumpSumPreference_2008Page.selectValidLumpSumAmount();
+	}
+		
+		
+		
 
 	@When("^I select valid 2008 lumpsum preference using (.*)$")
-	public void IenterValid2008LumpSumPreferenceUsing(String field) {
+	public void ISelectValid2008LumpSumPreferenceUsing(String field) {
 		lumpSumPreference_2008Page = new LumpSumPreference_2008Page(driver);
 		switch (field) {
 		case "MaxTaxFreeAmount":
@@ -140,4 +152,7 @@ public class LumpSumPreference_2008StepDefs {
 	lumpSumPreference_2008Page.enterAmount(amount);
 	lumpSumPreference_2008Page.submitInvalidAmount();
 	}
+	
+
+	
 }

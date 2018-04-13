@@ -20,6 +20,7 @@ public class ReasonForRetirement_1995Page extends Page {
 	private By retirementReasonFieldErrorMessageLocator = By.id("error-message-why-1995");
 	private By retirementReasonAnchoredErrorMessageLocator = By.id("error-list0");
 	private By retirementReasonAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#retirementReason']");
+	private By selectedDeferredBenefitRadioButtonLocator = By.xpath("//input[@checked='checked']");
 		
 	public ReasonForRetirement_1995Page(WebDriver driver) {
 		super(driver);
@@ -52,7 +53,7 @@ public class ReasonForRetirement_1995Page extends Page {
 	}
 	
 
-	private void nextStep() {
+	public void nextStep() {
 		navigateToRootElement();
 		navigateToElementBy(nextButtonLocator);
 		click();
@@ -134,4 +135,11 @@ public class ReasonForRetirement_1995Page extends Page {
 		return selected;
 	}
 
+	
+	public String getRetirementReason() {
+		navigateToRootElement();
+		navigateToElementBy(selectedDeferredBenefitRadioButtonLocator);
+		navigateToParentElement();
+		return getElementText();
+	}
 }

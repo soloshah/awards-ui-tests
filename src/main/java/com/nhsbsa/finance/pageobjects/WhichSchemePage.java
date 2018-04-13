@@ -16,7 +16,7 @@ public class WhichSchemePage extends Page {
 	private By whichSchemeAnchoredErrorMessageLocator = By.id("error-list0");
 	private By whichSchemeAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#errorMessage']");
 	private By schemeInformationLink = By.xpath("//*[@id='which-scheme-form']/fieldset/p[1]/a");
-
+	private By selected1995CheckBoxLocator = By.xpath("//input[@checked='checked']");
     
     
 	public WhichSchemePage(WebDriver driver) {
@@ -105,6 +105,14 @@ public class WhichSchemePage extends Page {
 			selected = false;
 		return selected;
 	}
+	
+	public boolean is1995CheckboxSelected() {
+		navigateToRootElement();
+		boolean checked=isElementSelected(selected1995CheckBoxLocator);
+
+	return checked;
+
+		}
 	
 
 

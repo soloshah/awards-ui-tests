@@ -23,6 +23,8 @@ public class LumpSumPreference_1995Page extends Page {
 	private By lessTaxFreeAmounTextLocator = By.xpath("//*[@id='less-than-max-tax-free']/p");
 	private By maxAdditionalLumpSumTextLocator = By.xpath("//*[@id='max-additional-sum']/p");
     private By poundSymbolLocator = By.xpath("//span[@class='form-label']");
+    private By selectedLumpsumPrefRadioButtonLocator = By.xpath("//input[@checked='checked']");
+    
     
 	public LumpSumPreference_1995Page(WebDriver driver) {
 		super(driver);
@@ -54,7 +56,7 @@ public class LumpSumPreference_1995Page extends Page {
 		type(amount);
 	}
 	
-	private void nextStep() {
+	public void nextStep() {
 		navigateToRootElement();
 		navigateToElementBy(nextButtonLocator);
 		click();
@@ -139,15 +141,15 @@ public class LumpSumPreference_1995Page extends Page {
 	}
 
 
-		public void selectValidLumpSumAmount(){
+		public void selectValidLumpSumPref(){
 		nextStep();
 		
 	}
 		
-	public TBIPage submitValidLumpSumAmount(String amount) {
+	public PensionDetails_CheckYourAnswerPage submitValidLumpSumAmount(String amount) {
 			enterAmount(amount);
 			nextStep();
-			return new TBIPage(driver);	
+			return new PensionDetails_CheckYourAnswerPage(driver);	
 		}
 	
 	public LumpSumPreference_1995Page submitInvalidAmount() {
@@ -168,6 +170,13 @@ public class LumpSumPreference_1995Page extends Page {
 				&& !isElementSelected(maxAdditionalLumpSumRadioButtonLocator))
 			selected = false;
 		return selected;
+	}
+	
+	public String getLumpsumPref() {
+		navigateToRootElement();
+		navigateToElementBy(selectedLumpsumPrefRadioButtonLocator);
+		navigateToParentElement();
+		return getElementText();
 	}
 
 	}

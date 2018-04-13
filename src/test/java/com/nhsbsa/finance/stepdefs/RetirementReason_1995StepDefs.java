@@ -8,6 +8,7 @@ import com.nhsbsa.finance.driver.Config;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.pageobjects.ReasonForRetirement_1995Page;
 import com.nhsbsa.finance.properties.PropertyReader;
+import com.nhsbsa.finance.shared.SharedData;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
@@ -33,9 +34,27 @@ public class RetirementReason_1995StepDefs {
 		reasonForRetirement_1995Page.selectValidRetirementReason();
 		// new NavBarPage(driver);
 	}
+	
+	@When("^I select deferredBenefit as 1995 retirement reason $")
+	public void ISelectDeferredBenefitAs1995RetirementReason() {
+		SharedData.shared1995RadioButton = "Early payment of deferred pension benefit";
+		reasonForRetirement_1995Page = new ReasonForRetirement_1995Page(driver);
+		reasonForRetirement_1995Page.selectRetirementReasonDeferredBenefit();
+	    reasonForRetirement_1995Page.selectValidRetirementReason();
+	}
+		
+	@When("^I select retirementAge as 1995 retirement reason $")
+	public void ISelectretirementAgeAs1995RetirementReason() {
+		SharedData.shared1995RadioButton = "Retirement based on your age";
+		reasonForRetirement_1995Page = new ReasonForRetirement_1995Page(driver);
+		reasonForRetirement_1995Page.selectRetirementReasonAge();
+	    reasonForRetirement_1995Page.selectValidRetirementReason();
+	}
+		
+		
 
 	@When("^I select valid 1995 retirement reason using (.*)$")
-	public void IenterValid1995RetirementReasonUsing(String field) {
+	public void ISelectValid1995RetirementReasonUsing(String field) {
 		reasonForRetirement_1995Page = new ReasonForRetirement_1995Page(driver);
 		switch (field) {
 		case "retirementAge":
@@ -122,6 +141,24 @@ public class RetirementReason_1995StepDefs {
 		reasonForRetirement_1995Page = new ReasonForRetirement_1995Page(driver);
 		assertThat(reasonForRetirement_1995Page.getHeading())
 				.contains("Why are you claiming your deferred benefits for the 1995 Section?");
+	}
+	
+	@When("^I click next on 1995 retirementReason page$")
+	public void iClickNextOn1995RetirementReasonPage() {
+		reasonForRetirement_1995Page = new ReasonForRetirement_1995Page(driver);
+		reasonForRetirement_1995Page.nextStep();
+	}
+	
+	@Then("^the reasonForRetirement details are sustained$")
+	public void theReasonForRetirementDetailsAreSustained() {
+		reasonForRetirement_1995Page = new ReasonForRetirement_1995Page(driver);
+		assertThat(reasonForRetirement_1995Page.getRetirementReason()).matches(SharedData.shared1995RadioButton);
+
+	}
+
+	@When("^I select reasonForRetirement with different valid details$")
+	public void iSelectReasonForRetirementWithDifferentValidDetails() {
+		ISelectretirementAgeAs1995RetirementReason();
 	}
 
 }

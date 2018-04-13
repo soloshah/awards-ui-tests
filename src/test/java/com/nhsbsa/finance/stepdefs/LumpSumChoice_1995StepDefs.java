@@ -12,6 +12,7 @@ import com.nhsbsa.finance.properties.PropertyReader;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 
+
 public class LumpSumChoice_1995StepDefs {
 
 	private WebDriver driver = Config.getDriver();
