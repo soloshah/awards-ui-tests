@@ -1,4 +1,4 @@
-@CheckYourAnswers @BP490-298  @WIP
+@CheckYourAnswers @BP490-298
 Feature: Check Your Answers for HM Revenue and Customs details
 
 Background:
