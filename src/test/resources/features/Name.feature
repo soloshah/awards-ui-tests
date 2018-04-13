@@ -42,7 +42,7 @@ Scenario Outline: First name field  validations
 Given I am on the name page
 When I enter an invalid details using the firstName '<firstName>'
 Then the name submission will be unsuccessful
-And the firstName error message '<errorMessage>' will be displayed
+And the invalid firstName error message '<errorMessage>' will be displayed
 Examples:
 | firstName                | errorMessage                                            |
 |                          | You must enter your first name                          |
@@ -54,7 +54,7 @@ Scenario Outline: last name field  validations
 Given I am on the name page
 When I enter an invalid details using the lastName '<lastName>'
 Then the name submission will be unsuccessful
-And the lastName error message '<errorMessage>' will be displayed
+And the invalid lastName error message '<errorMessage>' will be displayed
 Examples:
 | lastName                 | errorMessage                                            |
 |                          | You must enter your last name                           |
@@ -76,7 +76,7 @@ Scenario Outline: Title Field Validations
 Given I am on the name page
 When I enter an invalid details using the title '<title>'
 Then the name submission will be unsuccessful
-And the title error message '<errorMessage>' will be displayed
+And the invalid title error message '<errorMessage>' will be displayed
 Examples:
 | title   | errorMessage              |
 |         |You must enter your title  | 
