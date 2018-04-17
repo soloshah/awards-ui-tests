@@ -103,14 +103,6 @@ public class DateYouLeavePage extends Page {
 	}
 
 
-	public PlanToWorkPage submitValidDateDetails(String day, String month, String year) {
-		enterDay(day);
-		enterMonth(month);
-		enterYear(year);
-		nextStep();
-		return new PlanToWorkPage(driver);
-	}
-	
 	
 	public IntendToWorkForNHSPage submitValidDate(String day, String month, String year) {
 		enterDay(day);

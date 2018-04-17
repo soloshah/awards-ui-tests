@@ -20,7 +20,7 @@ Scenario:  Select 2015 Section Scheme
 And I select 2015 Section scheme
 Then the 2015 reason for retirement page will be displayed
 
-
+@BP490-183 @ticketTested
 Scenario:  Select 1995 and 2008 Section Scheme
 And I select schemes under 1995 and 2008 Section
 Then the 1995 reason for retirement page will be displayed
@@ -28,7 +28,7 @@ And I select the options for 1995 on next navigating pages
 Then the 2008 interstitial page will be displayed
 And the 2008 reason for retirement page will be displayed
 
-
+@BP490-249 @ticketTested
 Scenario:  Select 1995 and 2015 Section Scheme
 And I select schemes under 1995 and 2015 Section 
 Then the 1995 reason for retirement page will be displayed

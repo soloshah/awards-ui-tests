@@ -24,3 +24,8 @@ Then the radio button not selected error message 'Select 'yes' if you have any a
 
 Scenario: Default value for other pension arrangements
 Then the default value for other pension arrangements page will be blank
+
+@TestEnv @StageEnv
+Scenario: Do you have any other pension arrangements
+When I select Yes
+Then the manually submit claim page will be displayed

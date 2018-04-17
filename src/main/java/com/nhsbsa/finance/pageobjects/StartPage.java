@@ -7,9 +7,11 @@ public class StartPage extends Page {
 
 	private String startPageTitle = "Claim your NHS Pension - NHSBSA";
 	private By startNowButtonLocator = By.id("next-button");
-	private By estimateLinkAnchorLocator = By
-			.xpath("//a[@href='https://www.nhsbsa.nhs.uk/member-hub/getting-estimate-your-pension']");
-
+	private By timeConstraintMessageLocator = By.xpath("//*[@id='content']/div[2]/div/div/div[2]/div[1]/strong");
+	private By guidanceNoteLinkLocator = By.xpath("//*[@id='content']/div[2]/div/div/div[2]/ul[1]/li[1]/a");
+	private By fairProcessingLinkLocator = By.xpath("//*[@id='content']/div[2]/div/div/div[2]/ul[1]/li[2]/a");
+	
+	
 	public StartPage(WebDriver driver) {
 		super(driver);
 		waitForTitleToExist(startPageTitle);
@@ -30,10 +32,38 @@ public class StartPage extends Page {
 
 	}
 
-	public boolean doesEstimateLinkHaveAnchor() {
+	public String getTimeConstraintMessage() {
 		navigateToRootElement();
-		navigateToElementBy(estimateLinkAnchorLocator);
+		navigateToElementBy(timeConstraintMessageLocator);
 		navigateToParentElement();
-		return getPresenceOfElement(estimateLinkAnchorLocator);
+		return getElementText();
+	}
+
+	
+	public void verifyFairProcessingNoticeLink() {
+		try {
+			navigateToRootElement();
+			navigateToElementBy(fairProcessingLinkLocator);
+			Thread.sleep(1000);
+			click();
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			System.out.print("Link message not success: " + e.getMessage());
+			e.printStackTrace();
+		}
+	}
+	
+	public void verifyGuidanceNotesLink() {
+		try {
+			navigateToRootElement();
+			navigateToElementBy(guidanceNoteLinkLocator);
+			Thread.sleep(1000);
+			click();
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			System.out.print("Link message not success: " + e.getMessage());
+			e.printStackTrace();
+		}
+		
 	}
 }

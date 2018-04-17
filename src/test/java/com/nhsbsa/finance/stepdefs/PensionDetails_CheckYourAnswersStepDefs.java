@@ -260,10 +260,10 @@ public class PensionDetails_CheckYourAnswersStepDefs {
 		assertThat(pensionDetails_CheckYourAnswerPage.getWhichScheme())
 				.matches("Which Section or Scheme are you claiming benefits from");
 		assertThat(pensionDetails_CheckYourAnswerPage.getWhichSchemeText()).matches("2015");
-		assertThat(pensionDetails_CheckYourAnswerPage.get2015Section()).matches("2015 Section");
+		assertThat(pensionDetails_CheckYourAnswerPage.get2015Section()).matches("2015 Scheme");
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf2015RetirementReason()).isEqualTo(true);
 		assertThat(pensionDetails_CheckYourAnswerPage.get2015RetirementReason())
-				.matches("Why are you claiming your deferred benefits for the 2015 Section");
+				.matches("Why are you claiming your deferred benefits for the 2015 Scheme");
 		assertThat(pensionDetails_CheckYourAnswerPage.get2015RetirementReasonText())
 				.matches("Early payment of deferred benefits because of ill health");
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf2015LumpsumChoice()).isEqualTo(true);
@@ -303,10 +303,10 @@ public class PensionDetails_CheckYourAnswersStepDefs {
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf2008LumpsumPref()).isEqualTo(true);
 		assertThat(pensionDetails_CheckYourAnswerPage.get2008LumpsumPref()).matches("How would you like your lump sum");
 		assertThat(pensionDetails_CheckYourAnswerPage.get2008LumpsumPrefText()).matches("Maximum tax-free amount");
-		assertThat(pensionDetails_CheckYourAnswerPage.get2015Section()).matches("2015 Section");
+		assertThat(pensionDetails_CheckYourAnswerPage.get2015Section()).matches("2015 Scheme");
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf2015RetirementReason()).isEqualTo(true);
 		assertThat(pensionDetails_CheckYourAnswerPage.get2015RetirementReason())
-				.matches("Why are you claiming your deferred benefits for the 2015 Section");
+				.matches("Why are you claiming your deferred benefits for the 2015 Scheme");
 		assertThat(pensionDetails_CheckYourAnswerPage.get2015RetirementReasonText())
 				.matches("Early payment of deferred benefits because of ill health");
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf2015LumpsumChoice()).isEqualTo(true);

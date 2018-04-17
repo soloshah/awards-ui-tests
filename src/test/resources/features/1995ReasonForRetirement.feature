@@ -26,12 +26,12 @@ And the 1995 reason for retirement submission will be successful
 And the 1995 lumpsum choice page will be displayed
 
 
-@Bug @BP490-355
+@Bug @BP490-355 @BP490-317
 Scenario: Valid Reason for retirement
 And I select valid 1995 retirement reason using earlyPaymentHealth
 Then the valid 1995 retirement reason text for earlyPaymentHealth will be displayed
 And the 1995 reason for retirement submission will be successful
-And the tbi page will be displayed
+And the manually submit claim page will be displayed
 
 Scenario: 1995 Reason for retirement validation 
 And I dont select any 1995 reason for retirement

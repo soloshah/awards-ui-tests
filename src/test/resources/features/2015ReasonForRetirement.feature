@@ -24,12 +24,12 @@ Then the 2015 valid retirement reason text for deferredBenefitHealth will be dis
 And the 2015 reason for retirement submission will be successful
 And the 2015 lumpsum choice page will be displayed
 
-@Bug @BP490-355
+@Bug @BP490-355 @BP490-317
 Scenario: Valid Reason for retirement
 And I select valid 2015 retirement reason using earlyPaymentHealth
 Then the 2015 valid retirement reason text for earlyPaymentHealth will be displayed
 And the 2015 reason for retirement submission will be successful
-And the tbi page will be displayed
+And the manually submit claim page will be displayed
 
 Scenario: 2015 Reason for retirement validation 
 And I dont select any 2015 reason for retirement

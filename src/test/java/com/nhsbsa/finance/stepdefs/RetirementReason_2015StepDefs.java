@@ -116,7 +116,7 @@ public class RetirementReason_2015StepDefs {
 		page.navigateToUrl(baseUrl + "/pension-scheme-details/2015-reason-for-retirement");
 		reasonForRetirement_2015Page = new ReasonForRetirement_2015Page(driver);
 		assertThat(reasonForRetirement_2015Page.getHeading())
-				.contains("Why are you claiming your deferred benefits for the 2015 Section?");
+				.contains("Why are you claiming your deferred benefits for the 2015 Scheme?");
 	}
 	
 	@Then("^the 2015 reason for retirement page will be displayed$")

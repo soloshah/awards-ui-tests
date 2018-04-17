@@ -17,7 +17,7 @@ Then the tbi page will be displayed
 
 
 Scenario: Do you have any other dependant children
-When I dont click anything
+When I dont select anything
 Then the radio button not selected error message 'Select 'yes' if you have any dependant children' will be displayed 
 
 

@@ -1,4 +1,4 @@
-@TreatBenefits @BP490-163 @WIP
+@TreatBenefits @BP490-163
 Feature: Do you want to treat benefit in excess of LTA
 
 Background:

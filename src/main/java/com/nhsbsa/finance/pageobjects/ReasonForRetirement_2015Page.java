@@ -4,12 +4,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class ReasonForRetirement_2015Page extends Page {
-	
-	private String retirementPageTitle = "Why are you claiming your deferred benefits for the 2015 Section? - Claim your NHS Pension - NHSBSA";
-	private By retirementAgeRadioButtonLocator = By.xpath("//*[@id='why-2015-form']/fieldset/div/div[1]/label");
-	private By paymentDeferredBenefitRadioButtonLocator = By.xpath("//*[@id='why-2015-form']/fieldset/div/div[3]/label");
-	private By deferredBenefitIllRadioButtonLocator = By.xpath("//*[@id='why-2015-form']/fieldset/div/div[5]/label");
-	private By commutedEarlyPaymentRadioButtonLocator = By.xpath("//*[@id='why-2015-form']/fieldset/div/div[7]/label");
+
+	private String retirementPageTitle = "Why are you claiming your deferred benefits for the 2015 Scheme? - Claim your NHS Pension - NHSBSA";
+	private By retirementAgeRadioButtonLocator = By.xpath("//*[@id='retirementReason']/div[1]/label");
+	private By paymentDeferredBenefitRadioButtonLocator = By.xpath("//*[@id='retirementReason']/div[3]/label");
+	private By deferredBenefitIllRadioButtonLocator = By.xpath("//*[@id='retirementReason']/div[5]/label");
+	private By commutedEarlyPaymentRadioButtonLocator = By.xpath("//*[@id='retirementReason']/div[7]/label");
 	private By retirementAgeTextLocator = By.id("retirement");
 	private By paymentDeferredBenefitTextLocator = By.xpath("//*[@id='deferred-benefit']/p");
 	private By deferredBenefitHealthTextLocator = By.xpath("//*[@id='deferred-benefits-health']/p");
