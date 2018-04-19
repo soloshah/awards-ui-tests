@@ -2,15 +2,12 @@ package com.nhsbsa.finance.stepdefs;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
-import com.nhsbsa.finance.pageobjects.NamePage;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.NinoPage;
 import com.nhsbsa.finance.pageobjects.Page;
-import com.nhsbsa.finance.pageobjects.YourAddressPage;
 import com.nhsbsa.finance.properties.PropertyReader;
 import com.nhsbsa.finance.shared.SharedData;
 
@@ -61,7 +58,7 @@ public class NinoStepdefs {
 	public void theNinoDetailsAreSustained() {
 		ninoPage = new NinoPage(driver);
 		assertThat(ninoPage.getNino()).matches(SharedData.nino);
-		}
+	}
 	
 	@When("^I enter nino details using different valid details$")
 	public void iEnterNinoDetailsUsingDifferentDetails() {
@@ -101,7 +98,7 @@ public class NinoStepdefs {
   public void IenterValidNationalInsuranceNumber(){
 	 SharedData.nino = "AA123456A";
 	  ninoPage = new NinoPage(driver); 
-	  ninoPage.submitValidNinoDetails(SharedData.nino);
+	  ninoPage.submitValidNiDetails(SharedData.nino);
 	    }
   
 }

@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class ChildNamePage extends Page {
 
-	private String childNamePageTitle = "What is your Child's name? - Claim your NHS Pension";
+	private String childNamePageTitle = "What is your Child's name? - Claim your NHS Pension - NHSBSA";
 	private By firstNameFieldLocator = By.id("firstName");
 	private By lastNameFieldLocator = By.id("lastName");
 	private By nextButtonLocator = By.id("submit_button");
@@ -117,11 +117,11 @@ public class ChildNamePage extends Page {
 		return new ChildDOBPage(driver);
 	}
 
-	public DynamicDateOfBirthPage submitValidChildName(String firstName, String lastName) {
+	public DynamicChildDateOfBirthPage submitValidChildName(String firstName, String lastName) {
 		enterfirstName(firstName);
 		enterlastName(lastName);
 		nextStep();
-		return new DynamicDateOfBirthPage(driver);
+		return new DynamicChildDateOfBirthPage(driver);
 	}
 	
 	public void submitValidChildNames(String firstName, String lastName) {

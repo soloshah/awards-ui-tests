@@ -22,17 +22,18 @@ public class ChildNameStepDefs {
 	private WebDriver driver = Config.getDriver();
 	private String baseUrl = PropertyReader.getProperty("base.server");
 	private ChildNamePage childNamePage;
+	
 	private String firstName;
 	private String lastName;
 
 	@Given("^I am on the child name page$")
 	public void iAmOnTheChildNamePage() {
-		new Page(driver).navigateToUrl(baseUrl + "/partner-and-child/what-is-your-child-name");
+		new Page(driver).navigateToUrl(baseUrl + "/dependant-details/what-is-your-child-name");
 	}
 
 	@Given("^I go to the child name page$")
 	public void iGoToTheChildNamePage() {
-		new Page(driver).navigateToUrl(baseUrl + "/partner-and-child/what-is-your-child-name");
+		new Page(driver).navigateToUrl(baseUrl + "/dependant-details/what-is-your-child-name");
 		childNamePage = new ChildNamePage(driver);
 		 assertThat(childNamePage.getHeading()).contains("What is your child's name?");
 	}
@@ -51,11 +52,21 @@ public class ChildNameStepDefs {
 	@When("^I enter valid child name details$")
 	public void IenterValidChildNameDetails() {
 
-		SharedData.firstName = RandomStringUtils.randomAlphabetic(10);
-		SharedData.lastName = RandomStringUtils.randomAlphabetic(10);
+		SharedData.childFirstName = RandomStringUtils.randomAlphabetic(10);
+		SharedData.childLastName = RandomStringUtils.randomAlphabetic(10);
 
 		childNamePage = new ChildNamePage(driver);
-		childNamePage.submitValidChildNameDetails(SharedData.firstName, SharedData.lastName);
+		childNamePage.submitValidChildNameDetails(SharedData.childFirstName, SharedData.childLastName);
+	}
+	
+	@When("^I enter valid child name$")
+	public void IenterValidChildName() {
+
+		SharedData.childFirstName = "Brian";
+		SharedData.childLastName = "Stark";
+
+		childNamePage = new ChildNamePage(driver);
+		childNamePage.submitValidChildNameDetails(SharedData.childFirstName, SharedData.childLastName);
 	}
 
 	@Then("^the child name submission will be unsuccessful$")
@@ -117,15 +128,13 @@ public class ChildNameStepDefs {
 	@When("^I enter valid child first and last name details$")
 	public void IenterValidChildFirstAndLastNameDetails() {
 
-		/*SharedData.firstName = RandomStringUtils.randomAlphabetic(10);
-		SharedData.lastName = RandomStringUtils.randomAlphabetic(10);*/
 		final String inputFirstName = RandomStringUtils.randomAlphabetic(10);
-		SharedData.firstName = inputFirstName.toLowerCase().substring(0, 1).toUpperCase() + inputFirstName.toLowerCase().substring(1);
+		SharedData.childFirstName = inputFirstName.toLowerCase().substring(0, 1).toUpperCase() + inputFirstName.toLowerCase().substring(1);
 		final String inputLastName = RandomStringUtils.randomAlphabetic(10);
-		SharedData.lastName = inputLastName.toLowerCase().substring(0, 1).toUpperCase() + inputLastName.toLowerCase().substring(1);
-		SharedData.fullName.add(SharedData.firstName + " " + SharedData.lastName);
+		SharedData.childLastName = inputLastName.toLowerCase().substring(0, 1).toUpperCase() + inputLastName.toLowerCase().substring(1);
+		SharedData.fullName.add(SharedData.childFirstName + " " + SharedData.childLastName);
 		childNamePage = new ChildNamePage(driver);
-		childNamePage.submitValidChildNameDetails(SharedData.firstName, SharedData.lastName);
+		childNamePage.submitValidChildNameDetails(SharedData.childFirstName, SharedData.childLastName);
 	}
 
 	private void setChildNameDetails() {

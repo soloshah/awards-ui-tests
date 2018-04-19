@@ -5,10 +5,12 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
+import com.nhsbsa.finance.pageobjects.DynamicNinoPage;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.pageobjects.PartnerNinoPage;
 import com.nhsbsa.finance.properties.PropertyReader;
+import com.nhsbsa.finance.shared.SharedData;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -21,19 +23,21 @@ public class PartnerNinoStepdefs {
 	private String baseUrl = PropertyReader.getProperty("base.server");
 
 	private PartnerNinoPage partnerNinoPage;
+	private DynamicNinoPage dynamicNinoPage;
 
 	@Given("^I am on the partner national insurance page$")
 	public void iAmOnThePartnerNationalInsurancePage() {
-		new Page(driver).navigateToUrl(baseUrl + "/partner-and-child/what-is-your-partner-ni");
+		new Page(driver).navigateToUrl(baseUrl + "/dependant-details/what-is-your-partner-ni");
 	}
 
 	@When("^I go to partner nino page$")
 	public void iGoToPartnerNinoPage() {
 
 		Page page = new Page(driver);
-		page.navigateToUrl(baseUrl + "/partner-and-child/what-is-your-partner-ni");
+		page.navigateToUrl(baseUrl + "/dependant-details/what-is-your-partner-ni");
 		partnerNinoPage = new PartnerNinoPage(driver);
-		assertThat(partnerNinoPage.getHeading()).contains("What is your spouse's or civil partner's National Insurance number?");
+		assertThat(partnerNinoPage.getHeading())
+				.contains("What is your spouse's or civil partner's National Insurance number?");
 	}
 
 	@Then("^the partner national insurance number submission will be successful$")
@@ -67,11 +71,10 @@ public class PartnerNinoStepdefs {
 
 	@When("^I enter valid partner national insurance number$")
 	public void IenterValidPartnerNationalInsuranceNumber() {
-		String partnerNino = "AA123456B";
+		SharedData.nino = "AA123456B";
 		partnerNinoPage = new PartnerNinoPage(driver);
-		partnerNinoPage.submitValidNiDetails(partnerNino);
+		partnerNinoPage.submitValidNiDetails(SharedData.nino);
 	}
 
-	
 	
 }

@@ -5,12 +5,11 @@ Background:
 Given I am on the start page
 When I go to nino page
 
-
+@bug @BP490-380
 Scenario: Valid NINO 
-#Given I am on the national insurance page
 And I enter valid national insurance number 
 Then the national insurance number submission will be successful
-Then Check your answers page is displayed
+Then Check your answers page for personal details will be displayed
 
 Scenario Outline: NINO Field validations 
 When I enter national insurance number using the nino '<nino>'

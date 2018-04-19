@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class PartnerNamePage extends Page {
 
-	private String partnerNamePageTitle = "What is your spouse's or civil partner's name? - Claim your NHS Pension";
+	private String partnerNamePageTitle = "What is your spouse's or civil partner's name? - Claim your NHS Pension - NHSBSA";
 	private By firstNameFieldLocator = By.id("firstName");
 	private By lastNameFieldLocator = By.id("lastName");
 	private By nextButtonLocator = By.id("submit_button");
@@ -48,7 +48,7 @@ public class PartnerNamePage extends Page {
 		nextStep();
 	}
 
-	private void nextStep() {
+	public void nextStep() {
 		navigateToRootElement();
 		navigateToElementBy(nextButtonLocator);
 		click();
@@ -123,6 +123,13 @@ public class PartnerNamePage extends Page {
 		return new DynamicDateOfBirthPage(driver);
 	}
 	
+	public void submitPartnerName(String firstName, String lastName) {
+		enterfirstName(firstName);
+		enterlastName(lastName);
+		nextStep();
+		
+	}
+	
 	public PartnerNamePage submitInValidPartnerNameDetails() {
 		nextStep();
 		return new PartnerNamePage(driver);
@@ -135,4 +142,16 @@ public class PartnerNamePage extends Page {
 		return new PartnerDateOfBirthPage(driver);
 	}
 
+	public String getFirstNameDetails() {
+		navigateToRootElement();
+		navigateToElementBy(firstNameFieldLocator);
+		return getElementValue();
+	}
+
+	public String getLastNameDetails() {
+		navigateToRootElement();
+		navigateToElementBy(lastNameFieldLocator);
+		return getElementValue();
+	}
+	
 }

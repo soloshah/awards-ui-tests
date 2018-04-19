@@ -19,6 +19,10 @@ public class DependantChildrenStepDefs {
 	private String baseUrl = PropertyReader.getProperty("base.server");
 
 	private DependantChildrenPage dependantChildrenPage;
+	private ChildNameStepDefs childNameSteps;
+	private ChildDOBStepDefs childDOBSteps;
+	private OtherDependantChildrenStepDefs otherDependantChildrenSteps;
+	private SharedYeNoStepDefs sharedYeNoSteps;
 
 	@Given("^I am on dependant children page$")
 	public void iAmOnDependantChildrenPage() {
@@ -54,6 +58,19 @@ public class DependantChildrenStepDefs {
 		dependantChildrenPage = new DependantChildrenPage(driver);
 		assertThat(dependantChildrenPage.verifyDependantChildLinkText()
 				.contains("Where your Scheme membership extends to or beyond 1 April 2008, a dependant child is:"));
+	}
+	
+	@When("^I enter dependantChildren using different valid details$")
+	public void iSelectDependantChildrenUsingDifferentValidOption() {
+		childNameSteps = new ChildNameStepDefs();
+		childNameSteps.IenterValidChildName();
+		childDOBSteps = new ChildDOBStepDefs();
+		childDOBSteps.IenterValidChildDateOfBirthDetails();
+		otherDependantChildrenSteps = new OtherDependantChildrenStepDefs();
+		otherDependantChildrenSteps.doYouHaveAnyOtherDependantPageWillBeDisplayed();
+		sharedYeNoSteps = new SharedYeNoStepDefs();
+		sharedYeNoSteps.iSelectNo();
+			
 	}
 
 }

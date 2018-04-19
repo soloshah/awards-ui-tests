@@ -119,4 +119,41 @@ public class SharedYeNoStepDefs {
 		assertThat(sharedYesNoPage.verifyLumpSumMoreInformationText()).contains("For example, if you exchange £100 of your pension, you’d get £1200 of lump sum.");
 	}
 
+	
+	
+	@Then("^the dependantChildren details are sustained$")
+	public void theDependantChildrenDetailsAreSustained() {
+		sharedYesNoPage = new SharedYesNoPage(driver);
+		assertThat(sharedYesNoPage.getYesRadioButton()).matches(SharedData.sharedRadioButton);
+		iClickNextOnDependantChildrenPage();
+
+	}
+
+		
+	@When("^I click next on dependantChildren page$")
+	public void iClickNextOnDependantChildrenPage() {
+		sharedYesNoPage = new SharedYesNoPage(driver);
+		sharedYesNoPage.nextStep();
+	}
+	
+	
+	@Then("^the allocatePension details are sustained$")
+	public void theAllocatePensionDetailsAreSustained() {
+		sharedYesNoPage = new SharedYesNoPage(driver);
+		assertThat(sharedYesNoPage.getYesRadioButton()).matches(SharedData.sharedRadioButton);
+
+	}
+
+	@When("^I select allocatePension using different valid option$")
+	public void iSelectAllocatePensionUsingDifferentValidOption() {
+			iSelectNo();
+			
+	}
+	
+	@When("^I click next on allocatePension page$")
+	public void iClickNextOnAllocatePensionPage() {
+		sharedYesNoPage = new SharedYesNoPage(driver);
+		sharedYesNoPage.nextStep();
+	}
+
 }

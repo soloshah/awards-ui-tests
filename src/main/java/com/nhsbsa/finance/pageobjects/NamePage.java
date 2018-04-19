@@ -52,6 +52,7 @@ public class NamePage extends Page {
 		return getElementValue();
 	}
 
+	
 	public String getLastNameDetails() {
 		navigateToRootElement();
 		navigateToElementBy(lastNameFieldLocator);

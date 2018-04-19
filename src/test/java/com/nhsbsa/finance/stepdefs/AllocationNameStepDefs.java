@@ -2,6 +2,7 @@ package com.nhsbsa.finance.stepdefs;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
@@ -51,11 +52,26 @@ public class AllocationNameStepDefs {
 	@When("^I enter valid allocation name details$")
 	public void IenterValidAllocationNameDetails() {
 
-		SharedData.firstName = "Allocation Test";
-		SharedData.lastName = "User";
+		final String inputFirstName = RandomStringUtils.randomAlphabetic(10);
+		SharedData.allocationFirstName = inputFirstName.toLowerCase().substring(0, 1).toUpperCase()
+				+ inputFirstName.toLowerCase().substring(1);
+		final String inputLastName = RandomStringUtils.randomAlphabetic(10);
+		SharedData.allocationLastName = inputLastName.toLowerCase().substring(0, 1).toUpperCase()
+				+ inputLastName.toLowerCase().substring(1);
 		allocationNamePage = new AllocationNamePage(driver);
-		allocationNamePage.submitValidAllocationName(SharedData.firstName, SharedData.lastName);
+		allocationNamePage.submitValidAllocationName(SharedData.allocationFirstName, SharedData.allocationLastName);
 	}
+	
+	
+	@When("^I enter valid allocation name$")
+	public void IenterValidAllocationName() {
+
+		SharedData.allocationFirstName = "Rob";
+		SharedData.allocationLastName = "Stark";
+		allocationNamePage = new AllocationNamePage(driver);
+		allocationNamePage.submitAllocationName(SharedData.allocationFirstName, SharedData.allocationLastName);
+	}
+
 
 	@Then("^the allocation name submission will be unsuccessful$")
 	public void theChildNameSubmissionWillBeUnsuccessful() {
@@ -118,5 +134,27 @@ public class AllocationNameStepDefs {
 		lastName = "Allocation User";
 
 	}
+	
+	@When("^I click next on allocation name page$")
+	public void iClickNextOnAllocationNamePage() {
+		allocationNamePage = new AllocationNamePage(driver);
+		allocationNamePage.nextStep();
+	}
+
+	@Then("^the allocatePensionName details are sustained$")
+	public void theAllocateNameDetailsAreSustained() {
+		allocationNamePage = new AllocationNamePage(driver);
+		assertThat(allocationNamePage.getFirstNameDetails()).matches(SharedData.allocationFirstName);
+		assertThat(allocationNamePage.getLastNameDetails()).matches(SharedData.allocationLastName);
+	}
+
+	@When("^I enter allocatePensionName using different valid details$")
+	public void iEnterAllocatePensionNameUsingDifferentDetails() {
+		SharedData.allocationFirstName = "Rob";
+		SharedData.allocationLastName = "Snow";
+		allocationNamePage = new AllocationNamePage(driver);
+		allocationNamePage.submitAllocationName(SharedData.allocationFirstName, SharedData.allocationLastName);
+	}
+
 
 }

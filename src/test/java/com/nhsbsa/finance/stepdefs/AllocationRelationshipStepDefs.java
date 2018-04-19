@@ -9,6 +9,7 @@ import com.nhsbsa.finance.pageobjects.AllocationRelationshipPage;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.properties.PropertyReader;
+import com.nhsbsa.finance.shared.SharedData;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -47,10 +48,12 @@ public class AllocationRelationshipStepDefs {
 	
 	@When("^I enter valid relationship details$")
 	public void IenterValidRelationshipDetails() {
-		String relationship = "Wife";
+		SharedData.relationship = "Wife";
 		allocationRelationshipPage = new AllocationRelationshipPage(driver);
-		allocationRelationshipPage.submitValidJobTitle(relationship);
+		allocationRelationshipPage.submitValidAllocationRelationship(SharedData.relationship);
 	}
+	
+	
 
 	@Then("^the relationship submission will be unsuccessful$")
 	public void theRelationshipSubmissionWillBeUnsuccessful() {

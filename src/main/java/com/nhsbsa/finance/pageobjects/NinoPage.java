@@ -69,10 +69,10 @@ public class NinoPage extends Page {
 		return new PersonalDetails_CheckYourAnswerPage(driver);
 	}
 
-	public TBIPage submitValidNiDetails(String nino) {
+	public void submitValidNiDetails(String nino) {
 		enterNino(nino);
 		nextStep();
-		return new TBIPage(driver);
+	
 	}
 
 	public String getNino() {

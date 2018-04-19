@@ -37,7 +37,7 @@ public class MaritalStatusStepDefs {
 		maritalStatusPage = new MaritalStatusPage(driver);
 		assertThat(maritalStatusPage.getHeading()).contains("What is your marital status?");
 	}
-	
+
 	@Then("^What is your marital status page will be displayed$")
 	public void whatIsYourMaritalStatusPageWillBeDisplayed() {
 		maritalStatusPage = new MaritalStatusPage(driver);
@@ -73,6 +73,20 @@ public class MaritalStatusStepDefs {
 		assertThat(maritalStatusPage.getMaritalStatusFieldErrorMessage()).matches(errorMessage);
 		assertThat(maritalStatusPage.doesMaritalStatusErrorMessageHaveAnchor()).isTrue();
 		assertThat(maritalStatusPage.getMaritalStatusAnchoredErrorMessage()).matches(errorMessage);
+	}
+
+	@Then("^I select married as marital status$")
+	public void iSelectMarriedAsMaritalStatus() {
+		SharedData.sharedNHSRadioButton = "Married";
+		String randomDateString = SharedMethods.randomDateGenerator();
+		LocalDate localDate = LocalDate.parse(randomDateString);
+		SharedData.maritalDay = SharedMethods.formatDay(localDate);
+		SharedData.maritalMonth = SharedMethods.formatMonth(localDate);
+		SharedData.maritalYear = SharedMethods.formatYear(localDate);
+		maritalStatusPage = new MaritalStatusPage(driver);
+		maritalStatusPage = new MaritalStatusPage(driver);
+		maritalStatusPage.selectMarriedMaritalStatus();
+		maritalStatusPage.submitValidMarriedDate(SharedData.maritalDay, SharedData.maritalMonth, SharedData.maritalYear);
 	}
 
 	@When("^I select (.*) on marital status page$")
@@ -192,6 +206,66 @@ public class MaritalStatusStepDefs {
 			assertThat(maritalStatusPage.getDivorcedFieldErrorMessage()).matches(errorMessage);
 			break;
 		}
+	}
+
+	@When("^I click next on marital status page$")
+	public void iClickNextOnYourGenderPage() {
+		maritalStatusPage = new MaritalStatusPage(driver);
+		maritalStatusPage.nextStep();
+	}
+
+	@Then("^the maritalStatus details are sustained$")
+	public void theMaritalStatusDetailsAreSustained() {
+		maritalStatusPage = new MaritalStatusPage(driver);
+		assertThat(maritalStatusPage.getMarriedStatus()).matches(SharedData.sharedNHSRadioButton);
+		//assertThat(maritalStatusPage.getMarriedDay()).matches(SharedData.maritalDay);
+		//assertThat(maritalStatusPage.getMarriedMonth()).matches(SharedData.maritalMonth);
+		//assertThat(maritalStatusPage.getMarriedYear()).matches(SharedData.maritalYear);
+
+	}
+
+	@When("^I select marital status using different valid option$")
+	public void iSelectMaritalStatusUsingDifferentValidOption() {
+		SharedData.sharedNHSRadioButton = "Civil partnership";
+		String randomDateString = SharedMethods.randomDateGenerator();
+		LocalDate localDate = LocalDate.parse(randomDateString);
+		SharedData.maritalDay = SharedMethods.formatDay(localDate);
+		SharedData.maritalMonth = SharedMethods.formatMonth(localDate);
+		SharedData.maritalYear = SharedMethods.formatYear(localDate);
+		maritalStatusPage = new MaritalStatusPage(driver);
+		maritalStatusPage.selectCivilMaritalStatus();
+		maritalStatusPage.submitValidCivilDate(SharedData.maritalDay, SharedData.maritalMonth, SharedData.maritalYear);
+		
+	}
+	
+	
+
+	@When("^I select marital status as single$")
+	public void iSelectMaritalStatusAsSingle() {
+		SharedData.sharedNHSRadioButton = "Single and never married";
+		String randomDateString = SharedMethods.randomDateGenerator();
+		LocalDate localDate = LocalDate.parse(randomDateString);
+		SharedData.maritalDay = SharedMethods.formatDay(localDate);
+		SharedData.maritalMonth = SharedMethods.formatMonth(localDate);
+		SharedData.maritalYear = SharedMethods.formatYear(localDate);
+		maritalStatusPage = new MaritalStatusPage(driver);
+		maritalStatusPage.selectSingleMaritalStatus();
+		
+		
+	}
+	
+	@When("^I select marital status as divorced$")
+	public void iSelectMaritalStatusAsDivorced() {
+		SharedData.sharedNHSRadioButton = "Divorced or dissolved civil partnership";
+		String randomDateString = SharedMethods.randomDateGenerator();
+		LocalDate localDate = LocalDate.parse(randomDateString);
+		SharedData.maritalDay = SharedMethods.formatDay(localDate);
+		SharedData.maritalMonth = SharedMethods.formatMonth(localDate);
+		SharedData.maritalYear = SharedMethods.formatYear(localDate);
+		maritalStatusPage = new MaritalStatusPage(driver);
+		maritalStatusPage.selectDivorcedMaritalStatus();
+		maritalStatusPage.submitValidDivorcedDate(SharedData.maritalDay, SharedData.maritalMonth, SharedData.maritalYear);
+		
 	}
 
 }
