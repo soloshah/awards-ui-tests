@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class ChildDOBPage extends Page {
 
-	private String childDOBPageTitle = "Claim your NHS Pension";
+	private String childDOBPageTitle = "What is your child's date of birth? - Claim your NHS Pension - NHSBSA";
 	private By childDayFieldLocator = By.id("dateOfBirth-day");
 	private By childMonthFieldLocator = By.id("dateOfBirth-month");
 	private By childYearFieldLocator = By.id("dateOfBirth-year");
@@ -90,6 +90,8 @@ public class ChildDOBPage extends Page {
 		nextStep();
 		return new OtherDependantChildrenPage(driver);
 	}
+	
+	
 
 	public ChildDOBPage submitInValidChildDOBDetails() {
 		nextStep();

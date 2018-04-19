@@ -57,11 +57,12 @@ public class AllocationDateOfBirthStepDefs {
 	public void IenterAllocationValidDOBDetails() {
 		String randomDateString = SharedMethods.randomDateGenerator();
 		LocalDate localDate = LocalDate.parse(randomDateString);
-		SharedData.day = SharedMethods.formatDay(localDate);
-		SharedData.month = SharedMethods.formatMonth(localDate);
-		SharedData.year = SharedMethods.formatYear(localDate);
+		SharedData.allocateDay = SharedMethods.formatDay(localDate);
+		SharedData.allocateMonth = SharedMethods.formatMonth(localDate);
+		SharedData.allocateYear = SharedMethods.formatYear(localDate);
 		allocationDateOfBirthPage = new AllocationDateOfBirthPage(driver);
-		allocationDateOfBirthPage.submitValidAllocationDateDetails(SharedData.day, SharedData.month, SharedData.year);
+		allocationDateOfBirthPage.submitValidAllocationDateDetails(SharedData.allocateDay, SharedData.allocateMonth,
+				SharedData.allocateYear);
 	}
 
 	@Then("^the allocation date of birth submission will be unsuccessful$")
@@ -107,4 +108,5 @@ public class AllocationDateOfBirthStepDefs {
 		allocationDateOfBirthPage.enterAllocationDobDetails(SharedData.day, SharedData.month, SharedData.year);
 		allocationDateOfBirthPage.submitInValidAllocationDOBDetails();
 	}
+
 }

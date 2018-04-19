@@ -24,15 +24,19 @@ public class OtherDependantChildrenStepDefs {
 
 	private OtherDependantChildrenPage otherDependantChildrenPage;
 	SharedYesNoPage sharedYesNoPage;
+	
+	private ChildNameStepDefs childNameSteps;
+	private SharedYeNoStepDefs sharedYesNoSteps;
+	private ChildDOBStepDefs childDobSteps;
 
 	@Given("^I am on other dependant children page$")
 	public void iAmOnOtherDependantChildrenPage() {
-		new Page(driver).navigateToUrl(baseUrl + "/partner-and-child/do-you-have-any-other-dependant-children");
+		new Page(driver).navigateToUrl(baseUrl + "/dependant-details/do-you-have-any-other-dependant-children");
 	}
 
 	@Given("^I go to other dependant children page$")
 	public void iGoToOtherDependantChildrenPage() {
-		new Page(driver).navigateToUrl(baseUrl + "/partner-and-child/do-you-have-any-other-dependant-children");
+		new Page(driver).navigateToUrl(baseUrl + "/dependant-details/do-you-have-any-other-dependant-children");
 		otherDependantChildrenPage = new OtherDependantChildrenPage(driver);
 		assertThat(otherDependantChildrenPage.getHeading().contains("Do you have any other dependant children?"));
 	}
@@ -49,7 +53,7 @@ public class OtherDependantChildrenStepDefs {
 	}
 
 	@Then("^the dynamic value of child first and last name will be displayed$")
-	public void theDynamicValueOfCildFirstAndLastNameWillBeDisplayed() {
+	public void theDynamicValueOfChildFirstAndLastNameWillBeDisplayed() {
 		otherDependantChildrenPage = new OtherDependantChildrenPage(driver);
 		List<String> enteredFullNames = SharedData.fullName;
 		for (int i = 0; i < enteredFullNames.size(); i++) {
@@ -60,6 +64,7 @@ public class OtherDependantChildrenStepDefs {
 		}
 	}
 
+	
 	@And("^the other dependant children page error message '(.*)' will be displayed$")
 	public void theOtherDependantChildrenPageErrorMessageWillBeDisplayed(String errorMessage) {
 		otherDependantChildrenPage = new OtherDependantChildrenPage(driver);
@@ -74,6 +79,70 @@ public class OtherDependantChildrenStepDefs {
 	public void iTryToEnterMoreThan6DependantChildrenDetails() {
 		sharedYesNoPage = new SharedYesNoPage(driver);
 		sharedYesNoPage.selectYes();
+
+	}
+	
+	@And("^I enter 6 dependant children details$")
+	public void iEnter6DependantChildrenDetails() {
+		childNameSteps = new ChildNameStepDefs();
+		childNameSteps.iGoToTheChildNamePage();
+		childNameSteps.IenterValidChildFirstAndLastNameDetails();
+		childDobSteps =  new ChildDOBStepDefs();
+		childDobSteps.theDynamicValueOnChildDateOfBirthPageWillBeDisplayed();
+		childDobSteps.IenterValidChildDateOfBirthDetails();
+		iAmOnOtherDependantChildrenPage();
+		theDynamicValueOfChildFirstAndLastNameWillBeDisplayed();
+		sharedYesNoSteps =  new SharedYeNoStepDefs();
+		sharedYesNoSteps.iSelectYes();
+		childNameSteps = new ChildNameStepDefs();
+		childNameSteps.iGoToTheChildNamePage();
+		childNameSteps.IenterValidChildFirstAndLastNameDetails();
+		childDobSteps =  new ChildDOBStepDefs();
+		childDobSteps.theDynamicValueOnChildDateOfBirthPageWillBeDisplayed();
+		childDobSteps.IenterValidChildDateOfBirthDetails();
+		iAmOnOtherDependantChildrenPage();
+		theDynamicValueOfChildFirstAndLastNameWillBeDisplayed();
+		sharedYesNoSteps =  new SharedYeNoStepDefs();
+		sharedYesNoSteps.iSelectYes();
+		childNameSteps = new ChildNameStepDefs();
+		childNameSteps.iGoToTheChildNamePage();
+		childNameSteps.IenterValidChildFirstAndLastNameDetails();
+		childDobSteps =  new ChildDOBStepDefs();
+		childDobSteps.theDynamicValueOnChildDateOfBirthPageWillBeDisplayed();
+		childDobSteps.IenterValidChildDateOfBirthDetails();
+		iAmOnOtherDependantChildrenPage();
+		theDynamicValueOfChildFirstAndLastNameWillBeDisplayed();
+		sharedYesNoSteps =  new SharedYeNoStepDefs();
+		sharedYesNoSteps.iSelectYes();
+		childNameSteps = new ChildNameStepDefs();
+		childNameSteps.iGoToTheChildNamePage();
+		childNameSteps.IenterValidChildFirstAndLastNameDetails();
+		childDobSteps =  new ChildDOBStepDefs();
+		childDobSteps.theDynamicValueOnChildDateOfBirthPageWillBeDisplayed();
+		childDobSteps.IenterValidChildDateOfBirthDetails();
+		iAmOnOtherDependantChildrenPage();
+		theDynamicValueOfChildFirstAndLastNameWillBeDisplayed();
+		sharedYesNoSteps =  new SharedYeNoStepDefs();
+		sharedYesNoSteps.iSelectYes();
+		childNameSteps = new ChildNameStepDefs();
+		childNameSteps.iGoToTheChildNamePage();
+		childNameSteps.IenterValidChildFirstAndLastNameDetails();
+		childDobSteps =  new ChildDOBStepDefs();
+		childDobSteps.theDynamicValueOnChildDateOfBirthPageWillBeDisplayed();
+		childDobSteps.IenterValidChildDateOfBirthDetails();
+		iAmOnOtherDependantChildrenPage();
+		theDynamicValueOfChildFirstAndLastNameWillBeDisplayed();
+		sharedYesNoSteps =  new SharedYeNoStepDefs();
+		sharedYesNoSteps.iSelectYes();
+		childNameSteps = new ChildNameStepDefs();
+		childNameSteps.iGoToTheChildNamePage();
+		childNameSteps.IenterValidChildFirstAndLastNameDetails();
+		childDobSteps =  new ChildDOBStepDefs();
+		childDobSteps.theDynamicValueOnChildDateOfBirthPageWillBeDisplayed();
+		childDobSteps.IenterValidChildDateOfBirthDetails();
+		iAmOnOtherDependantChildrenPage();
+		theDynamicValueOfChildFirstAndLastNameWillBeDisplayed();
+		
 
 	}
 

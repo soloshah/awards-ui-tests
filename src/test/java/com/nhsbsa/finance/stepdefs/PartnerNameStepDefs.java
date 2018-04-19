@@ -26,12 +26,18 @@ public class PartnerNameStepDefs {
 
 	@Given("^I am on the partner name page$")
 	public void iAmOnThePartnerNamePage() {
-		new Page(driver).navigateToUrl(baseUrl + "/partner-and-child/what-is-your-partner-name");
+		new Page(driver).navigateToUrl(baseUrl + "/dependant-details/what-is-your-partner-name");
 	}
 
 	@Given("^I go to the partner name page$")
 	public void iGoToThePartnerNamePage() {
-		new Page(driver).navigateToUrl(baseUrl + "/partner-and-child/what-is-your-partner-name");
+		new Page(driver).navigateToUrl(baseUrl + "/dependant-details/what-is-your-partner-name");
+		partnerNamePage = new PartnerNamePage(driver);
+		assertThat(partnerNamePage.getHeading()).contains("What is your spouse's or civil partner's name?");
+	}
+
+	@Then("^the partner name page will be displayed$")
+	public void thePartnerNamePageWillBeDisplayed() {
 		partnerNamePage = new PartnerNamePage(driver);
 		assertThat(partnerNamePage.getHeading()).contains("What is your spouse's or civil partner's name?");
 	}
@@ -42,15 +48,13 @@ public class PartnerNameStepDefs {
 		new NavBarPage(driver);
 	}
 
+	
+	
 	@When("^I enter valid partner name details$")
 	public void IenterValidPartnerNameDetails() {
 		
-		 /* final String inputFirstName = RandomStringUtils.randomAlphabetic(10);
-		  SharedData.firstName = inputFirstName.toLowerCase().substring(0,1).toUpperCase() + inputFirstName.toLowerCase().substring(1); final
-		  String inputLastName = RandomStringUtils.randomAlphabetic(10);
-		  SharedData.lastName = inputLastName.toLowerCase().substring(0,1).toUpperCase() + inputLastName.toLowerCase().substring(1);*/
-		  SharedData.firstName = "Partner-Test";
-		  SharedData.lastName = "User";
+		  SharedData.firstName = "Arya";
+		  SharedData.lastName = "Stark";
 		partnerNamePage = new PartnerNamePage(driver);
 		partnerNamePage.submitValidPartnerNameDetails(SharedData.firstName, SharedData.lastName);
 	}
@@ -119,10 +123,32 @@ public class PartnerNameStepDefs {
 
 	@And("^I submit valid partner first and last name details$")
 	public void iSubmitValidPartnerFirstAndLastNameDetails() {
-		SharedData.firstName = "Partner-Test";
-		SharedData.lastName = "User";
+		SharedData.firstName = "Arya";
+		SharedData.lastName = "Stark";
+		partnerNamePage = new PartnerNamePage(driver);
+		partnerNamePage.submitPartnerName(SharedData.firstName, SharedData.lastName);
+	}
+	
+	
+	@When("^I click next on partner name page$")
+	public void iClickNextOnPartnerNamePage() {
+		partnerNamePage = new PartnerNamePage(driver);
+		partnerNamePage.nextStep();
+	}
+
+	@Then("^the partnerName details are sustained$")
+	public void thePartnerNameDetailsAreSustained() {
+		partnerNamePage = new PartnerNamePage(driver);
+		assertThat(partnerNamePage.getFirstNameDetails()).matches(SharedData.firstName);
+		assertThat(partnerNamePage.getLastNameDetails()).matches(SharedData.lastName);
+	}
+
+	@When("^I enter partner name using different valid details$")
+	public void iEnterPartnerNameUsingDifferentDetails() {
+		SharedData.firstName = "Arya";
+		  SharedData.lastName = "Snow";
 		partnerNamePage = new PartnerNamePage(driver);
 		partnerNamePage.submitValidPartnerNameDetails(SharedData.firstName, SharedData.lastName);
 	}
-
+	
 }

@@ -6,8 +6,8 @@ import org.openqa.selenium.WebDriver;
 public class AllocatePensionPage extends Page {
 
 	private String doYouWantToAllocateTitle = "Do you want to allocate part of your pension? - Claim your NHS Pension - NHSBSA";
-	private By yesRadioButtonLocator = By.xpath("//*[@id='yesNo_group']/div/div[1]/label");
-	private By noRadioButtonLocator = By.xpath("//*[@id='yesNo_group']/div/div[2]/label");
+	private By yesRadioButtonLocator = By.xpath("//*[@id='yesNo']/div/div[1]/label");
+	private By noRadioButtonLocator = By.xpath("//*[@id='yesNo']/div/div[2]/label");
 	private By allocationIdentifyLinkLocator = By.className("summary");
 	private By allocationInformationLinkLocator = By.xpath("//*[@id='details-content-0']/p[4]");
 

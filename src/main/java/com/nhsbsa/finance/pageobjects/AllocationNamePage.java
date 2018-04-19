@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class AllocationNamePage extends Page {
 
-	private String allocationNamePageTitle = "What is the name of the person you want to allocate some of your pension to? - Claim your NHS Pension - NHSBSA";
+	private String allocationNamePageTitle = "What is the name of the person you want to allocate some of your pension to? - Claim your NHS Pension";
 	private By firstNameFieldLocator = By.id("firstName");
 	private By lastNameFieldLocator = By.id("lastName");
 	private By nextButtonLocator = By.id("submit_button");
@@ -42,7 +42,7 @@ public class AllocationNamePage extends Page {
 		nextStep();
 	}
 
-	private void nextStep() {
+	public void nextStep() {
 		navigateToRootElement();
 		navigateToElementBy(nextButtonLocator);
 		click();
@@ -117,11 +117,18 @@ public class AllocationNamePage extends Page {
 		return new AllocationDateOfBirthPage(driver);
 	}
 
-	public TBIPage submitValidAllocationName(String firstName, String lastName) {
+	public AllocationDateOfBirthPage submitValidAllocationName(String firstName, String lastName) {
 		enterfirstName(firstName);
 		enterlastName(lastName);
 		nextStep();
-		return new TBIPage(driver);
+		return new AllocationDateOfBirthPage(driver);
+	}
+
+	public DynamicAllocationPage submitAllocationName(String firstName, String lastName) {
+		enterfirstName(firstName);
+		enterlastName(lastName);
+		nextStep();
+		return new DynamicAllocationPage(driver);
 	}
 
 	public AllocationNamePage submitInValidAllocationNameDetails() {
@@ -129,4 +136,15 @@ public class AllocationNamePage extends Page {
 		return new AllocationNamePage(driver);
 	}
 
+	public String getFirstNameDetails() {
+		navigateToRootElement();
+		navigateToElementBy(firstNameFieldLocator);
+		return getElementValue();
+	}
+
+	public String getLastNameDetails() {
+		navigateToRootElement();
+		navigateToElementBy(lastNameFieldLocator);
+		return getElementValue();
+	}
 }

@@ -19,12 +19,14 @@ public class DynamicNinoStepDefs {
 	private WebDriver driver = Config.getDriver();
 	private String baseUrl = PropertyReader.getProperty("base.server");
 	private DynamicNinoPage dynamicNinoPage;
-
+    private PartnerNameStepDefs partnerNameSteps;
+ 
+ 
 	@When("^I go to dynamic partner nino page$")
 	public void iGoToDynamicPartnerNinoPage() {
 
 		Page page = new Page(driver);
-		page.navigateToUrl(baseUrl + "/partner-and-child/what-is-your-partner-ni");
+		page.navigateToUrl(baseUrl + "/dependant-details/what-is-your-partner-ni");
 		dynamicNinoPage = new DynamicNinoPage(driver);
 		assertThat(dynamicNinoPage.getHeading()
 				.contains("What is " + SharedData.firstName + "'s " + "National Insurance number?"));
@@ -34,7 +36,7 @@ public class DynamicNinoStepDefs {
 	public void theDynamicValueOfPartnersNameWillBeDisplayedOnThePartnersNinoPage() {
 		Page page = new Page(driver);
 		String partnerNinoPageTitle = "What is " + SharedData.firstName + "'s "
-				+ "National Insurance number? - Claim your NHS Pension";
+				+ "National Insurance number? - Claim your NHS Pension - NHSBSA";
 		page.waitForTitleToExist(partnerNinoPageTitle);
 		dynamicNinoPage = new DynamicNinoPage(driver);
 		assertThat(dynamicNinoPage.getHeading()
@@ -65,4 +67,39 @@ public class DynamicNinoStepDefs {
 		assertThat(dynamicNinoPage.getErrorsBelowErrorMessage()).matches("Please see the errors below.");
 	}
 
+	
+	@When("^I enter valid partner nino$")
+	public void IenterValidPartnerNino() {
+		SharedData.nino = "AB234567C";
+		dynamicNinoPage = new DynamicNinoPage(driver);
+		dynamicNinoPage.submitValidNiDetails(SharedData.nino);
+	}
+	
+	
+	@When("^I click next on partner national insurance page$")
+	public void iClickNextOnPartnerNationalInsurancePage() {
+		dynamicNinoPage = new DynamicNinoPage(driver);
+		dynamicNinoPage.nextStep();
+	}
+
+	@Then("^the partnerNino details are sustained$")
+	public void thePartnerNinoDetailsAreSustained() {
+		dynamicNinoPage = new DynamicNinoPage(driver);
+		assertThat(dynamicNinoPage.getNino()).matches(SharedData.nino);
+		}
+	
+	@When("^I enter partnerNino using different valid details$")
+	public void iEnterPartnerNinoUsingDifferentDetails() {
+		SharedData.nino = "AA123489B";
+		dynamicNinoPage = new DynamicNinoPage(driver);
+		dynamicNinoPage.submitNino(SharedData.nino);
+	}
+	
+	@And("^I enter valid partner details$")
+	public void iEnterValidPartnerDetails() {
+     partnerNameSteps = new PartnerNameStepDefs();
+     partnerNameSteps.iGoToThePartnerNamePage();
+     partnerNameSteps.iSubmitValidPartnerFirstAndLastNameDetails();
+     iGoToDynamicPartnerNinoPage();
+	}
 }

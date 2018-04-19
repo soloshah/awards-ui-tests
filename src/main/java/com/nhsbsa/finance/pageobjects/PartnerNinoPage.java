@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class PartnerNinoPage extends Page {
 
-	private String partnerNinoPageTitle = "What is your spouse's or civil partner's National Insurance number? - Claim your NHS Pension";
+	//private String partnerNinoPageTitle = "What is your spouse's or civil partner's National Insurance number? - Claim your NHS Pension";
 	private By ninoFieldLocator = By.id("nino");
 	private By nextButtonLocator = By.id("submit_button");
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");
@@ -16,7 +16,7 @@ public class PartnerNinoPage extends Page {
 
 	public PartnerNinoPage(WebDriver driver) {
 		super(driver);
-		waitForTitleToExist(partnerNinoPageTitle);
+		//waitForTitleToExist(partnerNinoPageTitle);
 		waitForElementToBeVisibleBy(ninoFieldLocator);
 	}
 
@@ -63,10 +63,10 @@ public class PartnerNinoPage extends Page {
 		return getElementText();
 	}
 
-	public TBIPage submitValidNiDetails(String nino) {
+	public DependantChildrenPage submitValidNiDetails(String nino) {
 		enterPartnerNino(nino);
 		nextStep();
-		return new TBIPage(driver);
+		return new DependantChildrenPage(driver);
 	}
 
 	public PartnerNinoPage submitInValidNinoDetails() {

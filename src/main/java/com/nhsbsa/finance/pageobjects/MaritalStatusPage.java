@@ -5,11 +5,11 @@ import org.openqa.selenium.WebDriver;
 
 public class MaritalStatusPage extends Page {
 
+	
 	private String maritalStatusTitle = "What is your marital status? - Claim your NHS Pension - NHSBSA";
 	private By singleRadioButtonLocator = By.xpath("//*[@id='status']/fieldset/div/div[1]/label");
 	private By marriedRadioButtonLocator = By.xpath("//*[@id='status']/fieldset/div/div[2]/label");
-	private By civilPartnershipRadioButtonLocator = By
-			.xpath("//*[@id='marital-status-form']/fieldset/div/div[4]/label");
+	private By civilPartnershipRadioButtonLocator = By.xpath("//*[@id='status']/fieldset/div/div[4]/label");
 	private By widowedRadioButtonLocator = By.xpath("//*[@id='status']/fieldset/div/div[6]/label");
 	private By divorcedRadioButtonLocator = By.xpath("//*[@id='status']/fieldset/div/div[8]/label");
 	private By nextButtonLocator = By.id("submit_button");
@@ -50,6 +50,8 @@ public class MaritalStatusPage extends Page {
 	private By divorcedYearFieldLocator = By.id("divorcedDate-year");
 	private By divorcedDateHintLocator = By.id("divorcedDate-form-hint");
 	private By divorcedDateHeaderLocator = By.id("divorcedDate-label-text");
+	private By selectedMarriedRadioButtonLocator = By.xpath("//input[@checked='checked']");
+	
 
 	public MaritalStatusPage(WebDriver driver) {
 		super(driver);
@@ -153,7 +155,7 @@ public class MaritalStatusPage extends Page {
 		return getElementText();
 	}
 
-	private void nextStep() {
+	public void nextStep() {
 		navigateToRootElement();
 		navigateToElementBy(nextButtonLocator);
 		click();
@@ -320,10 +322,10 @@ public class MaritalStatusPage extends Page {
 		return new MaritalStatusPage(driver);
 	}
 
-	public DependantChildrenPage submitValidMarriedDate(String day, String month, String year) {
+	public PartnerNamePage submitValidMarriedDate(String day, String month, String year) {
 		enterMarriedDateDetails(day, month, year);
 		nextStep();
-		return new DependantChildrenPage(driver);
+		return new PartnerNamePage(driver);
 	}
 
 	public MaritalStatusPage selectCivilMaritalStatus() {
@@ -333,10 +335,10 @@ public class MaritalStatusPage extends Page {
 		return new MaritalStatusPage(driver);
 	}
 
-	public DependantChildrenPage submitValidCivilDate(String day, String month, String year) {
+	public PartnerNamePage submitValidCivilDate(String day, String month, String year) {
 		enterCivilDateDetails(day, month, year);
 		nextStep();
-		return new DependantChildrenPage(driver);
+		return new PartnerNamePage(driver);
 	}
 
 	public MaritalStatusPage selectWidowedMaritalStatus() {
@@ -393,5 +395,32 @@ public class MaritalStatusPage extends Page {
 		navigateToElementBy(divorcedDateHintLocator);
 		return getElementText();
 	}
+	
+	public String getMarriedStatus() {
+		navigateToRootElement();
+		navigateToElementBy(selectedMarriedRadioButtonLocator);
+		navigateToParentElement();
+		return getElementText();
+	}
+	
+	 public String getMarriedDay() {
+		    navigateToRootElement();
+		    navigateToElementBy(marriedDayFieldLocator);
+		    return getElementValue();
+		  }
+
+	 public String getMarriedMonth() {
+		    navigateToRootElement();
+		    navigateToElementBy(marriedMonthFieldLocator);
+		    return getElementValue();
+		  }
+	
+	 public String getMarriedYear() {
+		    navigateToRootElement();
+		    navigateToElementBy(marriedYearFieldLocator);
+		    return getElementValue();
+		  }
+	
+
 
 }

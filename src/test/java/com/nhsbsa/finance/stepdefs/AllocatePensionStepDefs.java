@@ -31,6 +31,12 @@ public class AllocatePensionStepDefs {
 		allocatePensionPage = new AllocatePensionPage(driver);
 		assertThat(allocatePensionPage.getHeading()).contains("Do you want to allocate part of your pension?");
 	}
+	
+	@Given("^do you want to allocate pension page will be displayed$")
+	public void doYouWantToAllocatePensionPageWillBeDisplayed() {
+		allocatePensionPage = new AllocatePensionPage(driver);
+		assertThat(allocatePensionPage.getHeading()).contains("Do you want to allocate part of your pension?");
+	}
 
 	@Then("^the default value for allocate your pension will be blank$")
 	public void theDefaultValueForAllocateYourPensionWillBeBlank() {

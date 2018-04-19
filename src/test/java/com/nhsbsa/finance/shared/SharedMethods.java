@@ -24,7 +24,7 @@ public class SharedMethods {
 
 	public static String randomDateGenerator() {
 
-		LocalDate from = LocalDate.of(1900, 01, 01);
+		LocalDate from = LocalDate.of(1910, 01, 01);
 		LocalDate to = LocalDate.of(2002, 01, 01);
 		long days = from.until(to, ChronoUnit.DAYS);
 		long randomDays = ThreadLocalRandom.current().nextLong(days + 1);

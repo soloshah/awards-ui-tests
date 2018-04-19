@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
+import com.nhsbsa.finance.pageobjects.DynamicDateOfBirthPage;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.pageobjects.PartnerDateOfBirthPage;
@@ -24,18 +25,18 @@ public class PartnerDateOfBirthStepDefs {
 	private WebDriver driver = Config.getDriver();
 	private String baseUrl = PropertyReader.getProperty("base.server");
 	private PartnerDateOfBirthPage partnerDateOfBirthPage;
-	
+	private DynamicDateOfBirthPage dynamicDateOfBirthPage;
 	 
 	@Given("^I am on partner DOB page$")
 	public void iAmOnPartnerDOBPage() {
-		new Page(driver).navigateToUrl(baseUrl + "/partner-and-child/what-is-your-partner-dob");
+		new Page(driver).navigateToUrl(baseUrl + "/dependant-details/what-is-your-partner-dob");
 		partnerDateOfBirthPage = new PartnerDateOfBirthPage(driver);
 		assertThat(partnerDateOfBirthPage.getHeading()).contains("What is your spouse's or civil partner's date of birth?");
 	}
 
 	@When("^I go to partner DOB page$")
 	public void iGoToPartnerDOBPage() {
-   		new Page(driver).navigateToUrl(baseUrl + "/partner-and-child/what-is-your-partner-dob");
+   		new Page(driver).navigateToUrl(baseUrl + "/dependant-details/what-is-your-partner-dob");
 		partnerDateOfBirthPage = new PartnerDateOfBirthPage(driver);
 		assertThat(partnerDateOfBirthPage.getHeading()).contains("What is your spouse's or civil partner's date of birth?");
 		assertThat(partnerDateOfBirthPage.getExampleHint().matches("For example, 31 03 1980"));
@@ -53,6 +54,9 @@ public class PartnerDateOfBirthStepDefs {
 		assertThat(partnerDateOfBirthPage.getHeading()).contains("What is " + SharedData.firstName + "'s " +  "date of birth?");
 	}
 
+	
+
+	
 	@When("^I enter valid partner DOB details$")
 	public void IenterValidPartnerDOBDetails() {
 		String randomDateString = SharedMethods.randomDateGenerator();
@@ -63,7 +67,8 @@ public class PartnerDateOfBirthStepDefs {
 		partnerDateOfBirthPage = new PartnerDateOfBirthPage(driver);
 		partnerDateOfBirthPage.submitValidPartnerDOBDetails(SharedData.day, SharedData.month, SharedData.year);
 	}
-
+	
+	
 	@Then("^the partner date of birth submission will be unsuccessful$")
 	public void thePartnerDateOfBirthSubmissionWillBeUnsuccessful() {
 		partnerDateOfBirthPage = new PartnerDateOfBirthPage(driver);
