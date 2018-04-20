@@ -16,5 +16,19 @@ public class SubmitClaimLaterPage extends Page {
    
   }
 
+  public void clickNHSLink(){
+	  try {
+			navigateToRootElement();
+			navigateToElementBy(returntoNHSWebsiteLinkLocator);
+			Thread.sleep(1000);
+			click();
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			System.out.print("Link message not success: " + e.getMessage());
+			e.printStackTrace();
+		}  
+	  
+  }
+  
 	  
 }

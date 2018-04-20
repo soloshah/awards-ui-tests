@@ -9,9 +9,8 @@ When I go to the allocation name page
 
 Scenario: Valid Allocation Name details
 When I enter valid allocation name details
-Then the tbi page will be displayed
-#Then the allocation name submission will be successful
-#And the allocation date of birth page will be displayed
+Then the allocation name submission will be successful
+And the dynamic allocation date of birth page will be displayed
 
 
 Scenario Outline: Allocation first name field  validations 

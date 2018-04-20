@@ -27,7 +27,7 @@ And I enter same nino as of main applicant
 Then the dynamic national insurance number submission will be unsuccessful
 And the partner nino error message 'Spouse or Civil Partner National Insurance number must not be the same as your own' will be displayed
 
-@BP490-109 @WIP
+@BP490-109
 Scenario: Enter 6 dependant children
 Given I am on the start page
 When I go to dependant children page

@@ -8,9 +8,9 @@ When I go to DOB page
 
 Scenario: Valid date of Birth
 And I enter valid DOB details
-#Then the date of birth submission will be successful
-#And the gender page will be displayed
-Then the tbi page will be displayed
+Then the date of birth submission will be successful
+And your gender page will be displayed
+
 
 
 Scenario Outline: Date of Birth Field validations 

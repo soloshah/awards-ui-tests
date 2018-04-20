@@ -5,6 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
+import com.nhsbsa.finance.pageobjects.OtherDependantChildrenPage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.pageobjects.PersonalDetails_CheckYourAnswerPage;
 import com.nhsbsa.finance.properties.PropertyReader;
@@ -26,6 +27,22 @@ public class PersonalDetails_CheckYourAnswersStepDefs {
 	private YourGenderStepDefs genderSteps;
 	private YourAddressStepDefs addressSteps;
 	private NinoStepdefs ninoSteps;
+	
+
+	@Given("^I go to check your answers for personal details page$")
+	public void iGoToCheckYourAnswersForPersonalDetailsPage() {
+		new Page(driver).navigateToUrl(baseUrl + "/personal-details/check-your-answers");
+		personalDetails_CheckYourAnswerPage = new PersonalDetails_CheckYourAnswerPage(driver);
+		assertThat(personalDetails_CheckYourAnswerPage.getHeading().contains("Check your answers"));
+	}
+	
+	
+	@Given("^I am on the check your answers page$")
+	public void iAmOnTheCheckYourAnswersPage() {
+		personalDetails_CheckYourAnswerPage = new PersonalDetails_CheckYourAnswerPage(driver);
+		new Page(driver).navigateToUrl(baseUrl + "/personal-details/check-your-answers");
+		assertThat(personalDetails_CheckYourAnswerPage.getHeading()).contains("Check your answers");
+	}
 
 	@Given("^I have filled in a personal details$")
 	public void iHaveFilledInAPersonalDetails() throws Throwable {
@@ -54,12 +71,7 @@ public class PersonalDetails_CheckYourAnswersStepDefs {
 		assertThat(personalDetails_CheckYourAnswerPage.getHeading()).contains("Check your answers");
 	}
 
-	@Given("^I am on the check your answers page$")
-	public void iAmOnTheCheckYourAnswersPage() {
-		personalDetails_CheckYourAnswerPage = new PersonalDetails_CheckYourAnswerPage(driver);
-		new Page(driver).navigateToUrl(baseUrl + "/personal-details/check-your-answers");
-		assertThat(personalDetails_CheckYourAnswerPage.getHeading()).contains("Check your answers");
-	}
+
 
 	@Then("^the correct personal details will be displayed$")
 	public void theCorrectPersonalDetailsWillBeDisplayed() {

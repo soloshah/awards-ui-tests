@@ -13,7 +13,7 @@ Then the child name page will be displayed
 
 Scenario: Do you have any other dependant children
 When I select No
-Then the tbi page will be displayed
+Then do you want to allocate pension page will be displayed
 
 
 Scenario: Do you have any other dependant children
