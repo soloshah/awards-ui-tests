@@ -33,7 +33,49 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 	private AllocatePensionStepDefs allocationPensionSteps;
 	private AllocationNameStepDefs allocationNameSteps;
 	
-	
+	@Given("^I have filled in a depandant details for summary page$")
+	public void iHaveFilledInADependantlDetailsForSummaryPage() throws Throwable {
+		maritalStatusSteps = new MaritalStatusStepDefs();
+		maritalStatusSteps.whatIsYourMaritalStatusPageWillBeDisplayed();
+		maritalStatusSteps.iSelectMarriedAsMaritalStatus();
+		partnerNameSteps = new PartnerNameStepDefs();
+		partnerNameSteps.iGoToThePartnerNamePage();
+		partnerNameSteps.iSubmitValidPartnerFirstAndLastNameDetails();
+		dynamicDobSteps = new DynamicDateOfBirthStepDefs();
+		dynamicDobSteps.theDynamicPartnersDateOfBirthPageWillBeDisplayed();
+		dynamicDobSteps.IenterValidPartnerDOB();
+		partnerGenderSteps = new PartnerGenderStepDefs();
+		partnerGenderSteps.theDynamicValueOfPartnerFirstNameIsDisplayedOnThePartnersGenderPage();
+		partnerGenderSteps.iSelectFemale();
+		dynamicNinoSteps = new DynamicNinoStepDefs();
+		dynamicNinoSteps.theDynamicValueOfPartnersNameWillBeDisplayedOnThePartnersNinoPage();
+		dynamicNinoSteps.IenterValidPartnerNino();
+		dependantChildrenSteps = new DependantChildrenStepDefs();
+		dependantChildrenSteps.doYouHaveAnyDependantChildrenPageWillBeDisplayed();
+		sharedYeNoSteps = new SharedYeNoStepDefs();
+		sharedYeNoSteps.iSelectYes();
+		childNameSteps = new ChildNameStepDefs();
+		childNameSteps.IenterValidChildName();
+		childDOBSteps = new ChildDOBStepDefs();
+		childDOBSteps.IenterValidChildDateOfBirthDetails();
+		otherDependantChildrenSteps = new OtherDependantChildrenStepDefs();
+		otherDependantChildrenSteps.doYouHaveAnyOtherDependantPageWillBeDisplayed();
+		sharedYeNoSteps = new SharedYeNoStepDefs();
+		sharedYeNoSteps.iSelectNo();
+		allocationPensionSteps = new AllocatePensionStepDefs();
+		allocationPensionSteps.doYouWantToAllocatePensionPageWillBeDisplayed();
+		sharedYeNoSteps = new SharedYeNoStepDefs();
+		sharedYeNoSteps.iSelectYes();
+		allocationNameSteps = new AllocationNameStepDefs();
+		allocationNameSteps.theAllocationNamePageWillBeDisplayed();
+		allocationNameSteps.IenterValidAllocationName();
+		dynamicAllocationSteps = new DynamicAllocationStepDefs();
+		dynamicAllocationSteps.theDynamicAllocationDateOfBirthPageWillBeDisplayed();
+		dynamicAllocationSteps.IenterValidAllocationDOB();
+		dynamicAllocationRelationshipSteps = new DynamicAllocationRelationshipStepDefs();
+		dynamicAllocationRelationshipSteps.theDynamicAllocationrelationshipPageWillBeDisplayed();
+		dynamicAllocationRelationshipSteps.IenterValidRelationship();
+	}
 
 	@Given("^I have filled in a depandant details$")
 	public void iHaveFilledInADependantlDetails() throws Throwable {

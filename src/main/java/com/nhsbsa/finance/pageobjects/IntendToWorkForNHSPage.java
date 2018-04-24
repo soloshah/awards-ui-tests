@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class IntendToWorkForNHSPage extends Page {
 
-	private String intendToWorkForNHSTitle = "Claim your NHS Pension";
+	private String intendToWorkForNHSTitle = "Do you plan to work for the NHS after you get your pension? - Claim your NHS Pension - NHSBSA";
 	private By yesRadioButtonLocator = By.xpath("//*[@id='yesNoValue']/div/div[1]/label");
 	private By noRadioButtonLocator = By.xpath("//*[@id='yesNoValue']/div/div[2]/label");
 	private By nextButtonLocator = By.id("submit_button");

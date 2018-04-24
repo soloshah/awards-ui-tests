@@ -6,10 +6,11 @@ import org.openqa.selenium.WebDriver;
 public class WhichSchemePage extends Page {
 
 	private String whichSchemePageTitle = "How would you like to be contacted about your pension? - Claim your NHS Pension - NHSBSA";
-	private By section1995CheckboxLocator = By.xpath("//*[@id='scheme_group']/div[1]/label");
-	private By section2008CheckboxLocator = By.xpath("//*[@id='scheme_group']/div[2]/label");
-	private By section2015CheckboxLocator = By.xpath("//*[@id='scheme_group']/div[3]/label");
+	private By section1995CheckboxLocator = By.xpath("//*[@id='scheme0']");
+	private By section2008CheckboxLocator = By.xpath("//*[@id='scheme1']");
+	private By section2015CheckboxLocator = By.xpath("//*[@id='scheme2']");
 	private By nextButtonLocator = By.id("submit_button");
+	private By backButtonLocator = By.id("back-link");
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");
 	private By errorsBelowErrorMessageLocator = By.id("error-summary-heading1");
 	private By whichSchemeFieldErrorMessageLocator = By.id("fieldName-error-message");
@@ -22,7 +23,7 @@ public class WhichSchemePage extends Page {
 	public WhichSchemePage(WebDriver driver) {
 		super(driver);
 		waitForTitleToExist(whichSchemePageTitle);
-		waitForElementToBeVisibleBy(section1995CheckboxLocator);
+		waitForElementToBeVisibleBy(backButtonLocator);
 	}
 
 	public void select1995Section() {

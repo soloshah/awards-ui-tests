@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 public class PensionDetails_CheckYourAnswerPage extends Page {
 
 	private String checkYouAnswersPageTitle = "Check your answers - Claim your NHS Pension - NHSBSA";
-	private By whichSchemeFieldLocator = By.id("scheme.heading");
+	private By whichSchemeFieldLocator = By.id("pensionSchemeDetails.checkYourAnswers.scheme");
 	private By section1995Locator = By.xpath("//*[@id='review-pension-1995-details-table']/thead/tr/th");
 	private By section2008Locator = By.xpath("//*[@id='review-pension-2008-details-table']/thead/tr/th");
 	private By section2015Locator = By.xpath("//*[@id='review-pension-2015-details-table']/thead/tr/th");

@@ -4,11 +4,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class BankAccountTypePage extends Page {
-
+	
 	private String bankAccountTypeTitle = "What type of account are we making the payment to? - Claim your NHS Pension";
-	private By currentAccountRadioButtonLocator = By.xpath("//*[@id='accountType_group']/fieldset/div[1]/label");
-	private By depositAccountRadioButtonLocator = By.xpath("//*[@id='accountType_group']/fieldset/div[2]/label");
+	private By currentAccountRadioButtonLocator = By.xpath("//*[@id='accountType']/fieldset/div/div[1]/label");
+	private By depositAccountRadioButtonLocator = By.xpath("//*[@id='accountType']/fieldset/div/div[2]/label");
 	private By nextButtonLocator = By.id("submit_button");
+	private By backButtonLocator = By.id("back-link");
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");
 	private By errorsBelowErrorMessageLocator = By.id("error-summary-heading1");
 	private By bankAccountTypeAnchoredErrorMessageLocator = By.id("error-list0");

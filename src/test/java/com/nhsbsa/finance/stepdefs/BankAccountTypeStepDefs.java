@@ -40,7 +40,7 @@ public class BankAccountTypeStepDefs {
 	}
 
 	@Then("^the bank account type page will be displayed$")
-	public void theEqPaymasterNamePageWillBeDisplayed() {
+	public void theBankAccountTypePageWillBeDisplayed() {
 		bankAccountTypePage = new BankAccountTypePage(driver);
 		assertThat(bankAccountTypePage.getHeading()).contains("What type of account are we making the payment to?");
 	}

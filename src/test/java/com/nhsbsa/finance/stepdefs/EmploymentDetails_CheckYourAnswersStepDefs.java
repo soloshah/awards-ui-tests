@@ -27,6 +27,28 @@ public class EmploymentDetails_CheckYourAnswersStepDefs {
     private NameOfYourLastEmployerStepDefs lastEmployerSteps;
     private JobTitleStepDefs jobTitleSteps;
     private DateYouLeaveStepDefs dateYouLeaveSteps;
+    
+    
+    @Given("^I have filled in current employment details for summary page$")
+	public void iHaveFilledInCurrentEmploymentDetailsForSummaryPage() throws Throwable {
+    	workingForNHSPrefSteps = new WorkingForNHSStepDefs();
+    	workingForNHSPrefSteps.areYouWorkingForNHSPageWillBeDisplayed();
+    	sharedYesNoSteps = new SharedYeNoStepDefs();
+		sharedYesNoSteps.iSelectYes();
+		currentEmployerSteps = new NameOfYourCurentEmployerStepDefs();
+		currentEmployerSteps.whatIsTheNameOfYourCurrentEmployerPageWillBeDisplayed();
+		currentEmployerSteps.IenterValidNameOfCurrentNHSEmployerDetails();
+		employerAddressSteps = new EmployerAddressStepDefs();
+		employerAddressSteps.theEmployersAddressPageWillBeDisplayed();
+		employerAddressSteps.IenterValidEmployerAddressDetails();
+		lastDaySteps = new LastDayOfWorkStepDefs();
+		lastDaySteps.theLastDayOfWorkPageWillBeDisplayed();
+		lastDaySteps.IenterValidDateForLastDayOfWork();
+		intendToWorkSteps = new IntendToWorkForNHSStepDefs();
+		intendToWorkSteps.theIntendToWorkForNHSPageWillbeDisplayed();
+		intendToWorkSteps.iChooseYes();
+		intendToWorkSteps.IenterTheValidDate();
+    }
 	
 	@Given("^I have filled in current employment details$")
 	public void iHaveFilledInCurrentEmploymentDetails() throws Throwable {
