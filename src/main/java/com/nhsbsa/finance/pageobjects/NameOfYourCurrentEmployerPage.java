@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class NameOfYourCurrentEmployerPage extends Page {
 
-	private String currentEmployerPageTitle = "What is the name of your current NHS employer? - Claim your NHS Pension";
+	private String currentEmployerPageTitle = "What is the name of your current NHS employer? - Claim your NHS Pension - NHSBSA";
 	private By employerNameFieldLocator = By.id("employerName");
 	private By nextButtonLocator = By.id("submit_button");
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");

@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class ReasonForRetirement_1995Page extends Page {
-	//*[@id="retirementReason"]/div[1]/label
+	
 	private String retirementPageTitle = "Why are you claiming your deferred benefits for the 1995 Section? - Claim your NHS Pension - NHSBSA";
 	private By retirementAgeRadioButtonLocator = By.xpath("//*[@id='retirementReason']/div[1]/label");
 	private By paymentDeferredBenefitRadioButtonLocator = By.xpath("//*[@id='retirementReason']/div[3]/label");

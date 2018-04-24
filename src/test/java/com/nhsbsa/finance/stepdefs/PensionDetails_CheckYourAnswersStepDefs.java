@@ -53,6 +53,25 @@ public class PensionDetails_CheckYourAnswersStepDefs {
 		lumpsumPref1995Steps = new LumpSumPreference_1995StepDefs();
 		lumpsumPref1995Steps.ISelectLessTaxFreeAmountAs1995LumpSumPreference();
 	}
+	
+	@Given("^I have filled in 1995 pension scheme details for summary page$")
+	public void iHaveFilledIn1995PensionSchemeDetailsForSummaryPage() throws Throwable {
+		whichSchemeSteps = new WhichSchemeStepDefs();
+		whichSchemeSteps.whichSchemePageWillBeDisplayed();
+		whichSchemeSteps.Iselect1995SectionScheme();
+		retirementReason1995Steps = new RetirementReason_1995StepDefs();
+		retirementReason1995Steps.the1995ReasonForRetirementPageWillBeDisplayed();
+		retirementReason1995Steps.ISelectDeferredBenefitAs1995RetirementReason();
+		sharedEarlyPaymentSteps = new SharedEarlyPaymentStepDefs();
+		sharedEarlyPaymentSteps.theEarlyPaymentDatePageWillBeDisplayed();
+		sharedEarlyPaymentSteps.IenterValidEarlyPaymentDateDetails();
+		lumpsumChoice1995Steps = new LumpSumChoice_1995StepDefs();
+		lumpsumChoice1995Steps.the1995LumpsumChoicePageWillBeDisplayed();
+		sharedYesNoSteps = new SharedYeNoStepDefs();
+		sharedYesNoSteps.iSelectYes();
+		lumpsumPref1995Steps = new LumpSumPreference_1995StepDefs();
+		lumpsumPref1995Steps.ISelectLessTaxFreeAmountAs1995LumpSumPreference();
+	}
 
 	@Given("^I have filled in 2008 pension scheme details$")
 	public void iHaveFilledIn2008PensionSchemeDetails() throws Throwable {

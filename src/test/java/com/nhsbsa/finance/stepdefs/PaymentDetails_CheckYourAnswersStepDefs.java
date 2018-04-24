@@ -49,6 +49,27 @@ public class PaymentDetails_CheckYourAnswersStepDefs {
 		eqPaymasterReferenceSteps.theEqPaymasterReferencePageWillBeDisplayed();
 		eqPaymasterReferenceSteps.IenterValidEqPaymasterReferenceNumber();
 	}
+	
+	
+	@Given("^I have filled in a payment details for summary page$")
+	public void iHaveFilledInAPaymentDetailsForSummaryPage() throws Throwable {
+    	bankAccountTypeSteps = new BankAccountTypeStepDefs();
+		bankAccountTypeSteps.theBankAccountTypePageWillBeDisplayed();
+		bankAccountTypeSteps.iSelectDepositAccount();
+		depositAccountSteps = new DepositAccountStepDefs();
+		depositAccountSteps.enterBankDetailsForDepositAccountPageWillBeDisplayed();
+		depositAccountSteps.IenterValidDepositAccountDetails();
+		otherEqPensionsSteps = new OtherEqPensionsStepDefs();
+		otherEqPensionsSteps.theOtherEqpensionsPageWillbeDisplayed();
+		sharedYesNoSteps = new SharedYeNoStepDefs();
+		sharedYesNoSteps.iSelectYes();
+		eqPaymasterNameSteps = new EqPaymasterNameStepDefs();
+		eqPaymasterNameSteps.theEqPaymasterNamePageWillBeDisplayed();
+		eqPaymasterNameSteps.IenterValidEqPaymasterNameDetails();
+		eqPaymasterReferenceSteps = new EqPaymasterReferenceStepDefs();
+		eqPaymasterReferenceSteps.theEqPaymasterReferencePageWillBeDisplayed();
+		eqPaymasterReferenceSteps.IenterValidEqPaymasterReferenceNumber();
+	}
 
 	@Then("^Check your answers page for payment details will be displayed$")
 	public void checkYourAnswersPageForPaymentDetailsWillBeDisplayed() {

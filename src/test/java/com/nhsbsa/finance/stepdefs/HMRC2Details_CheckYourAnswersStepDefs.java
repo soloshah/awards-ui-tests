@@ -37,6 +37,20 @@ public class HMRC2Details_CheckYourAnswersStepDefs {
 		lifetimeAllowanceSteps.IenterTheValidCertificateNumber();
 
 	}
+	
+	@Given("^I have filled in the hmrc details for summary page$")
+	public void iHaveFilledInTheHmrcDetailsForSummaryPage() throws Throwable {
+		otherPensionSteps = new OtherPensionArrangementsStepDefs();
+		otherPensionSteps.doYouHaveAnyOtherPensionArrangementsPageWillBeDisplayed();
+		sharedYesNoSteps = new SharedYeNoStepDefs();
+		sharedYesNoSteps.iSelectNo();
+		lifetimeAllowanceSteps = new LifetimeAllowanceStepDefs();
+		lifetimeAllowanceSteps.theLifetimeAllowancePageWillBeDisplayed();
+		lifetimeAllowanceSteps.iSelectYesOnLifetimeAllowancePage();
+		lifetimeAllowanceSteps.IenterTheValidCertificateNumber();
+
+	}
+
 
 	@Then("^Check your answers page for hmrc details will be displayed$")
 	public void checkYourAnswersPageForHmrcDetailsWillBeDisplayed() {

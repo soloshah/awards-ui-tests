@@ -6,10 +6,11 @@ import org.openqa.selenium.WebDriver;
 public class LumpSumPreference_1995Page extends Page {
 
 	private String lumpSumPreference1995Title = "How would you like your lump sum? - Claim your NHS Pension - NHSBSA";
-	private By maxTaxFreeAmountRadioButtonLocator = By.xpath("//*[@id='1995-lump-sum-pref-form']/fieldset/div/div[1]/label");
-	private By lessTaxFreeAmountRadioButtonLocator = By.xpath("//*[@id='1995-lump-sum-pref-form']/fieldset/div/div[3]/label");
-	private By maxAdditionalLumpSumRadioButtonLocator = By.xpath("//*[@id='1995-lump-sum-pref-form']/fieldset/div/div[5]/label");
+	private By maxTaxFreeAmountRadioButtonLocator = By.id("max-tax-free_radio");
+	private By lessTaxFreeAmountRadioButtonLocator = By.id("less-than-max-tax-free_radio");
+	private By maxAdditionalLumpSumRadioButtonLocator = By.id("max-additional-sum_radio");
     private By nextButtonLocator = By.id("submit_button");
+    private By backButtonLocator = By.id("back-link");
     private By amountFieldLocator = By.id("amount");
     private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");
 	private By errorsBelowErrorMessageLocator = By.id("error-summary-heading1");
@@ -29,7 +30,7 @@ public class LumpSumPreference_1995Page extends Page {
 	public LumpSumPreference_1995Page(WebDriver driver) {
 		super(driver);
 		waitForTitleToExist(lumpSumPreference1995Title);
-		waitForElementToBeVisibleBy(maxTaxFreeAmountRadioButtonLocator);
+		waitForElementToBeVisibleBy(backButtonLocator);
 	}
 
 	public void selectMaxtaxFreeAmount() {

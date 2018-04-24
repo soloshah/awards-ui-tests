@@ -6,10 +6,11 @@ import org.openqa.selenium.WebDriver;
 public class WouldYouLikeToBeContactedPage extends Page {
 
 	private String wouldYouLikeToBeContactedTitle = "How would you like to be contacted about your pension? - Claim your NHS Pension - NHSBSA";
-	private By byPhoneCheckboxLocator = By.xpath("//*[@id='contactPref_group']/div[1]/label");
-	private By byEmailCheckboxLocator = By.xpath("//*[@id='contactPref_group']/div[2]/label");
-	private By noContactCheckboxLocator = By.xpath("//*[@id='contactPref_group']/div[3]/label");
+	private By byPhoneCheckboxLocator = By.xpath("//*[@id='contactPref0']");
+	private By byEmailCheckboxLocator = By.xpath("//*[@id='contactPref1']");
+	private By noContactCheckboxLocator = By.xpath("//*[@id='contactPref2']");
 	private By nextButtonLocator = By.id("submit_button");
+	private By backButtonLocator =  By.id("back-link");
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");
 	private By errorsBelowErrorMessageLocator = By.id("error-summary-heading1");
 	private By contactAnchoredErrorMessageLocator = By.id("error-list0");
@@ -23,7 +24,7 @@ public class WouldYouLikeToBeContactedPage extends Page {
 	public WouldYouLikeToBeContactedPage(WebDriver driver) {
 		super(driver);
 		waitForTitleToExist(wouldYouLikeToBeContactedTitle);
-		waitForElementToBeVisibleBy(byPhoneCheckboxLocator);
+		waitForElementToBeVisibleBy(backButtonLocator);
 	}
 
 	public WouldYouLikeToBeContactedPage wouldYouLikeToBeContactedIsNotSelected() {

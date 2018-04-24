@@ -37,6 +37,20 @@ public class ContactDetails_CheckYourAnswersStepDefs2 {
 		emailSteps.IenterValidEmailAddressDetails();
 
 	}
+	
+	@Given("^I have filled in a contact details for summary page$")
+	public void iHaveFilledInAContactDetailsForSummaryPage() throws Throwable {
+		contactPrefSteps = new WouldYouLikeToBeContactedStepDefs();
+		contactPrefSteps.wouldYouLikeToBeContactedPageWillBeDisplayed();
+		contactPrefSteps.iSelectByPhoneAndEmail();
+		phoneSteps = new TelephoneNumberStepDefs();
+		phoneSteps.whatisYourTelephoneNumberPageWillBeDisplayed();
+		phoneSteps.IenterValidTelephoneNumberDetails();
+		emailSteps = new EmailAddressStepDefs();
+		emailSteps.whatisYourEmailAddressPageWillBeDisplayed();
+		emailSteps.IenterValidEmailAddressDetails();
+
+	}
 
 	@Then("^Check your answers page for contact details will be displayed$")
 	public void checkYourAnswersPageForContactDetailsWillBeDisplayed() {
