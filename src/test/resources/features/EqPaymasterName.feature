@@ -10,7 +10,7 @@ When I go to the eq paymaster name page
 Scenario: Valid eq paymaster name details
 When I enter valid eq paymaster name details
 Then the eq paymaster name submission will be successful
-And the eq paymaster reference page will be displayed
+And the eqPaymasterReference page will be displayed
 
 
 Scenario Outline: Eq paymaster name  field validations 
