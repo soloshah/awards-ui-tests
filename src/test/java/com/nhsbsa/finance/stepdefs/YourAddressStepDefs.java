@@ -86,8 +86,8 @@ public class YourAddressStepDefs {
 	public void theAddressDetailsSubmissionWillBeUnsuccessful() {
 		yourAddressPage = new YourAddressPage(driver);
 		assertThat(yourAddressPage.getErrorHeadingErrorMessage())
-				.matches("Some questions have not been answered correctly.");
-		assertThat(yourAddressPage.getErrorsBelowErrorMessage()).matches("Please see the errors below.");
+				.matches("Your form contains errors");
+		assertThat(yourAddressPage.getErrorsBelowErrorMessage()).matches("Check your answer:");
 	}
 
 	@And("^the building and street line one error message '(.*)' will be displayed$")
@@ -160,11 +160,11 @@ public class YourAddressStepDefs {
 	}
 
 	private void setAddressDetails() {
-		SharedData.streetLineOne = "Flat 1B";
-		SharedData.streetLineTwo = "North Street";
-		SharedData.town = "Leeds";
-		SharedData.postCode = "LE12 3RT";
-		SharedData.country = "UK";
+		streetLineOne = "Flat 1B";
+		streetLineTwo = "North Street";
+		town = "Leeds";
+		postCode = "LE12 3RT";
+		country = "UK";
 	}
 
 	private void setUpdatedAddressDetails() {
