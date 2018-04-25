@@ -38,7 +38,7 @@ Scenario: Default value of 1995 lumpsum preference
 Then the default value of 1995 lumpsum preference will be blank
 
 
-@Bug @BP490-315
+@Bug @BP490-315 @Bug @BP490-384
 Scenario Outline: Less than max tax free amount validation
 And I select valid 1995 lumpsum preference using LessTaxFreeAmount
 Then the valid 1995 lumpsum preference text for LessTaxFreeAmount will be displayed

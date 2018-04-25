@@ -33,7 +33,7 @@ Examples:
           |hgn-yuiom jkhe'tr| Enter address using only numbers, letters a to z, spaces and hyphens|
           
           
-@Bug @BP490-276      
+    
 Scenario Outline: Town or city field validations 
 And I enter invalid address details using the town '<town>'
 Then the address details submission will be unsuccessful
@@ -60,16 +60,16 @@ Examples:
            | P12 3T0            | You must enter a valid postcode|
            | NA234TY            | You must enter a valid postcode|
  
-@Bug @BP490-276          
+   
 Scenario Outline: Country field validations 
 And I enter invalid address details using the country '<country>'
 Then the address details submission will be unsuccessful
 And the country error message '<errorMessage>' will be displayed
 Examples:
            |country             | errorMessage                                             |
-           |!"£$%^&*()=¬@~}     | Enter names using only letters a to z, spaces and hyphens|
-           | 1234567            | Enter names using only letters a to z, spaces and hyphens|
-           | 12A/ YTO           | Enter names using only letters a to z, spaces and hyphens|           
+           |!"£$%^&*()=¬@~}     | Enter address using only letters a to z, spaces and hyphens|
+           | 1234567            | Enter address using only letters a to z, spaces and hyphens|
+           | 12A/ YTO           | Enter address using only letters a to z, spaces and hyphens|           
            
          
           

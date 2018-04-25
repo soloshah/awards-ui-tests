@@ -38,7 +38,7 @@ Scenario: Default value of 2008 lumpsum preference
 Then the default value of 2008 lumpsum preference will be blank
 
 
-@Bug @BP490-315
+@Bug @BP490-315 @Bug @BP490-384
 Scenario Outline: Less than max tax free amount validation
 And I select valid 2008 lumpsum preference using LessTaxFreeAmount
 Then the valid 2008 lumpsum preference text for LessTaxFreeAmount will be displayed
