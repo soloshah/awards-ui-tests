@@ -4,11 +4,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class LifetimeAllowancePage extends Page {
-
+	
 	private String lifetimeAllowanceTitle = "Do you have HMRC Lifetime Allowance protection? - Claim your NHS Pension - NHSBSA";
-	private By yesRadioButtonLocator = By.xpath("//*[@id='yesNoValue']/div/div[1]/label");
-	private By noRadioButtonLocator = By.xpath("//*[@id='yesNoValue']/div/div[2]/label");
+	private By yesRadioButtonLocator = By.id("radio-yes");
+	private By noRadioButtonLocator = By.id("radio-no");
 	private By nextButtonLocator = By.id("submit_button");
+	private By backButtonLocator = By.id("back-link");
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");
 	private By errorsBelowErrorMessageLocator = By.id("error-summary-heading1");
 	private By lifetimeAllowanceAnchoredErrorMessageLocator = By.id("error-list0");
@@ -25,7 +26,7 @@ public class LifetimeAllowancePage extends Page {
 	public LifetimeAllowancePage(WebDriver driver) {
 		super(driver);
 		waitForTitleToExist(lifetimeAllowanceTitle);
-		waitForElementToBeVisibleBy(yesRadioButtonLocator);
+		waitForElementToBeVisibleBy(backButtonLocator);
 	}
 
 	public void enterCertNumber(String certNumber) {
