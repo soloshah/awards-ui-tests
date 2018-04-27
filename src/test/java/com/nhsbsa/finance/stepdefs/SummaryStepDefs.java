@@ -209,8 +209,8 @@ public class SummaryStepDefs {
 		break;			
 	case "hmrc":
 		hmrcDetailsSteps = new HMRC2Details_CheckYourAnswersStepDefs();
-		hmrcDetailsSteps.iHaveFilledInTheHmrcDetails();
-		hmrcDetailsSteps.iSubmitTheHmrcDetails();
+		hmrcDetailsSteps.iHaveFilledInTheHmrc2Details();
+		hmrcDetailsSteps.iSubmitTheHmrc2Details();
 		theSummaryPageWillBeDisplayed();
 		break;			
 	case "payment":
@@ -253,8 +253,8 @@ public class SummaryStepDefs {
 		theSummaryPageWillBeDisplayed();
 		summaryPage.hmrcDetailsLink();
 		hmrcDetailsSteps = new HMRC2Details_CheckYourAnswersStepDefs();
-		hmrcDetailsSteps.iHaveFilledInTheHmrcDetailsForSummaryPage();
-		hmrcDetailsSteps.iSubmitTheHmrcDetails();
+		hmrcDetailsSteps.iHaveFilledInTheHmrc2DetailsForSummaryPage();
+		hmrcDetailsSteps.iSubmitTheHmrc2Details();
 		theSummaryPageWillBeDisplayed();
 		summaryPage.paymentDetailsLink();
 		paymentetailsSteps = new PaymentDetails_CheckYourAnswersStepDefs();
@@ -267,7 +267,7 @@ public class SummaryStepDefs {
 	@Then("^the continue button will be disabled$")
 	public void theContinueButtonWillBeDisabled(){
 		summaryPage = new SummaryPage(driver);
-	summaryPage.isContinueButtonDisabled();
+	assertThat(summaryPage.isContinueButtonEnabled()).isFalse();
 		
       
 	}

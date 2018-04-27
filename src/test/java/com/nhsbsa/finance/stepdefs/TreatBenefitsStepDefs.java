@@ -11,6 +11,7 @@ import com.nhsbsa.finance.properties.PropertyReader;
 
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 
 public class TreatBenefitsStepDefs {
 
@@ -38,6 +39,12 @@ public class TreatBenefitsStepDefs {
 	@Then("^the default value for treat benefits page will be blank$")
 	public void theDefaultValueForTreatBenefitsPageWillBeBlank() {
 		assertThat(treatBenefitsPage.isTreatBenefitsRadioButtonSelected()).isFalse();
+	}
+	
+	@When("^I click next on treat excess benefit page$")
+	public void iClickNextOnTreatExcessBenefitPage() {
+		treatBenefitsPage = new TreatBenefitsPage(driver);	
+		treatBenefitsPage.nextStep();
 	}
 
 }

@@ -148,5 +148,11 @@ public class LifetimeAllowanceStepDefs {
 	public void iSelectLifetimeAllowanceWithDifferentValidOption() {
 		iSelectNoOnLifetimeAllowancePage();
 	}
+	
+	@When("^I click next on lifetime allowance page$")
+	public void iClickNextOnLifetimeAllowancePage() {
+		lifetimeAllowancePage = new LifetimeAllowancePage(driver);
+		lifetimeAllowancePage.nextStep();
+	}
 
 }

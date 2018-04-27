@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
 import com.nhsbsa.finance.pageobjects.DynamicAllocationPage;
+import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.shared.SharedData;
 import com.nhsbsa.finance.shared.SharedMethods;
 
@@ -22,6 +23,10 @@ public class DynamicAllocationStepDefs {
 	
 	@Then("^the dynamic allocation date of birth page will be displayed$")
 	public void theDynamicAllocationDateOfBirthPageWillBeDisplayed() {
+		
+		Page page = new Page(driver);
+		String allocationDobPageTitle = "What is " + SharedData.allocationFirstName + "'s " + "date of birth? - Claim your NHS Pension - NHSBSA";
+		page.waitForTitleToExist(allocationDobPageTitle);
 		dynamicAllocationPage = new DynamicAllocationPage(driver);
 		assertThat(dynamicAllocationPage.getExampleHint().matches("For example, 31 03 1980"));
 		assertThat(dynamicAllocationPage.getHeading()).contains("What is " + SharedData.allocationFirstName + "'s " + "date of birth?");

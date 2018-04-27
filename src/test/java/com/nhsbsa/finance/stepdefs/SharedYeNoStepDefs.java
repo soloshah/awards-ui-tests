@@ -155,5 +155,19 @@ public class SharedYeNoStepDefs {
 		sharedYesNoPage = new SharedYesNoPage(driver);
 		sharedYesNoPage.nextStep();
 	}
+	
+	@And("^the excessBenefit details are sustained$")
+	public void theExcessBenefitDetailsAreSustained() {
+		sharedYesNoPage = new SharedYesNoPage(driver);
+		assertThat(sharedYesNoPage.getYesRadioButton()).matches(SharedData.sharedRadioButton);
+
+	}	
+	
+	@When("^I select excessBenefit with different valid option$")
+	public void iSelectexcessBenefitWithDifferentValidOption() {
+		iSelectNo();
+	}
+
+	
 
 }

@@ -134,7 +134,7 @@ public class ChildNameStepDefs {
 		SharedData.childLastName = inputLastName.toLowerCase().substring(0, 1).toUpperCase() + inputLastName.toLowerCase().substring(1);
 		SharedData.fullName.add(SharedData.childFirstName + " " + SharedData.childLastName);
 		childNamePage = new ChildNamePage(driver);
-		childNamePage.submitValidChildNameDetails(SharedData.childFirstName, SharedData.childLastName);
+		childNamePage.submitValidChildNames(SharedData.childFirstName, SharedData.childLastName);
 	}
 
 	private void setChildNameDetails() {

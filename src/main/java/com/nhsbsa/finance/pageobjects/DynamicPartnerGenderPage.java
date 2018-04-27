@@ -12,7 +12,7 @@ public class DynamicPartnerGenderPage extends Page {
 	
 	public DynamicPartnerGenderPage(WebDriver driver) {
 		super(driver);
-		waitForTitleToExist(dynamicPartnerGenderPageTitle);
+	//	waitForTitleToExist(dynamicPartnerGenderPageTitle);
 		waitForElementToBeVisibleBy(femaleRadioButtonLocator);
 	}
 

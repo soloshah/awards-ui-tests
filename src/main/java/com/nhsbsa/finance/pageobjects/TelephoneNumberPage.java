@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class TelephoneNumberPage extends Page {
 
-	private String telephoneNumberPageTitle = "What is your email address? - Claim your NHS Pension";
+	private String telephoneNumberPageTitle = "What is your telephone number? - Claim your NHS Pension - NHSBSA";
 	private By telephoneNumberFieldLocator = By.id("phoneNumber");
 	private By nextButtonLocator = By.id("submit_button");
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");

@@ -8,16 +8,47 @@ public class DynamicChildDateOfBirthPage extends Page {
 
 	String fName = "Brian";
 	private String childDobPageTitle = "What is " + fName + "'s " +  "date of birth? - Claim your NHS Pension - NHSBSA";
-	private By dayFieldLocator = By.id("dateOfBirth-day");
-	
+    private By childDayFieldLocator = By.id("dateOfBirth-day");
+	private By childMonthFieldLocator = By.id("dateOfBirth-month");
+	private By childYearFieldLocator = By.id("dateOfBirth-year");
+	private By nextButtonLocator = By.id("submit_button");
 
 	public DynamicChildDateOfBirthPage(WebDriver driver) {
 		super(driver);
-		waitForTitleToExist(childDobPageTitle);
-		waitForElementToBeVisibleBy(dayFieldLocator);
+		//waitForTitleToExist(childDobPageTitle);
+		waitForElementToBeVisibleBy(childDayFieldLocator);
 	}
 	
+	public OtherDependantChildrenPage submitValidChildDateOfBirth(String day, String month, String year) {
+		enterDay(day);
+		enterMonth(month);
+		enterYear(year);
+		nextStep();
+		return new OtherDependantChildrenPage(driver);
+	}
 	
+	private void enterDay(String day) {
+		navigateToRootElement();
+		navigateToElementBy(childDayFieldLocator);
+		type(day);
+	}
 
+	private void enterMonth(String month) {
+		navigateToRootElement();
+		navigateToElementBy(childMonthFieldLocator);
+		type(month);
+	}
+
+	private void enterYear(String year) {
+		navigateToRootElement();
+		navigateToElementBy(childYearFieldLocator);
+		type(year);
+	}
+	
+	private void nextStep() {
+		navigateToRootElement();
+		navigateToElementBy(nextButtonLocator);
+		click();
+	}
 	
 }

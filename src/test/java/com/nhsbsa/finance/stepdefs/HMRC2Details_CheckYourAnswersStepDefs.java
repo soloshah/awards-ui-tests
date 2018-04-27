@@ -23,8 +23,8 @@ public class HMRC2Details_CheckYourAnswersStepDefs {
 	private LifetimeAllowanceStepDefs lifetimeAllowanceSteps;
 	private SharedYeNoStepDefs sharedYesNoSteps;
 
-	@Given("^I have filled in the hmrc details$")
-	public void iHaveFilledInTheHmrcDetails() throws Throwable {
+	@Given("^I have filled in the hmrc2 details$")
+	public void iHaveFilledInTheHmrc2Details() throws Throwable {
 		startSteps = new StartPageStepdefs();
 		startSteps.iAmOnTheStartPage();
 		otherPensionSteps = new OtherPensionArrangementsStepDefs();
@@ -38,8 +38,8 @@ public class HMRC2Details_CheckYourAnswersStepDefs {
 
 	}
 	
-	@Given("^I have filled in the hmrc details for summary page$")
-	public void iHaveFilledInTheHmrcDetailsForSummaryPage() throws Throwable {
+	@Given("^I have filled in the hmrc2 details for summary page$")
+	public void iHaveFilledInTheHmrc2DetailsForSummaryPage() throws Throwable {
 		otherPensionSteps = new OtherPensionArrangementsStepDefs();
 		otherPensionSteps.doYouHaveAnyOtherPensionArrangementsPageWillBeDisplayed();
 		sharedYesNoSteps = new SharedYeNoStepDefs();
@@ -52,14 +52,14 @@ public class HMRC2Details_CheckYourAnswersStepDefs {
 	}
 
 
-	@Then("^Check your answers page for hmrc details will be displayed$")
-	public void checkYourAnswersPageForHmrcDetailsWillBeDisplayed() {
+	@Then("^Check your answers page for hmrc2 details will be displayed$")
+	public void checkYourAnswersPageForHmrc2DetailsWillBeDisplayed() {
 		hMRC2Details_CheckYourAnswerPage = new HMRC2Details_CheckYourAnswerPage(driver);
 		assertThat(hMRC2Details_CheckYourAnswerPage.getHeading()).contains("Check your answers");
 	}
 
-	@Then("^the correct hmrc details will be displayed$")
-	public void theCorrectHmrcDetailsWillBeDisplayed() {
+	@Then("^the correct hmrc2 details will be displayed$")
+	public void theCorrectHmrc2DetailsWillBeDisplayed() {
 		hMRC2Details_CheckYourAnswerPage = new HMRC2Details_CheckYourAnswerPage(driver);
 		assertThat(hMRC2Details_CheckYourAnswerPage.getPresenceOfOtherPension()).isEqualTo(true);
 		assertThat(hMRC2Details_CheckYourAnswerPage.getOtherPensions())
@@ -90,8 +90,8 @@ public class HMRC2Details_CheckYourAnswersStepDefs {
 		}
 	}
 
-	@Then("^the correct hmrc details with lifetimeAllowance will be displayed$")
-	public void theCorrectHmrcDetailsWithLifetimeallowanceWillBeDisplayed() {
+	@Then("^the correct hmrc2 details with lifetimeAllowance will be displayed$")
+	public void theCorrectHmrc2DetailsWithLifetimeallowanceWillBeDisplayed() {
 		hMRC2Details_CheckYourAnswerPage = new HMRC2Details_CheckYourAnswerPage(driver);
 		assertThat(hMRC2Details_CheckYourAnswerPage.getPresenceOfOtherPension()).isEqualTo(true);
 		assertThat(hMRC2Details_CheckYourAnswerPage.getOtherPensions())
@@ -122,8 +122,8 @@ public class HMRC2Details_CheckYourAnswersStepDefs {
 		}
 	}
 
-	@When("^I submit the hmrc details$")
-	public void iSubmitTheHmrcDetails() {
+	@When("^I submit the hmrc2 details$")
+	public void iSubmitTheHmrc2Details() {
 		hMRC2Details_CheckYourAnswerPage = new HMRC2Details_CheckYourAnswerPage(driver);
 		hMRC2Details_CheckYourAnswerPage.submitHMRC2Details();
 	}

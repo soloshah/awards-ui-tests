@@ -56,17 +56,17 @@ Examples:
            |  *"       |  £$     | &%        | Enter a valid Sort Code|
            |  1Q       |  7U     |  0O       | Enter a valid Sort Code|
                       
-@Bug @BP490-278                  
+@Bug @BP490-278 @Bp490-330             
 Scenario Outline: Account Holder Name field validations 
 And I enter invalid deposit account details using the accountHolderName '<accountHolderName>'
 Then the deposit account details submission will be unsuccessful
 And the account holder name error message '<errorMessage>' will be displayed
 Examples:
-           |accountHolderName   | errorMessage                                             |
-           |                    | Enter Account Holder's Name                              |   
-           |!"£$%^&*()=¬@~}     | Enter names using only letters a to z, spaces and hyphens|
-           | 1234567            | Enter names using only letters a to z, spaces and hyphens|
-           | 12A/ YTO           | Enter names using only letters a to z, spaces and hyphens|
+           |accountHolderName   | errorMessage                                                          |
+           |                    | Enter Account Holder's Name                                           |   
+           |!"£$%^&*()=¬@~}     | Enter names using only letters a to z, spaces, apostrophes and hyphens|
+           | 1234567            | Enter names using only letters a to z, spaces, apostrophes and hyphens|
+           | 12A/ YTO           | Enter names using only letters a to z, spaces, apostrophes and hyphens|
            
            
 Scenario: Account Holders Name field length validations 

@@ -25,7 +25,7 @@ Then the treat benefits page will be displayed
 
 
 Scenario:  Select No
-And I select No I dont have separate benefits
+And I select dont have separate benefits
 Then the lifetime allowance page will be displayed
 
 

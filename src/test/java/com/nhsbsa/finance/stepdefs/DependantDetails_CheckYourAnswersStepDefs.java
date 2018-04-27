@@ -339,7 +339,7 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 		dependantDetails_CheckYourAnswerPage = new DependantDetails_CheckYourAnswerPage(driver);
 		switch (field) {
 		case "maritalStatus":
-			dependantDetails_CheckYourAnswerPage.changeMaritalStatus();
+			dependantDetails_CheckYourAnswerPage.changeLink("maritalStatus");
 			break;
 		case "partnerName":
 			dependantDetails_CheckYourAnswerPage.changePartnerName();

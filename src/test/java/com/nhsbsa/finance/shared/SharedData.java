@@ -53,5 +53,7 @@ public class SharedData {
   public static String sortCodeSecondField;
   public static String sortCodeThirdField;
   public static String certNumber;
+  public static String combinedLTA;
+  public static String grossAnnualRate;
   public static List<String> fullName = new ArrayList<>();
 }

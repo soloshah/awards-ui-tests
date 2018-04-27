@@ -46,6 +46,10 @@ public class DynamicNinoStepDefs {
 	
 	@Then("^the dynamic partners nino page will be displayed$")
 	public void theDynamicPartnersNinoPageWillBeDisplayed() {
+		Page page = new Page(driver);
+		String partnerNinoPageTitle = "What is " + SharedData.firstName + "'s "
+				+ "National Insurance number? - Claim your NHS Pension - NHSBSA";
+		page.waitForTitleToExist(partnerNinoPageTitle);
 		dynamicNinoPage = new DynamicNinoPage(driver);
 		assertThat(dynamicNinoPage.getHeading())
 				.contains("What is " + SharedData.firstName + "'s " + "National Insurance number?");

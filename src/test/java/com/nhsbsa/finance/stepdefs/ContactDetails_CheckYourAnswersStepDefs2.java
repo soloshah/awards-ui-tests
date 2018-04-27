@@ -63,7 +63,7 @@ public class ContactDetails_CheckYourAnswersStepDefs2 {
 		contactDetails_CheckYourAnswerPage = new ContactDetails_CheckYourAnswerPage(driver);
 		assertThat(contactDetails_CheckYourAnswerPage.getPresenceOfContactPref()).isEqualTo(true);
 		assertThat(contactDetails_CheckYourAnswerPage.getContactPrefText())
-				.matches("Do you want to be contacted about your pension by text and email");
+				.matches("How would you like to be contacted about your pension");
 		assertThat(contactDetails_CheckYourAnswerPage.getContactPref()).matches("I would not like to be contacted");
 	}
 
@@ -72,11 +72,10 @@ public class ContactDetails_CheckYourAnswersStepDefs2 {
 		contactDetails_CheckYourAnswerPage = new ContactDetails_CheckYourAnswerPage(driver);
 		assertThat(contactDetails_CheckYourAnswerPage.getPresenceOfContactPref()).isEqualTo(true);
 		assertThat(contactDetails_CheckYourAnswerPage.getContactPrefText())
-				.matches("Do you want to be contacted about your pension by text and email");
+				.matches("How would you like to be contacted about your pension");
 		assertThat(contactDetails_CheckYourAnswerPage.getContactPref()).matches("Phone");
-
 		assertThat(contactDetails_CheckYourAnswerPage.getPresenceOfContactPrefPhone()).isEqualTo(true);
-		assertThat(contactDetails_CheckYourAnswerPage.getPhoneText()).matches("Telephone number");
+		assertThat(contactDetails_CheckYourAnswerPage.getPhoneText()).matches("Phone number");
 		assertThat(contactDetails_CheckYourAnswerPage.getPhoneNumberText()).matches(SharedData.phoneNumber);
 
 	}
@@ -86,7 +85,7 @@ public class ContactDetails_CheckYourAnswersStepDefs2 {
 		contactDetails_CheckYourAnswerPage = new ContactDetails_CheckYourAnswerPage(driver);
 		assertThat(contactDetails_CheckYourAnswerPage.getPresenceOfContactPref()).isEqualTo(true);
 		assertThat(contactDetails_CheckYourAnswerPage.getContactPrefText())
-				.matches("Do you want to be contacted about your pension by text and email");
+				.matches("How would you like to be contacted about your pension");
 		assertThat(contactDetails_CheckYourAnswerPage.getContactPref()).matches("Email");
 
 		assertThat(contactDetails_CheckYourAnswerPage.getPresenceOfContactPrefEmail()).isEqualTo(true);
@@ -100,11 +99,11 @@ public class ContactDetails_CheckYourAnswersStepDefs2 {
 		contactDetails_CheckYourAnswerPage = new ContactDetails_CheckYourAnswerPage(driver);
 		assertThat(contactDetails_CheckYourAnswerPage.getPresenceOfContactPref()).isEqualTo(true);
 		assertThat(contactDetails_CheckYourAnswerPage.getContactPrefText())
-				.matches("Do you want to be contacted about your pension by text and email");
+				.matches("How would you like to be contacted about your pension");
 		assertThat(contactDetails_CheckYourAnswerPage.getContactPref()).matches("Email\nPhone");
 
 		assertThat(contactDetails_CheckYourAnswerPage.getPresenceOfContactPrefPhone()).isEqualTo(true);
-		assertThat(contactDetails_CheckYourAnswerPage.getPhoneText()).matches("Telephone number");
+		assertThat(contactDetails_CheckYourAnswerPage.getPhoneText()).matches("Phone number");
 		assertThat(contactDetails_CheckYourAnswerPage.getPhoneNumberText()).matches(SharedData.phoneNumber);
 
 		assertThat(contactDetails_CheckYourAnswerPage.getPresenceOfContactPrefEmail()).isEqualTo(true);
@@ -119,12 +118,10 @@ public class ContactDetails_CheckYourAnswersStepDefs2 {
 
 		switch (field) {
 		case "emailAddress":
-			System.out.println("&&&&&&&" + contactDetails_CheckYourAnswerPage.getEmailAddressText());
-			assertThat(contactDetails_CheckYourAnswerPage.getEmailAddressText()).matches(SharedData.emailAddress);
+				assertThat(contactDetails_CheckYourAnswerPage.getEmailAddressText()).matches(SharedData.emailAddress);
 			break;
 		case "telephoneNumber":
-			System.out.println("******" + contactDetails_CheckYourAnswerPage.getPhoneNumberText());
-			assertThat(contactDetails_CheckYourAnswerPage.getPhoneNumberText()).matches(SharedData.phoneNumber);
+				assertThat(contactDetails_CheckYourAnswerPage.getPhoneNumberText()).matches(SharedData.phoneNumber);
 			break;
 		}
 	}
