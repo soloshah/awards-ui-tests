@@ -31,7 +31,12 @@ public class SeparatePensionBenefitsPage extends Page {
 	private By separateBenefitsFieldErrorMessageLocator = By.id("reason-error-message");
 	private By separateBenefitsAnchoredErrorMessageLocator = By.id("error-list0");
 	private By separateBenefitsAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#reason0']");
-
+	private By selectedAfterApril6CheckBoxLocator = By.xpath("//input[@checked='checked']");
+	private By selectedBeforeApril6CheckBoxLocator = By.xpath("//input[@checked='checked']");
+	private By selectedIDontHaveInformationCheckBoxLocator = By.xpath("//input[@checked='checked']");
+	
+	
+	
 	public SeparatePensionBenefitsPage(WebDriver driver) {
 		super(driver);
 		waitForTitleToExist(separatePensionBenefitsPageTitle);
@@ -99,7 +104,7 @@ public class SeparatePensionBenefitsPage extends Page {
 		enterBenefitCrystallisationYear(year);
 	}
 
-	private void nextStep() {
+	public void nextStep() {
 		navigateToRootElement();
 		navigateToElementBy(nextButtonLocator);
 		click();
@@ -232,5 +237,56 @@ public class SeparatePensionBenefitsPage extends Page {
 		nextStep();
 		return new LifetimeAllowancePage(driver);
 	}
+	
+	public String getCombinedLTA() {
+		navigateToRootElement();
+		navigateToElementBy(annualLTAFieldLocator);
+		return getElementValue();
+	}
+	
+	public String getGrossAnnualRate() {
+		navigateToRootElement();
+		navigateToElementBy(grossAnnualRateFieldLocator);
+		return getElementValue();
+	}
+	
+	 public String getDay() {
+		    navigateToRootElement();
+		    navigateToElementBy(benefitDayFieldLocator);
+		    return getElementValue();
+		  }
+
+	 public String getMonth() {
+		    navigateToRootElement();
+		    navigateToElementBy(benefitMonthFieldLocator);
+		    return getElementValue();
+		  }
+	
+	 public String getYear() {
+		    navigateToRootElement();
+		    navigateToElementBy(benefitYearFieldLocator);
+		    return getElementValue();
+		  }
+	 
+	 public boolean isAfterApril6CheckboxSelected() {
+			navigateToRootElement();
+			boolean checked=isElementSelected(selectedAfterApril6CheckBoxLocator);
+		return checked;
+	 }
+		
+		 public boolean isBeforeApril6CheckboxSelected() {
+				navigateToRootElement();
+				boolean checked=isElementSelected(selectedBeforeApril6CheckBoxLocator);
+			return checked;
+
+			}
+		 
+		 public boolean isIDontHaveInformationCheckboxSelected() {
+				navigateToRootElement();
+				boolean checked=isElementSelected(selectedIDontHaveInformationCheckBoxLocator);
+			return checked;
+
+			}
+
 
 }

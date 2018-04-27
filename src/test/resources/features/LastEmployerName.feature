@@ -13,15 +13,15 @@ Then the name of your last NHS employer page submission will be successful
 And the job title page will be displayed
 
 
-@Bug @BP490-237
+@Bug @BP490-237 @BP490-330
 Scenario Outline: Name of your last NHS employer field validations 
 When I enter name of last NHS employer details using the name '<name>'
 Then the name of your last NHS employer page submission will be unsuccessful
 And the name of your last NHS employer error message '<errorMessage>' will be displayed
 Examples:
-| name      | errorMessage                                            |
-|           |Enter the name of your last NHS employer                 | 
-|In%$ £"^&*"|Enter name using only letters a to z, spaces and hyphens |
-|1234567890P|Enter name using only letters a to z, spaces and hyphens |
+| name      | errorMessage                                                          |
+|           |Enter the name of your last NHS employer                               | 
+|In%$ £"^&*"|Enter names using only letters a to z, spaces, apostrophes and hyphens |
+|1234567890P|Enter names using only letters a to z, spaces, apostrophes and hyphens |
 
 

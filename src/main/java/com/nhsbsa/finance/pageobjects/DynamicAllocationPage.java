@@ -14,7 +14,7 @@ public class DynamicAllocationPage extends Page {
 	
 	public DynamicAllocationPage(WebDriver driver) {
 		super(driver);
-		waitForTitleToExist(allocationDobPageTitle);
+	//	waitForTitleToExist(allocationDobPageTitle);
 		waitForElementToBeVisibleBy(allocationDayFieldLocator);
 	}
 	

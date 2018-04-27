@@ -24,16 +24,14 @@ public class PensionOver30StepDefs {
 	@Then("^the pension over 30k page will be displayed$")
 	public void thePensionOver30kPageWillBeDisplayed() {
 		pensionOver30Page = new PensionOver30Page(driver);
-		assertThat(pensionOver30Page.getHeading()).contains(
-				"Will your NHS pension plus any other pension benefits be more than £30,000 per year, or have you accessed your benefits with another pension scheme using pension flexibilities?");
+		assertThat(pensionOver30Page.getHeading()).contains("Do any of these apply?");
 	}
 
 	@Given("^I go to pension over 30k page$")
 	public void iGoToPensionOver30kPage() {
 		new Page(driver).navigateToUrl(baseUrl + "/pension-arrangement-details/will-your-pension-be-over-30k");
 		pensionOver30Page = new PensionOver30Page(driver);
-		assertThat(pensionOver30Page.getHeading()).contains(
-				"Will your NHS pension plus any other pension benefits be more than £30,000 per year, or have you accessed your benefits with another pension scheme using pension flexibilities?");
+		assertThat(pensionOver30Page.getHeading()).contains("Do any of these apply?");
 	}
 
 	@Then("^the default value for pension over 30k will be blank$")
@@ -43,21 +41,21 @@ public class PensionOver30StepDefs {
 
 	@When("^I select Yes on pension over 30k page$")
 	public void iSelectYesOnPensionOver30kPage() {
-		SharedData.sharedNHSRadioButton = "Yes";
+		SharedData.shared1995RadioButton = "Yes";
 		pensionOver30Page = new PensionOver30Page(driver);
 		pensionOver30Page.selectYes();
 	}
 
 	@When("^I select No on pension over 30k page$")
 	public void iSelectNoOnPensionOver30kPage() {
-		SharedData.sharedNHSRadioButton = "No";
+		SharedData.shared1995RadioButton = "No";
 		pensionOver30Page = new PensionOver30Page(driver);
 		pensionOver30Page.selectNo();
 	}
 
 	@When("^I select notSure on pension over 30k page$")
 	public void iSelectNotSureOnPensionOver30kPage() {
-		SharedData.sharedNHSRadioButton = "Not sure";
+		SharedData.shared1995RadioButton = "Not sure";
 		pensionOver30Page = new PensionOver30Page(driver);
 		pensionOver30Page.selectNotsure();
 	}
@@ -74,6 +72,19 @@ public class PensionOver30StepDefs {
 		assertThat(pensionOver30Page.doesPensionOver30kErrorMessageHaveAnchor()).isTrue();
 		assertThat(pensionOver30Page.getPensionOver30kAnchoredErrorMessage()).matches(errorMessage);
 		assertThat(pensionOver30Page.getPensionOver30kFieldErrorMessage()).matches(errorMessage);
+	}
+	
+	
+	@Then("^the pensionOver30k details are sustained$")
+	public void thePensionOver30KDetailsAreSustained() {
+		pensionOver30Page = new PensionOver30Page(driver);
+		assertThat(pensionOver30Page.getYesRadioButton()).matches(SharedData.shared1995RadioButton);
+
+	}
+
+	@When("^I select different pensionOver30K using different valid option$")
+	public void iSelectPensionOver30kUsingDifferentValidOption() {
+		iSelectNotSureOnPensionOver30kPage();
 	}
 
 }

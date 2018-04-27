@@ -60,8 +60,7 @@ public class StartPageStepdefs {
 	public void theGuidanceNotesInformationWillBeDisplayed() {
 		List<String> browserTabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(browserTabs.get(1));
-		System.out.println("*******" + driver.getTitle());
-		driver.getTitle().equals("GuidanceNotes.pdf");
+		driver.get("http://localhost:7777/web/files/GuidanceNotes.pdf");
 		driver.close();
 		driver.switchTo().window(browserTabs.get(0));
 
@@ -71,8 +70,7 @@ public class StartPageStepdefs {
 	public void theFairProcessingNoticeInformationWillBeDisplayed() {
 		List<String> browserTabs = new ArrayList<String>(driver.getWindowHandles());
 		driver.switchTo().window(browserTabs.get(1));
-		System.out.println("*******" + driver.getTitle());
-		driver.getTitle().equals("FairProcessingNotice.pdf");
+		driver.get("http://localhost:7777/web/files/FairProcessingNotice.pdf");
 		driver.close();
 		driver.switchTo().window(browserTabs.get(0));
 

@@ -8,7 +8,7 @@ public class TreatBenefitsPage extends Page {
 	private String treatBenefitsWithExcessLTATitle = "We’ll only be able to process your application if we treat your NHS Pension Scheme benefits in excess of the Lifetime Allowance - Claim your NHS Pension - NHSBSA";
 	private By yesRadioButtonLocator = By.xpath("//*[@id='yesNo']/div/div[1]/label");
 	private By noRadioButtonLocator = By.xpath("//*[@id='yesNo']/div/div[2]/label");
-
+	private By nextButtonLocator = By.id("submit_button");
 
 	public TreatBenefitsPage(WebDriver driver) {
 		super(driver);
@@ -16,6 +16,11 @@ public class TreatBenefitsPage extends Page {
 		waitForElementToBeVisibleBy(yesRadioButtonLocator);
 	}
 
+	public void nextStep() {
+		navigateToRootElement();
+		navigateToElementBy(nextButtonLocator);
+		click();
+	}
 
 	public boolean isTreatBenefitsRadioButtonSelected() {
 		boolean selected = true;

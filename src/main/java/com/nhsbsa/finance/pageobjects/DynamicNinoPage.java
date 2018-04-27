@@ -14,7 +14,7 @@ public class DynamicNinoPage extends Page {
 
 	public DynamicNinoPage(WebDriver driver) {
 		super(driver);
-		waitForTitleToExist(partnerNinoPageTitle);
+	//	waitForTitleToExist(partnerNinoPageTitle);
 		waitForElementToBeVisibleBy(partnerNinoFieldLocator);
 	}
 

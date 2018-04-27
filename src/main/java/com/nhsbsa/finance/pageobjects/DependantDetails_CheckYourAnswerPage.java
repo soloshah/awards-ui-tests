@@ -38,7 +38,11 @@ public class DependantDetails_CheckYourAnswerPage extends Page {
 	private By allocationNameTextLocator = By.id("whatIsAllocationName.heading-answer");
 	private By allocationDobTextLocator = By.id("whatIsAllocationDOB.static.heading-answer");
 	private By allocationRelationshipTextLocator = By.id("whatIsAllocationRelationship.static.heading-answer");
-
+	
+	private By getChangeLinkLocator(String page) {
+		return By.id(page + ".heading-chgit snge"); 
+	}
+	
 	public DependantDetails_CheckYourAnswerPage(WebDriver driver) {
 		super(driver);
 		waitForTitleToExist(checkYouAnswersPageTitle);
@@ -161,9 +165,10 @@ public class DependantDetails_CheckYourAnswerPage extends Page {
 		click();
 	}
 
-	public MaritalStatusPage changeMaritalStatus() {
-		changeMaritalStatusLink();
-		return new MaritalStatusPage(driver);
+	public Page changeLink(String page) {
+		navigateToRootElement();
+		navigateToElementBy(getChangeLinkLocator(page));
+		return new Page(driver);
 	}
 
 	private void changePartnerNameLink() {

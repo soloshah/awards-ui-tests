@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
 import com.nhsbsa.finance.pageobjects.DynamicAllocationRelationshipPage;
+import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.shared.SharedData;
 
 import cucumber.api.java.en.Then;
@@ -19,6 +20,9 @@ public class DynamicAllocationRelationshipStepDefs {
 	
 	@Then("^the dynamic allocation relationship page will be displayed$")
 	public void theDynamicAllocationrelationshipPageWillBeDisplayed() {
+		Page page = new Page(driver);
+		String allocationRelationshipPageTitle = "What is " + SharedData.allocationFirstName + "'s " + "relationship to you? - Claim your NHS Pension - NHSBSA";
+		page.waitForTitleToExist(allocationRelationshipPageTitle);
 		dynamicAllocationRelationshipPage = new DynamicAllocationRelationshipPage(driver);
 		assertThat(dynamicAllocationRelationshipPage.getHeading()).contains("What is " + SharedData.allocationFirstName + "'s " + "relationship to you?");
 	}
@@ -51,4 +55,6 @@ public class DynamicAllocationRelationshipStepDefs {
 		dynamicAllocationRelationshipPage = new DynamicAllocationRelationshipPage(driver);
 		dynamicAllocationRelationshipPage.submitValidAllocationRelationship(SharedData.relationship);
 	}
+	
+	
 }

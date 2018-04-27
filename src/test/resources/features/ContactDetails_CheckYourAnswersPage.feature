@@ -1,7 +1,7 @@
 @ContactDetailsCheckYourAnswers @BP490-216
 Feature: Check Your Answers for contact details
 
-@Bug @BP490-312
+
 Scenario: Would you like to be contacted
 Given I am on the start page
 When I go to would you like to be contacted page

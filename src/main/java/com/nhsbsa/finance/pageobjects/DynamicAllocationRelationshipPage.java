@@ -14,7 +14,7 @@ public class DynamicAllocationRelationshipPage extends Page {
 	
 	public DynamicAllocationRelationshipPage(WebDriver driver) {
 		super(driver);
-		waitForTitleToExist(allocationRelationshipPageTitle);
+	//	waitForTitleToExist(allocationRelationshipPageTitle);
 		waitForElementToBeVisibleBy(relationshipNameFieldLocator);
 	}
 	

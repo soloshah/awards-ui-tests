@@ -5,11 +5,12 @@ import org.openqa.selenium.WebDriver;
 
 public class PensionOver30Page extends Page {
 
-	private String pensionOver30PageTitle = "Will your NHS pension plus any other pension benefits be more than £30,000 per year, or have you accessed your benefits with another pension scheme using pension flexibilities? - Claim your NHS Pension - NHSBSA";
-	private By yesRadioButtonLocator = By.xpath("//*[@id='yesNoNotSureValue']/fieldset/div/div[1]/label");
-	private By noRadioButtonLocator = By.xpath("//*[@id='yesNoNotSureValue']/fieldset/div/div[2]/label");
-	private By notSureRadioButtonLocator = By.xpath("//*[@id='yesNoNotSureValue']/fieldset/div/div[3]/label");
+	private String pensionOver30PageTitle = "Do any of these apply? - Claim your NHS Pension - NHSBSA";
+	private By yesRadioButtonLocator = By.id("yesNoNotSureValue0");
+	private By noRadioButtonLocator = By.id("yesNoNotSureValue1");
+	private By notSureRadioButtonLocator = By.id("yesNoNotSureValue2");
 	private By nextButtonLocator = By.id("submit_button");
+	private By backButtonLocator = By.id("back-link");
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");
 	private By errorsBelowErrorMessageLocator = By.id("error-summary-heading1");
 	private By pensionOver30kAnchoredErrorMessageLocator = By.id("error-list0");
@@ -22,7 +23,7 @@ public class PensionOver30Page extends Page {
 	public PensionOver30Page(WebDriver driver) {
 		super(driver);
 		waitForTitleToExist(pensionOver30PageTitle);
-		waitForElementToBeVisibleBy(yesRadioButtonLocator);
+		waitForElementToBeVisibleBy(backButtonLocator);
 
 	}
 
@@ -120,4 +121,7 @@ public class PensionOver30Page extends Page {
 		navigateToParentElement();
 		return getElementText();
 	}
+	
+	
+	
 }

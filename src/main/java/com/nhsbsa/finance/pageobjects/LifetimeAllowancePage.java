@@ -35,7 +35,7 @@ public class LifetimeAllowancePage extends Page {
 		type(certNumber);
 	}
 
-	private void nextStep() {
+	public void nextStep() {
 		navigateToRootElement();
 		navigateToElementBy(nextButtonLocator);
 		click();

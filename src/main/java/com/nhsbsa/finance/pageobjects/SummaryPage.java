@@ -172,19 +172,10 @@ public class SummaryPage extends Page {
 		click();
 	}
   
-  public void isContinueButtonDisabled() {
-	  WebElement e = driver.findElement(By.xpath("//*[@id='content']/div[2]/div/div/form/div[2]/input"));
-	  boolean actualValue = e.isEnabled();
-			  
-	  if(actualValue)
-	  {
-		  	System.out.println("Button is enabled");	  
-	  }
-	  else
-	  {
-		  System.out.println("Button is disabled");
-	  }
-
+  public boolean isContinueButtonEnabled() {
+	  navigateToRootElement();
+	  navigateToElementBy(continueButtonLocator);
+	  return isButtonEnabled();
 	}
   
 

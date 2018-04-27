@@ -153,5 +153,9 @@ public class Page {
 		navigateToElementBy(by);
 		return element.isSelected();
 	}
+	
+	public boolean isButtonEnabled() {
+		return element.isEnabled();
+	}
 
 }

@@ -54,13 +54,15 @@ public class SeparatePensionBenefitsStepDefs {
 
 	@When("^I select dont have information$")
 	public void IselectDontHaveInformation() {
+		SharedData.sharedCheckBox = "I don't have this information";
 		separatePensionBenefitsPage = new SeparatePensionBenefitsPage(driver);
 		separatePensionBenefitsPage.selectNoInformation();
 		separatePensionBenefitsPage.submitSeperateBenefit();
 	}
 
-	@When("^I select No I dont have separate benefits$")
-	public void IselectNoIDontHaveSeparateBenefits() {
+	@When("^I select dont have separate benefits$")
+	public void IselectDontHaveSeparateBenefits() {
+		SharedData.sharedCheckBox = "I don't have any separate benefits";
 		separatePensionBenefitsPage = new SeparatePensionBenefitsPage(driver);
 		separatePensionBenefitsPage.selectNoSeparateBenefits();
 		separatePensionBenefitsPage.submitSeperateBenefit();
@@ -94,6 +96,25 @@ public class SeparatePensionBenefitsStepDefs {
 		separatePensionBenefitsPage.isSeparateBenefitNotSelected();
 
 	}
+	
+	@When("^I select after and before april 6 2006 and I dont have information$")
+	public void IselectAfterAndBeforeApril62006AndIdontHaveInformation() throws InterruptedException {
+		iSelectAfterApril62006Option();
+		iEnterTheTotalCombinedPercentageOfLifetimeAllowance();
+		separatePensionBenefitsPage = new SeparatePensionBenefitsPage(driver);
+		LocalDate plusYear = LocalDate.now().minusYears(11);
+		SharedData.day = SharedMethods.formatDay(plusYear);
+		SharedData.month = SharedMethods.formatMonth(plusYear);
+		SharedData.year = SharedMethods.formatYear(plusYear);
+		separatePensionBenefitsPage.enterBenefitCrystallisationDate(SharedData.day, SharedData.month, SharedData.year);
+		iSelectBeforeApril62006Option();
+		SharedData.grossAnnualRate = "987654.98";
+		separatePensionBenefitsPage.enterGrossAnnualRate(SharedData.grossAnnualRate);
+		IselectDontHaveInformation();
+		
+	}
+	
+	
 
 	@Then("^the default value of separate benefits will be blank$")
 	public void theDefaultValueOfSeparateBenefitsWillBeBlank() {
@@ -170,17 +191,17 @@ public class SeparatePensionBenefitsStepDefs {
 
 	@When("^I enter the total combined percentage of lifetime allowance$")
 	public void iEnterTheTotalCombinedPercentageOfLifetimeAllowance() {
-		String LTA = "123456.78";
+	SharedData.combinedLTA = "123456.78";
 		separatePensionBenefitsPage = new SeparatePensionBenefitsPage(driver);
-		separatePensionBenefitsPage.enterCombinedLTA(LTA);
+		separatePensionBenefitsPage.enterCombinedLTA(SharedData.combinedLTA);
 	
 	}
 
 	@When("^I enter the gross annual rate$")
 	public void iEnterTheGrossAnnualRate() {
-		String annualRate = "987654.98";
+		SharedData.grossAnnualRate = "987654.98";
 		separatePensionBenefitsPage = new SeparatePensionBenefitsPage(driver);
-		separatePensionBenefitsPage.enterGrossAnnualRate(annualRate);
+		separatePensionBenefitsPage.enterGrossAnnualRate(SharedData.grossAnnualRate);
 		separatePensionBenefitsPage.submitSeperateBenefit();
 	
 	}
@@ -195,5 +216,73 @@ public class SeparatePensionBenefitsStepDefs {
 		separatePensionBenefitsPage.enterBenefitCrystallisationDate(SharedData.day, SharedData.month, SharedData.year);
 		separatePensionBenefitsPage.submitSeperateBenefit();
 	}
+	
+	
+	@When("^I click next on separate benefit page$")
+	public void iClickNextOnSeparateBenefitPage() {
+		separatePensionBenefitsPage = new SeparatePensionBenefitsPage(driver);
+		separatePensionBenefitsPage.nextStep();
+	}
+	
+	@Then("^the combinedLTA details are sustained$")
+	public void theCombinedLTADetailsAreSustained() {
+		separatePensionBenefitsPage = new SeparatePensionBenefitsPage(driver);
+		assertThat(separatePensionBenefitsPage.getCombinedLTA()).matches(SharedData.combinedLTA);
+	}
+
+	@When("^I enter combinedLTA with different valid value$")
+	public void iEnterCombinedLTAWithDifferentValidValue() {
+		SharedData.combinedLTA = "852656";
+		separatePensionBenefitsPage = new SeparatePensionBenefitsPage(driver);
+		separatePensionBenefitsPage.enterCombinedLTA(SharedData.combinedLTA);
+		separatePensionBenefitsPage.submitSeperateBenefit();
+	}
+
+	@Then("^the benefitCrysallisationDate details are sustained$")
+	public void thebenefitCrysallisationDatebDetailsAreSustained() {
+		separatePensionBenefitsPage = new SeparatePensionBenefitsPage(driver);
+		assertThat(separatePensionBenefitsPage.getDay()).matches(SharedData.day);
+		//assertThat(separatePensionBenefitsPage.getMonth()).matches(SharedData.month);
+		assertThat(separatePensionBenefitsPage.getYear()).matches(SharedData.year);
+
+	}
+
+	@When("^I enter benefitCrysallisationDate with different valid value$")
+	public void iEnterBenefitCrysallisationDateWithDifferentValidValue() {
+		iEnterTheDateOfFirstBenefitCrystallisation();
+	}
+	
+	@Then("^the grossAnnualRate details are sustained$")
+	public void theGrossAnnualRateDetailsAreSustained() {
+		separatePensionBenefitsPage = new SeparatePensionBenefitsPage(driver);
+		assertThat(separatePensionBenefitsPage.getGrossAnnualRate()).matches(SharedData.grossAnnualRate);
+	}
+
+	@When("^I enter grossAnnualRate with different valid value$")
+	public void iEnterGrossAnnualRateWithDifferentValidValue() {
+		SharedData.grossAnnualRate = "852656";
+		separatePensionBenefitsPage = new SeparatePensionBenefitsPage(driver);
+		separatePensionBenefitsPage.enterGrossAnnualRate(SharedData.grossAnnualRate);
+		separatePensionBenefitsPage.submitSeperateBenefit();
+	}
+
+	@Then("^the separateBenefit details are sustained$")
+	public void theSeparateBenefitDetailsAreSustained() {
+		separatePensionBenefitsPage = new SeparatePensionBenefitsPage(driver);
+		assertThat(separatePensionBenefitsPage.isAfterApril6CheckboxSelected()).isTrue();
+		assertThat(separatePensionBenefitsPage.isBeforeApril6CheckboxSelected()).isTrue();
+		assertThat(separatePensionBenefitsPage.isIDontHaveInformationCheckboxSelected()).isTrue();
+	}
+
+	@When("^I select separateBenefit with different valid option$")
+	public void iSelectSeparateBenefitWithDifferentValidOption() {
+		separatePensionBenefitsPage = new SeparatePensionBenefitsPage(driver);
+		assertThat(separatePensionBenefitsPage.isIDontHaveInformationCheckboxSelected()).isTrue();
+		separatePensionBenefitsPage.selectNoInformation();
+		IselectDontHaveSeparateBenefits();
+		
+	}
+
+
 
 }

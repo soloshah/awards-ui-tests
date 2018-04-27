@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class ChildNamePage extends Page {
 
-	private String childNamePageTitle = "What is your Child's name? - Claim your NHS Pension - NHSBSA";
+	private String childNamePageTitle = "What is your child's name? - Claim your NHS Pension - NHSBSA";
 	private By firstNameFieldLocator = By.id("firstName");
 	private By lastNameFieldLocator = By.id("lastName");
 	private By nextButtonLocator = By.id("submit_button");
