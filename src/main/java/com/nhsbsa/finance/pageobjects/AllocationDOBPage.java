@@ -3,13 +3,14 @@ package com.nhsbsa.finance.pageobjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class AllocationDateOfBirthPage extends Page {
+public class AllocationDOBPage extends Page {
 
-	private String allocationDobPageTitle = "What is their date of birth? - Claim your NHS Pension - NHSBSA";
+	
 	private By allocationDayFieldLocator = By.id("dateOfBirth-day");
 	private By allocationMonthFieldLocator = By.id("dateOfBirth-month");
 	private By allocationYearFieldLocator = By.id("dateOfBirth-year");
 	private By nextButtonLocator = By.id("submit_button");
+	private By backLinkLocator = By.id("back-link");
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");
 	private By errorsBelowErrorMessageLocator = By.id("error-summary-heading1");
 	private By allocationDobFieldErrorMessageLocator = By.id("dateOfBirth-error-message");
@@ -17,12 +18,13 @@ public class AllocationDateOfBirthPage extends Page {
 	private By allocationDobAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#dateOfBirth']");
     private By exampleFormHintLocator = By.id("dateOfBirth-form-hint");
     
-	public AllocationDateOfBirthPage(WebDriver driver) {
+	
+	public AllocationDOBPage(WebDriver driver) {
 		super(driver);
-		waitForTitleToExist(allocationDobPageTitle);
+	waitForElementToBeVisibleBy(backLinkLocator);
 		waitForElementToBeVisibleBy(allocationDayFieldLocator);
 	}
-
+	
 	private void enterAllocationDay(String day) {
 		navigateToRootElement();
 		navigateToElementBy(allocationDayFieldLocator);
@@ -41,13 +43,38 @@ public class AllocationDateOfBirthPage extends Page {
 		type(year);
 	}
 
-	private void nextStep() {
+	public void nextStep() {
 		navigateToRootElement();
 		navigateToElementBy(nextButtonLocator);
 		click();
 	}
 
-	public void enterAllocationDobDetails(String day, String month, String year) {
+	public DynamicAllocationRelationshipPage submitValidAllocationDateDetails(String day, String month, String year) {
+		enterAllocationDay(day);
+		enterAllocationMonth(month);
+		enterAllocationYear(year);
+		nextStep();
+		return new DynamicAllocationRelationshipPage(driver);
+	}
+	
+	public String getAllocationDay() {
+	    navigateToRootElement();
+	    navigateToElementBy(allocationDayFieldLocator);
+	    return getElementValue();
+	  }
+
+ public String getAllocationMonth() {
+	    navigateToRootElement();
+	    navigateToElementBy(allocationMonthFieldLocator);
+	    return getElementValue();
+	  }
+
+ public String getAllocationYear() {
+	    navigateToRootElement();
+	    navigateToElementBy(allocationYearFieldLocator);
+	    return getElementValue();
+	  }
+ public void enterAllocationDobDetails(String day, String month, String year) {
 		enterAllocationDay(day);
 		enterAllocationMonth(month);
 		enterAllocationYear(year);
@@ -84,17 +111,9 @@ public class AllocationDateOfBirthPage extends Page {
 		return getElementText();
 	}
 
-	public AllocationRelationshipPage submitValidAllocationDateDetails(String day, String month, String year) {
-		enterAllocationDay(day);
-		enterAllocationMonth(month);
-		enterAllocationYear(year);
+		public AllocationDOBPage submitInValidAllocationDOBDetails() {
 		nextStep();
-		return new AllocationRelationshipPage(driver);
-	}
-
-	public AllocationDateOfBirthPage submitInValidAllocationDOBDetails() {
-		nextStep();
-		return new AllocationDateOfBirthPage(driver);
+		return new AllocationDOBPage(driver);
 	}
 
 	public String getExampleFormHint() {
@@ -102,4 +121,5 @@ public class AllocationDateOfBirthPage extends Page {
 		navigateToElementBy(exampleFormHintLocator);
 		return getElementText();
 	}
+
 }

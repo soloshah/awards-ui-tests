@@ -2,19 +2,18 @@ package com.nhsbsa.finance.pageobjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public class SummaryPage extends Page {
 
 
   private String summaryPageTitle = "Your application - Claim your NHS Pension - NHSBSA";
-  private By personalDetailsLinkLocator = By.id("row-0");
-  private By partnerDetailsLinkLocator = By.id("row-1");
-  private By employmentDetailsLinkLocator = By.id("row-2");
-  private By contactDetailsLinkLocator = By.id("row-3");
-  private By pensionDetailsLinkLocator = By.xpath("//*[@id='row-0']");
-  private By hmrcDetailsLinkLocator = By.xpath("//*[@id='row-1']");
-  private By paymentDetailsLinkLocator = By.xpath("//*[@id='row-2']");
+  private By personalDetailsLinkLocator = By.id("about-you-table-row-0");
+  private By partnerDetailsLinkLocator = By.id("about-you-table-row-1");
+  private By employmentDetailsLinkLocator = By.id("about-you-table-row-2");
+  private By contactDetailsLinkLocator = By.id("about-you-table-row-3");
+  private By pensionDetailsLinkLocator = By.id("about-your-pension-table-row-0");
+  private By hmrcDetailsLinkLocator = By.id("about-your-pension-table-row-1");
+  private By paymentDetailsLinkLocator = By.id("about-your-pension-table-row-2");
   private By continueButtonLocator = By.xpath("//*[@id='content']/div[2]/div/div/form/div[2]/input");
   private By personalDetailsCompletedTextLocator = By.xpath("//*[@id='about-you-table']/tbody/tr[1]/td[2]/strong");
   private By partnerDetailsCompletedTextLocator = By.xpath("//*[@id='about-you-table']/tbody/tr[2]/td[2]/strong");
@@ -179,7 +178,7 @@ public class SummaryPage extends Page {
 	}
   
 
-public String getSummaryHeading() {
+	public String getSummaryHeading() {
 		navigateToRootElement();
 		navigateToElementBy(headertextLocator);
 		return getElementText();

@@ -66,13 +66,7 @@ public class EqPaymasterReferenceStepDefs {
 		eqPaymasterReferencePage.submitValidReferenceNumber(SharedData.eqPaymasterRef);
 	}
 
-	@Then("^the dynamic eq paymaster name will be displayed on eq paymaster reference page$")
-	public void theDynamicEqPaymasterNameWillBeDisplayedOnEqPaymasterReferencePage() {
-		eqPaymasterReferencePage = new EqPaymasterReferencePage(driver);
-		assertThat(eqPaymasterReferencePage.getHeading()
-				.contains("Give the reference number of " + SharedData.eqPaymasterName));
-	}
-
+	
 	@Then("^the eq paymaster reference submission will be successful$")
 	public void theEqPaymasterReferenceSubmissionWillBeSuccessful() {
 		new NavBarPage(driver);
@@ -89,8 +83,8 @@ public class EqPaymasterReferenceStepDefs {
 	public void theEqPaymasterReferenceSubmissionWillBeUnsuccessful() {
 		eqPaymasterReferencePage = new EqPaymasterReferencePage(driver);
 		assertThat(eqPaymasterReferencePage.getErrorHeadingErrorMessage())
-				.matches("Some questions have not been answered correctly.");
-		assertThat(eqPaymasterReferencePage.getErrorsBelowErrorMessage()).matches("Please see the errors below.");
+				.matches("Your form contains errors");
+		assertThat(eqPaymasterReferencePage.getErrorsBelowErrorMessage()).matches("Check your answer:");
 	}
 
 	@When("^I enter invalid eq paymaster reference number '(.*)'$")

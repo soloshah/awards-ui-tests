@@ -1,8 +1,7 @@
-@LastEmployerName @BP490-122 @Bug @BP490-239
+@LastEmployerName @BP490-122 @Bug @BP490-239 @WIP
 Feature: What was the name of your last NHS employer
 
 Background:
-#Given I am on the name of the last NHS employer page
 Given I am on the start page
 When I go to the name of your last NHS employer page
 

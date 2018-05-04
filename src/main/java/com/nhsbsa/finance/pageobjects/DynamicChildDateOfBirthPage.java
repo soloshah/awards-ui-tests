@@ -6,8 +6,6 @@ import com.nhsbsa.finance.pageobjects.Page;
 
 public class DynamicChildDateOfBirthPage extends Page {
 
-	String fName = "Brian";
-	private String childDobPageTitle = "What is " + fName + "'s " +  "date of birth? - Claim your NHS Pension - NHSBSA";
     private By childDayFieldLocator = By.id("dateOfBirth-day");
 	private By childMonthFieldLocator = By.id("dateOfBirth-month");
 	private By childYearFieldLocator = By.id("dateOfBirth-year");
@@ -15,8 +13,7 @@ public class DynamicChildDateOfBirthPage extends Page {
 
 	public DynamicChildDateOfBirthPage(WebDriver driver) {
 		super(driver);
-		//waitForTitleToExist(childDobPageTitle);
-		waitForElementToBeVisibleBy(childDayFieldLocator);
+				waitForElementToBeVisibleBy(childDayFieldLocator);
 	}
 	
 	public OtherDependantChildrenPage submitValidChildDateOfBirth(String day, String month, String year) {

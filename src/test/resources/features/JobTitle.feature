@@ -1,17 +1,16 @@
-@JobTitle @BP490-123
+@JobTitle @BP490-123 @WIP
 Feature: What was your job title
 
 Background:
-#Given I am on the job title page
+
 Given I am on the start page
 When I go to the job title page
 
 
 Scenario: Valid job title details
 When I enter valid job title details
-#Then the job title submission will be successful
-And the tbi page will be displayed
-#And the date you leave page will be displayed
+Then the job title submission will be successful
+And the date you leave page will be displayed
 
 
 Scenario Outline: Job title field validations 

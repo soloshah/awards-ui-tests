@@ -1,4 +1,4 @@
-@EmployerAddress @BP490-120
+@EmployerAddress @BP490-120 @WIP
 Feature: What is your employers Address
 
 Background:
@@ -7,10 +7,11 @@ When I go to your employer address page
 
 Scenario: Valid Employer Address Details
 And I enter valid employer address details
-#Then the employer address details submission will be successful
-And the tbi page will be displayed
+Then the employer address details submission will be successful
+And the last day of work page will be displayed
 
 
+@bug @BP490-276
 Scenario Outline: Building and street line 1 field validations 
 And I enter invalid employer address details using the streetLineOne '<streetLineOne>'
 Then the employer address details submission will be unsuccessful
@@ -20,8 +21,9 @@ Examples:
            |              | You must enter your building and street name                        |   
            | "£$%^&*@     | Enter address using only numbers, letters a to z, spaces and hyphens|
            | ()12AYTO     | Enter address using only numbers, letters a to z, spaces and hyphens|
-          
 
+          
+@bug @BP490-276
 Scenario Outline: Building and street Line 2 field validations 
 And I enter invalid employer address details using the streetLineTwo '<streetLineTwo>'
 Then the employer address details submission will be unsuccessful

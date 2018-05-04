@@ -2,7 +2,6 @@
 Feature: Name of the pension paid by equiniti paymaster
 
 Background:
-#Given I am on the eq paymaster name page
 Given I am on the start page
 When I go to the eq paymaster name page
 

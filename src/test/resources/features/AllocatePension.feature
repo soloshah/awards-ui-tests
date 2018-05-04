@@ -2,7 +2,6 @@
 Feature: Do you want to allocate part of your pension
 
 Background:
-#Given I am on do you want to allocate page
 Given I am on the start page
 When I go to do you want to allocate page
 
@@ -14,7 +13,7 @@ Then the allocation name page will be displayed
 
 Scenario: Do you want to allocate
 When I select No
-Then the tbi page will be displayed
+Then Check your answers page will be displayed
 
 @Bug @BP490-274
 Scenario: Do you want to allocate

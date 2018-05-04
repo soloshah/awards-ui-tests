@@ -32,18 +32,7 @@ public class DynamicNinoStepDefs {
 				.contains("What is " + SharedData.firstName + "'s " + "National Insurance number?"));
 	}
 
-	@Then("^the dynamic value of partners name will be displayed on partner's nino page$")
-	public void theDynamicValueOfPartnersNameWillBeDisplayedOnThePartnersNinoPage() {
-		Page page = new Page(driver);
-		String partnerNinoPageTitle = "What is " + SharedData.firstName + "'s "
-				+ "National Insurance number? - Claim your NHS Pension - NHSBSA";
-		page.waitForTitleToExist(partnerNinoPageTitle);
-		dynamicNinoPage = new DynamicNinoPage(driver);
-		assertThat(dynamicNinoPage.getHeading()
-				.contains("What is " + SharedData.firstName + "'s " + "National Insurance number?"));
-
-	}
-	
+		
 	@Then("^the dynamic partners nino page will be displayed$")
 	public void theDynamicPartnersNinoPageWillBeDisplayed() {
 		Page page = new Page(driver);
@@ -67,8 +56,8 @@ public class DynamicNinoStepDefs {
 	public void theDynamicNationalInsuranceNumberSubmissionWillBeUnsuccessful() {
 		dynamicNinoPage = new DynamicNinoPage(driver);
 		assertThat(dynamicNinoPage.getErrorHeadingErrorMessage())
-				.matches("Some questions have not been answered correctly:");
-		assertThat(dynamicNinoPage.getErrorsBelowErrorMessage()).matches("Please see the errors below.");
+				.matches("Your form contains errors");
+		assertThat(dynamicNinoPage.getErrorsBelowErrorMessage()).matches("Check your answer:");
 	}
 
 	
@@ -96,7 +85,7 @@ public class DynamicNinoStepDefs {
 	public void iEnterPartnerNinoUsingDifferentDetails() {
 		SharedData.nino = "AA123489B";
 		dynamicNinoPage = new DynamicNinoPage(driver);
-		dynamicNinoPage.submitNino(SharedData.nino);
+		dynamicNinoPage.submitValidNiDetails(SharedData.nino);
 	}
 	
 	@And("^I enter valid partner details$")

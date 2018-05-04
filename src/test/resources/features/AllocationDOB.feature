@@ -1,15 +1,18 @@
-@AllocationDateOfBirth @BP490-112 
+@AllocationDateOfBirth @BP490-112
 Feature: Allocation Date of Birth
 
 Background:
 Given I am on the start page
-When I go to allocation DOB page
+When I go to the allocation name page
+And I enter valid allocation name details
+And I go to allocation DOB page
+Then the allocation date of birth page will be displayed
 
 
 Scenario: Valid allocation date of Birth
-And I enter valid allocation DOB details
-Then the date of birth submission will be successful
-Then the allocation relationship page will be displayed
+And I enter valid allocation DOB
+Then the allocation date of birth submission will be successful
+Then the dynamic allocation relationship page will be displayed
 
 
 Scenario Outline: Allocation date of birth field validations 
@@ -34,5 +37,6 @@ Examples:
 Scenario: Allocation date of birth is greater than today's date
 And I enter allocation DOB greater than today's date
 Then the allocation date of birth submission will be unsuccessful
-And  the allocation date of birth for greater than today's date error message 'Enter a date in the past' will be displayed      
+And the allocation date of birth error message 'Enter a date in the past' will be displayed
+
     

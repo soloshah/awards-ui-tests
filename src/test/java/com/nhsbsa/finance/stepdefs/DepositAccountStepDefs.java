@@ -36,6 +36,7 @@ public class DepositAccountStepDefs {
 	@Given("^I go to deposit account details page$")
 	public void iGoToTheDepositAccountDetailsPage() {
 		new Page(driver).navigateToUrl(baseUrl + "/payment-details/deposit-account-details");
+		driver.getPageSource().contains("This can be your own account or a joint account with someone else.");
 		depositAccountPage = new DepositAccountPage(driver);
 		 assertThat(depositAccountPage.getHeading()).contains("Enter bank details");
 	}
@@ -108,8 +109,8 @@ public class DepositAccountStepDefs {
 	public void theDepositAccountDetailsSubmissionWillBeUnsuccessful() {
 		depositAccountPage = new DepositAccountPage(driver);
 		assertThat(depositAccountPage.getErrorHeadingErrorMessage())
-				.matches("Some questions have not been answered correctly.");
-		assertThat(depositAccountPage.getErrorsBelowErrorMessage()).matches("Please see the errors below.");
+				.matches("Your form contains errors");
+		assertThat(depositAccountPage.getErrorsBelowErrorMessage()).matches("Check your answer:");
 	}
 
 	@And("^the account number error message '(.*)' will be displayed$")
@@ -170,6 +171,7 @@ public class DepositAccountStepDefs {
 	@Then("^The length of account holder name is verified$")
 	public void theLengthOfAccountHolderNameIsVerified() {
 		depositAccountPage = new DepositAccountPage(driver);
+		
 		assertThat(depositAccountPage.readAccountHolderNameField()).matches("InvalidIn@ validInvalidI");
 
 	}
@@ -193,7 +195,8 @@ public class DepositAccountStepDefs {
 	}
 
 	private void setBankDetails() {
-		SharedData.accountNumber = "12345678";
+		//SharedData.accountNumber = "123AB7I8IKN";
+		SharedData.accountNumber = "123AB7I8";
 		SharedData.rollNumber = "AA-12345/9P";
 		SharedData.accountHolderName = "Test-User";
 		SharedData.sortCodeFirstField = "12";
@@ -202,7 +205,8 @@ public class DepositAccountStepDefs {
 	}
 	
 	private void setInvalidBankDetails() {
-		accountNumber = "12345678";
+		//accountNumber = "123l4OP786789"
+		accountNumber = "123l4OP7";
 		rollNumber = "AA-12345/9P";
 		accountHolderName = "Test-User";
 		sortCodeFirstField = "12";
@@ -211,7 +215,8 @@ public class DepositAccountStepDefs {
 	}
 	
 	private void setBankAccountDetails(){
-		accountNumber = "12345678";
+		//accountNumber = "123l4OP786789"
+		accountNumber = "123l4OP7";
 		rollNumber = "AA-12345/9P";
 		accountHolderName = "Test-User";
 	}

@@ -2,12 +2,12 @@
 Feature: Childs Name
 
 Background:
-#Given I am on the child name page
+
 Given I am on the start page
 When I go to the child name page
 
 Scenario: Valid Child Name details
-When I enter valid child name details
+When I enter valid child name
 Then the child name submission will be successful
 And the child date of birth page will be displayed
 

@@ -2,7 +2,6 @@
 Feature: Would you like to be contacted Page
 
 Background:
-#Given I am on would you like to be contacted page
 Given I am on the start page
 When I go to would you like to be contacted page
 

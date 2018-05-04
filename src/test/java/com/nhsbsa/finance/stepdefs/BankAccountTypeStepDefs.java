@@ -61,8 +61,8 @@ public class BankAccountTypeStepDefs {
 	public void theBankAccountTypeSubmissionWillBeUnsuccessful() {
 		bankAccountTypePage = new BankAccountTypePage(driver);
 		assertThat(bankAccountTypePage.getErrorHeadingErrorMessage())
-				.matches("Some questions have not been answered correctly.");
-		assertThat(bankAccountTypePage.getErrorsBelowErrorMessage()).matches("Please see the errors below.");
+				.matches("Your form contains errors");
+		assertThat(bankAccountTypePage.getErrorsBelowErrorMessage()).matches("Check your answer:");
 	}
 
 	@And("^the bank account page error message '(.*)' will be displayed$")

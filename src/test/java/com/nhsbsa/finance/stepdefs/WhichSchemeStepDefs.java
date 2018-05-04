@@ -2,6 +2,9 @@ package com.nhsbsa.finance.stepdefs;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
@@ -151,6 +154,18 @@ public class WhichSchemeStepDefs {
 	public void iClickOnSchemeInformationLink() {
 		whichSchemePage = new WhichSchemePage(driver);
 		whichSchemePage.selectSchemeInformation();
+	}
+	
+	
+	@And("^the new scheme information page will be displayed$")
+	public void theNewSchemeInformationPageWillBeDisplayed() {
+		List<String> browserTabs = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(browserTabs.get(1));
+		driver.get("https://apps.nhsbsa.nhs.uk/choice/MemberID.html");
+		driver.getPageSource().contains("Pension identification tool");
+		driver.close();
+		driver.switchTo().window(browserTabs.get(0));
+
 	}
 	
 	@Then("^the which scheme details are sustained$")

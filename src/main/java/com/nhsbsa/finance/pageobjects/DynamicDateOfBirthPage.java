@@ -6,18 +6,22 @@ import com.nhsbsa.finance.pageobjects.Page;
 
 public class DynamicDateOfBirthPage extends Page {
 
-	String fName = "Arya";
-	private String dobPageTitle = "What is " + fName + "'s " +  "date of birth? - Claim your NHS Pension - NHSBSA";
+	
 	private By partnerDayFieldLocator = By.id("dateOfBirth-day");
 	private By partnerMonthFieldLocator = By.id("dateOfBirth-month");
 	private By partnerYearFieldLocator = By.id("dateOfBirth-year");
 	private By nextButtonLocator = By.id("submit_button");
-	
+	private By backButtonLocator = By.id("back-link");
+	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");
+	private By errorsBelowErrorMessageLocator = By.id("error-summary-heading1");
+	private By partnerDobFieldErrorMessageLocator = By.id("dateOfBirth-error-message");
+	private By partnerDobAnchoredErrorMessageLocator = By.id("error-list0");
+	private By partnerDobAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#dateOfBirth']");
 
 	public DynamicDateOfBirthPage(WebDriver driver) {
 		super(driver);
-		waitForTitleToExist(dobPageTitle);
-		waitForElementToBeVisibleBy(partnerDayFieldLocator);
+		
+		waitForElementToBeVisibleBy(backButtonLocator);
 	}
 	
 	
@@ -45,12 +49,18 @@ public class DynamicDateOfBirthPage extends Page {
 		click();
 	}
 	
-	public PartnerGenderPage submitValidPartnerDOBDetails(String day, String month, String year) {
+	public void enterPartnerDobDetails(String day, String month, String year) {
+		enterPartnerDay(day);
+		enterPartnerMonth(month);
+		enterPartnerYear(year);
+	}
+	
+	public DynamicPartnerGenderPage submitValidPartnerDOBDetails(String day, String month, String year) {
 		enterPartnerDay(day);
 		enterPartnerMonth(month);
 		enterPartnerYear(year);
 		nextStep();
-		return new PartnerGenderPage(driver);
+		return new DynamicPartnerGenderPage(driver);
 	}
 	
 	public String getDay() {
@@ -71,7 +81,44 @@ public class DynamicDateOfBirthPage extends Page {
 	    return getElementValue();
 	  }
 
+ public String getErrorHeadingErrorMessage() {
+		navigateToRootElement();
+		navigateToElementBy(errorHeadingErrorMessageLocator);
+		return getElementText();
+	}
+
+	public String getErrorsBelowErrorMessage() {
+		navigateToRootElement();
+		navigateToElementBy(errorsBelowErrorMessageLocator);
+		return getElementText();
+	}
+
+	public boolean doesPartnerDobErrorMessageHaveAnchor() {
+		navigateToRootElement();
+		navigateToElementBy(partnerDobFieldErrorMessageLocator);
+		navigateToParentElement();
+		return getPresenceOfElement(partnerDobAnchoredErrorMessageAnchorLocator);
+	}
+
+	public String getPartnerDobAnchoredErrorMessage() {
+		navigateToRootElement();
+		navigateToElementBy(partnerDobAnchoredErrorMessageLocator);
+		return getElementText();
+	}
+
+	public String getPartnerDobFieldErrorMessage() {
+		navigateToRootElement();
+		navigateToElementBy(partnerDobFieldErrorMessageLocator);
+		return getElementText();
+	}
+
+		
 	
+	public DynamicDateOfBirthPage submitInValidPartnerDOBDetails() {
+		nextStep();
+		return new DynamicDateOfBirthPage(driver);
+	}
+
 
 	
 }

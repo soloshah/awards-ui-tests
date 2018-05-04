@@ -71,8 +71,8 @@ public class NameOfYourCurentEmployerStepDefs {
 	public void theNameOfYourCurrenttNHSEmployerPageSubmissionWillBeUnsuccessful() {
 		nameOfYourCurrentEmployerPage = new NameOfYourCurrentEmployerPage(driver);
 		assertThat(nameOfYourCurrentEmployerPage.getErrorHeadingErrorMessage())
-				.matches("Some questions have not been answered correctly.");
-		assertThat(nameOfYourCurrentEmployerPage.getErrorsBelowErrorMessage()).matches("Please see the errors below.");
+				.matches("Your form contains errors");
+		assertThat(nameOfYourCurrentEmployerPage.getErrorsBelowErrorMessage()).matches("Check your answer:");
 	}
 
 	@When("^I enter name of current NHS employer details using the name '(.*)'$")

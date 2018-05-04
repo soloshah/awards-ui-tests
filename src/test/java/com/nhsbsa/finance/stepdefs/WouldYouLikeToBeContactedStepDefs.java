@@ -22,11 +22,6 @@ public class WouldYouLikeToBeContactedStepDefs {
 
 	private WouldYouLikeToBeContactedPage wouldYouLikeToBeContactedPage;
 
-	@Given("^I am on would you like to be contacted page$")
-	public void iAmOnWouldYouLikeToBeContactedPage() {
-		new Page(driver).navigateToUrl(baseUrl + "/contact-details/would-you-like-to-be-contacted");
-	}
-
 	@Given("^I go to would you like to be contacted page$")
 	public void iGoToWouldYouLikeToBeContactedPage() {
 		new Page(driver).navigateToUrl(baseUrl + "/contact-details/would-you-like-to-be-contacted");
@@ -68,6 +63,9 @@ public class WouldYouLikeToBeContactedStepDefs {
 	@And("^how would you like to be contacted page error message '(.*)' will be displayed$")
 	public void howWouldYouLikeToBeContactedPageErrorMessageWillBeDisplayed(String errorMessage) {
 		wouldYouLikeToBeContactedPage = new WouldYouLikeToBeContactedPage(driver);
+		assertThat(wouldYouLikeToBeContactedPage.getErrorHeadingErrorMessage())
+		.matches("Your form contains errors");
+assertThat(wouldYouLikeToBeContactedPage.getErrorsBelowErrorMessage()).matches("Check your answer:");
 		assertThat(wouldYouLikeToBeContactedPage.getContactFieldErrorMessage()).matches(errorMessage);
 		assertThat(wouldYouLikeToBeContactedPage.doesContactErrorMessageHaveAnchor()).isTrue();
 		assertThat(wouldYouLikeToBeContactedPage.getContactAnchoredErrorMessage()).matches(errorMessage);

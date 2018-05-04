@@ -35,6 +35,7 @@ public class CurrentAccountStepDefs {
 	@Given("^I go to current account details page$")
 	public void iGoToTheCurrentAccountDetailsPage() {
 		new Page(driver).navigateToUrl(baseUrl + "/payment-details/current-account-details");
+		driver.getPageSource().contains("This can be your own account or a joint account with someone else.");
 		currentAccountPage = new CurrentAccountPage(driver);
 		assertThat(currentAccountPage.getHeading()).contains("Enter bank details");
 	}
@@ -71,8 +72,8 @@ public class CurrentAccountStepDefs {
 	public void theCurrentAccountDetailsSubmissionWillBeUnsuccessful() {
 		currentAccountPage = new CurrentAccountPage(driver);
 		assertThat(currentAccountPage.getErrorHeadingErrorMessage())
-				.matches("Some questions have not been answered correctly.");
-		assertThat(currentAccountPage.getErrorsBelowErrorMessage()).matches("Please see the errors below.");
+				.matches("Your form contains errors");
+		assertThat(currentAccountPage.getErrorsBelowErrorMessage()).matches("Check your answer:");
 	}
 
 	@And("^the current account number error message '(.*)' will be displayed$")
@@ -114,14 +115,15 @@ public class CurrentAccountStepDefs {
 			break;
 		}
 		currentAccountPage = new CurrentAccountPage(driver);
-		currentAccountPage.enterBankDetails(SharedData.accountNumber, SharedData.sortCodeFirstField, SharedData.sortCodeSecondField, SharedData.sortCodeThirdField,
-				SharedData.accountHolderName);
+		currentAccountPage.enterBankDetails(accountNumber,sortCodeFirstField, sortCodeSecondField, sortCodeThirdField,
+				accountHolderName);
 		currentAccountPage.submitInValidBankDetails();
 	}
 
 	@Then("^The length of current account holder name is verified$")
 	public void theLengthOfCurrentAccountHolderNameIsVerified() {
 		currentAccountPage = new CurrentAccountPage(driver);
+		
 		assertThat(currentAccountPage.readAccountHolderNameField()).matches("InvalidIn@ validInvalidI");
 
 	}
@@ -145,7 +147,8 @@ public class CurrentAccountStepDefs {
 	}
 
 	private void setBankDetails() {
-		SharedData.accountNumber = "12345678";
+		SharedData.accountNumber = "123AB7I8";
+		//SharedData.accountNumber = "123AB7I80olk";
 		SharedData.accountHolderName = "Test-User";
 		SharedData.sortCodeFirstField = "12";
 		SharedData.sortCodeSecondField = "34";
@@ -153,12 +156,14 @@ public class CurrentAccountStepDefs {
 	}
 
 	private void setBankAccountDetails() {
-		accountNumber = "12345678";
+		//accountNumber = "123l4OP78lpj76";
+		accountNumber = "123l4OP7";
 		accountHolderName = "Test-User";
 	}
 	
 	private void setInvalidBankDetails() {
-	    accountNumber = "12345678";
+		//accountNumber = "123l4OP78lpj76";
+		accountNumber = "123l4OP7";
 		accountHolderName = "Test-User";
 		sortCodeFirstField = "12";
 		sortCodeSecondField = "34";

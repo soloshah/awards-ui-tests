@@ -9,7 +9,7 @@ When I go to nino page
 Scenario: Valid NINO 
 And I enter valid national insurance number 
 Then the national insurance number submission will be successful
-Then Check your answers page for personal details will be displayed
+Then Check your answers page will be displayed
 
 Scenario Outline: NINO Field validations 
 When I enter national insurance number using the nino '<nino>'

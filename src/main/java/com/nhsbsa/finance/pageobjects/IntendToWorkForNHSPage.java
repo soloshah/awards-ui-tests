@@ -20,7 +20,7 @@ public class IntendToWorkForNHSPage extends Page {
 	private By dayFieldLocator = By.id("dateValue-day");
 	private By monthFieldLocator = By.id("dateValue-month");
 	private By yearFieldLocator = By.id("dateValue-year");
-	private By dateHeaderLocator = By.id("label-text");
+	private By dateHeaderLocator = By.id("dateValue-label-text");
 	private By selectedYesRadioButtonLocator = By.xpath("//input[@checked='checked']");
 	private By selectedNoRadioButtonLocator = By.xpath("//input[@checked='checked']");
 	

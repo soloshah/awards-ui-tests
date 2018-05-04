@@ -49,8 +49,9 @@ public class AllocationNameStepDefs {
 		assertThat(allocationNamePage.getHeading()).contains("What is the name of the person you want to allocate some of your pension to?");
 	}
 
-	@When("^I enter valid allocation name details$")
-	public void IenterValidAllocationNameDetails() {
+		
+	@When("^I enter valid allocation name$")
+	public void IenterValidAllocationName() {
 
 		final String inputFirstName = RandomStringUtils.randomAlphabetic(10);
 		SharedData.allocationFirstName = inputFirstName.toLowerCase().substring(0, 1).toUpperCase()
@@ -58,16 +59,6 @@ public class AllocationNameStepDefs {
 		final String inputLastName = RandomStringUtils.randomAlphabetic(10);
 		SharedData.allocationLastName = inputLastName.toLowerCase().substring(0, 1).toUpperCase()
 				+ inputLastName.toLowerCase().substring(1);
-		allocationNamePage = new AllocationNamePage(driver);
-		allocationNamePage.submitValidAllocationName(SharedData.allocationFirstName, SharedData.allocationLastName);
-	}
-	
-	
-	@When("^I enter valid allocation name$")
-	public void IenterValidAllocationName() {
-
-		SharedData.allocationFirstName = "Rob";
-		SharedData.allocationLastName = "Stark";
 		allocationNamePage = new AllocationNamePage(driver);
 		allocationNamePage.submitAllocationName(SharedData.allocationFirstName, SharedData.allocationLastName);
 	}
@@ -77,8 +68,8 @@ public class AllocationNameStepDefs {
 	public void theChildNameSubmissionWillBeUnsuccessful() {
 		allocationNamePage = new AllocationNamePage(driver);
 		assertThat(allocationNamePage.getErrorHeadingErrorMessage())
-				.matches("Some questions have not been answered correctly.");
-		assertThat(allocationNamePage.getErrorsBelowErrorMessage()).matches("Please see the errors below.");
+				.matches("Your form contains errors");
+		assertThat(allocationNamePage.getErrorsBelowErrorMessage()).matches("Check your answer:");
 	}
 
 	@And("^the allocation first name error message '(.*)' will be displayed$")
@@ -150,8 +141,13 @@ public class AllocationNameStepDefs {
 
 	@When("^I enter allocatePensionName using different valid details$")
 	public void iEnterAllocatePensionNameUsingDifferentDetails() {
-		SharedData.allocationFirstName = "Rob";
-		SharedData.allocationLastName = "Snow";
+
+		final String inputFirstName = RandomStringUtils.randomAlphabetic(10);
+		SharedData.allocationFirstName = inputFirstName.toLowerCase().substring(0, 1).toUpperCase()
+				+ inputFirstName.toLowerCase().substring(1);
+		final String inputLastName = RandomStringUtils.randomAlphabetic(10);
+		SharedData.allocationLastName = inputLastName.toLowerCase().substring(0, 1).toUpperCase()
+				+ inputLastName.toLowerCase().substring(1);
 		allocationNamePage = new AllocationNamePage(driver);
 		allocationNamePage.submitAllocationName(SharedData.allocationFirstName, SharedData.allocationLastName);
 	}

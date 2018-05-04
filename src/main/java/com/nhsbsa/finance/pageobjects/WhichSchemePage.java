@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class WhichSchemePage extends Page {
 
-	private String whichSchemePageTitle = "How would you like to be contacted about your pension? - Claim your NHS Pension - NHSBSA";
+	private String whichSchemePageTitle = "Which Section or Scheme are you claiming benefits from? - Claim your NHS Pension - NHSBSA";
 	private By section1995CheckboxLocator = By.xpath("//*[@id='scheme0']");
 	private By section2008CheckboxLocator = By.xpath("//*[@id='scheme1']");
 	private By section2015CheckboxLocator = By.xpath("//*[@id='scheme2']");
@@ -16,7 +16,7 @@ public class WhichSchemePage extends Page {
 	private By whichSchemeFieldErrorMessageLocator = By.id("fieldName-error-message");
 	private By whichSchemeAnchoredErrorMessageLocator = By.id("error-list0");
 	private By whichSchemeAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#errorMessage']");
-	private By schemeInformationLink = By.xpath("//*[@id='which-scheme-form']/fieldset/p[1]/a");
+	private By schemeInformationLink = By.linkText("scheme identifier tool (opens in a new window)");
 	private By selected1995CheckBoxLocator = By.xpath("//input[@checked='checked']");
     
     

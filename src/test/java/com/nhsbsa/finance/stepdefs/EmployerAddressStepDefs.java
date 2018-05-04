@@ -58,7 +58,7 @@ public class EmployerAddressStepDefs {
 
 	@When("^I enter valid employer address details$")
 	public void IenterValidEmployerAddressDetails() {
-		setEmployerAddressDetails();
+		setNewEmployerAddressDetails();
 		employerAddressPage = new EmployerAddressPage(driver);
 		employerAddressPage.submitValidAddressDetails(SharedData.streetLineOne, SharedData.streetLineTwo,
 				SharedData.town, SharedData.postCode);
@@ -68,8 +68,8 @@ public class EmployerAddressStepDefs {
 	public void theAddressDetailsSubmissionWillBeUnsuccessful() {
 		employerAddressPage = new EmployerAddressPage(driver);
 		assertThat(employerAddressPage.getErrorHeadingErrorMessage())
-				.matches("Some questions have not been answered correctly.");
-		assertThat(employerAddressPage.getErrorsBelowErrorMessage()).matches("Please see the errors below.");
+				.matches("Your form contains errors");
+		assertThat(employerAddressPage.getErrorsBelowErrorMessage()).matches("Check your answer:");
 	}
 
 	@And("^the building and street name one error message '(.*)' will be displayed$")
@@ -148,10 +148,10 @@ public class EmployerAddressStepDefs {
 	}
 
 	private void setEmployerAddressDetails() {
-		SharedData.streetLineOne = "Flat 1B";
-		SharedData.streetLineTwo = "North Street";
-		SharedData.town = "Leeds";
-		SharedData.postCode = "LE12 3RT";
+		streetLineOne = "Flat 1B";
+		streetLineTwo = "North Street";
+		town = "Leeds";
+		postCode = "LE12 3RT";
 
 	}
 
@@ -160,6 +160,14 @@ public class EmployerAddressStepDefs {
 		SharedData.streetLineTwo = "South Street";
 		SharedData.town = "Leeds";
 		SharedData.postCode = "LE12 3RY";
+
+	}
+	
+	private void setNewEmployerAddressDetails() {
+		SharedData.streetLineOne = "Flat 1A";
+		SharedData.streetLineTwo = "East Street";
+		SharedData.town = "Leeds";
+		SharedData.postCode = "LE12 3RZ";
 
 	}
 

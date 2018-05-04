@@ -9,7 +9,6 @@ import com.nhsbsa.finance.pageobjects.AllocationRelationshipPage;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.properties.PropertyReader;
-import com.nhsbsa.finance.shared.SharedData;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -21,11 +20,12 @@ public class AllocationRelationshipStepDefs {
 	private WebDriver driver = Config.getDriver();
 	private String baseUrl = PropertyReader.getProperty("base.server");
 	private AllocationRelationshipPage allocationRelationshipPage;
-
-	@Given("^I am on the relationship page$")
-	public void iAmOnTheRelationshipPage() {
-		new Page(driver).navigateToUrl(baseUrl + "/dependant-details/what-is-allocation-relationship");
-	}
+	private AllocationNameStepDefs allocationNameSteps;
+	private AllocationDOBStepDefs allocationDobSteps;
+	private MaritalStatusStepDefs maritalStatusSteps;
+	private DependantChildrenStepDefs dependantChildrenSteps;
+	private SharedYeNoStepDefs sharedYeNoSteps;
+	private AllocatePensionStepDefs allocationPensionSteps;
 
 	@Given("^I go to the relationship page$")
 	public void iGoToTheRelationshipPage() {
@@ -45,22 +45,34 @@ public class AllocationRelationshipStepDefs {
 		assertThat(allocationRelationshipPage.getHeading()).contains("What is their relationship to you?");
 	}
 
-	
-	@When("^I enter valid relationship details$")
-	public void IenterValidRelationshipDetails() {
-		SharedData.relationship = "Wife";
-		allocationRelationshipPage = new AllocationRelationshipPage(driver);
-		allocationRelationshipPage.submitValidAllocationRelationship(SharedData.relationship);
-	}
-	
-	
+	@When("^I enter valid dependant details$")
+	public void IenterValidDependantDetails() {
+		maritalStatusSteps = new MaritalStatusStepDefs();
+		maritalStatusSteps.iGoToTheMaritalStatusPage();
+		maritalStatusSteps.iSelectMaritalStatusAsSingle();
+		dependantChildrenSteps = new DependantChildrenStepDefs();
+		dependantChildrenSteps.doYouHaveAnyDependantChildrenPageWillBeDisplayed();
+		sharedYeNoSteps = new SharedYeNoStepDefs();
+		sharedYeNoSteps.iSelectNo();
+		allocationPensionSteps = new AllocatePensionStepDefs();
+		allocationPensionSteps.doYouWantToAllocatePensionPageWillBeDisplayed();
+		sharedYeNoSteps = new SharedYeNoStepDefs();
+		sharedYeNoSteps.iSelectYes();
+		allocationNameSteps = new AllocationNameStepDefs();
+		allocationNameSteps.iGoToTheAllocationNamePage();
+		allocationNameSteps.IenterValidAllocationName();
+		allocationDobSteps = new AllocationDOBStepDefs();
+		allocationDobSteps.theAllocationDateOfBirthPageWillBeDisplayed();
+		allocationDobSteps.IenterValidAllocationDOB();
 
+	}
+
+	
 	@Then("^the relationship submission will be unsuccessful$")
 	public void theRelationshipSubmissionWillBeUnsuccessful() {
 		allocationRelationshipPage = new AllocationRelationshipPage(driver);
-		assertThat(allocationRelationshipPage.getErrorHeadingErrorMessage())
-				.matches("Some questions have not been answered correctly.");
-		assertThat(allocationRelationshipPage.getErrorsBelowErrorMessage()).matches("Please see the errors below.");
+		assertThat(allocationRelationshipPage.getErrorHeadingErrorMessage()).matches("Your form contains errors");
+		assertThat(allocationRelationshipPage.getErrorsBelowErrorMessage()).matches("Check your answer:");
 	}
 
 	@When("^I enter relationship name details using the name '(.*)'$")

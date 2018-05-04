@@ -11,7 +11,6 @@ import com.nhsbsa.finance.shared.SharedData;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 
 public class HMRC2Details_CheckYourAnswersStepDefs {
 
@@ -37,7 +36,7 @@ public class HMRC2Details_CheckYourAnswersStepDefs {
 		lifetimeAllowanceSteps.IenterTheValidCertificateNumber();
 
 	}
-	
+
 	@Given("^I have filled in the hmrc2 details for summary page$")
 	public void iHaveFilledInTheHmrc2DetailsForSummaryPage() throws Throwable {
 		otherPensionSteps = new OtherPensionArrangementsStepDefs();
@@ -49,13 +48,6 @@ public class HMRC2Details_CheckYourAnswersStepDefs {
 		lifetimeAllowanceSteps.iSelectYesOnLifetimeAllowancePage();
 		lifetimeAllowanceSteps.IenterTheValidCertificateNumber();
 
-	}
-
-
-	@Then("^Check your answers page for hmrc2 details will be displayed$")
-	public void checkYourAnswersPageForHmrc2DetailsWillBeDisplayed() {
-		hMRC2Details_CheckYourAnswerPage = new HMRC2Details_CheckYourAnswerPage(driver);
-		assertThat(hMRC2Details_CheckYourAnswerPage.getHeading()).contains("Check your answers");
 	}
 
 	@Then("^the correct hmrc2 details will be displayed$")
@@ -105,26 +97,4 @@ public class HMRC2Details_CheckYourAnswersStepDefs {
 
 	}
 
-	@When("^I click change on (.*)$")
-	public void iClickOnChangeOn(String field) {
-		hMRC2Details_CheckYourAnswerPage = new HMRC2Details_CheckYourAnswerPage(driver);
-		switch (field) {
-		case "additionalPensionArrangement":
-			hMRC2Details_CheckYourAnswerPage.changeOtherPensionsDetails();
-			break;
-		case "lifeTimeAllowance":
-			hMRC2Details_CheckYourAnswerPage.changeLifetimeAllowance();
-			break;
-		case "certificateNumber":
-			hMRC2Details_CheckYourAnswerPage.changeCertificateNumber();
-			break;
-
-		}
-	}
-
-	@When("^I submit the hmrc2 details$")
-	public void iSubmitTheHmrc2Details() {
-		hMRC2Details_CheckYourAnswerPage = new HMRC2Details_CheckYourAnswerPage(driver);
-		hMRC2Details_CheckYourAnswerPage.submitHMRC2Details();
-	}
 }

@@ -8,7 +8,7 @@ When I go to 1995 lump sum choice page
 
 Scenario: Do you want to increase your lump sum
 When I select Yes
-Then the 1995 lumpsum preference page will be displayed
+Then the lumpsum preference page will be displayed
 
 
 Scenario: Do you want to increase your lump sum

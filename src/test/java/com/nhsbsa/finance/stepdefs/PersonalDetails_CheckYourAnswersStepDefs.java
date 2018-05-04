@@ -13,7 +13,6 @@ import com.nhsbsa.finance.shared.SharedData;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 
 public class PersonalDetails_CheckYourAnswersStepDefs {
 
@@ -26,7 +25,6 @@ public class PersonalDetails_CheckYourAnswersStepDefs {
 	private YourGenderStepDefs genderSteps;
 	private YourAddressStepDefs addressSteps;
 	private NinoStepdefs ninoSteps;
-	
 
 	@Given("^I go to check your answers for personal details page$")
 	public void iGoToCheckYourAnswersForPersonalDetailsPage() {
@@ -34,8 +32,7 @@ public class PersonalDetails_CheckYourAnswersStepDefs {
 		personalDetails_CheckYourAnswerPage = new PersonalDetails_CheckYourAnswerPage(driver);
 		assertThat(personalDetails_CheckYourAnswerPage.getHeading().contains("Check your answers"));
 	}
-	
-	
+
 	@Given("^I am on the check your answers page$")
 	public void iAmOnTheCheckYourAnswersPage() {
 		personalDetails_CheckYourAnswerPage = new PersonalDetails_CheckYourAnswerPage(driver);
@@ -63,14 +60,6 @@ public class PersonalDetails_CheckYourAnswersStepDefs {
 		ninoSteps.theNationalInsurancePageWillBeDisplayed();
 		ninoSteps.IenterValidNationalInsuranceNumber();
 	}
-
-	@Then("^Check your answers page for personal details will be displayed$")
-	public void checkYourAnswersPageForPersonalDetailsWillBeDisplayed() {
-		personalDetails_CheckYourAnswerPage = new PersonalDetails_CheckYourAnswerPage(driver);
-		assertThat(personalDetails_CheckYourAnswerPage.getHeading()).contains("Check your answers");
-	}
-
-
 
 	@Then("^the correct personal details will be displayed$")
 	public void theCorrectPersonalDetailsWillBeDisplayed() {
@@ -149,29 +138,6 @@ public class PersonalDetails_CheckYourAnswersStepDefs {
 
 	}
 
-	@When("^I select on change for (.*) details$")
-	public void iClickOnChangeForNameDetails(String field) {
-		personalDetails_CheckYourAnswerPage = new PersonalDetails_CheckYourAnswerPage(driver);
-		switch (field) {
-		case "name":
-			personalDetails_CheckYourAnswerPage.changeNameDetails();
-			break;
-		case "dob":
-			personalDetails_CheckYourAnswerPage.changeDobDetails();
-			break;
-		case "gender":
-			personalDetails_CheckYourAnswerPage.changeGenderDetails();
-			break;
-		case "address":
-			personalDetails_CheckYourAnswerPage.changeAddressDetails();
-			break;
-		case "nino":
-			personalDetails_CheckYourAnswerPage.changeNinoDetails();
-			break;
-
-		}
-	}
-
 	@And("^I navigate from gender page to check your answers page$")
 	public void InavigateFromGenderPageToCheckYourAnswersPage() {
 		addressSteps = new YourAddressStepDefs();
@@ -191,9 +157,4 @@ public class PersonalDetails_CheckYourAnswersStepDefs {
 
 	}
 
-	@When("^I submit the personal details$")
-	public void iSubmitThePersonalDetails() {
-		personalDetails_CheckYourAnswerPage = new PersonalDetails_CheckYourAnswerPage(driver);
-		personalDetails_CheckYourAnswerPage.submitPersonalDetails();
-	}
 }

@@ -2,7 +2,6 @@
 Feature: What is your email address
 
 Background:
-#Given I am on the email address page
 Given I am on the start page
 When I go to the email address page
 
@@ -10,9 +9,8 @@ When I go to the email address page
 @to-be-discussed  @BP490-241
 Scenario Outline: Valid email address details
 When I enter valid email address details using the email '<email>'
-Then the tbi page will be displayed
-#Then the email address submission will be successful
-#And the check your answers page will be displayed
+Then the email address submission will be successful
+And Check your answers page will be displayed
 Examples:
 | email                         |
 |email@domain.com               |

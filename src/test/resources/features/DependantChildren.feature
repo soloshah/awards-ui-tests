@@ -2,7 +2,7 @@
 Feature: Do you have any dependant children Page
 
 Background:
-#Given I am on dependant children page
+
 Given I am on the start page
 When I go to dependant children page
 

@@ -5,7 +5,6 @@ import org.openqa.selenium.WebDriver;
 
 public class DependantDetails_CheckYourAnswerPage extends Page {
 
-	private String checkYouAnswersPageTitle = "Check your answers - Claim your NHS Pension - NHSBSA";
 	private By maritalStatusFieldLocator = By.id("maritalStatus.heading");
 	private By partnerNameFieldLocator = By.id("whatIsYourPartnerName.heading");
 	private By partnerDobFieldLocator = By.id("whatIsYourPartnerDob.static.heading");
@@ -16,18 +15,6 @@ public class DependantDetails_CheckYourAnswerPage extends Page {
 	private By allocationNameFieldLocator = By.id("whatIsAllocationName.heading");
 	private By allocationDOBFieldLocator = By.id("whatIsAllocationDOB.static.heading");
 	private By allocationRelationshipFieldLocator = By.id("whatIsAllocationRelationship.static.heading");
-	private By continueButtonLocator = By.id("continue_button");
-	private By maritalStatusChangeLinkLocator = By.id("maritalStatus.heading-chgit snge");
-	private By partnerNameChangeLinkLocator = By.id("whatIsYourPartnerName.heading-chgit snge");
-	private By partnerDobChangeLinkLocator = By.id("whatIsYourPartnerDob.static.heading-chgit snge");
-	private By partnerGenderChangeLinkLocator = By.id("partnerGender.static.heading-chgit snge");
-	private By partnerNinoChangeLinkLocator = By.id("whatIsYourPartnerNino.static.heading-chgit snge");
-	private By dependantChildrenChangeLinkLocator = By.id("anyDependantChildren.heading-chgit snge");
-	private By allocationPensionChangeLinkLocator = By.id("doYouWantToAllocatePension.heading-chgit snge");
-	private By allocationNameChangeLinkLocator = By.id("whatIsAllocationName.heading-chgit snge");
-	private By allocationDobChangeLinkLocator = By.id("whatIsAllocationDOB.static.heading-chgit snge");
-	private By allocationRelationshipChangeLinkLocator = By
-			.id("whatIsAllocationRelationship.static.heading-chgit snge");
 	private By maritalStatusTextLocator = By.id("maritalStatus.heading-answer");
 	private By partnerNameTextLocator = By.id("whatIsYourPartnerName.heading-answer");
 	private By partnerDobTextLocator = By.id("whatIsYourPartnerDob.static.heading-answer");
@@ -38,14 +25,9 @@ public class DependantDetails_CheckYourAnswerPage extends Page {
 	private By allocationNameTextLocator = By.id("whatIsAllocationName.heading-answer");
 	private By allocationDobTextLocator = By.id("whatIsAllocationDOB.static.heading-answer");
 	private By allocationRelationshipTextLocator = By.id("whatIsAllocationRelationship.static.heading-answer");
-	
-	private By getChangeLinkLocator(String page) {
-		return By.id(page + ".heading-chgit snge"); 
-	}
-	
+
 	public DependantDetails_CheckYourAnswerPage(WebDriver driver) {
 		super(driver);
-		waitForTitleToExist(checkYouAnswersPageTitle);
 		waitForElementToBeVisibleBy(maritalStatusFieldLocator);
 	}
 
@@ -159,117 +141,6 @@ public class DependantDetails_CheckYourAnswerPage extends Page {
 		return getElementText();
 	}
 
-	private void changeMaritalStatusLink() {
-		navigateToRootElement();
-		navigateToElementBy(maritalStatusChangeLinkLocator);
-		click();
-	}
-
-	public Page changeLink(String page) {
-		navigateToRootElement();
-		navigateToElementBy(getChangeLinkLocator(page));
-		return new Page(driver);
-	}
-
-	private void changePartnerNameLink() {
-		navigateToRootElement();
-		navigateToElementBy(partnerNameChangeLinkLocator);
-		click();
-	}
-
-	public PartnerNamePage changePartnerName() {
-		changePartnerNameLink();
-		return new PartnerNamePage(driver);
-	}
-
-	private void changePartnerDobLink() {
-		navigateToRootElement();
-		navigateToElementBy(partnerDobChangeLinkLocator);
-		click();
-	}
-
-	public DynamicDateOfBirthPage changePartnerDob() {
-		changePartnerDobLink();
-		return new DynamicDateOfBirthPage(driver);
-	}
-
-	private void changePartnerGenderLink() {
-		navigateToRootElement();
-		navigateToElementBy(partnerGenderChangeLinkLocator);
-		click();
-	}
-
-	public PartnerGenderPage changePartnerGender() {
-		changePartnerGenderLink();
-		return new PartnerGenderPage(driver);
-	}
-
-	private void changePartnerNinoLink() {
-		navigateToRootElement();
-		navigateToElementBy(partnerNinoChangeLinkLocator);
-		click();
-	}
-
-	public DynamicNinoPage changePartnerNino() {
-		changePartnerNinoLink();
-		return new DynamicNinoPage(driver);
-	}
-
-	private void changeDependantChildrenLink() {
-		navigateToRootElement();
-		navigateToElementBy(dependantChildrenChangeLinkLocator);
-		click();
-	}
-
-	public DependantChildrenPage changeDependantChildren() {
-		changeDependantChildrenLink();
-		return new DependantChildrenPage(driver);
-	}
-
-	private void changeAllocationPensionLink() {
-		navigateToRootElement();
-		navigateToElementBy(allocationPensionChangeLinkLocator);
-		click();
-	}
-
-	public AllocatePensionPage changeAllocationPension() {
-		changeAllocationPensionLink();
-		return new AllocatePensionPage(driver);
-	}
-
-	private void changeAllocationNameLink() {
-		navigateToRootElement();
-		navigateToElementBy(allocationNameChangeLinkLocator);
-		click();
-	}
-
-	public AllocationNamePage changeAllocationName() {
-		changeAllocationNameLink();
-		return new AllocationNamePage(driver);
-	}
-
-	private void changeAllocationDOBLink() {
-		navigateToRootElement();
-		navigateToElementBy(allocationDobChangeLinkLocator);
-		click();
-	}
-
-	public DynamicAllocationPage changeAllocationDOB() {
-		changeAllocationDOBLink();
-		return new DynamicAllocationPage(driver);
-	}
-
-	private void changeAllocationRelationshipLink() {
-		navigateToRootElement();
-		navigateToElementBy(allocationRelationshipChangeLinkLocator);
-		click();
-	}
-
-	public DynamicAllocationRelationshipPage changeAllocationRelationship() {
-		changeAllocationRelationshipLink();
-		return new DynamicAllocationRelationshipPage(driver);
-	}
-
 	public String getMaritalStatusText() {
 		navigateToRootElement();
 		navigateToElementBy(maritalStatusTextLocator);
@@ -330,10 +201,4 @@ public class DependantDetails_CheckYourAnswerPage extends Page {
 		return getElementText();
 	}
 
-	public SummaryPage submitDependantDetails() {
-		navigateToRootElement();
-		navigateToElementBy(continueButtonLocator);
-		click();
-		return new SummaryPage(driver);
-	}
 }

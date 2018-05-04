@@ -3,31 +3,36 @@ package com.nhsbsa.finance.pageobjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class LumpSumPreference_2015Page extends Page {
+public class LumpSumPreferencePage extends Page {
 
-	private String lumpSumPreference2015Title = "How would you like your lump sum? - Claim your NHS Pension - NHSBSA";
-	private By maxTaxFreeAmountRadioButtonLocator = By.xpath("//*[@id='2015-lump-sum-pref-form']/fieldset/div/div[1]/label");
-	private By lessTaxFreeAmountRadioButtonLocator = By.xpath("//*[@id='2015-lump-sum-pref-form']/fieldset/div/div[3]/label");
-	private By maxAdditionalLumpSumRadioButtonLocator = By.xpath("//*[@id='2015-lump-sum-pref-form']/fieldset/div/div[5]/label");
+	private String lumpSumPreferenceTitle = "How would you like your lump sum? - Claim your NHS Pension - NHSBSA";
+	private By maxTaxFreeAmountRadioButtonLocator = By.id("max-tax-free_radio");
+	private By lessTaxFreeAmountRadioButtonLocator = By.id("less-than-max-tax-free_radio");
+	private By maxAdditionalLumpSumRadioButtonLocator = By.id("max-additional-sum_radio");
     private By nextButtonLocator = By.id("submit_button");
+    private By backButtonLocator = By.id("back-link");
     private By amountFieldLocator = By.id("amount");
     private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");
 	private By errorsBelowErrorMessageLocator = By.id("error-summary-heading1");
 	private By amountFieldErrorMessageLocator = By.id("error-message-additional-amount");
 	private By amountAnchoredErrorMessageLocator = By.id("error-list1");
 	private By amountAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#amount']");
-	private By lumpSumFieldErrorMessageLocator = By.id("error-message-lump-sum-2015-pref-status");
+	private By lumpSum1995FieldErrorMessageLocator = By.id("error-message-lump-sum-1995-pref-status");
+	private By lumpSum2008FieldErrorMessageLocator = By.id("error-message-lump-sum-2008-pref-status");
+	private By lumpSum2015FieldErrorMessageLocator = By.id("error-message-lump-sum-2015-pref-status");
 	private By lumpSumAnchoredErrorMessageLocator = By.id("error-list0");
 	private By lumpSumAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#lumpSumPreference']");
 	private By maxTaxFreeAmountTextLocator = By.xpath("//*[@id='max-tax-free']/p");
 	private By lessTaxFreeAmounTextLocator = By.xpath("//*[@id='less-than-max-tax-free']/p");
 	private By maxAdditionalLumpSumTextLocator = By.xpath("//*[@id='max-additional-sum']/p");
     private By poundSymbolLocator = By.xpath("//span[@class='form-label']");
+    private By selectedLumpsumPrefRadioButtonLocator = By.xpath("//input[@checked='checked']");
     
-	public LumpSumPreference_2015Page(WebDriver driver) {
+    
+	public LumpSumPreferencePage(WebDriver driver) {
 		super(driver);
-		waitForTitleToExist(lumpSumPreference2015Title);
-		waitForElementToBeVisibleBy(maxTaxFreeAmountRadioButtonLocator);
+		waitForTitleToExist(lumpSumPreferenceTitle);
+		waitForElementToBeVisibleBy(backButtonLocator);
 	}
 
 	public void selectMaxtaxFreeAmount() {
@@ -54,7 +59,7 @@ public class LumpSumPreference_2015Page extends Page {
 		type(amount);
 	}
 	
-	private void nextStep() {
+	public void nextStep() {
 		navigateToRootElement();
 		navigateToElementBy(nextButtonLocator);
 		click();
@@ -106,9 +111,21 @@ public class LumpSumPreference_2015Page extends Page {
 		return getElementText();
 	}
 	
-	public String getLumpSumFieldErrorMessage() {
+	public String getLumpSum1995FieldErrorMessage() {
 		navigateToRootElement();
-		navigateToElementBy(lumpSumFieldErrorMessageLocator);
+		navigateToElementBy(lumpSum1995FieldErrorMessageLocator);
+		return getElementText();
+	}
+	
+	public String getLumpSum2008FieldErrorMessage() {
+		navigateToRootElement();
+		navigateToElementBy(lumpSum2008FieldErrorMessageLocator);
+		return getElementText();
+	}
+	
+	public String getLumpSum2015FieldErrorMessage() {
+		navigateToRootElement();
+		navigateToElementBy(lumpSum2015FieldErrorMessageLocator);
 		return getElementText();
 	}
 
@@ -139,26 +156,26 @@ public class LumpSumPreference_2015Page extends Page {
 	}
 
 
-		public void selectValidLumpSumAmount(){
+		public void selectValidLumpSumPref(){
 		nextStep();
 		
 	}
 		
-	public PensionDetails_CheckYourAnswerPage submitValidLumpSumAmount(String amount) {
+	public CheckYourAnswerPage submitValidLumpSumAmount(String amount) {
 			enterAmount(amount);
 			nextStep();
-			return new PensionDetails_CheckYourAnswerPage(driver);	
+			return new CheckYourAnswerPage(driver);	
 		}
 	
-	public LumpSumPreference_2015Page submitInvalidAmount() {
+	public LumpSumPreferencePage submitInvalidAmount() {
 		nextStep();
-		return new LumpSumPreference_2015Page(driver);
+		return new LumpSumPreferencePage(driver);
 	}
 		
 
-	public LumpSumPreference_2015Page isLumpSumAmountNotSelected() {
+	public LumpSumPreferencePage isLumpSumAmountNotSelected() {
 		nextStep();
-		return new LumpSumPreference_2015Page(driver);
+		return new LumpSumPreferencePage(driver);
 	}
 
 	public boolean isLumpSumAmountRadioButtonSelected() {
@@ -168,6 +185,13 @@ public class LumpSumPreference_2015Page extends Page {
 				&& !isElementSelected(maxAdditionalLumpSumRadioButtonLocator))
 			selected = false;
 		return selected;
+	}
+	
+	public String getLumpsumPref() {
+		navigateToRootElement();
+		navigateToElementBy(selectedLumpsumPrefRadioButtonLocator);
+		navigateToParentElement();
+		return getElementText();
 	}
 
 	}

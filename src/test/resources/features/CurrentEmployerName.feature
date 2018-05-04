@@ -1,8 +1,7 @@
-@CurrentEmployerName @BP490-119
+@CurrentEmployerName @BP490-119 @WIP
 Feature: What is the name of your current NHS employer
 
 Background:
-#Given I am on the name of the current NHS employer page
 Given I am on the start page
 When I go to the name of your current NHS employer page
 

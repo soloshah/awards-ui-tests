@@ -19,7 +19,7 @@ Then the date of birth submission will be unsuccessful
 And the date of birth error message '<errorMessage>' will be displayed
 Examples:
            |day | month  |year| errorMessage               |
-           |    |        |    | Enter a valid date of birth|   
+           |    |        |    | Enter a valid date of birth|  
            |    |  12    |1982| Enter a valid date of birth|
            |10  |        |1965| Enter a valid date of birth|
            |12  | 10     |    | Enter a valid date of birth|

@@ -10,8 +10,6 @@ import com.nhsbsa.finance.shared.SharedData;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 
 public class EmploymentDetails_CheckYourAnswersStepDefs {
 
@@ -111,12 +109,6 @@ public class EmploymentDetails_CheckYourAnswersStepDefs {
 		intendToWorkSteps.iClickNextOnIntendToWorkPage();
 }
 	
-	@Then("^Check your answers page for employment details will be displayed$")
-	public void checkYourAnswersPageForEmploymentDetailsWillBeDisplayed() {
-		employmentDetails_CheckYourAnswerPage = new EmploymentDetails_CheckYourAnswerPage(driver);
-		assertThat(employmentDetails_CheckYourAnswerPage.getHeading()).contains("Check your answers");
-	}
-
 	@And("^the correct current employment details will be displayed$")
 	public void theCorrectCurrentEmploymentDetailsWillBeDisplayed() {
 		employmentDetails_CheckYourAnswerPage = new EmploymentDetails_CheckYourAnswerPage(driver);
@@ -260,58 +252,6 @@ public class EmploymentDetails_CheckYourAnswersStepDefs {
 	
 	}
 	
-	@When("^I change current (.*)$")
-	public void iChangeCurrent(String field) {
-		employmentDetails_CheckYourAnswerPage = new EmploymentDetails_CheckYourAnswerPage(driver);
-		switch (field) {
-		case "employerName":
-			employmentDetails_CheckYourAnswerPage.changeCurrentEmploymentNameDetails();
-			break;
-		case "employerAddress":
-			employmentDetails_CheckYourAnswerPage.changeEmployerAddressDetails();
-			break;
-		case "lastDay":
-			employmentDetails_CheckYourAnswerPage.changeLastDayOfWorkDetails();
-			break;
-		case "intendToWork":
-			employmentDetails_CheckYourAnswerPage.changeIntendToWorkDetails();
-			break;
-		case "returnDate":
-			employmentDetails_CheckYourAnswerPage.changeReturnDateDetails();
-			break;
-
-		}
-	}
-	
-		
-	@When("^I change last (.*)$")
-	public void iChangeLast(String field) {
-		employmentDetails_CheckYourAnswerPage = new EmploymentDetails_CheckYourAnswerPage(driver);
-		switch (field) {
-		case "employerName":
-			employmentDetails_CheckYourAnswerPage.changeLastEmployerNameDetails();
-			break;
-		case "jobTitle":
-			employmentDetails_CheckYourAnswerPage.changeJobTitleDetails();
-			break;
-		case "leavingDate":
-			employmentDetails_CheckYourAnswerPage.changeDateYouLeaveDetails();
-			break;
-			}
-
-	}
-	
-	@When("^I change working for NHS$")
-	public void iChangeWorkingForNHS() {
-		employmentDetails_CheckYourAnswerPage = new EmploymentDetails_CheckYourAnswerPage(driver);
-		employmentDetails_CheckYourAnswerPage.changeWorkingForNHSDetails();
-	}
-	
-	@When("^I submit the employment details$")
-	public void iSubmitTheEmploymentDetails() {
-		employmentDetails_CheckYourAnswerPage = new EmploymentDetails_CheckYourAnswerPage(driver);
-		employmentDetails_CheckYourAnswerPage.submitEmploymentDetails();
-	}
 	
 	
 	@And("^the updated current (.*) will be displayed$")

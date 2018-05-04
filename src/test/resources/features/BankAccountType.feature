@@ -1,8 +1,8 @@
-@BankAccountType @BP490-130
+@BankAccountType @BP490-130 @WIP
 Feature: Bank Account Type
 
 Background:
-#Given I am on bank account type page
+
 Given I am on the start page
 When I go to bank account type page
 

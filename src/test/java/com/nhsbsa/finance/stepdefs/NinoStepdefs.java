@@ -71,10 +71,10 @@ public class NinoStepdefs {
   public void theNationalInsuranceNumberSubmissionWillBeUnsuccessful() {
 	  ninoPage = new NinoPage(driver);
     assertThat(ninoPage.getErrorHeadingErrorMessage())
-        .matches("Some questions have not been answered correctly:");
+        .matches("Your form contains errors");
     assertThat(ninoPage
     		.getErrorsBelowErrorMessage())
-        .matches("Please see the errors below.");
+        .matches("Check your answer:");
   }
   
   @And("^the nino error message '(.*)' will be displayed$")

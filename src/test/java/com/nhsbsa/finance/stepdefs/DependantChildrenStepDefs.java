@@ -20,7 +20,7 @@ public class DependantChildrenStepDefs {
 
 	private DependantChildrenPage dependantChildrenPage;
 	private ChildNameStepDefs childNameSteps;
-	private ChildDOBStepDefs childDOBSteps;
+	private DynamicChildDateOfBirthStepDefs dynamicChildDOBSteps;
 	private OtherDependantChildrenStepDefs otherDependantChildrenSteps;
 	private SharedYeNoStepDefs sharedYeNoSteps;
 
@@ -63,9 +63,9 @@ public class DependantChildrenStepDefs {
 	@When("^I enter dependantChildren using different valid details$")
 	public void iSelectDependantChildrenUsingDifferentValidOption() {
 		childNameSteps = new ChildNameStepDefs();
-		childNameSteps.IenterValidChildName();
-		childDOBSteps = new ChildDOBStepDefs();
-		childDOBSteps.IenterValidChildDateOfBirthDetails();
+		childNameSteps.IenterMoreValidChildName();
+		dynamicChildDOBSteps = new DynamicChildDateOfBirthStepDefs();
+		dynamicChildDOBSteps.IenterValidChildDobDetails();
 		otherDependantChildrenSteps = new OtherDependantChildrenStepDefs();
 		otherDependantChildrenSteps.doYouHaveAnyOtherDependantPageWillBeDisplayed();
 		sharedYeNoSteps = new SharedYeNoStepDefs();

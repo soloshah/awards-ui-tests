@@ -10,8 +10,6 @@ import com.nhsbsa.finance.shared.SharedData;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 
 public class PensionDetails_CheckYourAnswersStepDefs {
 
@@ -27,9 +25,7 @@ public class PensionDetails_CheckYourAnswersStepDefs {
 	private LumpSumChoice_1995StepDefs lumpsumChoice1995Steps;
 	private LumpSumChoice_2008StepDefs lumpsumChoice2008Steps;
 	private LumpSumChoice_2015StepDefs lumpsumChoice2015Steps;
-	private LumpSumPreference_1995StepDefs lumpsumPref1995Steps;
-	private LumpSumPreference_2008StepDefs lumpsumPref2008Steps;
-	private LumpSumPreference_2015StepDefs lumpsumPref2015Steps;
+	private LumpSumPreferenceStepDefs lumpsumPrefSteps;
 	private Interstitial2008StepDefs interstitial2008Steps;
 	private Interstitial2015StepDefs interstitial2015Steps;
 
@@ -50,10 +46,10 @@ public class PensionDetails_CheckYourAnswersStepDefs {
 		lumpsumChoice1995Steps.the1995LumpsumChoicePageWillBeDisplayed();
 		sharedYesNoSteps = new SharedYeNoStepDefs();
 		sharedYesNoSteps.iSelectYes();
-		lumpsumPref1995Steps = new LumpSumPreference_1995StepDefs();
-		lumpsumPref1995Steps.ISelectLessTaxFreeAmountAs1995LumpSumPreference();
+		lumpsumPrefSteps = new LumpSumPreferenceStepDefs();
+		lumpsumPrefSteps.ISelectLessTaxFreeAmountAsLumpSumPreference();
 	}
-	
+
 	@Given("^I have filled in 1995 pension scheme details for summary page$")
 	public void iHaveFilledIn1995PensionSchemeDetailsForSummaryPage() throws Throwable {
 		whichSchemeSteps = new WhichSchemeStepDefs();
@@ -69,8 +65,8 @@ public class PensionDetails_CheckYourAnswersStepDefs {
 		lumpsumChoice1995Steps.the1995LumpsumChoicePageWillBeDisplayed();
 		sharedYesNoSteps = new SharedYeNoStepDefs();
 		sharedYesNoSteps.iSelectYes();
-		lumpsumPref1995Steps = new LumpSumPreference_1995StepDefs();
-		lumpsumPref1995Steps.ISelectLessTaxFreeAmountAs1995LumpSumPreference();
+		lumpsumPrefSteps = new LumpSumPreferenceStepDefs();
+		lumpsumPrefSteps.ISelectLessTaxFreeAmountAsLumpSumPreference();
 	}
 
 	@Given("^I have filled in 2008 pension scheme details$")
@@ -86,8 +82,8 @@ public class PensionDetails_CheckYourAnswersStepDefs {
 		lumpsumChoice2008Steps.the2008LumpsumChoicePageWillBeDisplayed();
 		sharedYesNoSteps = new SharedYeNoStepDefs();
 		sharedYesNoSteps.iSelectYes();
-		lumpsumPref2008Steps = new LumpSumPreference_2008StepDefs();
-		lumpsumPref2008Steps.ISelectMaxTaxFreeAmountAs2008LumpSumPreference();
+		lumpsumPrefSteps = new LumpSumPreferenceStepDefs();
+		lumpsumPrefSteps.ISelectMaxTaxFreeAmountAsLumpSumPreference();
 	}
 
 	@Given("^I fill in 2008 pension scheme details$")
@@ -98,8 +94,8 @@ public class PensionDetails_CheckYourAnswersStepDefs {
 		lumpsumChoice2008Steps.the2008LumpsumChoicePageWillBeDisplayed();
 		sharedYesNoSteps = new SharedYeNoStepDefs();
 		sharedYesNoSteps.iSelectYes();
-		lumpsumPref2008Steps = new LumpSumPreference_2008StepDefs();
-		lumpsumPref2008Steps.ISelectMaxTaxFreeAmountAs2008LumpSumPreference();
+		lumpsumPrefSteps = new LumpSumPreferenceStepDefs();
+		lumpsumPrefSteps.ISelectMaxTaxFreeAmountAsLumpSumPreference();
 	}
 
 	@Given("^I have filled in 2015 pension scheme details$")
@@ -116,9 +112,9 @@ public class PensionDetails_CheckYourAnswersStepDefs {
 		lumpsumChoice2015Steps.the2015LumpsumChoicePageWillBeDisplayed();
 		sharedYesNoSteps = new SharedYeNoStepDefs();
 		sharedYesNoSteps.iSelectYes();
-		lumpsumPref2015Steps = new LumpSumPreference_2015StepDefs();
-		lumpsumPref2015Steps.the2015LumpsumPreferencePageWillBeDisplayed();
-		lumpsumPref2015Steps.ISelectMaxAdditionalLumpSumAs2015LumpSumPreference();
+		lumpsumPrefSteps = new LumpSumPreferenceStepDefs();
+		lumpsumPrefSteps.theLumpsumPreferencePageWillBeDisplayed();
+		lumpsumPrefSteps.ISelectMaxAdditionalLumpSumAsLumpSumPreference();
 	}
 
 	@Given("^I have filled in all pension scheme details$")
@@ -143,8 +139,8 @@ public class PensionDetails_CheckYourAnswersStepDefs {
 		lumpsumChoice2008Steps.the2008LumpsumChoicePageWillBeDisplayed();
 		sharedYesNoSteps = new SharedYeNoStepDefs();
 		sharedYesNoSteps.iSelectYes();
-		lumpsumPref2008Steps = new LumpSumPreference_2008StepDefs();
-		lumpsumPref2008Steps.ISelectMaxTaxFreeAmountAs2008LumpSumPreference();
+		lumpsumPrefSteps = new LumpSumPreferenceStepDefs();
+		lumpsumPrefSteps.ISelectMaxTaxFreeAmountAsLumpSumPreference();
 		interstitial2015Steps = new Interstitial2015StepDefs();
 		interstitial2015Steps.the2015InterstitialPageWillBeDisplayed();
 		retirementReason2015Steps = new RetirementReason_2015StepDefs();
@@ -157,117 +153,104 @@ public class PensionDetails_CheckYourAnswersStepDefs {
 
 	}
 
-	@Then("^Check your answers page for pension scheme details will be displayed$")
-	public void checkYourAnswersPageForPensionSchemeDetailsWillBeDisplayed() {
-		pensionDetails_CheckYourAnswerPage = new PensionDetails_CheckYourAnswerPage(driver);
-		assertThat(pensionDetails_CheckYourAnswerPage.getHeading()).contains("Check your answers");
-	}
-
 	@And("^the correct 1995 pension scheme details will be displayed$")
 	public void theCorrect1995PensionSchemeDetailsWillBeDisplayed() {
 		pensionDetails_CheckYourAnswerPage = new PensionDetails_CheckYourAnswerPage(driver);
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOfWhichScheme()).isEqualTo(true);
-		assertThat(pensionDetails_CheckYourAnswerPage.getWhichScheme())
-				.matches("Which Section or Scheme are you claiming benefits from");
+		assertThat(pensionDetails_CheckYourAnswerPage.getWhichScheme()).contains("Which pension scheme or section?");
 		assertThat(pensionDetails_CheckYourAnswerPage.getWhichSchemeText()).matches("1995");
 		assertThat(pensionDetails_CheckYourAnswerPage.get1995Section()).matches("1995 Section");
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf1995RetirementReason()).isEqualTo(true);
 		assertThat(pensionDetails_CheckYourAnswerPage.get1995Retirementreason())
-				.matches("Why are you claiming your deferred benefits for the 1995 Section");
+				.contains("Why are you claiming your deferred benefits?");
 		assertThat(pensionDetails_CheckYourAnswerPage.get1995RetirementReasonText())
 				.matches(SharedData.shared1995RadioButton);
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf1995EarlyPaymentDate()).isEqualTo(true);
 		assertThat(pensionDetails_CheckYourAnswerPage.get1995EarlyPaymentDate())
-				.matches("When should the early payment of deferred benefit start");
+				.contains("When should the early payment of deferred benefit start");
 		assertThat(pensionDetails_CheckYourAnswerPage.get1995EarlyPaymentDateText())
 				.matches(SharedData.day + " " + SharedData.month + " " + SharedData.year);
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf1995LumpsumChoice()).isEqualTo(true);
-		assertThat(pensionDetails_CheckYourAnswerPage.get1995LumpsumChoice()).matches(
-				"You are already entitled to a lump sum. Do you want to increase your lump sum by giving up part of your 1995 pension");
+		assertThat(pensionDetails_CheckYourAnswerPage.get1995LumpsumChoice()).contains("Do you want an lump sum by giving up part of your pension");
 		assertThat(pensionDetails_CheckYourAnswerPage.get1995LumpsumChoiceText()).matches(SharedData.sharedRadioButton);
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf1995LumpsumPref()).isEqualTo(true);
-		assertThat(pensionDetails_CheckYourAnswerPage.get1995LumpsumPref()).matches("How would you like your lump sum");
+		assertThat(pensionDetails_CheckYourAnswerPage.get1995LumpsumPref()).contains("How would you like your lump sum");
 		assertThat(pensionDetails_CheckYourAnswerPage.get1995LumpsumPrefText())
-				.matches(SharedData.sharedNHSRadioButton + "\n" +"£1440");
+				.matches(SharedData.sharedNHSRadioButton + "\n" + "£1440");
 
 	}
-	
-	
+
 	@And("^the 1995 pension scheme details with different option will be displayed$")
 	public void the1995PensionSchemeDetailsWithDifferentOptionWillBeDisplayed() {
 		pensionDetails_CheckYourAnswerPage = new PensionDetails_CheckYourAnswerPage(driver);
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOfWhichScheme()).isEqualTo(true);
 		assertThat(pensionDetails_CheckYourAnswerPage.getWhichScheme())
-				.matches("Which Section or Scheme are you claiming benefits from");
+				.matches("Which pension scheme or section?");
 		assertThat(pensionDetails_CheckYourAnswerPage.getWhichSchemeText()).matches("1995");
 		assertThat(pensionDetails_CheckYourAnswerPage.get1995Section()).matches("1995 Section");
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf1995RetirementReason()).isEqualTo(true);
 		assertThat(pensionDetails_CheckYourAnswerPage.get1995Retirementreason())
-				.matches("Why are you claiming your deferred benefits for the 1995 Section");
+				.contains("Why are you claiming your deferred benefits?");
 		assertThat(pensionDetails_CheckYourAnswerPage.get1995RetirementReasonText())
 				.matches(SharedData.shared1995RadioButton);
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf1995EarlyPaymentDate()).isEqualTo(true);
 		assertThat(pensionDetails_CheckYourAnswerPage.get1995EarlyPaymentDate())
-				.matches("When should the early payment of deferred benefit start");
+				.contains("When should the early payment of deferred benefit start");
 		assertThat(pensionDetails_CheckYourAnswerPage.get1995EarlyPaymentDateText())
 				.matches(SharedData.day + " " + SharedData.month + " " + SharedData.year);
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf1995LumpsumChoice()).isEqualTo(true);
-		assertThat(pensionDetails_CheckYourAnswerPage.get1995LumpsumChoice()).matches(
-				"You are already entitled to a lump sum. Do you want to increase your lump sum by giving up part of your 1995 pension");
+		assertThat(pensionDetails_CheckYourAnswerPage.get1995LumpsumChoice()).contains("Do you want an lump sum by giving up part of your pension?");
 		assertThat(pensionDetails_CheckYourAnswerPage.get1995LumpsumChoiceText()).matches(SharedData.sharedRadioButton);
-		
+
 	}
-	
-	
+
 	@And("^the 1995 pension scheme details will be displayed$")
 	public void the1995PensionSchemeDetailsWillBeDisplayed() {
 		pensionDetails_CheckYourAnswerPage = new PensionDetails_CheckYourAnswerPage(driver);
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOfWhichScheme()).isEqualTo(true);
 		assertThat(pensionDetails_CheckYourAnswerPage.getWhichScheme())
-				.matches("Which Section or Scheme are you claiming benefits from");
+				.contains("Which pension scheme or section?");
 		assertThat(pensionDetails_CheckYourAnswerPage.getWhichSchemeText()).matches("1995");
 		assertThat(pensionDetails_CheckYourAnswerPage.get1995Section()).matches("1995 Section");
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf1995RetirementReason()).isEqualTo(true);
 		assertThat(pensionDetails_CheckYourAnswerPage.get1995Retirementreason())
-				.matches("Why are you claiming your deferred benefits for the 1995 Section");
+				.contains("Why are you claiming your deferred benefits?");
 		assertThat(pensionDetails_CheckYourAnswerPage.get1995RetirementReasonText())
 				.matches(SharedData.shared1995RadioButton);
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf1995EarlyPaymentDate()).isEqualTo(true);
 		assertThat(pensionDetails_CheckYourAnswerPage.get1995EarlyPaymentDate())
-				.matches("When should the early payment of deferred benefit start");
+				.contains("When should the early payment of deferred benefit start");
 		assertThat(pensionDetails_CheckYourAnswerPage.get1995EarlyPaymentDateText())
 				.matches(SharedData.day + " " + SharedData.month + " " + SharedData.year);
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf1995LumpsumChoice()).isEqualTo(true);
-		assertThat(pensionDetails_CheckYourAnswerPage.get1995LumpsumChoice()).matches(
-				"You are already entitled to a lump sum. Do you want to increase your lump sum by giving up part of your 1995 pension");
+		assertThat(pensionDetails_CheckYourAnswerPage.get1995LumpsumChoice()).contains("Do you want an lump sum by giving up part of your pension?");
 		assertThat(pensionDetails_CheckYourAnswerPage.get1995LumpsumChoiceText()).matches(SharedData.sharedRadioButton);
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf1995LumpsumPref()).isEqualTo(true);
-		assertThat(pensionDetails_CheckYourAnswerPage.get1995LumpsumPref()).matches("How would you like your lump sum");
+		assertThat(pensionDetails_CheckYourAnswerPage.get1995LumpsumPref()).contains("How would you like your lump sum");
 		assertThat(pensionDetails_CheckYourAnswerPage.get1995LumpsumPrefText())
 				.matches(SharedData.sharedNHSRadioButton);
 
 	}
-	
 
 	@And("^the correct 2008 pension scheme details will be displayed$")
 	public void theCorrect2008PensionSchemeDetailsWillBeDisplayed() {
 		pensionDetails_CheckYourAnswerPage = new PensionDetails_CheckYourAnswerPage(driver);
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOfWhichScheme()).isEqualTo(true);
 		assertThat(pensionDetails_CheckYourAnswerPage.getWhichScheme())
-				.matches("Which Section or Scheme are you claiming benefits from");
+				.contains("Which pension scheme or section?");
 		assertThat(pensionDetails_CheckYourAnswerPage.getWhichSchemeText()).matches("2008");
 		assertThat(pensionDetails_CheckYourAnswerPage.get2008Section()).matches("2008 Section");
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf2008RetirementReason()).isEqualTo(true);
 		assertThat(pensionDetails_CheckYourAnswerPage.get2008RetirementReason())
-				.matches("Why are you claiming your deferred benefits for the 2008 Section");
+				.contains("Why are you claiming your deferred benefits?");
 		assertThat(pensionDetails_CheckYourAnswerPage.get2008RetirementReasonText())
 				.matches("Retirement based on your age");
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf2008LumpsumChoice()).isEqualTo(true);
-		assertThat(pensionDetails_CheckYourAnswerPage.get2008LumpsumChoice()).matches(
-				"Do you want to give up part of your 2008 Section pension to receive a lump sum");
+		assertThat(pensionDetails_CheckYourAnswerPage.get2008LumpsumChoice())
+				.contains("Do you want an lump sum by giving up part of your pension?");
 		assertThat(pensionDetails_CheckYourAnswerPage.get2008LumpsumChoiceText()).matches(SharedData.sharedRadioButton);
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf2008LumpsumPref()).isEqualTo(true);
-		assertThat(pensionDetails_CheckYourAnswerPage.get2008LumpsumPref()).matches("How would you like your lump sum");
+		assertThat(pensionDetails_CheckYourAnswerPage.get2008LumpsumPref()).contains("How would you like your lump sum");
 		assertThat(pensionDetails_CheckYourAnswerPage.get2008LumpsumPrefText()).matches("Maximum tax-free amount");
 
 	}
@@ -277,20 +260,20 @@ public class PensionDetails_CheckYourAnswersStepDefs {
 		pensionDetails_CheckYourAnswerPage = new PensionDetails_CheckYourAnswerPage(driver);
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOfWhichScheme()).isEqualTo(true);
 		assertThat(pensionDetails_CheckYourAnswerPage.getWhichScheme())
-				.matches("Which Section or Scheme are you claiming benefits from");
+				.contains("Which pension scheme or section?");
 		assertThat(pensionDetails_CheckYourAnswerPage.getWhichSchemeText()).matches("2015");
 		assertThat(pensionDetails_CheckYourAnswerPage.get2015Section()).matches("2015 Scheme");
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf2015RetirementReason()).isEqualTo(true);
 		assertThat(pensionDetails_CheckYourAnswerPage.get2015RetirementReason())
-				.matches("Why are you claiming your deferred benefits for the 2015 Scheme");
+				.contains("Why are you claiming your deferred benefits?");
 		assertThat(pensionDetails_CheckYourAnswerPage.get2015RetirementReasonText())
 				.matches("Early payment of deferred benefits because of ill health");
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf2015LumpsumChoice()).isEqualTo(true);
-		assertThat(pensionDetails_CheckYourAnswerPage.get2015LumpsumChoice()).matches(
-				"Do you want to give up part of your 2015 Section pension to receive a lump sum");
+		assertThat(pensionDetails_CheckYourAnswerPage.get2015LumpsumChoice())
+				.contains("Do you want an lump sum by giving up part of your pension?");
 		assertThat(pensionDetails_CheckYourAnswerPage.get2015LumpsumChoiceText()).matches(SharedData.sharedRadioButton);
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf2015LumpsumPref()).isEqualTo(true);
-		assertThat(pensionDetails_CheckYourAnswerPage.get2015LumpsumPref()).matches("How would you like your lump sum");
+		assertThat(pensionDetails_CheckYourAnswerPage.get2015LumpsumPref()).contains("How would you like your lump sum");
 		assertThat(pensionDetails_CheckYourAnswerPage.get2015LumpsumPrefText())
 				.matches("The maximum additional lump sum, which may incur a tax charge");
 
@@ -301,36 +284,39 @@ public class PensionDetails_CheckYourAnswersStepDefs {
 		pensionDetails_CheckYourAnswerPage = new PensionDetails_CheckYourAnswerPage(driver);
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOfWhichScheme()).isEqualTo(true);
 		assertThat(pensionDetails_CheckYourAnswerPage.getWhichScheme())
-				.matches("Which Section or Scheme are you claiming benefits from");
+				.contains("Which pension scheme or section?");
 		assertThat(pensionDetails_CheckYourAnswerPage.getWhichSchemeText()).matches("1995\n2008\n2015");
 		assertThat(pensionDetails_CheckYourAnswerPage.get1995Section()).matches("1995 Section");
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf1995RetirementReason()).isEqualTo(true);
 		assertThat(pensionDetails_CheckYourAnswerPage.get1995Retirementreason())
-				.matches("Why are you claiming your deferred benefits for the 1995 Section");
+				.contains("Why are you claiming your deferred benefits?");
 		assertThat(pensionDetails_CheckYourAnswerPage.get1995RetirementReasonText())
 				.matches(SharedData.shared1995RadioButton);
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf1995LumpsumChoice()).isEqualTo(true);
-		assertThat(pensionDetails_CheckYourAnswerPage.get1995LumpsumChoice()).matches("You are already entitled to a lump sum. Do you want to increase your lump sum by giving up part of your 1995 pension");
+		assertThat(pensionDetails_CheckYourAnswerPage.get1995LumpsumChoice()).contains("Do you want an lump sum by giving up part of your pension");
 		assertThat(pensionDetails_CheckYourAnswerPage.get1995LumpsumChoiceText()).matches("No");
 		assertThat(pensionDetails_CheckYourAnswerPage.get2008Section()).matches("2008 Section");
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf2008RetirementReason()).isEqualTo(true);
-		assertThat(pensionDetails_CheckYourAnswerPage.get2008RetirementReason()).matches("Why are you claiming your deferred benefits for the 2008 Section");
-		assertThat(pensionDetails_CheckYourAnswerPage.get2008RetirementReasonText()).matches("Retirement based on your age");
+		assertThat(pensionDetails_CheckYourAnswerPage.get2008RetirementReason())
+				.contains("Why are you claiming your deferred benefits?");
+		assertThat(pensionDetails_CheckYourAnswerPage.get2008RetirementReasonText())
+				.matches("Retirement based on your age");
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf2008LumpsumChoice()).isEqualTo(true);
-		assertThat(pensionDetails_CheckYourAnswerPage.get2008LumpsumChoice()).matches("Do you want to give up part of your 2008 Section pension to receive a lump sum");
+		assertThat(pensionDetails_CheckYourAnswerPage.get2008LumpsumChoice())
+				.contains("Do you want an lump sum by giving up part of your pension?");
 		assertThat(pensionDetails_CheckYourAnswerPage.get2008LumpsumChoiceText()).matches("Yes");
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf2008LumpsumPref()).isEqualTo(true);
-		assertThat(pensionDetails_CheckYourAnswerPage.get2008LumpsumPref()).matches("How would you like your lump sum");
+		assertThat(pensionDetails_CheckYourAnswerPage.get2008LumpsumPref()).contains("How would you like your lump sum");
 		assertThat(pensionDetails_CheckYourAnswerPage.get2008LumpsumPrefText()).matches("Maximum tax-free amount");
 		assertThat(pensionDetails_CheckYourAnswerPage.get2015Section()).matches("2015 Scheme");
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf2015RetirementReason()).isEqualTo(true);
 		assertThat(pensionDetails_CheckYourAnswerPage.get2015RetirementReason())
-				.matches("Why are you claiming your deferred benefits for the 2015 Scheme");
+				.contains("Why are you claiming your deferred benefits?");
 		assertThat(pensionDetails_CheckYourAnswerPage.get2015RetirementReasonText())
 				.matches("Early payment of deferred benefits because of ill health");
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf2015LumpsumChoice()).isEqualTo(true);
-		assertThat(pensionDetails_CheckYourAnswerPage.get2015LumpsumChoice()).matches(
-				"Do you want to give up part of your 2015 Section pension to receive a lump sum");
+		assertThat(pensionDetails_CheckYourAnswerPage.get2015LumpsumChoice())
+				.contains("Do you want an lump sum by giving up part of your pension?");
 		assertThat(pensionDetails_CheckYourAnswerPage.get2015LumpsumChoiceText()).matches("No");
 
 	}
@@ -340,36 +326,35 @@ public class PensionDetails_CheckYourAnswersStepDefs {
 		pensionDetails_CheckYourAnswerPage = new PensionDetails_CheckYourAnswerPage(driver);
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOfWhichScheme()).isEqualTo(true);
 		assertThat(pensionDetails_CheckYourAnswerPage.getWhichScheme())
-				.matches("Which Section or Scheme are you claiming benefits from");
+				.contains("Which pension scheme or section?");
 		assertThat(pensionDetails_CheckYourAnswerPage.getWhichSchemeText()).matches("1995\n2008");
 		assertThat(pensionDetails_CheckYourAnswerPage.get1995Section()).matches("1995 Section");
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf1995RetirementReason()).isEqualTo(true);
 		assertThat(pensionDetails_CheckYourAnswerPage.get1995Retirementreason())
-				.matches("Why are you claiming your deferred benefits for the 1995 Section");
+				.contains("Why are you claiming your deferred benefits?");
 		assertThat(pensionDetails_CheckYourAnswerPage.get1995RetirementReasonText())
 				.matches(SharedData.shared1995RadioButton);
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf1995EarlyPaymentDate()).isEqualTo(true);
 		assertThat(pensionDetails_CheckYourAnswerPage.get1995EarlyPaymentDate())
-				.matches("When should the early payment of deferred benefit start");
+				.contains("When should the early payment of deferred benefit start");
 		assertThat(pensionDetails_CheckYourAnswerPage.get1995EarlyPaymentDateText())
 				.matches(SharedData.day + " " + SharedData.month + " " + SharedData.year);
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf1995LumpsumChoice()).isEqualTo(true);
-		assertThat(pensionDetails_CheckYourAnswerPage.get1995LumpsumChoice()).matches(
-				"You are already entitled to a lump sum. Do you want to increase your lump sum by giving up part of your 1995 pension");
+		assertThat(pensionDetails_CheckYourAnswerPage.get1995LumpsumChoice()).contains("Do you want to increase an lump sum by giving up part of your pension");
 		assertThat(pensionDetails_CheckYourAnswerPage.get1995LumpsumChoiceText()).matches(SharedData.sharedRadioButton);
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf1995LumpsumPref()).isEqualTo(true);
-		assertThat(pensionDetails_CheckYourAnswerPage.get1995LumpsumPref()).matches("How would you like your lump sum");
+		assertThat(pensionDetails_CheckYourAnswerPage.get1995LumpsumPref()).contains("How would you like your lump sum");
 		assertThat(pensionDetails_CheckYourAnswerPage.get1995LumpsumPrefText())
 				.matches(SharedData.sharedNHSRadioButton + "\n" + "£1440");
 		assertThat(pensionDetails_CheckYourAnswerPage.get2008Section()).matches("2008 Section");
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf2008RetirementReason()).isEqualTo(true);
 		assertThat(pensionDetails_CheckYourAnswerPage.get2008RetirementReason())
-				.matches("Why are you claiming your deferred benefits for the 2008 Section");
+				.contains("Why are you claiming your deferred benefits?");
 		assertThat(pensionDetails_CheckYourAnswerPage.get2008RetirementReasonText())
 				.matches("Retirement based on your age");
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf2008LumpsumChoice()).isEqualTo(true);
-		assertThat(pensionDetails_CheckYourAnswerPage.get2008LumpsumChoice()).matches(
-				"Do you want to give up part of your 2008 Section pension to receive a lump sum");
+		assertThat(pensionDetails_CheckYourAnswerPage.get2008LumpsumChoice())
+				.contains("Do you want an lump sum by giving up part of your pension?");
 		assertThat(pensionDetails_CheckYourAnswerPage.get2008LumpsumChoiceText()).matches(SharedData.sharedRadioButton);
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf2008LumpsumPref()).isEqualTo(true);
 		assertThat(pensionDetails_CheckYourAnswerPage.get2008LumpsumPref()).matches("How would you like your lump sum");
@@ -387,8 +372,8 @@ public class PensionDetails_CheckYourAnswersStepDefs {
 		lumpsumChoice1995Steps = new LumpSumChoice_1995StepDefs();
 		lumpsumChoice1995Steps.the1995LumpsumChoicePageWillBeDisplayed();
 		sharedYesNoSteps.iClickNextOn1995LumpsumChoicePage();
-		lumpsumPref1995Steps = new LumpSumPreference_1995StepDefs();
-		lumpsumPref1995Steps.iClickNextOn1995LumpsumPrefPage();
+		lumpsumPrefSteps = new LumpSumPreferenceStepDefs();
+		lumpsumPrefSteps.iClickNextOnLumpsumPrefPage();
 		interstitial2008Steps = new Interstitial2008StepDefs();
 		interstitial2008Steps.the2008InterstitialPageWillBeDisplayed();
 
@@ -399,8 +384,8 @@ public class PensionDetails_CheckYourAnswersStepDefs {
 		lumpsumChoice1995Steps = new LumpSumChoice_1995StepDefs();
 		lumpsumChoice1995Steps.the1995LumpsumChoicePageWillBeDisplayed();
 		sharedYesNoSteps.iClickNextOn1995LumpsumChoicePage();
-		lumpsumPref1995Steps = new LumpSumPreference_1995StepDefs();
-		lumpsumPref1995Steps.iClickNextOn1995LumpsumPrefPage();
+		lumpsumPrefSteps = new LumpSumPreferenceStepDefs();
+		lumpsumPrefSteps.iClickNextOnLumpsumPrefPage();
 
 	}
 
@@ -409,37 +394,8 @@ public class PensionDetails_CheckYourAnswersStepDefs {
 		lumpsumChoice1995Steps = new LumpSumChoice_1995StepDefs();
 		lumpsumChoice1995Steps.the1995LumpsumChoicePageWillBeDisplayed();
 		sharedYesNoSteps.iClickNextOn1995LumpsumChoicePage();
-		lumpsumPref1995Steps = new LumpSumPreference_1995StepDefs();
-		lumpsumPref1995Steps.iClickNextOn1995LumpsumPrefPage();
-	}
-
-	@When("^I click change for (.*)$")
-	public void iChangeCurrent(String field) {
-		pensionDetails_CheckYourAnswerPage = new PensionDetails_CheckYourAnswerPage(driver);
-		switch (field) {
-		case "whichScheme":
-			pensionDetails_CheckYourAnswerPage.changeWhichSchemeDetails();
-			break;
-		case "reasonForRetirement":
-			pensionDetails_CheckYourAnswerPage.changeRetirementReasonDetails();
-			break;
-		case "earlyPaymentDate":
-			pensionDetails_CheckYourAnswerPage.changeEarlyPaymentDateDetails();
-			break;
-		case "lumpSumChoice":
-			pensionDetails_CheckYourAnswerPage.changeLumpsumChoiceDetails();
-			break;
-		case "lumpSumPreference":
-			pensionDetails_CheckYourAnswerPage.changeLumpsumPrefDetails();
-			break;
-
-		}
-	}
-
-	@When("^I submit the pension scheme details$")
-	public void iSubmitThePensionSchemeDetails() {
-		pensionDetails_CheckYourAnswerPage = new PensionDetails_CheckYourAnswerPage(driver);
-		pensionDetails_CheckYourAnswerPage.submitPensionDetails();
+		lumpsumPrefSteps = new LumpSumPreferenceStepDefs();
+		lumpsumPrefSteps.iClickNextOnLumpsumPrefPage();
 	}
 
 	@And("^the updated pension details for (.*) will be displayed$")
@@ -458,7 +414,8 @@ public class PensionDetails_CheckYourAnswersStepDefs {
 					.matches(SharedData.day + " " + SharedData.month + " " + SharedData.year);
 			break;
 		case "lumpsumChoice":
-			assertThat(pensionDetails_CheckYourAnswerPage.get1995LumpsumChoiceText()).matches(SharedData.sharedRadioButton);
+			assertThat(pensionDetails_CheckYourAnswerPage.get1995LumpsumChoiceText())
+					.matches(SharedData.sharedRadioButton);
 			break;
 		case "lumpSumPreference":
 			assertThat(pensionDetails_CheckYourAnswerPage.get1995LumpsumPrefText())

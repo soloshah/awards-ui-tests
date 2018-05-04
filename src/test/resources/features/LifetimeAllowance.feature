@@ -10,9 +10,8 @@ Scenario Outline: do you have lifetime allowance
 When I select Yes on lifetime allowance page
 Then the certificate number field will be displayed
 And I enter the valid certificate number using the certNumber '<certNumber>'
-Then the tbi page will be displayed
-#And the lifetime allowance submission will be successful
-#Then check your answer page will be displayed
+And the lifetime allowance submission will be successful
+Then Check your answers page will be displayed
 Examples:
         |certNumber      |
         |31234567        |
@@ -54,8 +53,7 @@ Examples:
 
 Scenario: Do you have any lifetime allowance
 When I select No on lifetime allowance page
-Then the tbi page will be displayed
-#Then check your answer page will be  displayed
+Then Check your answers page will be displayed
 
 
 Scenario: Lifetime Allowance

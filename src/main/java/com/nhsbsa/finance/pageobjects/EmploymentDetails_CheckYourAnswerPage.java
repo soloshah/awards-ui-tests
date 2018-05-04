@@ -5,26 +5,15 @@ import org.openqa.selenium.WebDriver;
 
 public class EmploymentDetails_CheckYourAnswerPage extends Page {
 
-	private String checkYouAnswersPageTitle = "Check your answers - Claim your NHS Pension - NHSBSA";
 	private By workingForNHSFieldLocator = By.id("workingNhs.heading");
 	private By lastEmployerNameFieldLocator = By.id("lastNhsEmployer.heading");
 	private By jobTitleFieldLocator = By.id("jobTitle.heading");
 	private By dateYouLeaveFieldLocator = By.id("lastEmploymentDate.heading");
 	private By intendToWorkFieldLocator = By.id("doYouIntend.heading");
 	private By returnDateFieldLocator = By.id("doYouIntend.label");
-	private By continueButtonLocator = By.id("continue_button");
 	private By currentEmployerNameFieldLocator = By.id("currentNhsEmployer.heading");
 	private By employerAddressFieldLocator = By.id("whatIsYourEmployerAddress.heading");
 	private By lastDayOfWorkFieldLocator = By.id("lastDayOfWorkWillBe.heading");
-	private By workingForNHSChangeLinkLocator = By.id("workingNhs.heading-chgit snge");
-	private By currentEmployerNameChangeLinkLocator = By.id("currentNhsEmployer.heading-chgit snge");
-	private By employerAddressChangeLinkLocator = By.id("whatIsYourEmployerAddress.heading-chgit snge");
-	private By lastDayOfWorkChangeLinkLocator = By.id("lastDayOfWorkWillBe.heading-chgit snge");
-	private By intendToWorkChangeLinkLocator = By.id("doYouIntend.heading-chgit snge");
-	private By returnDateChangeLinkLocator = By.id("doYouIntend.label-chgit snge");
-	private By lastEmployerNameChangeLinkLocator = By.id("lastNhsEmployer.heading-chgit snge");
-	private By jobTitleChangeLinkLocator = By.id("jobTitle.heading-chgit snge");
-	private By dateYouleaveChangeLinkLocator = By.id("lastEmploymentDate.heading-chgit snge");
 	private By workingForNHSTextLocator = By.id("workingNhs.heading-answer");
 	private By lastEmployerNameTextLocator = By.id("lastNhsEmployer.heading-answer");
 	private By jobTitleTextLocator = By.id("jobTitle.heading-answer");
@@ -37,7 +26,6 @@ public class EmploymentDetails_CheckYourAnswerPage extends Page {
 
 	public EmploymentDetails_CheckYourAnswerPage(WebDriver driver) {
 		super(driver);
-		waitForTitleToExist(checkYouAnswersPageTitle);
 		waitForElementToBeVisibleBy(workingForNHSFieldLocator);
 	}
 
@@ -195,109 +183,5 @@ public class EmploymentDetails_CheckYourAnswerPage extends Page {
 		return getElementText();
 	}
 
-	private void changeWorkingForNHSLink() {
-		navigateToRootElement();
-		navigateToElementBy(workingForNHSChangeLinkLocator);
-		click();
-	}
-
-	public WorkingForNHSPage changeWorkingForNHSDetails() {
-		changeWorkingForNHSLink();
-		return new WorkingForNHSPage(driver);
-	}
-
-	private void changeLastEmployerNameLink() {
-		navigateToRootElement();
-		navigateToElementBy(lastEmployerNameChangeLinkLocator);
-		click();
-	}
-
-	public NameOfYourLastEmployerPage changeLastEmployerNameDetails() {
-		changeLastEmployerNameLink();
-		return new NameOfYourLastEmployerPage(driver);
-	}
-
-	private void changeCurrentEmployerNameLink() {
-		navigateToRootElement();
-		navigateToElementBy(currentEmployerNameChangeLinkLocator);
-		click();
-	}
-
-	public NameOfYourCurrentEmployerPage changeCurrentEmploymentNameDetails() {
-		changeCurrentEmployerNameLink();
-		return new NameOfYourCurrentEmployerPage(driver);
-	}
-
-	private void changeJobTitleLink() {
-		navigateToRootElement();
-		navigateToElementBy(jobTitleChangeLinkLocator);
-		click();
-	}
-
-	public JobTitlePage changeJobTitleDetails() {
-		changeJobTitleLink();
-		return new JobTitlePage(driver);
-	}
-
-	private void changeDateYouLeaveLink() {
-		navigateToRootElement();
-		navigateToElementBy(dateYouleaveChangeLinkLocator);
-		click();
-	}
-
-	public DateYouLeavePage changeDateYouLeaveDetails() {
-		changeDateYouLeaveLink();
-		return new DateYouLeavePage(driver);
-	}
-
-	private void changeEmployerAddressLink() {
-		navigateToRootElement();
-		navigateToElementBy(employerAddressChangeLinkLocator);
-		click();
-	}
-
-	public EmployerAddressPage changeEmployerAddressDetails() {
-		changeEmployerAddressLink();
-		return new EmployerAddressPage(driver);
-	}
-
-	private void changeLastDayOfWorkLink() {
-		navigateToRootElement();
-		navigateToElementBy(lastDayOfWorkChangeLinkLocator);
-		click();
-	}
-
-	public LastDayOfWorkPage changeLastDayOfWorkDetails() {
-		changeLastDayOfWorkLink();
-		return new LastDayOfWorkPage(driver);
-	}
-
-	private void changeIntendToWorkLink() {
-		navigateToRootElement();
-		navigateToElementBy(intendToWorkChangeLinkLocator);
-		click();
-	}
-
-	public IntendToWorkForNHSPage changeIntendToWorkDetails() {
-		changeIntendToWorkLink();
-		return new IntendToWorkForNHSPage(driver);
-	}
-
-	private void changeReturnDateLink() {
-		navigateToRootElement();
-		navigateToElementBy(returnDateChangeLinkLocator);
-		click();
-	}
-
-	public IntendToWorkForNHSPage changeReturnDateDetails() {
-		changeReturnDateLink();
-		return new IntendToWorkForNHSPage(driver);
-	}
-
-	public SummaryPage submitEmploymentDetails() {
-		navigateToRootElement();
-		navigateToElementBy(continueButtonLocator);
-		click();
-		return new SummaryPage(driver);
-	}
+	
 }

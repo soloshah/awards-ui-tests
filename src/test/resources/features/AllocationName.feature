@@ -1,16 +1,15 @@
-@Allocation'sName @BP490-111
+@Allocation'sName @BP490-111 
 Feature: Allocation Name
 
 Background:
-#Given I am on the allocation name page
 Given I am on the start page
 When I go to the allocation name page
 
 
 Scenario: Valid Allocation Name details
-When I enter valid allocation name details
+When I enter valid allocation name
 Then the allocation name submission will be successful
-And the dynamic allocation date of birth page will be displayed
+And the allocation date of birth page will be displayed
 
 
 Scenario Outline: Allocation first name field  validations 

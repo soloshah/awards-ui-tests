@@ -8,9 +8,9 @@ public class DepositAccountPage extends Page {
 	private String depositAccountPageTitle = "Enter bank details - Claim your NHS Pension - NHSBSA";
 	private By accountNumberFieldLocator = By.id("accountNumber");
 	private By rollNumberFieldLocator = By.id("rollNumber");
-	private By sortCodeFirstFieldLocator = By.id("sortCode-first-field");
-	private By sortCodeSecondFieldLocator = By.id("sortCode-second-field");
-	private By sortCodeThirdFieldLocator = By.id("sortCode-third-field");
+	private By sortCodeFirstFieldLocator = By.id("sort-code-1");
+	private By sortCodeSecondFieldLocator = By.id("sort-code-2");
+	private By sortCodeThirdFieldLocator = By.id("sort-code-3");
 	private By accountHolderNameFieldLocator = By.id("accountHolderName");
 	private By nextButtonLocator = By.id("submit_button");
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");

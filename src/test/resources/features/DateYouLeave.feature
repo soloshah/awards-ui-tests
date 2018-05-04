@@ -1,4 +1,4 @@
-@DateYouLeave @BP490-124
+@DateYouLeave @BP490-124 @WIP
 Feature: Date you left last employment
 
 Background:
@@ -8,8 +8,8 @@ When I go to date you leave page
 
 Scenario: Valid date you left last employment
 And I enter valid date details
-#Then the date you leave submission will be successful
-Then the tbi page will be displayed
+Then the date you leave submission will be successful
+Then the intend to work for NHS page will be displayed
 
 
 Scenario Outline: Date field validations 

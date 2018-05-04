@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class DateYouLeavePage extends Page {
 
-	private String dateYouLeavePageTitle = "What date did you leave? - Claim your NHS Pension";
+	private String dateYouLeavePageTitle = "What date did you leave? - Claim your NHS Pension - NHSBSA";
 	private By dayFieldLocator = By.id("lastEmploymentDate-day");
 	private By monthFieldLocator = By.id("lastEmploymentDate-month");
 	private By yearFieldLocator = By.id("lastEmploymentDate-year");

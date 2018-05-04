@@ -65,6 +65,8 @@ public class YourGenderStepDefs {
 	@And("^what is your gender page error message '(.*)' will be displayed$")
 	public void whatIsYourGenderPageErrorMessageWillBeDisplayed(String errorMessage) {
 		yourGenderPage = new YourGenderPage(driver);
+		assertThat(yourGenderPage.getErrorHeadingErrorMessage()).matches("Your form contains errors");
+            assertThat(yourGenderPage.getErrorsBelowErrorMessage()).matches("Check your answer:");
 		assertThat(yourGenderPage.getGenderFieldErrorMessage()).matches(errorMessage);
 		assertThat(yourGenderPage.doesGenderErrorMessageHaveAnchor()).isTrue();
 		assertThat(yourGenderPage.getGenderAnchoredErrorMessage()).matches(errorMessage);
@@ -102,7 +104,7 @@ public class YourGenderStepDefs {
 	public void theGuidanceForGenderLinkWillBeDisplayedOnYourGenderPage() {
 		yourGenderPage = new YourGenderPage(driver);
 		assertThat((yourGenderPage.verifyGenderLinkText())
-				.contains("more guidance on legally recognised gender available"));
+				.contains("more guidance on legally recognised gender available."));
 	}
 	
 

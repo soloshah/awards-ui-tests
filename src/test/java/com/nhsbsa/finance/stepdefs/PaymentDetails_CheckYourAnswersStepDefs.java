@@ -11,7 +11,6 @@ import com.nhsbsa.finance.shared.SharedData;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 
 public class PaymentDetails_CheckYourAnswersStepDefs {
 
@@ -27,7 +26,6 @@ public class PaymentDetails_CheckYourAnswersStepDefs {
 	private EqPaymasterNameStepDefs eqPaymasterNameSteps;
 	private EqPaymasterReferenceStepDefs eqPaymasterReferenceSteps;
 
-	
 	@Given("^I have filled in a payment details$")
 	public void iHaveFilledInAPaymentDetails() throws Throwable {
 		startSteps = new StartPageStepdefs();
@@ -49,11 +47,10 @@ public class PaymentDetails_CheckYourAnswersStepDefs {
 		eqPaymasterReferenceSteps.theEqPaymasterReferencePageWillBeDisplayed();
 		eqPaymasterReferenceSteps.IenterValidEqPaymasterReferenceNumber();
 	}
-	
-	
+
 	@Given("^I have filled in a payment details for summary page$")
 	public void iHaveFilledInAPaymentDetailsForSummaryPage() throws Throwable {
-    	bankAccountTypeSteps = new BankAccountTypeStepDefs();
+		bankAccountTypeSteps = new BankAccountTypeStepDefs();
 		bankAccountTypeSteps.theBankAccountTypePageWillBeDisplayed();
 		bankAccountTypeSteps.iSelectDepositAccount();
 		depositAccountSteps = new DepositAccountStepDefs();
@@ -69,12 +66,6 @@ public class PaymentDetails_CheckYourAnswersStepDefs {
 		eqPaymasterReferenceSteps = new EqPaymasterReferenceStepDefs();
 		eqPaymasterReferenceSteps.theEqPaymasterReferencePageWillBeDisplayed();
 		eqPaymasterReferenceSteps.IenterValidEqPaymasterReferenceNumber();
-	}
-
-	@Then("^Check your answers page for payment details will be displayed$")
-	public void checkYourAnswersPageForPaymentDetailsWillBeDisplayed() {
-		paymentDetails_CheckYourAnswersPage = new PaymentDetails_CheckYourAnswerPage(driver);
-		assertThat(paymentDetails_CheckYourAnswersPage.getHeading()).contains("Check your bank details");
 	}
 
 	@Then("^the correct payment details will be displayed$")
@@ -176,37 +167,6 @@ public class PaymentDetails_CheckYourAnswersStepDefs {
 
 	}
 
-	@When("^I click change for (.*) details$")
-	public void iClickOnChangeForAccountDetails(String field) {
-		paymentDetails_CheckYourAnswersPage = new PaymentDetails_CheckYourAnswerPage(driver);
-		switch (field) {
-		case "accountType":
-			paymentDetails_CheckYourAnswersPage.changeAccountTypeDetails();
-			break;
-		case "accountHolderName":
-			paymentDetails_CheckYourAnswersPage.changeAccountHolderName();
-			break;
-		case "accountNumber":
-			paymentDetails_CheckYourAnswersPage.changeAccountNumber();
-			break;
-		case "rollNumber":
-			paymentDetails_CheckYourAnswersPage.changeRollNumber();
-			break;
-		case "sortCode":
-			paymentDetails_CheckYourAnswersPage.changeSortCode();
-			break;
-		case "otherEqPensions":
-			paymentDetails_CheckYourAnswersPage.changeOtherEqPension();
-			break;
-		case "eqPaymasterName":
-			paymentDetails_CheckYourAnswersPage.changeEqPaymasterName();
-			break;
-		case "eqPaymasterReference":
-			paymentDetails_CheckYourAnswersPage.changeEqPaymasterRef();
-			break;
-		}
-	}
-
 	@And("^I navigate from bank details page to check your answers page$")
 	public void InavigateFrombankDetailsPageToCheckYourAnswersPage() {
 		otherEqPensionsSteps = new OtherEqPensionsStepDefs();
@@ -228,10 +188,13 @@ public class PaymentDetails_CheckYourAnswersStepDefs {
 		eqPaymasterReferenceSteps.iClickNextOnEqpaymasterReferencePage();
 
 	}
-
-	@When("^I submit the payment details$")
-	public void iSubmitThePaymentDetails() {
+	
+	@And("^Check your answers page for payment details will be displayed$")
+	public void checkYourAnswersPageForPaymentDetailsWillBeDisplayed() {
+		
 		paymentDetails_CheckYourAnswersPage = new PaymentDetails_CheckYourAnswerPage(driver);
-		paymentDetails_CheckYourAnswersPage.submitPaymentDetails();
+		assertThat(paymentDetails_CheckYourAnswersPage.getHeading()).contains("Check your bank details");
 	}
+	
+
 }

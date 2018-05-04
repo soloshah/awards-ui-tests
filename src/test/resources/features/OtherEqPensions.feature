@@ -2,18 +2,17 @@
 Feature: Other Pensions paid by Equiniti Paymaster Page
 
 Background:
-#Given I am on other eq pension page
+
 Given I am on the start page
 When I go to other eq pension page
 
 Scenario: You have any other pensions paid by Equiniti Paymaster
 When I select Yes
-Then the tbi page will be displayed
-#Then the eq paymaster name page will be displayed
+Then the eqPaymasterName page will be displayed
 
 Scenario: You have any other pensions paid by Equiniti Paymaster
 When I select No
-Then the tbi page will be displayed
+Then Check your answers page for payment details will be displayed
 
 @Bug @BP490-270
 Scenario: You have any other pensions paid by Equiniti Paymaster

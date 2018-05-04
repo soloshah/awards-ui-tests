@@ -128,8 +128,8 @@ public class IntendToWorkForNHSStepDefs {
 	public void theIntendToWorkForNHSSubmissionWillBeUnsuccessful() {
 		intendToWorkForNHSPage = new IntendToWorkForNHSPage(driver);
 		assertThat(intendToWorkForNHSPage.getErrorHeadingErrorMessage())
-				.matches("Some questions have not been answered correctly:");
-		assertThat(intendToWorkForNHSPage.getErrorsBelowErrorMessage()).matches("Please see the errors below.");
+				.matches("Your form contains errors");
+		assertThat(intendToWorkForNHSPage.getErrorsBelowErrorMessage()).matches("Check your answer:");
 	}
 
 	@Then("^the intend to work for NHS submission will be successful$")
@@ -140,7 +140,6 @@ public class IntendToWorkForNHSStepDefs {
 	@Then("^the intend to work details are sustained$")
 	public void theIntendToWorkDetailsAreSustained() {
 		intendToWorkForNHSPage = new IntendToWorkForNHSPage(driver);
-		System.out.println("@@@@@@@" + intendToWorkForNHSPage.getYesRadioButton());
 		assertThat(intendToWorkForNHSPage.getYesRadioButton()).matches(SharedData.sharedRadioButton);
 		assertThat(intendToWorkForNHSPage.getDay()).matches(SharedData.returnDay);
 		assertThat(intendToWorkForNHSPage.getMonth()).matches(SharedData.returnMonth);

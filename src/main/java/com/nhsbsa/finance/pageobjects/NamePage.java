@@ -1,5 +1,7 @@
 package com.nhsbsa.finance.pageobjects;
 
+import java.util.NoSuchElementException;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -21,6 +23,9 @@ public class NamePage extends Page {
 	private By lastNameFieldErrorMessageLocator = By.id("lastName-error-message");
 	private By lastNameAnchoredErrorMessageLocator = By.id("error-list2");
 	private By lastNameAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#lastName']");
+	private By personalInformationLinkLocator = By.xpath("//*[@id='survey-title']/a");
+    private By closeButtonLocator = By.id("user-survey-cancel");
+
 
 	public NamePage(WebDriver driver) {
 		super(driver);
@@ -184,4 +189,50 @@ public class NamePage extends Page {
 		return new NamePage(driver);
 	}
 
+	
+	public void verifyPersonalInformationLink() {
+		try {
+			navigateToRootElement();
+			navigateToElementBy(personalInformationLinkLocator);
+			Thread.sleep(1000);
+			click();
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			System.out.print("No such element: " + e.getMessage());
+			e.printStackTrace();
+		}
+	
+
+	}	
+	
+		public boolean isPersonalInformationLinkAvailable() {
+			navigateToRootElement();
+			navigateToElementBy(personalInformationLinkLocator);
+			return getPresenceOfElement(personalInformationLinkLocator);
+		}	
+
+		
+		public void closePersonalInformation() {
+			navigateToRootElement();
+			navigateToElementBy(closeButtonLocator);
+			click();
+		}
+	
+		
+		
+		public Boolean IsTestElementPresent(WebDriver driver)
+		{
+		    try
+		    {
+		    	navigateToRootElement();
+				navigateToElementBy(personalInformationLinkLocator);
+		        return true;
+		    }
+		    catch (NoSuchElementException e)
+		    {
+		    	System.out.print("No such element: " + e.getMessage());
+		        return false;
+		    }
+		}
+		
 }

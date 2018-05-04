@@ -2,7 +2,7 @@
 Feature: What is your marital status
 
 Background:
-#Given I am on marital status page
+
 Given I am on the start page
 When I go to the marital status page
 

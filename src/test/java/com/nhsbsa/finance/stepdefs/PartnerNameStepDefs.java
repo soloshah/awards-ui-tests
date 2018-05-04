@@ -2,6 +2,7 @@ package com.nhsbsa.finance.stepdefs;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
@@ -53,8 +54,12 @@ public class PartnerNameStepDefs {
 	@When("^I enter valid partner name details$")
 	public void IenterValidPartnerNameDetails() {
 		
-		  SharedData.firstName = "Arya";
-		  SharedData.lastName = "Stark";
+		final String inputFirstName = RandomStringUtils.randomAlphabetic(10);
+		SharedData.firstName = inputFirstName.toLowerCase().substring(0, 1).toUpperCase()
+				+ inputFirstName.toLowerCase().substring(1);
+		final String inputLastName = RandomStringUtils.randomAlphabetic(10);
+		SharedData.lastName = inputLastName.toLowerCase().substring(0, 1).toUpperCase()
+				+ inputLastName.toLowerCase().substring(1);
 		partnerNamePage = new PartnerNamePage(driver);
 		partnerNamePage.submitValidPartnerNameDetails(SharedData.firstName, SharedData.lastName);
 	}
@@ -63,8 +68,8 @@ public class PartnerNameStepDefs {
 	public void thePartnerNameSubmissionWillBeUnsuccessful() {
 		partnerNamePage = new PartnerNamePage(driver);
 		assertThat(partnerNamePage.getErrorHeadingErrorMessage())
-				.matches("Some questions have not been answered correctly.");
-		assertThat(partnerNamePage.getErrorsBelowErrorMessage()).matches("Please see the errors below.");
+				.matches("Your form contains errors");
+		assertThat(partnerNamePage.getErrorsBelowErrorMessage()).matches("Check your answer:");
 	}
 
 	@And("^the partner first name error message '(.*)' will be displayed$")
@@ -123,10 +128,15 @@ public class PartnerNameStepDefs {
 
 	@And("^I submit valid partner first and last name details$")
 	public void iSubmitValidPartnerFirstAndLastNameDetails() {
-		SharedData.firstName = "Arya";
-		SharedData.lastName = "Stark";
+
+		final String inputFirstName = RandomStringUtils.randomAlphabetic(10);
+		SharedData.firstName = inputFirstName.toLowerCase().substring(0, 1).toUpperCase()
+				+ inputFirstName.toLowerCase().substring(1);
+		final String inputLastName = RandomStringUtils.randomAlphabetic(10);
+		SharedData.lastName = inputLastName.toLowerCase().substring(0, 1).toUpperCase()
+				+ inputLastName.toLowerCase().substring(1);
 		partnerNamePage = new PartnerNamePage(driver);
-		partnerNamePage.submitPartnerName(SharedData.firstName, SharedData.lastName);
+		partnerNamePage.submitValidPartnerNameDetails(SharedData.firstName, SharedData.lastName);
 	}
 	
 	
@@ -145,8 +155,13 @@ public class PartnerNameStepDefs {
 
 	@When("^I enter partner name using different valid details$")
 	public void iEnterPartnerNameUsingDifferentDetails() {
-		SharedData.firstName = "Arya";
-		  SharedData.lastName = "Snow";
+
+		final String inputFirstName = RandomStringUtils.randomAlphabetic(10);
+		SharedData.firstName = inputFirstName.toLowerCase().substring(0, 1).toUpperCase()
+				+ inputFirstName.toLowerCase().substring(1);
+		final String inputLastName = RandomStringUtils.randomAlphabetic(10);
+		SharedData.lastName = inputLastName.toLowerCase().substring(0, 1).toUpperCase()
+				+ inputLastName.toLowerCase().substring(1);
 		partnerNamePage = new PartnerNamePage(driver);
 		partnerNamePage.submitValidPartnerNameDetails(SharedData.firstName, SharedData.lastName);
 	}

@@ -3,11 +3,14 @@ Feature: Partner Date of Birth
 
 Background:
 Given I am on the start page
+When I go to the partner name page
+And I submit valid partner first and last name details
 When I go to partner DOB page
+Then the partners date of birth page will be displayed
 
 
 Scenario: Valid partner date of Birth
-And I enter valid partner DOB details
+And I enter valid partner DOB
 Then the partner date of birth submission will be successful
 And the partner gender page will be displayed
 

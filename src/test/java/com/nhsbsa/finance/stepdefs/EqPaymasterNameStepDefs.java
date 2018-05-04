@@ -76,8 +76,8 @@ public class EqPaymasterNameStepDefs {
 	public void theEqPaymasterNameSubmissionWillBeUnsuccessful() {
 		eqPaymasterNamePage = new EqPaymasterNamePage(driver);
 		assertThat(eqPaymasterNamePage.getErrorHeadingErrorMessage())
-				.matches("Some questions have not been answered correctly.");
-		assertThat(eqPaymasterNamePage.getErrorsBelowErrorMessage()).matches("Please see the errors below.");
+				.matches("Your form contains errors");
+		assertThat(eqPaymasterNamePage.getErrorsBelowErrorMessage()).matches("Check your answer:");
 	}
 
 	@When("^I enter invalid eq paymaster name details using the name '(.*)'$")

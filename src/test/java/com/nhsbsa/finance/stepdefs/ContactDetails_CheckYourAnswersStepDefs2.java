@@ -10,8 +10,6 @@ import com.nhsbsa.finance.shared.SharedData;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
 
 public class ContactDetails_CheckYourAnswersStepDefs2 {
 
@@ -37,7 +35,7 @@ public class ContactDetails_CheckYourAnswersStepDefs2 {
 		emailSteps.IenterValidEmailAddressDetails();
 
 	}
-	
+
 	@Given("^I have filled in a contact details for summary page$")
 	public void iHaveFilledInAContactDetailsForSummaryPage() throws Throwable {
 		contactPrefSteps = new WouldYouLikeToBeContactedStepDefs();
@@ -50,12 +48,6 @@ public class ContactDetails_CheckYourAnswersStepDefs2 {
 		emailSteps.whatisYourEmailAddressPageWillBeDisplayed();
 		emailSteps.IenterValidEmailAddressDetails();
 
-	}
-
-	@Then("^Check your answers page for contact details will be displayed$")
-	public void checkYourAnswersPageForContactDetailsWillBeDisplayed() {
-		contactDetails_CheckYourAnswerPage = new ContactDetails_CheckYourAnswerPage(driver);
-		assertThat(contactDetails_CheckYourAnswerPage.getHeading()).contains("Check your answers");
 	}
 
 	@And("^would you like to be contacted details will be displayed$")
@@ -118,10 +110,10 @@ public class ContactDetails_CheckYourAnswersStepDefs2 {
 
 		switch (field) {
 		case "emailAddress":
-				assertThat(contactDetails_CheckYourAnswerPage.getEmailAddressText()).matches(SharedData.emailAddress);
+			assertThat(contactDetails_CheckYourAnswerPage.getEmailAddressText()).matches(SharedData.emailAddress);
 			break;
 		case "telephoneNumber":
-				assertThat(contactDetails_CheckYourAnswerPage.getPhoneNumberText()).matches(SharedData.phoneNumber);
+			assertThat(contactDetails_CheckYourAnswerPage.getPhoneNumberText()).matches(SharedData.phoneNumber);
 			break;
 		}
 	}
@@ -145,27 +137,4 @@ public class ContactDetails_CheckYourAnswersStepDefs2 {
 
 	}
 
-	
-	@When("^I click on change (.*)$")
-	public void iClickOnChange(String field) {
-		contactDetails_CheckYourAnswerPage = new ContactDetails_CheckYourAnswerPage(driver);
-		switch (field) {
-		case "telephoneNumber":
-			contactDetails_CheckYourAnswerPage.changeTelephonNumberDetails();
-			break;
-		case "emailAddress":
-			contactDetails_CheckYourAnswerPage.changeEmailAddressDetails();
-			break;
-		case "WouldYouLikeToBeContacted":
-			contactDetails_CheckYourAnswerPage.changeContactPrefDetails();
-			break;
-
-		}
-	}
-
-	@When("^I submit the contact details$")
-	public void iSubmitTheContactDetails() {
-		contactDetails_CheckYourAnswerPage = new ContactDetails_CheckYourAnswerPage(driver);
-		contactDetails_CheckYourAnswerPage.submitContactDetails();
-	}
 }

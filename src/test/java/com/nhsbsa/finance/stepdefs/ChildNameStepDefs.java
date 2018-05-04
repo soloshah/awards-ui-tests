@@ -49,32 +49,41 @@ public class ChildNameStepDefs {
 		new NavBarPage(driver);
 	}
 
-	@When("^I enter valid child name details$")
-	public void IenterValidChildNameDetails() {
-
-		SharedData.childFirstName = RandomStringUtils.randomAlphabetic(10);
-		SharedData.childLastName = RandomStringUtils.randomAlphabetic(10);
-
-		childNamePage = new ChildNamePage(driver);
-		childNamePage.submitValidChildNameDetails(SharedData.childFirstName, SharedData.childLastName);
-	}
-	
+		
 	@When("^I enter valid child name$")
 	public void IenterValidChildName() {
 
-		SharedData.childFirstName = "Brian";
-		SharedData.childLastName = "Stark";
+		final String inputFirstName = RandomStringUtils.randomAlphabetic(10);
+		SharedData.childFirstName = inputFirstName.toLowerCase().substring(0, 1).toUpperCase()
+				+ inputFirstName.toLowerCase().substring(1);
+		final String inputLastName = RandomStringUtils.randomAlphabetic(10);
+		SharedData.childLastName = inputLastName.toLowerCase().substring(0, 1).toUpperCase()
+				+ inputLastName.toLowerCase().substring(1);
 
 		childNamePage = new ChildNamePage(driver);
-		childNamePage.submitValidChildNameDetails(SharedData.childFirstName, SharedData.childLastName);
+		childNamePage.submitValidChildName(SharedData.childFirstName, SharedData.childLastName);
+	}
+	
+	@When("^I enter more valid child name$")
+	public void IenterMoreValidChildName() {
+
+		final String inputFirstName = RandomStringUtils.randomAlphabetic(10);
+		SharedData.child1FirstName = inputFirstName.toLowerCase().substring(0, 1).toUpperCase()
+				+ inputFirstName.toLowerCase().substring(1);
+		final String inputLastName = RandomStringUtils.randomAlphabetic(10);
+		SharedData.child1LastName = inputLastName.toLowerCase().substring(0, 1).toUpperCase()
+				+ inputLastName.toLowerCase().substring(1);
+
+		childNamePage = new ChildNamePage(driver);
+		childNamePage.submitValidChildName(SharedData.child1FirstName, SharedData.child1LastName);
 	}
 
 	@Then("^the child name submission will be unsuccessful$")
 	public void theChildNameSubmissionWillBeUnsuccessful() {
 		childNamePage = new ChildNamePage(driver);
 		assertThat(childNamePage.getErrorHeadingErrorMessage())
-				.matches("Some questions have not been answered correctly.");
-		assertThat(childNamePage.getErrorsBelowErrorMessage()).matches("Please see the errors below.");
+				.matches("Your form contains errors");
+		assertThat(childNamePage.getErrorsBelowErrorMessage()).matches("Check your answer:");
 	}
 
 	@And("^the child first name error message '(.*)' will be displayed$")

@@ -25,6 +25,8 @@ public class SharedData {
   public static String lastName;
   public static String childFirstName;
   public static String childLastName;
+  public static String child1FirstName;
+  public static String child1LastName;
   public static String allocationFirstName;
   public static String allocationLastName;
   public static String jobTitle;

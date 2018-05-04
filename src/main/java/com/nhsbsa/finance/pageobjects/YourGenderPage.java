@@ -15,7 +15,7 @@ public class YourGenderPage extends Page {
 	private By GenderAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#gender']");
 	private By GenderFieldErrorMessageLocator = By.id("'error-message-'+${fieldName}");
 	private By genderIdentifyLinkLocator = By.className("summary");
-	private By genderInformationLinkLocator = By.linkText("more guidance on legally recognised gender available");
+	private By genderInformationLinkLocator = By.linkText("more guidance on legally recognised gender available.");
 	private By selectedFemaleRadioButtonLocator = By.xpath("//input[@checked='checked']");
 	private By selectedMaleRadioButtonLocator = By.xpath("//input[@checked='checked']");
 

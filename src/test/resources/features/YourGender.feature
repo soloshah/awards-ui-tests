@@ -2,7 +2,7 @@
 Feature: Your Gender Page
 
 Background:
-#Given I am on your gender page
+
 Given I am on the start page
 And I go to your gender page
 

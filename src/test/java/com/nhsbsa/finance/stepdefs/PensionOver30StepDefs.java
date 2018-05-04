@@ -69,6 +69,8 @@ public class PensionOver30StepDefs {
 	@And("^pension over 30k error message '(.*)' will be displayed$")
 	public void pensionOver30kErrorMessageWillBeDisplayed(String errorMessage) {
 		pensionOver30Page = new PensionOver30Page(driver);
+		assertThat(pensionOver30Page.getErrorHeadingErrorMessage()).matches("Your form contains errors");
+        assertThat(pensionOver30Page.getErrorsBelowErrorMessage()).matches("Check your answer:");
 		assertThat(pensionOver30Page.doesPensionOver30kErrorMessageHaveAnchor()).isTrue();
 		assertThat(pensionOver30Page.getPensionOver30kAnchoredErrorMessage()).matches(errorMessage);
 		assertThat(pensionOver30Page.getPensionOver30kFieldErrorMessage()).matches(errorMessage);

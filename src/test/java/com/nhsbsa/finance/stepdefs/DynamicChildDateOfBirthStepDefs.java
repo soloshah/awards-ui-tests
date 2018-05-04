@@ -26,6 +26,9 @@ public class DynamicChildDateOfBirthStepDefs {
 	@Then("^the dynamic child date of birth page will be displayed$")
 	public void theDynamicChildDateOfBirthPageWillBeDisplayed() {
 		dynamicChildDateOfBirthPage = new DynamicChildDateOfBirthPage(driver);
+		Page page = new Page(driver);
+		String childDatePageTitle = "What is " + SharedData.childFirstName + "'s " + "date of birth? - Claim your NHS Pension - NHSBSA";
+		page.waitForTitleToExist(childDatePageTitle);
 		assertThat(dynamicChildDateOfBirthPage.getExampleHint().matches("For example, 31 03 1980"));
 		assertThat(dynamicChildDateOfBirthPage.getHeading())
 				.containsIgnoringCase("What is " + SharedData.childFirstName + "'s " + "date of birth?");
@@ -51,6 +54,8 @@ public class DynamicChildDateOfBirthStepDefs {
 		dynamicChildDateOfBirthPage = new DynamicChildDateOfBirthPage(driver);
 		dynamicChildDateOfBirthPage.submitValidChildDateOfBirth(SharedData.childDay, SharedData.childMonth, SharedData.childYear);
 	}
+	
+	
 
 	
 }

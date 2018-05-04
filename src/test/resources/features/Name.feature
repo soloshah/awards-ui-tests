@@ -1,16 +1,16 @@
 @NameDetails @BP490-87 @BP490-250
 Feature: Name Page
 
+Background:
+Given I am on the name page
 
 Scenario: Valid Name details
-Given I am on the name page
 When I enter valid name details
 Then the name submission will be successful
 Then the date of birth page will be displayed
 
 
 Scenario Outline:  Valid titles
-Given I am on the name page
 When I enter valid title using the title '<title>'
 And I enter valid first and last name 
 Then the name submission will be successful
@@ -39,7 +39,6 @@ Examples:
 
 
 Scenario Outline: First name field  validations 
-Given I am on the name page
 When I enter an invalid details using the firstName '<firstName>'
 Then the name submission will be unsuccessful
 And the invalid firstName error message '<errorMessage>' will be displayed
@@ -51,7 +50,6 @@ Examples:
 
 
 Scenario Outline: last name field  validations 
-Given I am on the name page
 When I enter an invalid details using the lastName '<lastName>'
 Then the name submission will be unsuccessful
 And the invalid lastName error message '<errorMessage>' will be displayed
@@ -63,7 +61,6 @@ Examples:
 
 
 Scenario Outline: First and last name field length validations 
-Given I am on the name page
 When I enter valid name details using the title '<title>', firstName '<firstName>' and lastName '<lastName>'
 Then The length of title,first and last name is verified
 And the name submission will be unsuccessful
@@ -73,7 +70,6 @@ Examples:
 
 
 Scenario Outline: Title Field Validations
-Given I am on the name page
 When I enter an invalid details using the title '<title>'
 Then the name submission will be unsuccessful
 And the invalid title error message '<errorMessage>' will be displayed
@@ -87,3 +83,14 @@ Examples:
 |abc      |Enter a valid title        |
 |XYZ      |Enter a valid title        |
 |123      |Enter a valid title        |
+
+
+Scenario: Personal Information Link
+And the personal information link will be displayed
+When I click on personal information link
+Then the ppc private notice page will be displayed
+
+
+Scenario: close personal information link
+When I close the personal information link
+Then the personal information link will disappear

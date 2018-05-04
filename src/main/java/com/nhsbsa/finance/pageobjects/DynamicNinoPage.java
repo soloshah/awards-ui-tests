@@ -5,8 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class DynamicNinoPage extends Page {
 
-	private String fname = "Arya";
-	private String partnerNinoPageTitle = "What is " + fname + "'s " + "National Insurance number? - Claim your NHS Pension - NHSBSA";
+	
 	private By partnerNinoFieldLocator = By.id("nino");
 	private By nextButtonLocator = By.id("submit_button");
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");
@@ -14,7 +13,6 @@ public class DynamicNinoPage extends Page {
 
 	public DynamicNinoPage(WebDriver driver) {
 		super(driver);
-	//	waitForTitleToExist(partnerNinoPageTitle);
 		waitForElementToBeVisibleBy(partnerNinoFieldLocator);
 	}
 

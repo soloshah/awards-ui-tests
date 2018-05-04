@@ -11,7 +11,7 @@ import com.nhsbsa.finance.shared.SharedData;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+
 
 public class DependantDetails_CheckYourAnswersStepDefs {
 
@@ -21,15 +21,15 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 	private MaritalStatusStepDefs maritalStatusSteps;
 	private PartnerNameStepDefs partnerNameSteps;
 	private DynamicDateOfBirthStepDefs dynamicDobSteps;
-	private DynamicAllocationStepDefs dynamicAllocationSteps;
+	private DynamicPartnerGenderStepDefs dynamicPartnerGenderSteps;
+	private DynamicChildDateOfBirthStepDefs dynamicChildDobSteps;
+	private AllocationDOBStepDefs allocationDOBSteps;
 	private DynamicAllocationRelationshipStepDefs dynamicAllocationRelationshipSteps;
-	private PartnerGenderStepDefs partnerGenderSteps;
 	private DynamicNinoStepDefs dynamicNinoSteps;
 	private DependantChildrenStepDefs dependantChildrenSteps;
 	private OtherDependantChildrenStepDefs otherDependantChildrenSteps;
 	private SharedYeNoStepDefs sharedYeNoSteps;
 	private ChildNameStepDefs childNameSteps;
-	private ChildDOBStepDefs childDOBSteps;
 	private AllocatePensionStepDefs allocationPensionSteps;
 	private AllocationNameStepDefs allocationNameSteps;
 	
@@ -42,13 +42,13 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 		partnerNameSteps.iGoToThePartnerNamePage();
 		partnerNameSteps.iSubmitValidPartnerFirstAndLastNameDetails();
 		dynamicDobSteps = new DynamicDateOfBirthStepDefs();
-		dynamicDobSteps.theDynamicPartnersDateOfBirthPageWillBeDisplayed();
+		dynamicDobSteps.thePartnersDateOfBirthPageWillBeDisplayed();
 		dynamicDobSteps.IenterValidPartnerDOB();
-		partnerGenderSteps = new PartnerGenderStepDefs();
-		partnerGenderSteps.theDynamicValueOfPartnerFirstNameIsDisplayedOnThePartnersGenderPage();
-		partnerGenderSteps.iSelectFemale();
+		dynamicPartnerGenderSteps = new DynamicPartnerGenderStepDefs();
+		dynamicPartnerGenderSteps.thePartnerGenderPageWillBeDisplayed();
+	    dynamicPartnerGenderSteps.iSelectFemale();
 		dynamicNinoSteps = new DynamicNinoStepDefs();
-		dynamicNinoSteps.theDynamicValueOfPartnersNameWillBeDisplayedOnThePartnersNinoPage();
+		dynamicNinoSteps.theDynamicPartnersNinoPageWillBeDisplayed();
 		dynamicNinoSteps.IenterValidPartnerNino();
 		dependantChildrenSteps = new DependantChildrenStepDefs();
 		dependantChildrenSteps.doYouHaveAnyDependantChildrenPageWillBeDisplayed();
@@ -56,8 +56,9 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 		sharedYeNoSteps.iSelectYes();
 		childNameSteps = new ChildNameStepDefs();
 		childNameSteps.IenterValidChildName();
-		childDOBSteps = new ChildDOBStepDefs();
-		childDOBSteps.IenterValidChildDateOfBirthDetails();
+		dynamicChildDobSteps = new DynamicChildDateOfBirthStepDefs();
+		dynamicChildDobSteps.theDynamicChildDateOfBirthPageWillBeDisplayed();
+		dynamicChildDobSteps.IenterValidChildDobDetails();
 		otherDependantChildrenSteps = new OtherDependantChildrenStepDefs();
 		otherDependantChildrenSteps.doYouHaveAnyOtherDependantPageWillBeDisplayed();
 		sharedYeNoSteps = new SharedYeNoStepDefs();
@@ -69,9 +70,9 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 		allocationNameSteps = new AllocationNameStepDefs();
 		allocationNameSteps.theAllocationNamePageWillBeDisplayed();
 		allocationNameSteps.IenterValidAllocationName();
-		dynamicAllocationSteps = new DynamicAllocationStepDefs();
-		dynamicAllocationSteps.theDynamicAllocationDateOfBirthPageWillBeDisplayed();
-		dynamicAllocationSteps.IenterValidAllocationDOB();
+		allocationDOBSteps = new AllocationDOBStepDefs();
+		allocationDOBSteps.theAllocationDateOfBirthPageWillBeDisplayed();
+		allocationDOBSteps.IenterValidAllocationDOB();
 		dynamicAllocationRelationshipSteps = new DynamicAllocationRelationshipStepDefs();
 		dynamicAllocationRelationshipSteps.theDynamicAllocationrelationshipPageWillBeDisplayed();
 		dynamicAllocationRelationshipSteps.IenterValidRelationship();
@@ -88,13 +89,13 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 		partnerNameSteps.iGoToThePartnerNamePage();
 		partnerNameSteps.iSubmitValidPartnerFirstAndLastNameDetails();
 		dynamicDobSteps = new DynamicDateOfBirthStepDefs();
-		dynamicDobSteps.theDynamicPartnersDateOfBirthPageWillBeDisplayed();
+		dynamicDobSteps.thePartnersDateOfBirthPageWillBeDisplayed();
 		dynamicDobSteps.IenterValidPartnerDOB();
-		partnerGenderSteps = new PartnerGenderStepDefs();
-		partnerGenderSteps.theDynamicValueOfPartnerFirstNameIsDisplayedOnThePartnersGenderPage();
-		partnerGenderSteps.iSelectFemale();
+		dynamicPartnerGenderSteps = new DynamicPartnerGenderStepDefs();
+		dynamicPartnerGenderSteps.thePartnerGenderPageWillBeDisplayed();
+	    dynamicPartnerGenderSteps.iSelectFemale();
 		dynamicNinoSteps = new DynamicNinoStepDefs();
-		dynamicNinoSteps.theDynamicValueOfPartnersNameWillBeDisplayedOnThePartnersNinoPage();
+		dynamicNinoSteps.theDynamicPartnersNinoPageWillBeDisplayed();
 		dynamicNinoSteps.IenterValidPartnerNino();
 		dependantChildrenSteps = new DependantChildrenStepDefs();
 		dependantChildrenSteps.doYouHaveAnyDependantChildrenPageWillBeDisplayed();
@@ -102,8 +103,9 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 		sharedYeNoSteps.iSelectYes();
 		childNameSteps = new ChildNameStepDefs();
 		childNameSteps.IenterValidChildName();
-		childDOBSteps = new ChildDOBStepDefs();
-		childDOBSteps.IenterValidChildDateOfBirthDetails();
+		dynamicChildDobSteps = new DynamicChildDateOfBirthStepDefs();
+		dynamicChildDobSteps.theDynamicChildDateOfBirthPageWillBeDisplayed();
+		dynamicChildDobSteps.IenterValidChildDobDetails();
 		otherDependantChildrenSteps = new OtherDependantChildrenStepDefs();
 		otherDependantChildrenSteps.doYouHaveAnyOtherDependantPageWillBeDisplayed();
 		sharedYeNoSteps = new SharedYeNoStepDefs();
@@ -115,21 +117,15 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 		allocationNameSteps = new AllocationNameStepDefs();
 		allocationNameSteps.theAllocationNamePageWillBeDisplayed();
 		allocationNameSteps.IenterValidAllocationName();
-		dynamicAllocationSteps = new DynamicAllocationStepDefs();
-		dynamicAllocationSteps.theDynamicAllocationDateOfBirthPageWillBeDisplayed();
-		dynamicAllocationSteps.IenterValidAllocationDOB();
+		allocationDOBSteps = new AllocationDOBStepDefs();
+		allocationDOBSteps.theAllocationDateOfBirthPageWillBeDisplayed();
+		allocationDOBSteps.IenterValidAllocationDOB();
 		dynamicAllocationRelationshipSteps = new DynamicAllocationRelationshipStepDefs();
 		dynamicAllocationRelationshipSteps.theDynamicAllocationrelationshipPageWillBeDisplayed();
 		dynamicAllocationRelationshipSteps.IenterValidRelationship();
 	}
 
 	
-	@Then("^Check your answers page for dependant details will be displayed$")
-	public void checkYourAnswersPageForDependantDetailsWillBeDisplayed() {
-		dependantDetails_CheckYourAnswerPage = new DependantDetails_CheckYourAnswerPage(driver);
-		assertThat(dependantDetails_CheckYourAnswerPage.getHeading()).contains("Check your answers");
-	}
-
 	
 	@Then("^the correct dependant details will be displayed$")
 	public void theCorrectDependantDetailsWillBeDisplayed() {
@@ -270,7 +266,7 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 		assertThat(dependantDetails_CheckYourAnswerPage.getPartnerNinoText()).matches(SharedData.nino);
 		assertThat(dependantDetails_CheckYourAnswerPage.getPresenceOfDependantChildren()).isEqualTo(true);
 		assertThat(dependantDetails_CheckYourAnswerPage.getDependantChildren()).matches("Do you have any dependant children");
-		assertThat(dependantDetails_CheckYourAnswerPage.getDependantChildrenText()).matches("Yes"+ "\n" + "Details added for " + SharedData.childFirstName + "\n" +"Details added for " + SharedData.childFirstName);
+		assertThat(dependantDetails_CheckYourAnswerPage.getDependantChildrenText()).matches("Yes"+ "\n" + "Details added for " + SharedData.child1FirstName + "\n" +"Details added for " + SharedData.childFirstName);
 		assertThat(dependantDetails_CheckYourAnswerPage.getPresenceOfAllocationPension()).isEqualTo(true);
 		assertThat(dependantDetails_CheckYourAnswerPage.getAllocationPension()).matches("Do you want to allocate part of your pension");
 		assertThat(dependantDetails_CheckYourAnswerPage.getAllocationPensionText()).matches("Yes");
@@ -334,43 +330,6 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 	}
 
 	
-	@When("^I select on change (.*) details$")
-	public void iClickOnChangeForNameDetails(String field) {
-		dependantDetails_CheckYourAnswerPage = new DependantDetails_CheckYourAnswerPage(driver);
-		switch (field) {
-		case "maritalStatus":
-			dependantDetails_CheckYourAnswerPage.changeLink("maritalStatus");
-			break;
-		case "partnerName":
-			dependantDetails_CheckYourAnswerPage.changePartnerName();
-			break;
-		case "partnerDob":
-			dependantDetails_CheckYourAnswerPage.changePartnerDob();
-			break;
-		case "partnerGender":
-			dependantDetails_CheckYourAnswerPage.changePartnerGender();
-			break;
-		case "partnerNino":
-			dependantDetails_CheckYourAnswerPage.changePartnerNino();
-			break;
-		case "dependantChildren":
-			dependantDetails_CheckYourAnswerPage.changeDependantChildren();
-			break;
-		case "allocationPension":
-			dependantDetails_CheckYourAnswerPage.changeAllocationPension();
-			break;
-		case "allocationPensionName":
-			dependantDetails_CheckYourAnswerPage.changeAllocationName();
-			break;
-		case "allocationDob":
-			dependantDetails_CheckYourAnswerPage.changeAllocationDOB();
-			break;
-		case "allocationRelationship":
-			dependantDetails_CheckYourAnswerPage.changeAllocationRelationship();
-			break;
-		}
-	}
-
 	
 	@And("^I navigate from marital status page to check your answers page$")
 	public void InavigateFromMaritalStatusPageToCheckYourAnswersPage() {
@@ -378,13 +337,13 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 		partnerNameSteps.thePartnerNamePageWillBeDisplayed();
 		partnerNameSteps.iClickNextOnPartnerNamePage();
 		dynamicDobSteps = new DynamicDateOfBirthStepDefs();
-		dynamicDobSteps.theDynamicPartnersDateOfBirthPageWillBeDisplayed();
+		dynamicDobSteps.thePartnersDateOfBirthPageWillBeDisplayed();
 		dynamicDobSteps.iClickNextOnPartnerDateOfBirthPage();
-		partnerGenderSteps = new PartnerGenderStepDefs();
-		partnerGenderSteps.theDynamicValueOfPartnerFirstNameIsDisplayedOnThePartnersGenderPage();
-		partnerGenderSteps.iClickNextOnPartnerGenderPage();
+		dynamicPartnerGenderSteps = new DynamicPartnerGenderStepDefs();
+		dynamicPartnerGenderSteps.thePartnerGenderPageWillBeDisplayed();
+		dynamicPartnerGenderSteps.iClickNextOnPartnerGenderPage();
 		dynamicNinoSteps = new DynamicNinoStepDefs();
-		dynamicNinoSteps.theDynamicValueOfPartnersNameWillBeDisplayedOnThePartnersNinoPage();
+		dynamicNinoSteps.theDynamicPartnersNinoPageWillBeDisplayed();
 		dynamicNinoSteps.iClickNextOnPartnerNationalInsurancePage();
 		dependantChildrenSteps = new DependantChildrenStepDefs();
 		dependantChildrenSteps.doYouHaveAnyDependantChildrenPageWillBeDisplayed();
@@ -397,9 +356,9 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 		allocationNameSteps = new AllocationNameStepDefs();
 		allocationNameSteps.theAllocationNamePageWillBeDisplayed();
 		allocationNameSteps.iClickNextOnAllocationNamePage();
-		dynamicAllocationSteps = new DynamicAllocationStepDefs();
-		dynamicAllocationSteps.theDynamicAllocationDateOfBirthPageWillBeDisplayed();
-		dynamicAllocationSteps.iClickNextOnAllocationDateOfBirthPage();
+		allocationDOBSteps = new AllocationDOBStepDefs();
+		allocationDOBSteps.theAllocationDateOfBirthPageWillBeDisplayed();
+		allocationDOBSteps.iClickNextOnAllocationDateOfBirthPage();
 		dynamicAllocationRelationshipSteps = new DynamicAllocationRelationshipStepDefs();
 		dynamicAllocationRelationshipSteps.theDynamicAllocationrelationshipPageWillBeDisplayed();
 		dynamicAllocationRelationshipSteps.iClickNextOnAllocationRelationshipPage();
@@ -409,13 +368,13 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 	@And("^I navigate from partner name page to check your answers page$")
 	public void InavigateFromPartnerNamePageToCheckYourAnswersPage() {
 		dynamicDobSteps = new DynamicDateOfBirthStepDefs();
-		dynamicDobSteps.theDynamicPartnersDateOfBirthPageWillBeDisplayed();
+		dynamicDobSteps.thePartnersDateOfBirthPageWillBeDisplayed();
 		dynamicDobSteps.iClickNextOnPartnerDateOfBirthPage();
-		partnerGenderSteps = new PartnerGenderStepDefs();
-		partnerGenderSteps.theDynamicValueOfPartnerFirstNameIsDisplayedOnThePartnersGenderPage();
-		partnerGenderSteps.iClickNextOnPartnerGenderPage();
+		dynamicPartnerGenderSteps = new DynamicPartnerGenderStepDefs();
+		dynamicPartnerGenderSteps.thePartnerGenderPageWillBeDisplayed();
+		dynamicPartnerGenderSteps.iClickNextOnPartnerGenderPage();
 		dynamicNinoSteps = new DynamicNinoStepDefs();
-		dynamicNinoSteps.theDynamicValueOfPartnersNameWillBeDisplayedOnThePartnersNinoPage();
+		dynamicNinoSteps.theDynamicPartnersNinoPageWillBeDisplayed();
 		dynamicNinoSteps.iClickNextOnPartnerNationalInsurancePage();
 		dependantChildrenSteps = new DependantChildrenStepDefs();
 		dependantChildrenSteps.doYouHaveAnyDependantChildrenPageWillBeDisplayed();
@@ -428,9 +387,9 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 		allocationNameSteps = new AllocationNameStepDefs();
 		allocationNameSteps.theAllocationNamePageWillBeDisplayed();
 		allocationNameSteps.iClickNextOnAllocationNamePage();
-		dynamicAllocationSteps = new DynamicAllocationStepDefs();
-		dynamicAllocationSteps.theDynamicAllocationDateOfBirthPageWillBeDisplayed();
-		dynamicAllocationSteps.iClickNextOnAllocationDateOfBirthPage();
+		allocationDOBSteps = new AllocationDOBStepDefs();
+		allocationDOBSteps.theAllocationDateOfBirthPageWillBeDisplayed();
+		allocationDOBSteps.iClickNextOnAllocationDateOfBirthPage();
 		dynamicAllocationRelationshipSteps = new DynamicAllocationRelationshipStepDefs();
 		dynamicAllocationRelationshipSteps.theDynamicAllocationrelationshipPageWillBeDisplayed();
 		dynamicAllocationRelationshipSteps.iClickNextOnAllocationRelationshipPage();
@@ -440,11 +399,11 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 	
 	@And("^I navigate from partner dob page to check your answers page$")
 	public void InavigateFromPartnerDobPageToCheckYourAnswersPage() {
-		partnerGenderSteps = new PartnerGenderStepDefs();
-		partnerGenderSteps.theDynamicValueOfPartnerFirstNameIsDisplayedOnThePartnersGenderPage();
-		partnerGenderSteps.iClickNextOnPartnerGenderPage();
+		dynamicPartnerGenderSteps = new DynamicPartnerGenderStepDefs();
+		dynamicPartnerGenderSteps.thePartnerGenderPageWillBeDisplayed();
+		dynamicPartnerGenderSteps.iClickNextOnPartnerGenderPage();
 		dynamicNinoSteps = new DynamicNinoStepDefs();
-		dynamicNinoSteps.theDynamicValueOfPartnersNameWillBeDisplayedOnThePartnersNinoPage();
+		dynamicNinoSteps.theDynamicPartnersNinoPageWillBeDisplayed();
 		dynamicNinoSteps.iClickNextOnPartnerNationalInsurancePage();
 		dependantChildrenSteps = new DependantChildrenStepDefs();
 		dependantChildrenSteps.doYouHaveAnyDependantChildrenPageWillBeDisplayed();
@@ -457,9 +416,9 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 		allocationNameSteps = new AllocationNameStepDefs();
 		allocationNameSteps.theAllocationNamePageWillBeDisplayed();
 		allocationNameSteps.iClickNextOnAllocationNamePage();
-		dynamicAllocationSteps = new DynamicAllocationStepDefs();
-		dynamicAllocationSteps.theDynamicAllocationDateOfBirthPageWillBeDisplayed();
-		dynamicAllocationSteps.iClickNextOnAllocationDateOfBirthPage();
+		allocationDOBSteps = new AllocationDOBStepDefs();
+		allocationDOBSteps.theAllocationDateOfBirthPageWillBeDisplayed();
+		allocationDOBSteps.iClickNextOnAllocationDateOfBirthPage();
 		dynamicAllocationRelationshipSteps = new DynamicAllocationRelationshipStepDefs();
 		dynamicAllocationRelationshipSteps.theDynamicAllocationrelationshipPageWillBeDisplayed();
 		dynamicAllocationRelationshipSteps.iClickNextOnAllocationRelationshipPage();
@@ -470,7 +429,7 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 	@And("^I navigate from partner gender page to check your answers page$")
 	public void InavigateFromPartnerGenderPageToCheckYourAnswersPage() {
 		dynamicNinoSteps = new DynamicNinoStepDefs();
-		dynamicNinoSteps.theDynamicValueOfPartnersNameWillBeDisplayedOnThePartnersNinoPage();
+		dynamicNinoSteps.theDynamicPartnersNinoPageWillBeDisplayed();
 		dynamicNinoSteps.iClickNextOnPartnerNationalInsurancePage();
 		dependantChildrenSteps = new DependantChildrenStepDefs();
 		dependantChildrenSteps.doYouHaveAnyDependantChildrenPageWillBeDisplayed();
@@ -483,9 +442,9 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 		allocationNameSteps = new AllocationNameStepDefs();
 		allocationNameSteps.theAllocationNamePageWillBeDisplayed();
 		allocationNameSteps.iClickNextOnAllocationNamePage();
-		dynamicAllocationSteps = new DynamicAllocationStepDefs();
-		dynamicAllocationSteps.theDynamicAllocationDateOfBirthPageWillBeDisplayed();
-		dynamicAllocationSteps.iClickNextOnAllocationDateOfBirthPage();
+		allocationDOBSteps = new AllocationDOBStepDefs();
+		allocationDOBSteps.theAllocationDateOfBirthPageWillBeDisplayed();
+		allocationDOBSteps.iClickNextOnAllocationDateOfBirthPage();
 		dynamicAllocationRelationshipSteps = new DynamicAllocationRelationshipStepDefs();
 		dynamicAllocationRelationshipSteps.theDynamicAllocationrelationshipPageWillBeDisplayed();
 		dynamicAllocationRelationshipSteps.iClickNextOnAllocationRelationshipPage();
@@ -506,9 +465,9 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 		allocationNameSteps = new AllocationNameStepDefs();
 		allocationNameSteps.theAllocationNamePageWillBeDisplayed();
 		allocationNameSteps.iClickNextOnAllocationNamePage();
-		dynamicAllocationSteps = new DynamicAllocationStepDefs();
-		dynamicAllocationSteps.theDynamicAllocationDateOfBirthPageWillBeDisplayed();
-		dynamicAllocationSteps.iClickNextOnAllocationDateOfBirthPage();
+		allocationDOBSteps = new AllocationDOBStepDefs();
+		allocationDOBSteps.theAllocationDateOfBirthPageWillBeDisplayed();
+		allocationDOBSteps.iClickNextOnAllocationDateOfBirthPage();
 		dynamicAllocationRelationshipSteps = new DynamicAllocationRelationshipStepDefs();
 		dynamicAllocationRelationshipSteps.theDynamicAllocationrelationshipPageWillBeDisplayed();
 		dynamicAllocationRelationshipSteps.iClickNextOnAllocationRelationshipPage();
@@ -524,9 +483,9 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 		allocationNameSteps = new AllocationNameStepDefs();
 		allocationNameSteps.theAllocationNamePageWillBeDisplayed();
 		allocationNameSteps.iClickNextOnAllocationNamePage();
-		dynamicAllocationSteps = new DynamicAllocationStepDefs();
-		dynamicAllocationSteps.theDynamicAllocationDateOfBirthPageWillBeDisplayed();
-		dynamicAllocationSteps.iClickNextOnAllocationDateOfBirthPage();
+		allocationDOBSteps = new AllocationDOBStepDefs();
+		allocationDOBSteps.theAllocationDateOfBirthPageWillBeDisplayed();
+		allocationDOBSteps.iClickNextOnAllocationDateOfBirthPage();
 		dynamicAllocationRelationshipSteps = new DynamicAllocationRelationshipStepDefs();
 		dynamicAllocationRelationshipSteps.theDynamicAllocationrelationshipPageWillBeDisplayed();
 		dynamicAllocationRelationshipSteps.iClickNextOnAllocationRelationshipPage();
@@ -549,9 +508,9 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 		
 	@And("^I navigate from allocatePensionName page to check your answers page$")
 	public void InavigateFromAllocatePensionNamePageToCheckYourAnswersPage() {
-		dynamicAllocationSteps = new DynamicAllocationStepDefs();
-		dynamicAllocationSteps.theDynamicAllocationDateOfBirthPageWillBeDisplayed();
-		dynamicAllocationSteps.iClickNextOnAllocationDateOfBirthPage();
+		allocationDOBSteps = new AllocationDOBStepDefs();
+		allocationDOBSteps.theAllocationDateOfBirthPageWillBeDisplayed();
+		allocationDOBSteps.iClickNextOnAllocationDateOfBirthPage();
 		dynamicAllocationRelationshipSteps = new DynamicAllocationRelationshipStepDefs();
 		dynamicAllocationRelationshipSteps.theDynamicAllocationrelationshipPageWillBeDisplayed();
 		dynamicAllocationRelationshipSteps.iClickNextOnAllocationRelationshipPage();
@@ -566,9 +525,4 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 
 	}
 
-	@When("^I submit the dependant details$")
-	public void iSubmitTheDependantDetails() {
-		dependantDetails_CheckYourAnswerPage = new DependantDetails_CheckYourAnswerPage(driver);
-		dependantDetails_CheckYourAnswerPage.submitDependantDetails();
-	}
 }

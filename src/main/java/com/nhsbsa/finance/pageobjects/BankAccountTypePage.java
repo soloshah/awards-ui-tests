@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class BankAccountTypePage extends Page {
 	
-	private String bankAccountTypeTitle = "What type of account are we making the payment to? - Claim your NHS Pension";
+	private String bankAccountTypeTitle = "What type of account are we making the payment to? - Claim your NHS Pension - NHSBSA";
 	private By currentAccountRadioButtonLocator = By.xpath("//*[@id='accountType']/fieldset/div/div[1]/label");
 	private By depositAccountRadioButtonLocator = By.xpath("//*[@id='accountType']/fieldset/div/div[2]/label");
 	private By nextButtonLocator = By.id("submit_button");
@@ -21,7 +21,7 @@ public class BankAccountTypePage extends Page {
 	public BankAccountTypePage(WebDriver driver) {
 		super(driver);
 		waitForTitleToExist(bankAccountTypeTitle);
-		waitForElementToBeVisibleBy(currentAccountRadioButtonLocator);
+		waitForElementToBeVisibleBy(backButtonLocator);
 	}
 
 	public void getBankAccountType(String account) {

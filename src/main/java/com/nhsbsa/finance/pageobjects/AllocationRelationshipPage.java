@@ -11,7 +11,7 @@ public class AllocationRelationshipPage extends Page {
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");
 	private By errorsBelowErrorMessageLocator = By.id("error-summary-heading1");
 	private By relationshipFieldErrorMessageLocator = By.id("relationship-error-message");
-	private By relationshipAnchoredErrorMessageLocator = By.id("error-list1");
+	private By relationshipAnchoredErrorMessageLocator = By.id("error-list0");
 	private By relationshipAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#relationship']");
 
 	public AllocationRelationshipPage(WebDriver driver) {

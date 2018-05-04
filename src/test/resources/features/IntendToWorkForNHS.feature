@@ -1,8 +1,8 @@
-@IntendToWorkForNHS @BP490-125
+@IntendToWorkForNHS @BP490-125 @WIP
 Feature: Intend To work for NHS after Retirement Page
 
 Background:
-#Given I am on intend to work for  NHS page
+
 Given I am on the start page
 When I go to intend to work for NHS page
 
@@ -11,9 +11,8 @@ Scenario: Intend to Work for NHS after retirement
 When I choose Yes
 Then the date you return to work fields will be displayed
 And I enter the valid date
-And the tbi page will be displayed
-#And the intend to work for NHS submission will be successful
-#Then check your answer page will be displayed
+And the intend to work for NHS submission will be successful
+Then Check your answers page will be displayed
 
 
 Scenario Outline: Return to Work date field validation
@@ -39,8 +38,7 @@ Examples:
 
 Scenario: Intend to Work for NHS after retirement
 When I choose No
-Then the tbi page will be displayed
-#Then check your answer page will be  displayed
+Then Check your answers page will be displayed
 
 
 Scenario: Intend to work for NHS

@@ -8,12 +8,12 @@ When I go to 2008 lump sum choice page
 
 Scenario: Do you want to increase your lump sum
 When I select Yes
-Then the 2008 lumpsum preference page will be displayed
+Then the lumpsum preference page will be displayed
 
 
 Scenario: Do you want to increase your lump sum
 When I select No
-Then the tbi page will be displayed
+Then Check your answers page will be displayed
 
 @Bug @BP490-274
 Scenario: Do you want to increase your lump sum

@@ -1,4 +1,4 @@
-@CurrentAccount @BP490-131
+@CurrentAccount @BP490-131 @BP490-252
 Feature: Current Account Details
 
 Background:
@@ -8,10 +8,10 @@ When I go to current account details page
 
 Scenario: Valid Current Account Details
 And I enter valid current account details
-#Then the current account details submission will be successful
-Then the tbi page will be displayed
+Then the current account details submission will be successful
+And the otherEqPensions page will be displayed
 
-@Bug @BP490-278
+@Bug @BP490-278   @Bug @BP490-394
 Scenario Outline: Account number field validations 
 And I enter invalid current account details using the accountNumber '<accountNumber>'
 Then the current account details submission will be unsuccessful
@@ -24,6 +24,7 @@ Examples:
            | ()12AYTO     | Enter a valid Account Number|
            | 5678-AGU     | Enter a valid Account Number|
            | 3456U78/.    | Enter a valid Account Number|
+           | ABVCFRGK     | Enter a valid Account Number|
 
 @Bug @BP490-278       
 Scenario Outline: SortCode field validations 
@@ -53,7 +54,7 @@ Examples:
            | 1234567            | Enter names using only letters a to z, spaces, apostrophes and hyphens|
            | 12A/ YTO           | Enter names using only letters a to z, spaces, apostrophes and hyphens|
            
-      
+   
 Scenario: Account Holders name field length validations 
 When I enter invalid current account holder name using the name 'InvalidIn@ validInvalidIn'
 Then The length of current account holder name is verified

@@ -1,4 +1,4 @@
-@LastDayOfWork @BP490-121
+@LastDayOfWork @BP490-121 @WIP
 Feature: When will be your last day of work
 
 Background:

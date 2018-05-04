@@ -62,8 +62,8 @@ public class JobTitleStepDefs {
 	public void theJobTitleSubmissionWillBeUnsuccessful() {
 		jobTitlePage = new JobTitlePage(driver);
 		assertThat(jobTitlePage.getErrorHeadingErrorMessage())
-				.matches("Some questions have not been answered correctly.");
-		assertThat(jobTitlePage.getErrorsBelowErrorMessage()).matches("Please see the errors below.");
+				.matches("Your form contains errors");
+		assertThat(jobTitlePage.getErrorsBelowErrorMessage()).matches("Check your answer:");
 	}
 
 	@When("^I enter job title details using the title '(.*)'$")

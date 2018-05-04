@@ -42,7 +42,7 @@ public class DateYouLeaveStepDefs {
 		assertThat(dateYouLeavePage.getExampleHint().matches("For example, 31 03 1980"));
 	}
 
-	@Then("^the the date you leave submission will be successful$")
+	@Then("^the date you leave submission will be successful$")
 	public void theDateYouleaveSubmissionWillBeSuccessful() {
 		new NavBarPage(driver);
 	}

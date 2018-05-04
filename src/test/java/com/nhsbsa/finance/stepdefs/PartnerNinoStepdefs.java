@@ -5,7 +5,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
-import com.nhsbsa.finance.pageobjects.DynamicNinoPage;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.pageobjects.PartnerNinoPage;
@@ -23,7 +22,6 @@ public class PartnerNinoStepdefs {
 	private String baseUrl = PropertyReader.getProperty("base.server");
 
 	private PartnerNinoPage partnerNinoPage;
-	private DynamicNinoPage dynamicNinoPage;
 
 	@Given("^I am on the partner national insurance page$")
 	public void iAmOnThePartnerNationalInsurancePage() {
@@ -49,8 +47,8 @@ public class PartnerNinoStepdefs {
 	public void thePartnerNationalInsuranceNumberSubmissionWillBeUnsuccessful() {
 		partnerNinoPage = new PartnerNinoPage(driver);
 		assertThat(partnerNinoPage.getErrorHeadingErrorMessage())
-				.matches("Some questions have not been answered correctly:");
-		assertThat(partnerNinoPage.getErrorsBelowErrorMessage()).matches("Please see the errors below.");
+				.matches("Your form contains errors");
+		assertThat(partnerNinoPage.getErrorsBelowErrorMessage()).matches("Check your answer:");
 	}
 
 	@And("^the partner nino error message '(.*)' will be displayed$")

@@ -1,8 +1,7 @@
-@WorkingForNHS @BP490-118
+@WorkingForNHS @BP490-118 @WIP
 Feature: Working for NHS Page
 
 Background:
-#Given I am on working for NHS page
 Given I am on the start page
 When I go to working for NHS page
 

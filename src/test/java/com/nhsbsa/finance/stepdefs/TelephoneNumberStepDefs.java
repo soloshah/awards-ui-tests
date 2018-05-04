@@ -84,8 +84,8 @@ public class TelephoneNumberStepDefs {
 	public void theTelephoneNumberSubmissionWillBeUnsuccessful() {
 		telephoneNumberPage = new TelephoneNumberPage(driver);
 		assertThat(telephoneNumberPage.getErrorHeadingErrorMessage())
-				.matches("Some questions have not been answered correctly.");
-		assertThat(telephoneNumberPage.getErrorsBelowErrorMessage()).matches("Please see the errors below.");
+				.matches("Your form contains errors");
+		assertThat(telephoneNumberPage.getErrorsBelowErrorMessage()).matches("Check your answer:");
 	}
 
 	@When("^I enter invalid telephone number details using the number '(.*)'$")

@@ -15,7 +15,6 @@ import com.nhsbsa.finance.shared.SharedData;
 import com.nhsbsa.finance.shared.SharedMethods;
 
 import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
@@ -27,13 +26,6 @@ public class ChildDOBStepDefs {
   
    
    
-	@Given("^I am on child DOB page$")
-	public void iAmOnChildDOBPage() {
-		new Page(driver).navigateToUrl(baseUrl + "/dependant-details/what-is-your-childs-dob");
-		childDOBPage = new ChildDOBPage(driver);
-		assertThat(childDOBPage.getHeading()).contains("What is your child's date of birth?");
-	}
-
 	@When("^I go to child DOB page$")
 	public void iGoToChildDOBPage() {
 		new Page(driver).navigateToUrl(baseUrl + "/dependant-details/what-is-your-childs-dob");
@@ -75,8 +67,8 @@ public class ChildDOBStepDefs {
 	public void theChildDateOfBirthSubmissionWillBeUnsuccessful() {
 		childDOBPage = new ChildDOBPage(driver);
 		assertThat(childDOBPage.getErrorHeadingErrorMessage())
-				.matches("Some questions have not been answered correctly:");
-		assertThat(childDOBPage.getErrorsBelowErrorMessage()).matches("Please see the errors below.");
+				.matches("Your form contains errors");
+		assertThat(childDOBPage.getErrorsBelowErrorMessage()).matches("Check your answer:");
 	}
 
 	@When("^I enter child DOB details using the day '(.*)', month '(.*)' and year '(.*)$")

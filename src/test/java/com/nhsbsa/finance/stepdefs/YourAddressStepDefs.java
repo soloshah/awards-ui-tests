@@ -46,7 +46,7 @@ public class YourAddressStepDefs {
 
 	@When("^I enter valid address details$")
 	public void IenterValidAddressDetails() {
-		setAddressDetails();
+		setNewAddressDetails();
 		yourAddressPage = new YourAddressPage(driver);
 		yourAddressPage.submitValidAddressDetails(SharedData.streetLineOne, SharedData.streetLineTwo, SharedData.town,
 				SharedData.postCode, SharedData.country);
@@ -172,6 +172,15 @@ public class YourAddressStepDefs {
 		SharedData.streetLineTwo = "South Street";
 		SharedData.town = "Leeds";
 		SharedData.postCode = "LE12 3RY";
+
+	}
+	
+	private void setNewAddressDetails() {
+		SharedData.streetLineOne = "Flat 1B";
+		SharedData.streetLineTwo = "North Street";
+		SharedData.town = "Leeds";
+		SharedData.postCode = "LE12 3RT";
+		SharedData.country = "UK";
 
 	}
 

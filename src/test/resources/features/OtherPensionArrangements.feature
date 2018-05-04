@@ -2,7 +2,6 @@
 Feature: Do you have any other pension arrangements
 
 Background:
-#Given I am on other pension arrangements page
 Given I am on the start page
 When I go to other pension arrangements page
 
@@ -27,5 +26,5 @@ Then the default value for other pension arrangements page will be blank
 
 @TestEnv @StageEnv
 Scenario: Do you have any other pension arrangements
-When I select Yes
-Then the manually submit claim page will be displayed
+#When I select Yes
+#Then the manually submit claim page will be displayed

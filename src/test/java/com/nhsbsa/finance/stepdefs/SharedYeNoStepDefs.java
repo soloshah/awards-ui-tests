@@ -41,6 +41,8 @@ public class SharedYeNoStepDefs {
 	@And("^the radio button not selected error message '(.*)' will be displayed$")
 	public void theRadioButtonNotSelectedErrorMessageWillBeDisplayed(String errorMessage) {
 		sharedYesNoPage = new SharedYesNoPage(driver);
+		assertThat(sharedYesNoPage.getErrorHeadingErrorMessage()).matches("Your form contains errors");
+        assertThat(sharedYesNoPage.getErrorsBelowErrorMessage()).matches("Check your answer:");
 		assertThat(sharedYesNoPage.getSharedFieldErrorMessage()).matches(errorMessage);
 		assertThat(sharedYesNoPage.doesSharedErrorMessageHaveAnchor()).isTrue();
 		assertThat(sharedYesNoPage.getSharedAnchoredErrorMessage()).matches(errorMessage);

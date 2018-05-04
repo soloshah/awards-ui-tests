@@ -1,4 +1,4 @@
-@ChildDateOfBirth @BP490-107 
+@ChildDateOfBirth @BP490-107
 Feature: Child Date of Birth
 
 Background:

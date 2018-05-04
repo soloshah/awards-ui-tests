@@ -24,6 +24,7 @@ public class SummaryStepDefs {
    private PensionDetails_CheckYourAnswersStepDefs pensionDetailsSteps;
    private HMRC2Details_CheckYourAnswersStepDefs hmrcDetailsSteps;
    private PaymentDetails_CheckYourAnswersStepDefs paymentetailsSteps;
+   private CheckYourAnswersStepDefs checkYourAnswersSteps;
 
  
    
@@ -31,7 +32,7 @@ public class SummaryStepDefs {
 	@Then("^the summary page will be displayed$")
   public void theSummaryPageWillBeDisplayed() {
 	  summaryPage = new SummaryPage(driver);
-   driver.getPageSource().contains("Your application");
+	  assertThat(summaryPage.getSummaryHeading()).contains("Your application");
   }
 	
 
@@ -54,44 +55,30 @@ public class SummaryStepDefs {
 		summaryPage = new SummaryPage(driver);
 		switch (field) {
 		case "personal":
-			System.out.println("*******" + summaryPage.isPersonalDetailsCompleted());
-			System.out.println("&&&&&&&&" + summaryPage.getPersonalDetailCompletedValue());
 			assertThat(summaryPage.isPersonalDetailsCompleted()).isEqualTo(true);
 			assertThat(summaryPage.getPersonalDetailCompletedValue()).matches("COMPLETED");
 			break;
 		case "dependant":
-			System.out.println("$$$$$$$$" + summaryPage.isPartnerDetailsCompleted());
-			System.out.println("%%%%%%%%" + summaryPage.getPartnerDetailCompletedValue());
 			assertThat(summaryPage.isPartnerDetailsCompleted()).isEqualTo(true);
 			assertThat(summaryPage.getPartnerDetailCompletedValue()).matches("COMPLETED");
 			break;
 		case "employment":
-			System.out.println("^^^^^^^^" + summaryPage.isEmploymentDetailsCompleted());
-			System.out.println("!!!!!!!!" + summaryPage.getEmploymentDetailCompletedValue());
 			assertThat(summaryPage.isEmploymentDetailsCompleted()).isEqualTo(true);
 			assertThat(summaryPage.getEmploymentDetailCompletedValue()).matches("COMPLETED");
 			break;
 		case "contact":
-			System.out.println("{{{{{{{{{{" + summaryPage.isContactDetailsCompleted());
-			System.out.println("}}}}}}}}}}" + summaryPage.getContactDetailCompletedValue());
 			assertThat(summaryPage.isContactDetailsCompleted()).isEqualTo(true);
 			assertThat(summaryPage.getContactDetailCompletedValue()).matches("COMPLETED");
 			break;
 		case "pension":
-			System.out.println("*******" + summaryPage.isPensionDetailsCompleted());
-			System.out.println("&&&&&&&&" + summaryPage.getPensionDetailCompletedValue());
 			assertThat(summaryPage.isPensionDetailsCompleted()).isEqualTo(true);
 			assertThat(summaryPage.getPensionDetailCompletedValue()).matches("COMPLETED");
 			break;
 		case "hmrc":
-			System.out.println("@@@@@@@@" + summaryPage.isHmrcDetailsCompleted());
-			System.out.println("++++++++" + summaryPage.getHmrcDetailCompletedValue());
 			assertThat(summaryPage.isHmrcDetailsCompleted()).isEqualTo(true);
 			assertThat(summaryPage.getHmrcDetailCompletedValue()).matches("COMPLETED");
 			break;
 		case "payment":
-			System.out.println("???????" + summaryPage.isPaymentDetailsCompleted());
-			System.out.println("########" + summaryPage.getPaymentDetailCompletedValue());
 			assertThat(summaryPage.isPaymentDetailsCompleted()).isEqualTo(true);
 			assertThat(summaryPage.getPaymentDetailCompletedValue()).matches("COMPLETED");
 			break;
@@ -135,7 +122,6 @@ public class SummaryStepDefs {
 		summaryPage = new SummaryPage(driver);
 		switch (field) {
 	case "personalDetail":
-		System.out.println("@@@@@" + summaryPage.isPersonalDetailsCompleted());
 		assertThat(summaryPage.isPersonalDetailsCompleted()).isEqualTo(false);
 		break;
 		case "dependantDetail":
@@ -180,43 +166,50 @@ public class SummaryStepDefs {
 	case "personal":
 		personalDetailsSteps = new PersonalDetails_CheckYourAnswersStepDefs();
 		personalDetailsSteps.iHaveFilledInAPersonalDetails();
-		personalDetailsSteps.iSubmitThePersonalDetails();
+		checkYourAnswersSteps = new CheckYourAnswersStepDefs();
+		checkYourAnswersSteps.iSubmitAllDetails();
 		theSummaryPageWillBeDisplayed();
 		break;
 	case "dependant":
 		dependantDetailsSteps = new DependantDetails_CheckYourAnswersStepDefs();
 		dependantDetailsSteps.iHaveFilledInADependantlDetails();
-		dependantDetailsSteps.iSubmitTheDependantDetails();
+		checkYourAnswersSteps = new CheckYourAnswersStepDefs();
+		checkYourAnswersSteps.iSubmitAllDetails();
 		theSummaryPageWillBeDisplayed();
 		break;	
 	case "employment":
 		employmentDetailsSteps = new EmploymentDetails_CheckYourAnswersStepDefs();
 		employmentDetailsSteps.iHaveFilledInCurrentEmploymentDetails();
-		employmentDetailsSteps.iSubmitTheEmploymentDetails();
+		checkYourAnswersSteps = new CheckYourAnswersStepDefs();
+		checkYourAnswersSteps.iSubmitAllDetails();
 		theSummaryPageWillBeDisplayed();
 		break;	
 	case "contact":
 		contactDetailsSteps = new ContactDetails_CheckYourAnswersStepDefs2();
 		contactDetailsSteps.iHaveFilledInAContactDetails();
-		contactDetailsSteps.iSubmitTheContactDetails();
+		checkYourAnswersSteps = new CheckYourAnswersStepDefs();
+		checkYourAnswersSteps.iSubmitAllDetails();
 		theSummaryPageWillBeDisplayed();
 		break;			
 	case "pension":
 		pensionDetailsSteps = new PensionDetails_CheckYourAnswersStepDefs();
 		pensionDetailsSteps.iHaveFilledIn1995PensionSchemeDetails();
-		pensionDetailsSteps.iSubmitThePensionSchemeDetails();
+		checkYourAnswersSteps = new CheckYourAnswersStepDefs();
+		checkYourAnswersSteps.iSubmitAllDetails();
 		theSummaryPageWillBeDisplayed();
 		break;			
 	case "hmrc":
 		hmrcDetailsSteps = new HMRC2Details_CheckYourAnswersStepDefs();
 		hmrcDetailsSteps.iHaveFilledInTheHmrc2Details();
-		hmrcDetailsSteps.iSubmitTheHmrc2Details();
+		checkYourAnswersSteps = new CheckYourAnswersStepDefs();
+		checkYourAnswersSteps.iSubmitAllDetails();
 		theSummaryPageWillBeDisplayed();
 		break;			
 	case "payment":
 		paymentetailsSteps = new PaymentDetails_CheckYourAnswersStepDefs();
 		paymentetailsSteps.iHaveFilledInAPaymentDetails();
-		paymentetailsSteps.iSubmitThePaymentDetails();
+		checkYourAnswersSteps = new CheckYourAnswersStepDefs();
+		checkYourAnswersSteps.iSubmitAllDetails();
 		theSummaryPageWillBeDisplayed();
 		break;	
 		
@@ -229,37 +222,44 @@ public class SummaryStepDefs {
 		
 		personalDetailsSteps = new PersonalDetails_CheckYourAnswersStepDefs();
 		personalDetailsSteps.iHaveFilledInAPersonalDetails();
-		personalDetailsSteps.iSubmitThePersonalDetails();
+		checkYourAnswersSteps = new CheckYourAnswersStepDefs();
+		checkYourAnswersSteps.iSubmitAllDetails();
 		theSummaryPageWillBeDisplayed();
 		summaryPage.partnerDetailsLink();
 		dependantDetailsSteps = new DependantDetails_CheckYourAnswersStepDefs();
 		dependantDetailsSteps.iHaveFilledInADependantlDetailsForSummaryPage();
-		dependantDetailsSteps.iSubmitTheDependantDetails();
+		checkYourAnswersSteps = new CheckYourAnswersStepDefs();
+		checkYourAnswersSteps.iSubmitAllDetails();
 		theSummaryPageWillBeDisplayed();
 		summaryPage.employmentDetailsLink();
 		employmentDetailsSteps = new EmploymentDetails_CheckYourAnswersStepDefs();
 		employmentDetailsSteps.iHaveFilledInCurrentEmploymentDetailsForSummaryPage();
-		employmentDetailsSteps.iSubmitTheEmploymentDetails();
+		checkYourAnswersSteps = new CheckYourAnswersStepDefs();
+		checkYourAnswersSteps.iSubmitAllDetails();
 		theSummaryPageWillBeDisplayed();
 		summaryPage.contactDetailsLink();
 		contactDetailsSteps = new ContactDetails_CheckYourAnswersStepDefs2();
 		contactDetailsSteps.iHaveFilledInAContactDetailsForSummaryPage();
-		contactDetailsSteps.iSubmitTheContactDetails();
+		checkYourAnswersSteps = new CheckYourAnswersStepDefs();
+		checkYourAnswersSteps.iSubmitAllDetails();
 		theSummaryPageWillBeDisplayed();
 		summaryPage.pensionDetailsLink();
 		pensionDetailsSteps = new PensionDetails_CheckYourAnswersStepDefs();
 		pensionDetailsSteps.iHaveFilledIn1995PensionSchemeDetailsForSummaryPage();
-		pensionDetailsSteps.iSubmitThePensionSchemeDetails();
+		checkYourAnswersSteps = new CheckYourAnswersStepDefs();
+		checkYourAnswersSteps.iSubmitAllDetails();
 		theSummaryPageWillBeDisplayed();
 		summaryPage.hmrcDetailsLink();
 		hmrcDetailsSteps = new HMRC2Details_CheckYourAnswersStepDefs();
 		hmrcDetailsSteps.iHaveFilledInTheHmrc2DetailsForSummaryPage();
-		hmrcDetailsSteps.iSubmitTheHmrc2Details();
+		checkYourAnswersSteps = new CheckYourAnswersStepDefs();
+		checkYourAnswersSteps.iSubmitAllDetails();
 		theSummaryPageWillBeDisplayed();
 		summaryPage.paymentDetailsLink();
 		paymentetailsSteps = new PaymentDetails_CheckYourAnswersStepDefs();
 		paymentetailsSteps.iHaveFilledInAPaymentDetailsForSummaryPage();
-		paymentetailsSteps.iSubmitThePaymentDetails();
+		checkYourAnswersSteps = new CheckYourAnswersStepDefs();
+		checkYourAnswersSteps.iSubmitAllDetails();
 		theSummaryPageWillBeDisplayed();
 	
 		}

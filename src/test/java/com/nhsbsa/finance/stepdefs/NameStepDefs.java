@@ -2,6 +2,9 @@ package com.nhsbsa.finance.stepdefs;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.WebDriver;
 
@@ -171,5 +174,51 @@ public class NameStepDefs {
 		lastName = "User";
 
 	}
-
+	
+	@Then("^the personal information link will be displayed$")
+	public void thePersonalInformationLinkWillBeDisplayed() {
+		namePage = new NamePage(driver);
+		System.out.println("********" +namePage.isPersonalInformationLinkAvailable());
+		assertThat(namePage.isPersonalInformationLinkAvailable()).isTrue();
+		
+	}
+	
+	@Then("^I click on personal information link$")
+	public void iClickOnPersonalInformationLink() {
+		namePage = new NamePage(driver);
+		assertThat(namePage.isPersonalInformationLinkAvailable()).isTrue();
+		namePage.verifyPersonalInformationLink();
+		
+	}
+	
+	@Then("^I close the personal information link$")
+	public void iCloseThePersonalInformationLink() {
+		namePage = new NamePage(driver);
+		namePage.closePersonalInformation();
+		
+	}
+	
+	@Then("^the personal information link will disappear$")
+	public void thePersonalInformationLinkWillDisappear() {
+		namePage = new NamePage(driver);
+		System.out.println("^^^^^^^" + namePage.isPersonalInformationLinkAvailable());
+		namePage.IsTestElementPresent(driver);
+			
+		
+	}
+	
+	@Then("^the ppc private notice page will be displayed$")
+	public void thePPCPrivateNoticePageWillBeDisplayed() {
+		List<String> browserTabs = new ArrayList<String>(driver.getWindowHandles());
+		driver.switchTo().window(browserTabs.get(1));
+		Page page = new Page(driver);
+		String ppcPageTitle = "Prescription prepayment certificate privacy notice | NHSBSA";
+		page.waitForTitleToExist(ppcPageTitle);
+		driver.getPageSource().contains("NHS Help with Health Costs");
+		driver.close();
+		driver.switchTo().window(browserTabs.get(0));
+		
+	}
+	
+	
 }

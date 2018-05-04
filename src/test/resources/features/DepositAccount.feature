@@ -1,4 +1,4 @@
-@DepositAccount @BP490-134
+@DepositAccount @BP490-134 @BP490-252
 Feature: Deposit Account Details
 
 Background:
@@ -8,11 +8,11 @@ When I go to deposit account details page
 
 Scenario: Valid Deposit Account Details
 And I enter valid deposit account details
-#Then the deposit account details submission will be successful
-#And enter bank details page will be displayed
-Then the tbi page will be displayed
+Then the deposit account details submission will be successful
+And the otherEqPensions page will be displayed
 
-@Bug @BP490-278
+
+@Bug @BP490-278   @Bug @BP490-394
 Scenario Outline: Account number field validations 
 And I enter invalid deposit account details using the accountNumber '<accountNumber>'
 Then the deposit account details submission will be unsuccessful
@@ -25,6 +25,7 @@ Examples:
            | ()12AYTO     | Enter a valid Account Number|
            | 5678-AGU     | Enter a valid Account Number|
            | 3456U78/.    | Enter a valid Account Number|
+           | ABVCFRGK     | Enter a valid Account Number|
 
 @Bug @BP490-278
 Scenario Outline: Roll Number field validations 
@@ -68,7 +69,7 @@ Examples:
            | 1234567            | Enter names using only letters a to z, spaces, apostrophes and hyphens|
            | 12A/ YTO           | Enter names using only letters a to z, spaces, apostrophes and hyphens|
            
-           
+        
 Scenario: Account Holders Name field length validations 
 When I enter invalid account holder name using the name 'InvalidIn@ validInvalidIn'
 Then The length of account holder name is verified
