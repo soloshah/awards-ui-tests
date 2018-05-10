@@ -1,4 +1,4 @@
-@EmploymentDetailsCheckYourAnswers @BP490-215 @WIP
+@EmploymentDetailsCheckYourAnswers @BP490-215
 Feature: Check Your Answers for employment details
 
 @Bug @BP490-352

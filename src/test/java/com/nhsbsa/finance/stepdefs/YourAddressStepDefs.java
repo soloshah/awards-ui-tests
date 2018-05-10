@@ -27,11 +27,6 @@ public class YourAddressStepDefs {
 	private String postCode;
 	private String country;
 
-	@Given("^I am on your address page$")
-	public void iAmOnYourAddressPage() {
-		new Page(driver).navigateToUrl(baseUrl + "/personal-details/what-is-your-address");
-	}
-
 	@Given("^I go to your address page$")
 	public void iGoToYourAddressPage() {
 		new Page(driver).navigateToUrl(baseUrl + "/personal-details/what-is-your-address");

@@ -1,4 +1,4 @@
-@IntendToWorkForNHS @BP490-125 @WIP
+@IntendToWorkForNHS @BP490-125
 Feature: Intend To work for NHS after Retirement Page
 
 Background:
@@ -45,6 +45,3 @@ Scenario: Intend to work for NHS
 When I dont choose anything
 Then intend to work for NHS Page error message 'Select 'yes' if you plan to work for the NHS after you get your pension' will be displayed 
 
-
-Scenario: Default value for intend to work for NHS
-Then the default value for intend to work for NHS will be blank

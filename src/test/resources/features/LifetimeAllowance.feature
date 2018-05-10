@@ -59,6 +59,3 @@ Then Check your answers page will be displayed
 Scenario: Lifetime Allowance
 When I dont select anything on lifetime allowance page
 Then the lifetime allowance error message 'Select 'yes' if you have HMRC Lifetime Allowance protection' will be displayed 
-
-Scenario: Default value for lifetime allowance
-Then the default value for lifetime allowance will be blank

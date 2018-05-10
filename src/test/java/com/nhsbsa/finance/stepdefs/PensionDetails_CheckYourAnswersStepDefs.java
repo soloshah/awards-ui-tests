@@ -19,12 +19,8 @@ public class PensionDetails_CheckYourAnswersStepDefs {
 	private WhichSchemeStepDefs whichSchemeSteps;
 	private SharedYeNoStepDefs sharedYesNoSteps;
 	private SharedEarlyPaymentStepDefs sharedEarlyPaymentSteps;
-	private RetirementReason_1995StepDefs retirementReason1995Steps;
-	private RetirementReason_2008StepDefs retirementReason2008Steps;
-	private RetirementReason_2015StepDefs retirementReason2015Steps;
-	private LumpSumChoice_1995StepDefs lumpsumChoice1995Steps;
-	private LumpSumChoice_2008StepDefs lumpsumChoice2008Steps;
-	private LumpSumChoice_2015StepDefs lumpsumChoice2015Steps;
+	private RetirementReasonStepDefs retirementReasonSteps;
+	private LumpSumChoiceStepDefs lumpsumChoiceSteps;
 	private LumpSumPreferenceStepDefs lumpsumPrefSteps;
 	private Interstitial2008StepDefs interstitial2008Steps;
 	private Interstitial2015StepDefs interstitial2015Steps;
@@ -36,14 +32,14 @@ public class PensionDetails_CheckYourAnswersStepDefs {
 		whichSchemeSteps = new WhichSchemeStepDefs();
 		whichSchemeSteps.iGoToWhichSchemePage();
 		whichSchemeSteps.Iselect1995SectionScheme();
-		retirementReason1995Steps = new RetirementReason_1995StepDefs();
-		retirementReason1995Steps.the1995ReasonForRetirementPageWillBeDisplayed();
-		retirementReason1995Steps.ISelectDeferredBenefitAs1995RetirementReason();
+		retirementReasonSteps = new RetirementReasonStepDefs();
+		retirementReasonSteps.the1995ReasonForRetirementPageWillBeDisplayed();
+		retirementReasonSteps.ISelectDeferredBenefitAsRetirementReason();
 		sharedEarlyPaymentSteps = new SharedEarlyPaymentStepDefs();
 		sharedEarlyPaymentSteps.theEarlyPaymentDatePageWillBeDisplayed();
 		sharedEarlyPaymentSteps.IenterValidEarlyPaymentDateDetails();
-		lumpsumChoice1995Steps = new LumpSumChoice_1995StepDefs();
-		lumpsumChoice1995Steps.the1995LumpsumChoicePageWillBeDisplayed();
+		lumpsumChoiceSteps = new LumpSumChoiceStepDefs();
+		lumpsumChoiceSteps.the1995LumpsumChoicePageWillBeDisplayed();
 		sharedYesNoSteps = new SharedYeNoStepDefs();
 		sharedYesNoSteps.iSelectYes();
 		lumpsumPrefSteps = new LumpSumPreferenceStepDefs();
@@ -55,14 +51,14 @@ public class PensionDetails_CheckYourAnswersStepDefs {
 		whichSchemeSteps = new WhichSchemeStepDefs();
 		whichSchemeSteps.whichSchemePageWillBeDisplayed();
 		whichSchemeSteps.Iselect1995SectionScheme();
-		retirementReason1995Steps = new RetirementReason_1995StepDefs();
-		retirementReason1995Steps.the1995ReasonForRetirementPageWillBeDisplayed();
-		retirementReason1995Steps.ISelectDeferredBenefitAs1995RetirementReason();
+		retirementReasonSteps = new RetirementReasonStepDefs();
+		retirementReasonSteps.the1995ReasonForRetirementPageWillBeDisplayed();
+		retirementReasonSteps.ISelectDeferredBenefitAsRetirementReason();
 		sharedEarlyPaymentSteps = new SharedEarlyPaymentStepDefs();
 		sharedEarlyPaymentSteps.theEarlyPaymentDatePageWillBeDisplayed();
 		sharedEarlyPaymentSteps.IenterValidEarlyPaymentDateDetails();
-		lumpsumChoice1995Steps = new LumpSumChoice_1995StepDefs();
-		lumpsumChoice1995Steps.the1995LumpsumChoicePageWillBeDisplayed();
+		lumpsumChoiceSteps = new LumpSumChoiceStepDefs();
+		lumpsumChoiceSteps.the1995LumpsumChoicePageWillBeDisplayed();
 		sharedYesNoSteps = new SharedYeNoStepDefs();
 		sharedYesNoSteps.iSelectYes();
 		lumpsumPrefSteps = new LumpSumPreferenceStepDefs();
@@ -76,10 +72,10 @@ public class PensionDetails_CheckYourAnswersStepDefs {
 		whichSchemeSteps = new WhichSchemeStepDefs();
 		whichSchemeSteps.iGoToWhichSchemePage();
 		whichSchemeSteps.Iselect2008SectionScheme();
-		retirementReason2008Steps = new RetirementReason_2008StepDefs();
-		retirementReason2008Steps.ISelect2008RetirementReasonAsRetirementAge();
-		lumpsumChoice2008Steps = new LumpSumChoice_2008StepDefs();
-		lumpsumChoice2008Steps.the2008LumpsumChoicePageWillBeDisplayed();
+		retirementReasonSteps = new RetirementReasonStepDefs();
+		retirementReasonSteps.ISelectRetirementReasonAsRetirementAge();
+		lumpsumChoiceSteps = new LumpSumChoiceStepDefs();
+		lumpsumChoiceSteps.the2008LumpsumChoicePageWillBeDisplayed();
 		sharedYesNoSteps = new SharedYeNoStepDefs();
 		sharedYesNoSteps.iSelectYes();
 		lumpsumPrefSteps = new LumpSumPreferenceStepDefs();
@@ -88,10 +84,10 @@ public class PensionDetails_CheckYourAnswersStepDefs {
 
 	@Given("^I fill in 2008 pension scheme details$")
 	public void iFillIn2008PensionSchemeDetails() throws Throwable {
-		retirementReason2008Steps = new RetirementReason_2008StepDefs();
-		retirementReason2008Steps.ISelect2008RetirementReasonAsRetirementAge();
-		lumpsumChoice2008Steps = new LumpSumChoice_2008StepDefs();
-		lumpsumChoice2008Steps.the2008LumpsumChoicePageWillBeDisplayed();
+		retirementReasonSteps = new RetirementReasonStepDefs();
+		retirementReasonSteps.ISelectRetirementReasonAsRetirementAge();
+		lumpsumChoiceSteps = new LumpSumChoiceStepDefs();
+		lumpsumChoiceSteps.the2008LumpsumChoicePageWillBeDisplayed();
 		sharedYesNoSteps = new SharedYeNoStepDefs();
 		sharedYesNoSteps.iSelectYes();
 		lumpsumPrefSteps = new LumpSumPreferenceStepDefs();
@@ -105,11 +101,11 @@ public class PensionDetails_CheckYourAnswersStepDefs {
 		whichSchemeSteps = new WhichSchemeStepDefs();
 		whichSchemeSteps.iGoToWhichSchemePage();
 		whichSchemeSteps.Iselect2015SectionScheme();
-		retirementReason2015Steps = new RetirementReason_2015StepDefs();
-		retirementReason2015Steps.the2015ReasonForRetirementPageWillBeDisplayed();
-		retirementReason2015Steps.iSelectdeferredBenefitHealth2015RetirementReason();
-		lumpsumChoice2015Steps = new LumpSumChoice_2015StepDefs();
-		lumpsumChoice2015Steps.the2015LumpsumChoicePageWillBeDisplayed();
+		retirementReasonSteps = new RetirementReasonStepDefs();
+		retirementReasonSteps.the2015ReasonForRetirementPageWillBeDisplayed();
+		retirementReasonSteps.iSelectDeferredBenefitHealthAsRetirementReason();
+		lumpsumChoiceSteps = new LumpSumChoiceStepDefs();
+		lumpsumChoiceSteps.the2015LumpsumChoicePageWillBeDisplayed();
 		sharedYesNoSteps = new SharedYeNoStepDefs();
 		sharedYesNoSteps.iSelectYes();
 		lumpsumPrefSteps = new LumpSumPreferenceStepDefs();
@@ -124,30 +120,30 @@ public class PensionDetails_CheckYourAnswersStepDefs {
 		whichSchemeSteps = new WhichSchemeStepDefs();
 		whichSchemeSteps.iGoToWhichSchemePage();
 		whichSchemeSteps.iSelectAllTheSchemes();
-		retirementReason1995Steps = new RetirementReason_1995StepDefs();
-		retirementReason1995Steps.the1995ReasonForRetirementPageWillBeDisplayed();
-		retirementReason1995Steps.ISelectretirementAgeAs1995RetirementReason();
-		lumpsumChoice1995Steps = new LumpSumChoice_1995StepDefs();
-		lumpsumChoice1995Steps.the1995LumpsumChoicePageWillBeDisplayed();
+		retirementReasonSteps = new RetirementReasonStepDefs();
+		retirementReasonSteps.the1995ReasonForRetirementPageWillBeDisplayed();
+		retirementReasonSteps.ISelectRetirementAgeAsRetirementReason();
+		lumpsumChoiceSteps = new LumpSumChoiceStepDefs();
+		lumpsumChoiceSteps.the1995LumpsumChoicePageWillBeDisplayed();
 		sharedYesNoSteps = new SharedYeNoStepDefs();
 		sharedYesNoSteps.iSelectNo();
 		interstitial2008Steps = new Interstitial2008StepDefs();
 		interstitial2008Steps.the2008InterstitialPageWillBeDisplayed();
-		retirementReason2008Steps = new RetirementReason_2008StepDefs();
-		retirementReason2008Steps.ISelect2008RetirementReasonAsRetirementAge();
-		lumpsumChoice2008Steps = new LumpSumChoice_2008StepDefs();
-		lumpsumChoice2008Steps.the2008LumpsumChoicePageWillBeDisplayed();
+		retirementReasonSteps = new RetirementReasonStepDefs();
+		retirementReasonSteps.ISelectRetirementReasonAsRetirementAge();
+		lumpsumChoiceSteps = new LumpSumChoiceStepDefs();
+		lumpsumChoiceSteps.the2008LumpsumChoicePageWillBeDisplayed();
 		sharedYesNoSteps = new SharedYeNoStepDefs();
 		sharedYesNoSteps.iSelectYes();
 		lumpsumPrefSteps = new LumpSumPreferenceStepDefs();
 		lumpsumPrefSteps.ISelectMaxTaxFreeAmountAsLumpSumPreference();
 		interstitial2015Steps = new Interstitial2015StepDefs();
 		interstitial2015Steps.the2015InterstitialPageWillBeDisplayed();
-		retirementReason2015Steps = new RetirementReason_2015StepDefs();
-		retirementReason2015Steps.the2015ReasonForRetirementPageWillBeDisplayed();
-		retirementReason2015Steps.iSelectdeferredBenefitHealth2015RetirementReason();
-		lumpsumChoice2015Steps = new LumpSumChoice_2015StepDefs();
-		lumpsumChoice2015Steps.the2015LumpsumChoicePageWillBeDisplayed();
+		retirementReasonSteps = new RetirementReasonStepDefs();
+		retirementReasonSteps.the2015ReasonForRetirementPageWillBeDisplayed();
+		retirementReasonSteps.iSelectDeferredBenefitHealthAsRetirementReason();
+		lumpsumChoiceSteps = new LumpSumChoiceStepDefs();
+		lumpsumChoiceSteps.the2015LumpsumChoicePageWillBeDisplayed();
 		sharedYesNoSteps = new SharedYeNoStepDefs();
 		sharedYesNoSteps.iSelectNo();
 
@@ -363,14 +359,14 @@ public class PensionDetails_CheckYourAnswersStepDefs {
 
 	@And("^I navigate from whichScheme page to 2008 interstitial page$")
 	public void InavigateFromWhichSchemePageTo2008InterstitialPage() {
-		retirementReason1995Steps = new RetirementReason_1995StepDefs();
-		retirementReason1995Steps.the1995ReasonForRetirementPageWillBeDisplayed();
-		retirementReason1995Steps.iClickNextOn1995RetirementReasonPage();
+		retirementReasonSteps = new RetirementReasonStepDefs();
+		retirementReasonSteps.the1995ReasonForRetirementPageWillBeDisplayed();
+		retirementReasonSteps.iClickNextOnRetirementReasonPage();
 		sharedEarlyPaymentSteps = new SharedEarlyPaymentStepDefs();
 		sharedEarlyPaymentSteps.theEarlyPaymentDatePageWillBeDisplayed();
 		sharedEarlyPaymentSteps.iClickNextOnEarlyPaymentDatePage();
-		lumpsumChoice1995Steps = new LumpSumChoice_1995StepDefs();
-		lumpsumChoice1995Steps.the1995LumpsumChoicePageWillBeDisplayed();
+		lumpsumChoiceSteps = new LumpSumChoiceStepDefs();
+		lumpsumChoiceSteps.the1995LumpsumChoicePageWillBeDisplayed();
 		sharedYesNoSteps.iClickNextOn1995LumpsumChoicePage();
 		lumpsumPrefSteps = new LumpSumPreferenceStepDefs();
 		lumpsumPrefSteps.iClickNextOnLumpsumPrefPage();
@@ -381,8 +377,8 @@ public class PensionDetails_CheckYourAnswersStepDefs {
 
 	@And("^I navigate from reasonForRetirement page to check your answers page$")
 	public void InavigateFromReasonForRetirementPageToCheckYourAnswersPage() {
-		lumpsumChoice1995Steps = new LumpSumChoice_1995StepDefs();
-		lumpsumChoice1995Steps.the1995LumpsumChoicePageWillBeDisplayed();
+		lumpsumChoiceSteps = new LumpSumChoiceStepDefs();
+		lumpsumChoiceSteps.the1995LumpsumChoicePageWillBeDisplayed();
 		sharedYesNoSteps.iClickNextOn1995LumpsumChoicePage();
 		lumpsumPrefSteps = new LumpSumPreferenceStepDefs();
 		lumpsumPrefSteps.iClickNextOnLumpsumPrefPage();
@@ -391,8 +387,8 @@ public class PensionDetails_CheckYourAnswersStepDefs {
 
 	@And("^I navigate from earlyPaymentDate page to check your answers page$")
 	public void InavigateFromEarlyPaymentDatePageToCheckYourAnswersPage() {
-		lumpsumChoice1995Steps = new LumpSumChoice_1995StepDefs();
-		lumpsumChoice1995Steps.the1995LumpsumChoicePageWillBeDisplayed();
+		lumpsumChoiceSteps = new LumpSumChoiceStepDefs();
+		lumpsumChoiceSteps.the1995LumpsumChoicePageWillBeDisplayed();
 		sharedYesNoSteps.iClickNextOn1995LumpsumChoicePage();
 		lumpsumPrefSteps = new LumpSumPreferenceStepDefs();
 		lumpsumPrefSteps.iClickNextOnLumpsumPrefPage();

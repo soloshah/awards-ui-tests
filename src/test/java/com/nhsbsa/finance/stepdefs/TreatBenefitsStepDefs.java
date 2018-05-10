@@ -35,11 +35,6 @@ public class TreatBenefitsStepDefs {
 		assertThat(treatBenefitsPage.getHeading()).contains("We’ll only be able to process your application if we treat your NHS Pension Scheme benefits in excess of the Lifetime Allowance");
 
 		}
-
-	@Then("^the default value for treat benefits page will be blank$")
-	public void theDefaultValueForTreatBenefitsPageWillBeBlank() {
-		assertThat(treatBenefitsPage.isTreatBenefitsRadioButtonSelected()).isFalse();
-	}
 	
 	@When("^I click next on treat excess benefit page$")
 	public void iClickNextOnTreatExcessBenefitPage() {

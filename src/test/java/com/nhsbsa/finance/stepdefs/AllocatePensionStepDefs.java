@@ -20,10 +20,6 @@ public class AllocatePensionStepDefs {
 
 	private AllocatePensionPage allocatePensionPage;
 
-	@Given("^I am on do you want to allocate page$")
-	public void iAmOnDoYouWantToAllocatePage() {
-		new Page(driver).navigateToUrl(baseUrl + "/dependant-details/do-you-want-to-allocate");
-	}
 
 	@Given("^I go to do you want to allocate page$")
 	public void iGoToDoYouWantToAllocatePage() {
@@ -38,10 +34,7 @@ public class AllocatePensionStepDefs {
 		assertThat(allocatePensionPage.getHeading()).contains("Do you want to allocate part of your pension?");
 	}
 
-	@Then("^the default value for allocate your pension will be blank$")
-	public void theDefaultValueForAllocateYourPensionWillBeBlank() {
-		assertThat(allocatePensionPage.isAllocatePensionRadioButtonSelected()).isFalse();
-	}
+	
 
 	@When("^I click on the link what is allocation$")
 	public void iClickOnTheLinkWhatIsAllocation() {

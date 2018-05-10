@@ -66,6 +66,3 @@ Scenario: Select the scheme information link
 And I click on scheme information link
 Then the new scheme information page will be displayed
 
-Scenario: Default value of which scheme
-Then the default value of which scheme will be blank
-         

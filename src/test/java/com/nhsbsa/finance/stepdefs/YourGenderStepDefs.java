@@ -57,10 +57,6 @@ public class YourGenderStepDefs {
 			iSelectMaleOnYourGenderPage();
 	}
 
-	@Then("^the default value for your gender page will be blank$")
-	public void theDefaultValueForYourGenderPageWillBeBlank() {
-		assertThat(yourGenderPage.isGenderRadioButtonSelected()).isFalse();
-	}
 
 	@And("^what is your gender page error message '(.*)' will be displayed$")
 	public void whatIsYourGenderPageErrorMessageWillBeDisplayed(String errorMessage) {

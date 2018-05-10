@@ -9,7 +9,7 @@ When I go to the partner name page
 Scenario: Valid partner Name details
 When I enter valid partner name details
 Then the partner name submission will be successful
-And the dynamic partners date of birth page will be displayed
+And the partners date of birth page will be displayed
 
 
 @Bug @BP490-243

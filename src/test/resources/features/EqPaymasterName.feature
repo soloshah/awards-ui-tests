@@ -5,7 +5,6 @@ Background:
 Given I am on the start page
 When I go to the eq paymaster name page
 
-
 Scenario: Valid eq paymaster name details
 When I enter valid eq paymaster name details
 Then the eq paymaster name submission will be successful

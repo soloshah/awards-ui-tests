@@ -69,13 +69,6 @@ public class PensionOver30Page extends Page {
 		return new PensionOver30Page(driver);
 	}
 
-	public boolean isPensionOver30kRadioButtonSelected() {
-		boolean selected = true;
-
-		if (!isElementSelected(yesRadioButtonLocator) && !isElementSelected(noRadioButtonLocator))
-			selected = false;
-		return selected;
-	}
 
 	public SeparatePensionBenefitsPage selectYes() {
 		navigateToRootElement();

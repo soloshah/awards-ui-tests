@@ -24,11 +24,6 @@ public class DependantChildrenStepDefs {
 	private OtherDependantChildrenStepDefs otherDependantChildrenSteps;
 	private SharedYeNoStepDefs sharedYeNoSteps;
 
-	@Given("^I am on dependant children page$")
-	public void iAmOnDependantChildrenPage() {
-		new Page(driver).navigateToUrl(baseUrl + "/dependant-details/do-you-have-any-dependant-children");
-	}
-
 	@Given("^I go to dependant children page$")
 	public void iGoToDependantChildrenPage() {
 		new Page(driver).navigateToUrl(baseUrl + "/dependant-details/do-you-have-any-dependant-children");
@@ -36,11 +31,7 @@ public class DependantChildrenStepDefs {
 		assertThat(dependantChildrenPage.getHeading().contains("Do you have any dependant children?"));
 	}
 
-	@Then("^the default value for dependant children page will be blank$")
-	public void theDefaultValueForDependantChildrenPageWillBeBlank() {
-		assertThat(dependantChildrenPage.isDependantChildrenRadioButtonSelected()).isFalse();
-	}
-
+	
 	@Then("^Do you have any dependant children page will be displayed$")
 	public void doYouHaveAnyDependantChildrenPageWillBeDisplayed() {
 		dependantChildrenPage = new DependantChildrenPage(driver);

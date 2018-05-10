@@ -46,7 +46,8 @@ public class WouldYouLikeToBeContactedStepDefs {
 
 	@When("^I select contact details using different valid option$")
 	public void iSelectContactDetailsUsingDifferentValidOption() {
-		iSelectWouldNotLikeToBeContacted();
+		wouldYouLikeToBeContactedPage = new WouldYouLikeToBeContactedPage(driver);
+		wouldYouLikeToBeContactedPage.deselectEmail();
 	}
 	
 	@When("^I click next on would you like to be contacted page$")
@@ -55,10 +56,6 @@ public class WouldYouLikeToBeContactedStepDefs {
 		wouldYouLikeToBeContactedPage.nextStep();
 	}
 
-	@Then("^the default value for would you like to be contacted will be blank$")
-	public void theDefaultValueForWouldYouLikeToBeContactedWillBeBlank() {
-		assertThat(wouldYouLikeToBeContactedPage.isWouldYouLikeToBeContactedCheckboxSelected()).isFalse();
-	}
 
 	@And("^how would you like to be contacted page error message '(.*)' will be displayed$")
 	public void howWouldYouLikeToBeContactedPageErrorMessageWillBeDisplayed(String errorMessage) {
@@ -86,13 +83,7 @@ assertThat(wouldYouLikeToBeContactedPage.getErrorsBelowErrorMessage()).matches("
 		wouldYouLikeToBeContactedPage.selectByEmailCheckbox();
 	}
 
-	@When("^I select would not like to be contacted$")
-	public void iSelectWouldNotLikeToBeContacted() {
-		SharedData.sharedCheckBox = "I would not like to be contacted";
-		wouldYouLikeToBeContactedPage = new WouldYouLikeToBeContactedPage(driver);
-		wouldYouLikeToBeContactedPage.selectNotToBeContactedCheckbox();
-	}
-
+	
 	@When("^I select by phone and email$")
 	public void iSelectByPhoneAndEmail() {
 		wouldYouLikeToBeContactedPage = new WouldYouLikeToBeContactedPage(driver);

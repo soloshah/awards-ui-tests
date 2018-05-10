@@ -82,7 +82,7 @@ And the updated pension details for lumpsumChoice will be displayed
 Scenario: Change LumpSum Preference
 Given I have filled in 1995 pension scheme details
 When I click on change lumpSumPreference
-Then the 1995 lumpsum preference page will be displayed
+Then the lumpsum preference page will be displayed
 And the lumpSum preference details are sustained
 When I select lumpSum preference using different valid option
 And Check your answers page will be displayed

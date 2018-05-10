@@ -26,5 +26,3 @@ When I dont select anything on pension over 30k page
 Then pension over 30k error message 'Select 'yes' if your NHS pension plus any other benefits will be more than £30,000 per year' will be displayed 
 
 
-Scenario: Default value for pension over 30k
-Then the default value for pension over 30k will be blank

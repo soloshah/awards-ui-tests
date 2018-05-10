@@ -101,15 +101,7 @@ public class LifetimeAllowancePage extends Page {
 		nextStep();
 		return new LifetimeAllowancePage(driver);
 	}
-
-	public boolean isLifeTimeAllowanceRadioButtonSelected() {
-		boolean selected = true;
-
-		if (!isElementSelected(yesRadioButtonLocator) && !isElementSelected(noRadioButtonLocator))
-			selected = false;
-		return selected;
-	}
-
+	
 	public LifetimeAllowancePage selectYes() {
 		navigateToRootElement();
 		navigateToElementBy(yesRadioButtonLocator);
@@ -155,4 +147,5 @@ public class LifetimeAllowancePage extends Page {
 		navigateToParentElement();
 		return getElementText();
 	}
+	
 }

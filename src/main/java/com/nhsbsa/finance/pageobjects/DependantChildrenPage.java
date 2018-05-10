@@ -6,25 +6,17 @@ import org.openqa.selenium.WebDriver;
 public class DependantChildrenPage extends Page {
 
 	private String dependantChildrenTitle = "Do you have any dependant children? - Claim your NHS Pension - NHSBSA";
-	private By yesRadioButtonLocator = By.xpath("//*[@id='yesNo']/div/div[1]/label");
-	private By noRadioButtonLocator = By.xpath("//*[@id='yesNo']/div/div[2]/label");
+	private By backButtonLocator = By.id("back-link");
 	private By DependantChildrenLinkLocator = By.className("summary");
 	private By DependentChildLinkTextLocator = By.xpath("//*[@id='details-content-0']/p[1]");
 
 	public DependantChildrenPage(WebDriver driver) {
 		super(driver);
 		waitForTitleToExist(dependantChildrenTitle);
-		waitForElementToBeVisibleBy(yesRadioButtonLocator);
+		waitForElementToBeVisibleBy(backButtonLocator);
 		waitForElementToBeVisibleBy(DependantChildrenLinkLocator);
 	}
 
-	public boolean isDependantChildrenRadioButtonSelected() {
-		boolean selected = true;
-
-		if (!isElementSelected(yesRadioButtonLocator) && !isElementSelected(noRadioButtonLocator))
-			selected = false;
-		return selected;
-	}
 
 	public void verifyDependantChildLink() {
 		try {

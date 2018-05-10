@@ -1,17 +1,6 @@
 @ContactDetailsCheckYourAnswers @BP490-216
 Feature: Check Your Answers for contact details
 
-
-Scenario: Would you like to be contacted
-Given I am on the start page
-When I go to would you like to be contacted page
-And I select would not like to be contacted
-Then Check your answers page will be displayed
-And would you like to be contacted details will be displayed
-And I submit all details
-Then the summary page will be displayed
-
-
 Scenario: Valid contact details using telephone
 Given I am on the start page
 When I go to would you like to be contacted page
@@ -75,5 +64,5 @@ When I click on change WouldYouLikeToBeContacted
 Then Would you like to be contacted page will be displayed
 And the contact details are sustained
 When I select contact details using different valid option
-And Check your answers page will be displayed
-And would you like to be contacted details will be displayed
+Then I navigate from contact page to check your answers page
+And Check your answers page with telephone contact details will be displayed

@@ -133,5 +133,3 @@ When I dont select anything on marital status page
 Then marital status page error message 'You must select your marital status' will be displayed 
 
 
-Scenario: Default value for marital status
-Then the default value for marital status will be blank

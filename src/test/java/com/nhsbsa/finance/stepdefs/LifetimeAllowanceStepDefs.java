@@ -23,10 +23,6 @@ public class LifetimeAllowanceStepDefs {
 
 	private LifetimeAllowancePage lifetimeAllowancePage;
 
-	@Given("^I am on lifetime allowance page$")
-	public void iAmOnLifetimeAllowancePage() {
-		new Page(driver).navigateToUrl(baseUrl + "/pension-arrangement-details/do-you-have-lifetime-allowance");
-	}
 
 	@Given("^I go to lifetime allowance page$")
 	public void iGoToLifetimeAllowancePage() {
@@ -35,11 +31,7 @@ public class LifetimeAllowanceStepDefs {
 		assertThat(lifetimeAllowancePage.getHeading()).contains("Do you have HMRC Lifetime Allowance protection?");
 	}
 
-	@Then("^the default value for lifetime allowance will be blank$")
-	public void theDefaultValueForLifetimeAllowanceWillBeBlank() {
-		assertThat(lifetimeAllowancePage.isLifeTimeAllowanceRadioButtonSelected()).isFalse();
-	}
-
+	
 	@And("^the certificate number error message '(.*)' will be displayed$")
 	public void theCertificateNumberPageErrorMessageWillBeDisplayed(String errorMessage) {
 		lifetimeAllowancePage = new LifetimeAllowancePage(driver);

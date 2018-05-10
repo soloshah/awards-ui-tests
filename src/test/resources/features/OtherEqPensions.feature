@@ -19,6 +19,3 @@ Scenario: You have any other pensions paid by Equiniti Paymaster
 When I dont select anything
 Then the radio button not selected error message 'Select 'yes' if you have any other pensions paid by Equiniti Paymaster' will be displayed 
 
-
-Scenario: Default value for other pensions paid by Equiniti Paymaster
-Then the default value for other pensions paid by Equiniti Paymaster will be blank

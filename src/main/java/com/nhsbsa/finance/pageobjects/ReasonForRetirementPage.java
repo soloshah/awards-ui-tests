@@ -3,13 +3,12 @@ package com.nhsbsa.finance.pageobjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class ReasonForRetirement_2015Page extends Page {
+public class ReasonForRetirementPage extends Page {
 
-	private String retirementPageTitle = "Why are you claiming your deferred benefits for the 2015 Scheme? - Claim your NHS Pension - NHSBSA";
-	private By retirementAgeRadioButtonLocator = By.xpath("//*[@id='retirementReason']/div[1]/label");
-	private By paymentDeferredBenefitRadioButtonLocator = By.xpath("//*[@id='retirementReason']/div[3]/label");
-	private By deferredBenefitIllRadioButtonLocator = By.xpath("//*[@id='retirementReason']/div[5]/label");
-	private By commutedEarlyPaymentRadioButtonLocator = By.xpath("//*[@id='retirementReason']/div[7]/label");
+	private By retirementAgeRadioButtonLocator = By.id("retirement_radio");
+	private By paymentDeferredBenefitRadioButtonLocator = By.id("deferred-benefit_radio");
+	private By deferredBenefitIllRadioButtonLocator = By.id("deferred-benefits-health_radio");
+	private By commutedEarlyPaymentRadioButtonLocator = By.id("early-payment-health_radio");
 	private By retirementAgeTextLocator = By.id("retirement");
 	private By paymentDeferredBenefitTextLocator = By.xpath("//*[@id='deferred-benefit']/p");
 	private By deferredBenefitHealthTextLocator = By.xpath("//*[@id='deferred-benefits-health']/p");
@@ -17,15 +16,16 @@ public class ReasonForRetirement_2015Page extends Page {
 	private By nextButtonLocator = By.id("submit_button");
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");
 	private By errorsBelowErrorMessageLocator = By.id("error-summary-heading1");
+	private By retirementReasonField2008ErrorMessageLocator = By.id("error-message-why-2008");
 	private By retirementReasonFieldErrorMessageLocator = By.id("error-message-why-1995");
 	private By retirementReasonAnchoredErrorMessageLocator = By.id("error-list0");
 	private By retirementReasonAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#retirementReason']");
+	private By backLinkLocator = By.id("back-link");
 		
-	public ReasonForRetirement_2015Page(WebDriver driver) {
+	public ReasonForRetirementPage(WebDriver driver) {
 		super(driver);
-		waitForTitleToExist(retirementPageTitle);
-		waitForElementToBeVisibleBy(retirementAgeRadioButtonLocator);
-	}
+		waitForElementToBeVisibleBy(backLinkLocator);
+			}
 
 	public void selectRetirementReasonAge() {
 		navigateToRootElement();
@@ -52,7 +52,7 @@ public class ReasonForRetirement_2015Page extends Page {
 	}
 	
 
-	private void nextStep() {
+	public void nextStep() {
 		navigateToRootElement();
 		navigateToElementBy(nextButtonLocator);
 		click();
@@ -113,6 +113,12 @@ public class ReasonForRetirement_2015Page extends Page {
 		navigateToElementBy(retirementReasonFieldErrorMessageLocator);
 		return getElementText();
 	}
+	
+	public String getRetirementReason2008FieldErrorMessage() {
+		navigateToRootElement();
+		navigateToElementBy(retirementReasonField2008ErrorMessageLocator);
+		return getElementText();
+	}
 
 		public void selectValidRetirementReason(){
 			nextStep();
@@ -124,13 +130,4 @@ public class ReasonForRetirement_2015Page extends Page {
 		
 	}
 
-	public boolean isRetirementReasonRadioButtonSelected() {
-		boolean selected = true;
-
-		if (!isElementSelected(retirementAgeRadioButtonLocator) && !isElementSelected(paymentDeferredBenefitRadioButtonLocator)
-				&& !isElementSelected(deferredBenefitIllRadioButtonLocator) && !isElementSelected(commutedEarlyPaymentRadioButtonLocator))
-			selected = false;
-		return selected;
 	}
-
-}

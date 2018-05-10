@@ -56,7 +56,7 @@ public class ContactDetails_CheckYourAnswersStepDefs2 {
 		assertThat(contactDetails_CheckYourAnswerPage.getPresenceOfContactPref()).isEqualTo(true);
 		assertThat(contactDetails_CheckYourAnswerPage.getContactPrefText())
 				.matches("How would you like to be contacted about your pension");
-		assertThat(contactDetails_CheckYourAnswerPage.getContactPref()).matches("I would not like to be contacted");
+		assertThat(contactDetails_CheckYourAnswerPage.getContactPref()).matches("Phone");
 	}
 
 	@And("^Check your answers page with telephone contact details will be displayed$")
@@ -134,6 +134,14 @@ public class ContactDetails_CheckYourAnswersStepDefs2 {
 		emailSteps = new EmailAddressStepDefs();
 		emailSteps.whatisYourEmailAddressPageWillBeDisplayed();
 		emailSteps.iClickNextOnEmailAddressPage();
+
+	}
+	
+	@And("^I navigate from contact page to check your answers page$")
+	public void InavigateFromContactPageToCheckYourAnswersPage() {
+		phoneSteps = new TelephoneNumberStepDefs();
+		phoneSteps.whatisYourTelephoneNumberPageWillBeDisplayed();
+		phoneSteps.iClickNextOnTelephoneNumberPage();
 
 	}
 

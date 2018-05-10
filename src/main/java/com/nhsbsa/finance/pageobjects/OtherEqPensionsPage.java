@@ -6,23 +6,13 @@ import org.openqa.selenium.WebDriver;
 public class OtherEqPensionsPage extends Page {
 
 	private String otherEqPensionsTitle = "Do you have any other pensions paid by Equiniti Paymaster? - Claim your NHS Pension - NHSBSA";
-	private By yesRadioButtonLocator = By.xpath("//*[@id='yesNo']/div/div[1]/label");
-	private By noRadioButtonLocator = By.xpath("//*[@id='yesNo']/div/div[2]/label");
-
+	private By backLinkLocator = By.id("backLinkLocator");
 
 	public OtherEqPensionsPage(WebDriver driver) {
 		super(driver);
 		waitForTitleToExist(otherEqPensionsTitle);
-		waitForElementToBeVisibleBy(yesRadioButtonLocator);
+		waitForElementToBeVisibleBy(backLinkLocator);
 	}
 
-
-	public boolean isOtherEqPensionsRadioButtonSelected() {
-		boolean selected = true;
-
-		if (!isElementSelected(yesRadioButtonLocator) && !isElementSelected(noRadioButtonLocator))
-			selected = false;
-		return selected;
-	}
 
 }

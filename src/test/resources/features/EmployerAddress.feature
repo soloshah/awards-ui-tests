@@ -1,4 +1,4 @@
-@EmployerAddress @BP490-120 @WIP
+@EmployerAddress @BP490-120
 Feature: What is your employers Address
 
 Background:

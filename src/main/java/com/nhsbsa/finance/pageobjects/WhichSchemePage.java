@@ -98,14 +98,6 @@ public class WhichSchemePage extends Page {
 		return new WhichSchemePage(driver);
 	}
 
-	public boolean isWhichSchemeCheckboxSelected() {
-		boolean selected = true;
-
-		if (!isElementSelected(section1995CheckboxLocator) && !isElementSelected(section2008CheckboxLocator)
-				&& !isElementSelected(section2015CheckboxLocator))
-			selected = false;
-		return selected;
-	}
 	
 	public boolean is1995CheckboxSelected() {
 		navigateToRootElement();

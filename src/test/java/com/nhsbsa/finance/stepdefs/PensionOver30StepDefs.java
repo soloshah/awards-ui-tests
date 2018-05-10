@@ -34,10 +34,6 @@ public class PensionOver30StepDefs {
 		assertThat(pensionOver30Page.getHeading()).contains("Do any of these apply?");
 	}
 
-	@Then("^the default value for pension over 30k will be blank$")
-	public void theDefaultValueForPensionOver30kWillBeBlank() {
-		assertThat(pensionOver30Page.isPensionOver30kRadioButtonSelected()).isFalse();
-	}
 
 	@When("^I select Yes on pension over 30k page$")
 	public void iSelectYesOnPensionOver30kPage() {

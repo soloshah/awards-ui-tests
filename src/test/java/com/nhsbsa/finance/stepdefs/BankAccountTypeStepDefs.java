@@ -22,21 +22,12 @@ public class BankAccountTypeStepDefs {
 
 	private BankAccountTypePage bankAccountTypePage;
 
-	@Given("^I am on bank account type page$")
-	public void iAmOnBankAccountTypePage() {
-		new Page(driver).navigateToUrl(baseUrl + "/payment-details/what-type-of-account");
-	}
 
 	@Given("^I go to bank account type page$")
 	public void iGoToBankAccountTypePage() {
 		new Page(driver).navigateToUrl(baseUrl + "/payment-details/what-type-of-account");
 		bankAccountTypePage = new BankAccountTypePage(driver);
 		assertThat(bankAccountTypePage.getHeading()).contains("What type of account are we making the payment to?");
-	}
-
-	@Then("^the default value for select bank account type will be blank$")
-	public void theDefaultValueForSelectBankAccountTypeWillBeBlank() {
-		assertThat(bankAccountTypePage.isBankAccountRadioButtonSelected()).isFalse();
 	}
 
 	@Then("^the bank account type page will be displayed$")

@@ -4,7 +4,7 @@ Feature: Allocation Date of Birth
 Background:
 Given I am on the start page
 When I go to the allocation name page
-And I enter valid allocation name details
+And I enter valid allocation name
 And I go to allocation DOB page
 Then the allocation date of birth page will be displayed
 

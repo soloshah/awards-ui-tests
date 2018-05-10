@@ -21,9 +21,6 @@ When I dont select anything
 Then the radio button not selected error message 'Select 'yes' if you have any additional pension arrangements' will be displayed 
 
 
-Scenario: Default value for other pension arrangements
-Then the default value for other pension arrangements page will be blank
-
 @TestEnv @StageEnv
 Scenario: Do you have any other pension arrangements
 #When I select Yes

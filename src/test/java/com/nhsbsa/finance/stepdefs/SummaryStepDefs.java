@@ -45,8 +45,8 @@ public class SummaryStepDefs {
 		assertThat(summaryPage.getSummaryHeading()).contains("Your application");
 	}
 
-	@Then("^I click on continue button$")
-	public void iClickOnContinueButton() {
+	@Then("^I click on submit button$")
+	public void iClickOnSubmitButton() {
 		summaryPage.submitApplication();
 	}
 
@@ -264,10 +264,10 @@ public class SummaryStepDefs {
 	
 		}
 	
-	@Then("^the continue button will be disabled$")
-	public void theContinueButtonWillBeDisabled(){
+	@Then("^the submit button will be disabled$")
+	public void theSubmitButtonWillBeDisabled(){
 		summaryPage = new SummaryPage(driver);
-	assertThat(summaryPage.isContinueButtonEnabled()).isFalse();
+	assertThat(summaryPage.isSubmitButtonEnabled()).isFalse();
 		
       
 	}

@@ -1,11 +1,10 @@
-@JobTitle @BP490-123 @WIP
+@JobTitle @BP490-123
 Feature: What was your job title
 
 Background:
 
 Given I am on the start page
 When I go to the job title page
-
 
 Scenario: Valid job title details
 When I enter valid job title details

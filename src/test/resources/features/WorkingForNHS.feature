@@ -1,4 +1,4 @@
-@WorkingForNHS @BP490-118 @WIP
+@WorkingForNHS @BP490-118
 Feature: Working for NHS Page
 
 Background:
@@ -19,7 +19,3 @@ Then What was the name of your last employer page will be displayed
 Scenario: Are you working for NHS
 When I dont select anything
 Then the radio button not selected error message 'Select 'yes' if you work for the NHS' will be displayed 
-
-
-Scenario: Default value for working for NHS
-Then the default value for working for NHS will be blank

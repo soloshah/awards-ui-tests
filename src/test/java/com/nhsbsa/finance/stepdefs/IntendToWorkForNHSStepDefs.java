@@ -26,10 +26,6 @@ public class IntendToWorkForNHSStepDefs {
 
 	private IntendToWorkForNHSPage intendToWorkForNHSPage;
 
-	@Given("^I am on intend to work for  NHS page$")
-	public void iAmOnIntenToWorkForNHSPage() {
-		new Page(driver).navigateToUrl(baseUrl + "/employment-details/do-you-intend-to-work-for-nhs");
-	}
 
 	@Given("^I go to intend to work for NHS page$")
 	public void iGoToIntendToWorkForNHSPage() {
@@ -51,11 +47,6 @@ public class IntendToWorkForNHSStepDefs {
 	public void iClickNextOnIntendToWorkPage() {
 		intendToWorkForNHSPage = new IntendToWorkForNHSPage(driver);
 		intendToWorkForNHSPage.nextStep();
-	}
-
-	@Then("^the default value for intend to work for NHS will be blank$")
-	public void theDefaultValueForIntendToWorkForNHSWillBeBlank() {
-		assertThat(intendToWorkForNHSPage.intendToWorkForNHSRadioButtonSelected()).isFalse();
 	}
 
 	@And("^intend to work for NHS Page error message '(.*)' will be displayed$")

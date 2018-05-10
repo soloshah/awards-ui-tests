@@ -297,16 +297,7 @@ public class MaritalStatusPage extends Page {
 		return new MaritalStatusPage(driver);
 	}
 
-	public boolean maritalStatusRadioButtonSelected() {
-		boolean selected = true;
-
-		if (!isElementSelected(singleRadioButtonLocator) && !isElementSelected(marriedRadioButtonLocator)
-				&& !isElementSelected(civilPartnershipRadioButtonLocator)
-				&& !isElementSelected(widowedRadioButtonLocator) && !isElementSelected(divorcedRadioButtonLocator))
-			selected = false;
-		return selected;
-	}
-
+	
 	public DependantChildrenPage selectSingleMaritalStatus() {
 		navigateToRootElement();
 		navigateToElementBy(singleRadioButtonLocator);

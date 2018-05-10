@@ -107,14 +107,14 @@ When I click on payment details link
 Then the bank account type page will be displayed
 
 
-Scenario: Continue button disabled
+Scenario: Submit button disabled
 Given I am on the start page
 When I go to the summary page
 And any section is not completed
-Then the continue button will be disabled
+Then the submit button will be disabled
 
 
 Scenario: All Sections completed
 Given I have completed all sections
-When I click on continue button
+When I click on submit button
 Then the application submitted page will be displayed

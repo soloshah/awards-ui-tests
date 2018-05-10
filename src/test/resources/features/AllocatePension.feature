@@ -20,9 +20,6 @@ Scenario: Do you want to allocate
 When I dont select anything
 Then the radio button not selected error message 'Select 'yes' if you want to allocate part of your pension' will be displayed 
 
-Scenario: Default value for allocate your pension
-Then the default value for allocate your pension will be blank
-
 Scenario: Verify the allocation information link
 When I click on the link what is allocation
 Then the allocation information text will be displayed

@@ -40,14 +40,7 @@ public class BankAccountTypePage extends Page {
 		return new BankAccountTypePage(driver);
 	}
 
-	public boolean isBankAccountRadioButtonSelected() {
-		boolean selected = true;
-
-		if (!isElementSelected(currentAccountRadioButtonLocator) && !isElementSelected(depositAccountRadioButtonLocator))
-			selected = false;
-		return selected;
-	}
-
+	
 	public CurrentAccountPage selectValidCurrentAccountDetails() {
 		navigateToRootElement();
 		navigateToElementBy(currentAccountRadioButtonLocator);

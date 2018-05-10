@@ -22,10 +22,6 @@ public class TelephoneNumberStepDefs {
 	private String baseUrl = PropertyReader.getProperty("base.server");
 	private TelephoneNumberPage telephoneNumberPage;
 
-	@Given("^I am on the telephone number page$")
-	public void iAmOnTheTelePhoneNumberPage() {
-		new Page(driver).navigateToUrl(baseUrl + "/contact-details/what-is-your-phone-number");
-	}
 
 	@Given("^I go to the telephone number page$")
 	public void iGoToTheTelephoneNumberPage() {

@@ -31,14 +31,7 @@ public class YourGenderPage extends Page {
 		click();
 	}
 
-	public boolean isGenderRadioButtonSelected() {
-		boolean selected = true;
-
-		if (!isElementSelected(femaleRadioButtonLocator) && !isElementSelected(maleRadioButtonLocator))
-			selected = false;
-		return selected;
-	}
-
+	
 	public String getErrorHeadingErrorMessage() {
 		navigateToRootElement();
 		navigateToElementBy(errorHeadingErrorMessageLocator);

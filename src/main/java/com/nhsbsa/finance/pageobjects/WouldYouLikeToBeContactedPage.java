@@ -6,9 +6,8 @@ import org.openqa.selenium.WebDriver;
 public class WouldYouLikeToBeContactedPage extends Page {
 
 	private String wouldYouLikeToBeContactedTitle = "How would you like to be contacted about your pension? - Claim your NHS Pension - NHSBSA";
-	private By byPhoneCheckboxLocator = By.xpath("//*[@id='contactPref0']");
-	private By byEmailCheckboxLocator = By.xpath("//*[@id='contactPref1']");
-	private By noContactCheckboxLocator = By.xpath("//*[@id='contactPref2']");
+	private By byPhoneCheckboxLocator = By.id("contactPref0");
+	private By byEmailCheckboxLocator = By.id("contactPref1");
 	private By nextButtonLocator = By.id("submit_button");
 	private By backButtonLocator =  By.id("back-link");
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");
@@ -16,7 +15,6 @@ public class WouldYouLikeToBeContactedPage extends Page {
 	private By contactAnchoredErrorMessageLocator = By.id("error-list0");
 	private By contactAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#errorMessage']");
 	private By contactFieldErrorMessageLocator = By.id("fieldName-error-message");
-	private By selectedNoContactCheckBoxLocator = By.id("contactPref2");
 	private By selectedEmailCheckBoxLocator = By.xpath("//input[@checked='checked']");
 	private By selectedPhoneCheckBoxLocator = By.xpath("//input[@checked='checked']");
 
@@ -32,15 +30,7 @@ public class WouldYouLikeToBeContactedPage extends Page {
 		return new WouldYouLikeToBeContactedPage(driver);
 	}
 
-	public boolean isWouldYouLikeToBeContactedCheckboxSelected() {
-		boolean selected = true;
-
-		if (!isElementSelected(byPhoneCheckboxLocator) && !isElementSelected(byEmailCheckboxLocator)
-				&& !isElementSelected(noContactCheckboxLocator))
-			selected = false;
-		return selected;
-	}
-
+	
 	public TelephoneNumberPage selectByPhoneCheckbox() {
 		navigateToRootElement();
 		navigateToElementBy(byPhoneCheckboxLocator);
@@ -57,6 +47,14 @@ public class WouldYouLikeToBeContactedPage extends Page {
 		return new EmailAddressPage(driver);
 	}
 
+	
+	public void  deselectEmail(){
+		navigateToRootElement();
+		navigateToElementBy(byEmailCheckboxLocator);
+		click();
+		nextStep();
+		
+	}
 	public void selectByPhoneAndByEmailCheckbox() {
 		navigateToRootElement();
 		navigateToElementBy(byPhoneCheckboxLocator);
@@ -73,14 +71,7 @@ public class WouldYouLikeToBeContactedPage extends Page {
 		return new TelephoneNumberPage(driver);
 	}
 
-	public ContactDetails_CheckYourAnswerPage selectNotToBeContactedCheckbox() {
-		navigateToRootElement();
-		navigateToElementBy(noContactCheckboxLocator);
-		click();
-		nextStep();
-		return new ContactDetails_CheckYourAnswerPage(driver);
-	}
-
+	
 	public String getErrorHeadingErrorMessage() {
 		navigateToRootElement();
 		navigateToElementBy(errorHeadingErrorMessageLocator);
@@ -119,14 +110,7 @@ public class WouldYouLikeToBeContactedPage extends Page {
 	}
 	
 	
-	public String getNoContactCheckBox() {
-		navigateToRootElement();
-		navigateToElementBy(selectedNoContactCheckBoxLocator);
-		navigateToParentElement();
-		return getElementText();
-	}
-
-		
+	
 	public boolean isEmailCheckboxSelected() {
 		navigateToRootElement();
 		boolean checked=isElementSelected(selectedEmailCheckBoxLocator);

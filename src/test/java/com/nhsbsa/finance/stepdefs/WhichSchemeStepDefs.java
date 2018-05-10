@@ -21,19 +21,17 @@ public class WhichSchemeStepDefs {
 	private WebDriver driver = Config.getDriver();
 	private String baseUrl = PropertyReader.getProperty("base.server");
 	private WhichSchemePage whichSchemePage;
-	private RetirementReason_1995StepDefs retirement1995Steps;
-	private RetirementReason_2008StepDefs retirement2008Steps;
-	private LumpSumChoice_1995StepDefs lumpsum1995Steps;
-	private LumpSumChoice_2008StepDefs lumpsum2008Steps;
+	private RetirementReasonStepDefs retirementSteps;
+	private LumpSumChoiceStepDefs lumpsumSteps;
 	private SharedYeNoStepDefs sharedYesNoSteps;
 
 	@When("^I select the options for 1995 on next navigating pages$")
 	public void iSelectTheOptionsFor1995OnNextNavigatingPages() {
 
-		retirement1995Steps = new RetirementReason_1995StepDefs();
-		retirement1995Steps.ISelect1995RetirementReasonAsRetirementAge();
-		lumpsum1995Steps = new LumpSumChoice_1995StepDefs();
-		lumpsum1995Steps.the1995LumpsumChoicePageWillBeDisplayed();
+		retirementSteps = new RetirementReasonStepDefs();
+		retirementSteps.ISelectRetirementReasonAsRetirementAge();
+		lumpsumSteps = new LumpSumChoiceStepDefs();
+		lumpsumSteps.the1995LumpsumChoicePageWillBeDisplayed();
 		sharedYesNoSteps = new SharedYeNoStepDefs();
 		sharedYesNoSteps.iSelectNo();
 	}
@@ -41,10 +39,10 @@ public class WhichSchemeStepDefs {
 	@When("^I select the options for 2008 on next navigating pages$")
 	public void iSelectTheOptionsFor2008OnNextNavigatingPages() {
 
-		retirement2008Steps = new RetirementReason_2008StepDefs();
-		retirement2008Steps.ISelect2008RetirementReasonAsRetirementAge();
-		lumpsum2008Steps = new LumpSumChoice_2008StepDefs();
-		lumpsum2008Steps.the2008LumpsumChoicePageWillBeDisplayed();
+		retirementSteps = new RetirementReasonStepDefs();
+		retirementSteps.ISelectRetirementReasonAsRetirementAge();
+		lumpsumSteps = new LumpSumChoiceStepDefs();
+		lumpsumSteps.the2008LumpsumChoicePageWillBeDisplayed();
 		sharedYesNoSteps = new SharedYeNoStepDefs();
 		sharedYesNoSteps.iSelectNo();
 	}
@@ -84,11 +82,6 @@ public class WhichSchemeStepDefs {
 		whichSchemePage = new WhichSchemePage(driver);
 		whichSchemePage.isWhichSchemeNotSelected();
 
-	}
-
-	@Then("^the default value of which scheme will be blank$")
-	public void theDefaultValueOfWhichSchemeWillBeBlank() {
-		assertThat(whichSchemePage.isWhichSchemeCheckboxSelected()).isFalse();
 	}
 
 	@And("^the error message '(.*)' for scheme selection will be displayed$")

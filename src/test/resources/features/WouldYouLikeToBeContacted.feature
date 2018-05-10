@@ -18,12 +18,6 @@ When I select by phone and email
 Then What is your telephone number page will be displayed
 
 Scenario: How would you like to be contacted
-When I select would not like to be contacted
-Then the tbi page will be displayed
- 
-Scenario: How would you like to be contacted
 When I dont pick anything
 Then how would you like to be contacted page error message 'Choose whether you would like to be contacted' will be displayed 
 
-Scenario: Default value for would you like to be contacted
-Then the default value for would you like to be contacted will be blank

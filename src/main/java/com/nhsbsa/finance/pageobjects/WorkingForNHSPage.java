@@ -6,8 +6,6 @@ import org.openqa.selenium.WebDriver;
 public class WorkingForNHSPage extends Page {
 
 	private String workingForNHSTitle = "Are you working for the NHS? - Claim your NHS Pension - NHSBSA";
-	private By yesRadioButtonLocator = By.id("radio-yes");
-	private By noRadioButtonLocator = By.id("radio-no");
 	private By backLinkLocator = By.id("back-link");
 
 
@@ -17,13 +15,5 @@ public class WorkingForNHSPage extends Page {
 		waitForElementToBeVisibleBy(backLinkLocator);
 	}
 	
-
-	public boolean isWorkingForNHSRadioButtonSelected() {
-		boolean selected = true;
-
-		if (!isElementSelected(yesRadioButtonLocator) && !isElementSelected(noRadioButtonLocator))
-			selected = false;
-		return selected;
-	}
 
 	}

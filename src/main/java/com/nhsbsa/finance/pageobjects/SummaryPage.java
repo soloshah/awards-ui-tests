@@ -14,7 +14,7 @@ public class SummaryPage extends Page {
   private By pensionDetailsLinkLocator = By.id("about-your-pension-table-row-0");
   private By hmrcDetailsLinkLocator = By.id("about-your-pension-table-row-1");
   private By paymentDetailsLinkLocator = By.id("about-your-pension-table-row-2");
-  private By continueButtonLocator = By.xpath("//*[@id='content']/div[2]/div/div/form/div[2]/input");
+  private By submitButtonLocator = By.xpath("//*[@id='content']/div[2]/div/div/form/div[2]/input");
   private By personalDetailsCompletedTextLocator = By.xpath("//*[@id='about-you-table']/tbody/tr[1]/td[2]/strong");
   private By partnerDetailsCompletedTextLocator = By.xpath("//*[@id='about-you-table']/tbody/tr[2]/td[2]/strong");
   private By employmentDetailsCompletedTextLocator = By.xpath("//*[@id='about-you-table']/tbody/tr[3]/td[2]/strong");
@@ -33,15 +33,15 @@ public class SummaryPage extends Page {
    
   }
   
-  private void continueStep() {
+  private void submitStep() {
 		navigateToRootElement();
-		navigateToElementBy(continueButtonLocator);
+		navigateToElementBy(submitButtonLocator);
 		click();
 	}
   
   public ApplicationSubmittedPage submitApplication(){
 	  
-	  continueStep();
+	  submitStep();
 	  return new ApplicationSubmittedPage(driver);
   }
   
@@ -171,9 +171,9 @@ public class SummaryPage extends Page {
 		click();
 	}
   
-  public boolean isContinueButtonEnabled() {
+  public boolean isSubmitButtonEnabled() {
 	  navigateToRootElement();
-	  navigateToElementBy(continueButtonLocator);
+	  navigateToElementBy(submitButtonLocator);
 	  return isButtonEnabled();
 	}
   

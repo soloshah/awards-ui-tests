@@ -22,12 +22,6 @@ public class OtherPensionArrangementsStepDefs {
 
 	SharedYesNoPage sharedYesNoPage;
 
-	@Given("^I am on other pension arrangements page$")
-	public void iAmOnOtherPensionArrangementsPage() {
-		new Page(driver)
-				.navigateToUrl(baseUrl + "/pension-arrangement-details/do-you-have-any-other-pension-arrangements");
-	}
-
 	@Given("^I go to other pension arrangements page$")
 	public void iGoToOtherPensionArrangementsPage() {
 		new Page(driver)
@@ -42,9 +36,5 @@ public class OtherPensionArrangementsStepDefs {
 		assertThat(otherPensionArrangementsPage.getHeading()).contains("Do you have any other pension arrangements?");
 	}
 
-	@Then("^the default value for other pension arrangements page will be blank$")
-	public void theDefaultValueForOtherPensionArrangementsWillBeBlank() {
-		assertThat(otherPensionArrangementsPage.isAnyRadioButtonSelected()).isFalse();
-	}
 
 }

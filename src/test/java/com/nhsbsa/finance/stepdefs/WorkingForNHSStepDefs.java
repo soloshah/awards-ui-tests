@@ -22,11 +22,6 @@ public class WorkingForNHSStepDefs {
 
 	SharedYesNoPage sharedYesNoPage;
 
-	@Given("^I am on working for NHS page$")
-	public void iAmOnWorkingForNHSPage() {
-		new Page(driver).navigateToUrl(baseUrl + "/employment-details/are-you-working-in-nhs");
-	}
-
 	@Given("^I go to working for NHS page$")
 	public void iGoToWorkingForNHSPage() {
 		new Page(driver).navigateToUrl(baseUrl + "/employment-details/are-you-working-in-nhs");
@@ -34,11 +29,7 @@ public class WorkingForNHSStepDefs {
 		assertThat(workingForNHSPage.getHeading()).contains("Are you working for the NHS?");
 	}
 
-	@Then("^the default value for working for NHS will be blank$")
-	public void theDefaultValueForWorkingForNHSWillBeBlank() {
-		assertThat(workingForNHSPage.isWorkingForNHSRadioButtonSelected()).isFalse();
-	}
-
+	
 	@Then("^are you working for NHS page will be displayed$")
 	public void areYouWorkingForNHSPageWillBeDisplayed() {
 		workingForNHSPage = new WorkingForNHSPage(driver);

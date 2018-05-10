@@ -19,10 +19,6 @@ public class OtherEqPensionsStepDefs {
 
 	private OtherEqPensionsPage otherEqPensionsPage;
 
-	@Given("^I am on other eq pension page$")
-	public void iAmOnOtherEqPensionsPage() {
-		new Page(driver).navigateToUrl(baseUrl + "/payment-details/other-eq-pensions");
-	}
 
 	@Given("^I go to other eq pension page$")
 	public void iGoToOtherEqPensionsPage() {
@@ -40,9 +36,5 @@ public class OtherEqPensionsStepDefs {
 
 		}
 
-	@Then("^the default value for other pensions paid by Equiniti Paymaster will be blank$")
-	public void theDefaultValueForOtherPensionsPaidByEquinityPaymasterWillBeBlank() {
-		assertThat(otherEqPensionsPage.isOtherEqPensionsRadioButtonSelected()).isFalse();
-	}
-
+	
 }

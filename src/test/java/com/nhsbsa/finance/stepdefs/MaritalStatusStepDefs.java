@@ -26,11 +26,6 @@ public class MaritalStatusStepDefs {
 
 	private MaritalStatusPage maritalStatusPage;
 
-	@Given("^I am on marital status page$")
-	public void iAmOnMaritalStatusPage() {
-		new Page(driver).navigateToUrl(baseUrl + "/dependant-details/what-is-your-marital-status");
-	}
-
 	@Given("^I go to the marital status page$")
 	public void iGoToTheMaritalStatusPage() {
 		new Page(driver).navigateToUrl(baseUrl + "/dependant-details/what-is-your-marital-status");
@@ -43,12 +38,7 @@ public class MaritalStatusStepDefs {
 		maritalStatusPage = new MaritalStatusPage(driver);
 		assertThat(maritalStatusPage.getHeading()).contains("What is your marital status?");
 	}
-
-	@Then("^the default value for marital status will be blank$")
-	public void theDefaultValueForMaritalStatusWillBeBlank() {
-		assertThat(maritalStatusPage.maritalStatusRadioButtonSelected()).isFalse();
-	}
-
+	
 	@When("^I dont select anything on marital status page$")
 	public void iDontSelectAnythingOnMaritalStatusPage() {
 		maritalStatusPage = new MaritalStatusPage(driver);
