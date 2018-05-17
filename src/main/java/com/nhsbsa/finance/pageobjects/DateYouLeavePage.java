@@ -10,6 +10,7 @@ public class DateYouLeavePage extends Page {
 	private By monthFieldLocator = By.id("lastEmploymentDate-month");
 	private By yearFieldLocator = By.id("lastEmploymentDate-year");
 	private By nextButtonLocator = By.id("submit_button");
+	private By exampleHintLocator = By.id("lastEmploymentDate-form-hint");
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");
 	private By errorsBelowErrorMessageLocator = By.id("error-summary-heading1");
 	private By dateFieldErrorMessageLocator = By.id("lastEmploymentDate-error-message");
@@ -116,6 +117,12 @@ public class DateYouLeavePage extends Page {
 	public DateYouLeavePage submitInValidDateDetails() {
 		nextStep();
 		return new DateYouLeavePage(driver);
+	}
+	
+	public String getExampleDateHint() {
+		navigateToRootElement();
+		navigateToElementBy(exampleHintLocator);
+		return getElementText();
 	}
 
 

@@ -81,8 +81,8 @@ public class PensionDetails_CheckYourAnswersStepDefs {
 		lumpsumPrefSteps = new LumpSumPreferenceStepDefs();
 		lumpsumPrefSteps.ISelectMaxTaxFreeAmountAsLumpSumPreference();
 	}
-
-	@Given("^I fill in 2008 pension scheme details$")
+	
+		@Given("^I fill in 2008 pension scheme details$")
 	public void iFillIn2008PensionSchemeDetails() throws Throwable {
 		retirementReasonSteps = new RetirementReasonStepDefs();
 		retirementReasonSteps.ISelectRetirementReasonAsRetirementAge();
@@ -181,7 +181,7 @@ public class PensionDetails_CheckYourAnswersStepDefs {
 		pensionDetails_CheckYourAnswerPage = new PensionDetails_CheckYourAnswerPage(driver);
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOfWhichScheme()).isEqualTo(true);
 		assertThat(pensionDetails_CheckYourAnswerPage.getWhichScheme())
-				.matches("Which pension scheme or section?");
+				.contains("Which pension scheme or section?");
 		assertThat(pensionDetails_CheckYourAnswerPage.getWhichSchemeText()).matches("1995");
 		assertThat(pensionDetails_CheckYourAnswerPage.get1995Section()).matches("1995 Section");
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf1995RetirementReason()).isEqualTo(true);
@@ -336,7 +336,7 @@ public class PensionDetails_CheckYourAnswersStepDefs {
 		assertThat(pensionDetails_CheckYourAnswerPage.get1995EarlyPaymentDateText())
 				.matches(SharedData.day + " " + SharedData.month + " " + SharedData.year);
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf1995LumpsumChoice()).isEqualTo(true);
-		assertThat(pensionDetails_CheckYourAnswerPage.get1995LumpsumChoice()).contains("Do you want to increase an lump sum by giving up part of your pension");
+		assertThat(pensionDetails_CheckYourAnswerPage.get1995LumpsumChoice()).contains("Do you want an lump sum by giving up part of your pension");
 		assertThat(pensionDetails_CheckYourAnswerPage.get1995LumpsumChoiceText()).matches(SharedData.sharedRadioButton);
 		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf1995LumpsumPref()).isEqualTo(true);
 		assertThat(pensionDetails_CheckYourAnswerPage.get1995LumpsumPref()).contains("How would you like your lump sum");
@@ -352,9 +352,7 @@ public class PensionDetails_CheckYourAnswersStepDefs {
 		assertThat(pensionDetails_CheckYourAnswerPage.get2008LumpsumChoice())
 				.contains("Do you want an lump sum by giving up part of your pension?");
 		assertThat(pensionDetails_CheckYourAnswerPage.get2008LumpsumChoiceText()).matches(SharedData.sharedRadioButton);
-		assertThat(pensionDetails_CheckYourAnswerPage.getPresenceOf2008LumpsumPref()).isEqualTo(true);
-		assertThat(pensionDetails_CheckYourAnswerPage.get2008LumpsumPref()).matches("How would you like your lump sum");
-		assertThat(pensionDetails_CheckYourAnswerPage.get2008LumpsumPrefText()).matches("Maximum tax-free amount");
+		
 	}
 
 	@And("^I navigate from whichScheme page to 2008 interstitial page$")
@@ -399,7 +397,7 @@ public class PensionDetails_CheckYourAnswersStepDefs {
 		pensionDetails_CheckYourAnswerPage = new PensionDetails_CheckYourAnswerPage(driver);
 		switch (field) {
 		case "whichScheme":
-			assertThat(pensionDetails_CheckYourAnswerPage.getWhichSchemeText()).matches("1995\n2008");
+			assertThat(pensionDetails_CheckYourAnswerPage.getWhichSchemeText()).matches("2008");
 			break;
 		case "reasonForRetirement":
 			assertThat(pensionDetails_CheckYourAnswerPage.get1995RetirementReasonText())

@@ -7,12 +7,13 @@ public class MaritalStatusPage extends Page {
 
 	
 	private String maritalStatusTitle = "What is your marital status? - Claim your NHS Pension - NHSBSA";
-	private By singleRadioButtonLocator = By.xpath("//*[@id='status']/fieldset/div/div[1]/label");
-	private By marriedRadioButtonLocator = By.xpath("//*[@id='status']/fieldset/div/div[2]/label");
-	private By civilPartnershipRadioButtonLocator = By.xpath("//*[@id='status']/fieldset/div/div[4]/label");
-	private By widowedRadioButtonLocator = By.xpath("//*[@id='status']/fieldset/div/div[6]/label");
-	private By divorcedRadioButtonLocator = By.xpath("//*[@id='status']/fieldset/div/div[8]/label");
+	private By singleRadioButtonLocator = By.id("marital-status-1");
+	private By marriedRadioButtonLocator = By.id("marital-status-2");
+	private By civilPartnershipRadioButtonLocator = By.id("marital-status-3");
+	private By widowedRadioButtonLocator = By.id("marital-status-4");
+	private By divorcedRadioButtonLocator = By.id("marital-status-5");
 	private By nextButtonLocator = By.id("submit_button");
+	private By backButtonLocator = By.id("back-link");
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");
 	private By errorsBelowErrorMessageLocator = By.id("error-summary-heading1");
 	private By maritalStatusAnchoredErrorMessageLocator = By.id("error-list0");
@@ -56,7 +57,7 @@ public class MaritalStatusPage extends Page {
 	public MaritalStatusPage(WebDriver driver) {
 		super(driver);
 		waitForTitleToExist(maritalStatusTitle);
-		waitForElementToBeVisibleBy(singleRadioButtonLocator);
+		waitForElementToBeVisibleBy(backButtonLocator);
 	}
 
 	private void enterMarriedDay(String day) {

@@ -13,7 +13,7 @@ Then the child name page will be displayed
 
 Scenario: Do you have any dependant children
 When I select No
-Then are you working for NHS page will be displayed
+Then do you want to allocate pension page will be displayed
 
 
 Scenario: Do you have any dependant children

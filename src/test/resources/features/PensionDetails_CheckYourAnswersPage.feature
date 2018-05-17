@@ -39,10 +39,9 @@ Given I have filled in 1995 pension scheme details
 When I click on change whichScheme 
 Then which scheme page will be displayed
 And the which scheme details are sustained
-When I select one more scheme using different valid option
-And I navigate from whichScheme page to 2008 interstitial page
-And I fill in 2008 pension scheme details
-Then the correct 1995 and 2008 pension details will be displayed
+When I select scheme using different valid option
+And  I fill in 2008 pension scheme details
+Then the correct 2008 pension scheme details will be displayed
 And the updated pension details for whichScheme will be displayed
 
 

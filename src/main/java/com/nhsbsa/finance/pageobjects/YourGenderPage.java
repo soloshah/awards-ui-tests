@@ -12,7 +12,7 @@ public class YourGenderPage extends Page {
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");
 	private By errorsBelowErrorMessageLocator = By.id("error-summary-heading1");
 	private By GenderAnchoredErrorMessageLocator = By.id("error-list0");
-	private By GenderAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#gender']");
+	private By GenderAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#gender0']");
 	private By GenderFieldErrorMessageLocator = By.id("'error-message-'+${fieldName}");
 	private By genderIdentifyLinkLocator = By.className("summary");
 	private By genderInformationLinkLocator = By.linkText("more guidance on legally recognised gender available.");

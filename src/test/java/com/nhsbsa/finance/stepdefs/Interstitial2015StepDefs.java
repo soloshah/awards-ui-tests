@@ -18,7 +18,7 @@ public class Interstitial2015StepDefs {
   @Then("^the 2015 interstitial page will be displayed$")
   public void the2015InterstitialPageWillBeDisplayed() {
 	  interstitial2015Page = new Interstitial2015Page(driver);
-	  assertThat(interstitial2015Page.getHeading()).contains("The next questions will be in relation to 2015 Section");
+	  assertThat(interstitial2015Page.getHeading()).contains("The next questions will be in relation to 2015 Scheme");
 	  interstitial2015Page.nextStep();
   }
 

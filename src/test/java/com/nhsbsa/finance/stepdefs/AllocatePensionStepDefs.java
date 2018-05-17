@@ -9,6 +9,7 @@ import com.nhsbsa.finance.pageobjects.AllocatePensionPage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.properties.PropertyReader;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -19,6 +20,9 @@ public class AllocatePensionStepDefs {
 	private String baseUrl = PropertyReader.getProperty("base.server");
 
 	private AllocatePensionPage allocatePensionPage;
+	private MaritalStatusStepDefs maritalStatusSteps;
+	private DependantChildrenStepDefs dependantChildrenSteps;
+	private SharedYeNoStepDefs sharedYesNoSteps;
 
 
 	@Given("^I go to do you want to allocate page$")
@@ -34,7 +38,17 @@ public class AllocatePensionStepDefs {
 		assertThat(allocatePensionPage.getHeading()).contains("Do you want to allocate part of your pension?");
 	}
 
-	
+	@And("^I enter dependant details$")
+	public void iEnterDependantDetails() {
+		maritalStatusSteps = new MaritalStatusStepDefs();
+		maritalStatusSteps.iGoToTheMaritalStatusPage();
+		maritalStatusSteps.iSelectMaritalStatusAsSingle();
+		dependantChildrenSteps = new DependantChildrenStepDefs();
+		dependantChildrenSteps.doYouHaveAnyDependantChildrenPageWillBeDisplayed();
+		sharedYesNoSteps = new SharedYeNoStepDefs();
+		sharedYesNoSteps.iSelectNo();
+		doYouWantToAllocatePensionPageWillBeDisplayed();
+		}
 
 	@When("^I click on the link what is allocation$")
 	public void iClickOnTheLinkWhatIsAllocation() {

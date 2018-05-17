@@ -1,5 +1,5 @@
 @2015LumpSumChoice @BP490-143
-Feature: Do you want to allocate part of your pension
+Feature: 2015 lumpsum choice
 
 Background:
 Given I am on the start page
@@ -18,7 +18,7 @@ Then Check your answers page will be displayed
 @Bug @BP490-274
 Scenario: Do you want to increase your lump sum
 When I dont select anything
-Then the radio button not selected error message 'Select 'yes' if you want an increased lump sum' will be displayed 
+Then the radio button not selected error message 'Select 'Yes' if you want an increased lump sum' will be displayed 
 
 
 Scenario: Verify the lump sum benefits information

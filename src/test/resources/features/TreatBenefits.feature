@@ -18,5 +18,5 @@ Then the submit claim later page will be displayed
 @Bug @BP490-270
 Scenario: Do you want to treat benefit in excess of LTA
 When I dont select anything
-Then the radio button not selected error message 'Select 'Yes' if you would like us to treat your NHS Pension benefits in excess of the Lifetime Allowance' will be displayed 
+Then the treat benefit radio button not selected error message 'Select 'Yes' if you would like us to treat your NHS Pension benefits in excess of the Lifetime Allowance' will be displayed 
 

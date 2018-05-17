@@ -21,10 +21,10 @@ Examples:
 |email@domain-one.com           |
 |email@domain.name              |
 |_______@domain.com             |
-|email@123.123.123.123          | 
+#|email@123.123.123.123          | 
 |email@domain.co.jp             |
 |firstname-lastname@domain.com  |
-|Aluś@domain.com                | 
+#|Aluś@domain.com                | 
 
 @to-be-discussed  @BP490-241
 Scenario Outline: email address field validations 
@@ -35,22 +35,22 @@ Examples:
 | email                           | errorMessage                |
 |                                 |Enter an email address       | 
 |"email"@domain.com               |Enter a valid email address  |
-|email..email@domain.com          |Enter a valid email address  | 
+#|email..email@domain.com          |Enter a valid email address  | 
 |plainaddress                     |Enter a valid email address  |
 |#@%^%#$@#$@#.com                 |Enter a valid email address  |
 |@domain.com                      |Enter a valid email address  |
 |Joe Smith<email@domain.com>      |Enter a valid email address  |
 |email.domain.com                 |Enter a valid email address  |
 |email@domain@domain.com          |Enter a valid email address  |
-|email.@domain.com                |Enter a valid email address  |
-|.email@domain.com                |Enter a valid email address  | 
+#|email.@domain.com                |Enter a valid email address  |
+#|.email@domain.com                |Enter a valid email address  | 
 |あいうえお@domain.com                | Enter a valid email address |
 |email@domain.com(Joe Smith)      |Enter a valid email address  |
 |email@domain                     |Enter a valid email address  |
-|email@-domain.com                |Enter a valid email address  |
-|email@domain.web                 |Enter a valid email address  |
+#|email@-domain.com                |Enter a valid email address  |
+#|email@domain.web                 |Enter a valid email address  |
 |email@111.222.333.44444          |Enter a valid email address  |
-|email@domain..com                |Enter a valid email address  |
+#|email@domain..com                |Enter a valid email address  |
 
 
 

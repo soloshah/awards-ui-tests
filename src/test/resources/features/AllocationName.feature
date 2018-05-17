@@ -1,4 +1,4 @@
-@Allocation'sName @BP490-111 
+@Allocation'sName @BP490-111
 Feature: Allocation Name
 
 Background:

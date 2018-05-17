@@ -1,4 +1,4 @@
-@ApplicationSummary @BP490-96 @bug @BP490-382
+@ApplicationSummary @BP490-96 @bug @BP490-382 
 Feature: Summary Page
 
 

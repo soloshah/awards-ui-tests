@@ -60,7 +60,7 @@ public class CheckYourAnswersStepDefs {
 			checkYourAnswerPage.changeLink("whatIsYourPartnerName");
 			break;
 		case "partnerDob":
-			checkYourAnswerPage.changeLink("whatIsYourPartnerDob");
+			checkYourAnswerPage.changeLink("whatIsYourPartnerDob.static");
 			break;
 		case "partnerGender":
 			checkYourAnswerPage.changeLink("partnerGender.static");

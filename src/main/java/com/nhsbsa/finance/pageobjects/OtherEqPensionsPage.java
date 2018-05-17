@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 public class OtherEqPensionsPage extends Page {
 
 	private String otherEqPensionsTitle = "Do you have any other pensions paid by Equiniti Paymaster? - Claim your NHS Pension - NHSBSA";
-	private By backLinkLocator = By.id("backLinkLocator");
+	private By backLinkLocator = By.id("back-link");
 
 	public OtherEqPensionsPage(WebDriver driver) {
 		super(driver);

@@ -22,6 +22,11 @@ public class NinoStepdefs {
   private String baseUrl = PropertyReader.getProperty("base.server");
 
   private NinoPage ninoPage;
+  private NameStepDefs nameSteps;
+  private DateOfBirthStepDefs dateOfBirthSteps;
+  private YourAddressStepDefs yourAddressSteps;
+  private YourGenderStepDefs yourGenderSteps;
+  
 
   @Given("^I am on the national insurance page$")
   public void iAmOnTheNationalInsurancePage() {
@@ -100,5 +105,22 @@ public class NinoStepdefs {
 	  ninoPage = new NinoPage(driver); 
 	  ninoPage.submitValidNiDetails(SharedData.nino);
 	    }
+  
+  @When ("^I enter all personal details$")
+  public void IenterAllPersonalDetails(){
+	  nameSteps = new NameStepDefs();
+	  nameSteps.iAmOnTheNamePage();
+	  nameSteps.IenterValidNameDetails();
+	  dateOfBirthSteps = new DateOfBirthStepDefs();
+	  dateOfBirthSteps.theDateOfBirthPageWillBeDisplayed();
+	  dateOfBirthSteps.IenterValidDOBDetails();
+	  yourGenderSteps = new YourGenderStepDefs();
+	  yourGenderSteps.theGenderPageWillBeDisplayed();
+	  yourGenderSteps.iSelectMaleOnYourGenderPage();
+	  yourAddressSteps = new YourAddressStepDefs();
+	  yourAddressSteps.yourAddressPageWillBeDisplayed();
+	  yourAddressSteps.IenterValidAddressDetails();
+	  
+   }
   
 }

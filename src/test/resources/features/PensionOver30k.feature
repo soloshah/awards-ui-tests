@@ -1,4 +1,4 @@
-@PensionOver30K @BP490-154 
+@PensionOver30K @BP490-154
 Feature: Will your pension be over £30,000
 
 Background:
@@ -23,6 +23,6 @@ Then the separate pension benefits page will be displayed
 @bug @BP490-270
 Scenario: Will your pension be over 30k
 When I dont select anything on pension over 30k page
-Then pension over 30k error message 'Select 'yes' if your NHS pension plus any other benefits will be more than £30,000 per year' will be displayed 
+Then pension over 30k error message 'Select 'Yes' if your NHS pension plus any other benefits will be more than £30,000 per year' will be displayed 
 
 

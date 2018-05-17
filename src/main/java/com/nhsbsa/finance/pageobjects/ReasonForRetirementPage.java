@@ -21,6 +21,7 @@ public class ReasonForRetirementPage extends Page {
 	private By retirementReasonAnchoredErrorMessageLocator = By.id("error-list0");
 	private By retirementReasonAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#retirementReason']");
 	private By backLinkLocator = By.id("back-link");
+	private By selectedDeferredBenefitRadioButtonLocator = By.xpath("//input[@checked='checked']");
 		
 	public ReasonForRetirementPage(WebDriver driver) {
 		super(driver);
@@ -129,5 +130,13 @@ public class ReasonForRetirementPage extends Page {
 		nextStep();
 		
 	}
+	
+	public String getRetirementReason() {
+		navigateToRootElement();
+		navigateToElementBy(selectedDeferredBenefitRadioButtonLocator);
+		navigateToParentElement();
+		return getElementText();
+	}
+
 
 	}

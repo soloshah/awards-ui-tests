@@ -7,14 +7,12 @@ public class AllocatePensionPage extends Page {
 
 	private String doYouWantToAllocateTitle = "Do you want to allocate part of your pension? - Claim your NHS Pension - NHSBSA";
 	private By backLinkLocator = By.id("back-link");
-	private By yesRadioButtonLocator = By.id("radio-yes");
 	private By allocationIdentifyLinkLocator = By.className("summary");
 	private By allocationInformationLinkLocator = By.xpath("//*[@id='details-content-0']/p[4]");
 
 	public AllocatePensionPage(WebDriver driver) {
 		super(driver);
 		waitForTitleToExist(doYouWantToAllocateTitle);
-		waitForElementToBeVisibleBy(yesRadioButtonLocator);
 		waitForElementToBeVisibleBy(backLinkLocator);
 	}
 

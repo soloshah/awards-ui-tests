@@ -9,6 +9,7 @@ import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.Page;
 import com.nhsbsa.finance.pageobjects.ReasonForRetirementPage;
 import com.nhsbsa.finance.properties.PropertyReader;
+import com.nhsbsa.finance.shared.SharedData;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
@@ -223,6 +224,7 @@ public class RetirementReasonStepDefs {
 	
 	@When("^I select deferredBenefitHealth as retirement reason$")
 	public void iSelectDeferredBenefitHealthAsRetirementReason() {
+		
 		reasonForRetirementPage = new ReasonForRetirementPage(driver);
 		reasonForRetirementPage.selectRetirementReasonDeferredBenefitHealth();
 		reasonForRetirementPage.selectValidRetirementReason();
@@ -230,6 +232,7 @@ public class RetirementReasonStepDefs {
 	
 	@When("^I select retirementAge as retirement reason$")
 	public void ISelectRetirementAgeAsRetirementReason() {
+		SharedData.shared1995RadioButton = "Retirement based on your age";
 		reasonForRetirementPage = new ReasonForRetirementPage(driver);
 		reasonForRetirementPage.selectRetirementReasonAge();
 		reasonForRetirementPage.selectValidRetirementReason();
@@ -238,6 +241,7 @@ public class RetirementReasonStepDefs {
 	
 	@When("^I select deferredBenefit as retirement reason$")
 	public void ISelectDeferredBenefitAsRetirementReason() {
+		SharedData.shared1995RadioButton = "Early payment of deferred pension benefit";
 		reasonForRetirementPage = new ReasonForRetirementPage(driver);
 		reasonForRetirementPage.selectRetirementReasonDeferredBenefit();
 		reasonForRetirementPage.selectValidRetirementReason();
@@ -249,4 +253,17 @@ public class RetirementReasonStepDefs {
 		reasonForRetirementPage.nextStep();
 	}
 	
+	@Then("^the reasonForRetirement details are sustained$")
+	public void theReasonForRetirementDetailsAreSustained() {
+		reasonForRetirementPage = new ReasonForRetirementPage(driver);
+		assertThat(reasonForRetirementPage.getRetirementReason()).matches(SharedData.shared1995RadioButton);
+
+	}
+
+	@When("^I select reasonForRetirement with different valid details$")
+	public void iSelectReasonForRetirementWithDifferentValidDetails() {
+		ISelectRetirementAgeAsRetirementReason();
+	}
+
+
 }

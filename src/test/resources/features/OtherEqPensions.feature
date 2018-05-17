@@ -17,5 +17,5 @@ Then Check your answers page for payment details will be displayed
 @Bug @BP490-270
 Scenario: You have any other pensions paid by Equiniti Paymaster
 When I dont select anything
-Then the radio button not selected error message 'Select 'yes' if you have any other pensions paid by Equiniti Paymaster' will be displayed 
+Then the radio button not selected error message 'Select yes if you have any other pensions paid by Equiniti Paymaster' will be displayed 
 

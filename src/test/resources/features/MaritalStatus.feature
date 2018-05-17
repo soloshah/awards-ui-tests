@@ -18,7 +18,7 @@ When I select married on marital status page
 Then the married date fields will be displayed
 And I enter valid married date
 And the marital status submission will be successful
-Then Do you have any dependant children page will be displayed
+Then the partner name page will be displayed
 
 
 Scenario: Marital status as Civil partnership
@@ -26,7 +26,7 @@ When I select civilPartnership on marital status page
 Then the civilPartnership date fields will be displayed
 And I enter valid civilPartnership date
 And the marital status submission will be successful
-Then Do you have any dependant children page will be displayed
+Then the partner name page will be displayed
 
 
 Scenario: Marital status as Widow

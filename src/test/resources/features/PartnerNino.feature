@@ -1,4 +1,4 @@
-@PartnerNationalInsurance @BP490-100 
+@PartnerNationalInsurance @BP490-100
 Feature: Partner National Insurance Number
 
 Scenario: Valid NINO 

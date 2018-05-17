@@ -89,8 +89,8 @@ public class DateOfBirthStepDefs {
 	public void theDateOfBirthSubmissionWillBeUnsuccessful() {
 		dateOfBirthPage = new DateOfBirthPage(driver);
 		assertThat(dateOfBirthPage.getErrorHeadingErrorMessage())
-				.matches("Some questions have not been answered correctly:");
-		assertThat(dateOfBirthPage.getErrorsBelowErrorMessage()).matches("Please see the errors below.");
+				.matches("Your form contains errors");
+		assertThat(dateOfBirthPage.getErrorsBelowErrorMessage()).matches("Check your answer:");
 	}
 
 	@When("^I enter DOB details using the day '(.*)', month '(.*)' and year '(.*)$")

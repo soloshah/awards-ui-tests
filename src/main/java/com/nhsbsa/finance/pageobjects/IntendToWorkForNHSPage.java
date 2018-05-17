@@ -21,6 +21,7 @@ public class IntendToWorkForNHSPage extends Page {
 	private By monthFieldLocator = By.id("dateValue-month");
 	private By yearFieldLocator = By.id("dateValue-year");
 	private By dateHeaderLocator = By.id("dateValue-label-text");
+	private By exampleReturnDateHintLocator = By.id("dateValue-form-hint");
 	private By selectedYesRadioButtonLocator = By.xpath("//input[@checked='checked']");
 	private By selectedNoRadioButtonLocator = By.xpath("//input[@checked='checked']");
 	
@@ -173,12 +174,12 @@ public class IntendToWorkForNHSPage extends Page {
 		return new IntendToWorkForNHSPage(driver);
 	}
 	
-	public EmploymentDetails_CheckYourAnswerPage submitValidDate(String day, String month, String year) {
+	public void submitValidDate(String day, String month, String year) {
 		enterDay(day);
 		enterMonth(month);
 		enterYear(year);
 		nextStep();
-		return new EmploymentDetails_CheckYourAnswerPage(driver);
+		
 	}
 	
 	public IntendToWorkForNHSPage submitInValidDateDetails() {
@@ -186,12 +187,18 @@ public class IntendToWorkForNHSPage extends Page {
 		return new IntendToWorkForNHSPage(driver);
 	}
 
-	public EmploymentDetails_CheckYourAnswerPage submitValidNoDetails() {
+	public void submitValidNoDetails() {
 		navigateToRootElement();
 		navigateToElementBy(noRadioButtonLocator);
 		click();
 		nextStep();
-		return new EmploymentDetails_CheckYourAnswerPage(driver);
+		
+	}
+	
+	public String getExampleReturnDateHint() {
+		navigateToRootElement();
+		navigateToElementBy(exampleReturnDateHintLocator);
+		return getElementText();
 	}
 
 }

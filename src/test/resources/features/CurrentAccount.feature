@@ -18,13 +18,13 @@ Then the current account details submission will be unsuccessful
 And the current account number error message '<errorMessage>' will be displayed
 Examples:
            |accountNumber | errorMessage                |
-           |              | Enter an Account Number     |   
-           | 123456       | Enter a valid Account Number|
-           |"£$%^&*@      | Enter a valid Account Number|
-           | ()12AYTO     | Enter a valid Account Number|
-           | 5678-AGU     | Enter a valid Account Number|
-           | 3456U78/.    | Enter a valid Account Number|
-           | ABVCFRGK     | Enter a valid Account Number|
+           |              | Enter an account number     |   
+           | 123456       | Enter a valid account number|
+           |"£$%^&*@      | Enter a valid account number|
+           | ()12AYTO     | Enter a valid account number|
+           | 5678-AGU     | Enter a valid account number|
+           | 3456U78/.    | Enter a valid account number|
+      #     | ABVCFRGK     | Enter a valid account number|
 
 @Bug @BP490-278       
 Scenario Outline: SortCode field validations 
@@ -33,14 +33,14 @@ Then the current account details submission will be unsuccessful
 And the sort code for current account error message '<errorMessage>' will be displayed
 Examples:
            | sortCode1 |sortCode2| sortCode3 | errorMessage           |
-           |           |         |           | Enter a Sort Code      | 
-           |           |  33     |  11       | Enter a valid Sort Code|
-           | 11        |         |  11       | Enter a valid Sort Code|
-           | 11        |  22     |           | Enter a valid Sort Code|
-           | ss        |ww       | rr        | Enter a valid Sort Code|
-           |  1        | 2       | 3         | Enter a valid Sort Code|
-           |  *"       |  £$     | &%        | Enter a valid Sort Code|
-           |  1Q       |  7U     |  0O       | Enter a valid Sort Code|
+           |           |         |           | Enter a sort code      | 
+           |           |  33     |  11       | Enter a valid sort code|
+           | 11        |         |  11       | Enter a valid sort code|
+           | 11        |  22     |           | Enter a valid sort code|
+           | ss        |ww       | rr        | Enter a valid sort code|
+           |  1        | 2       | 3         | Enter a valid sort code|
+           |  *"       |  £$     | &%        | Enter a valid sort code|
+           |  1Q       |  7U     |  0O       | Enter a valid sort code|
                       
 @Bug @BP490-278  @BP490-330           
 Scenario Outline: Account Holder Name field validations 
@@ -49,7 +49,7 @@ Then the current account details submission will be unsuccessful
 And the current account holder name error message '<errorMessage>' will be displayed
 Examples:
            |accountHolderName   | errorMessage                                                          |
-           |                    | Enter Account Holder's Name                                           |   
+           |                    | Enter the account holder's name                                       |   
            |!"£$%^&*()=¬@~}     | Enter names using only letters a to z, spaces, apostrophes and hyphens|
            | 1234567            | Enter names using only letters a to z, spaces, apostrophes and hyphens|
            | 12A/ YTO           | Enter names using only letters a to z, spaces, apostrophes and hyphens|

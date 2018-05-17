@@ -168,9 +168,10 @@ public class WhichSchemeStepDefs {
 
 	}
 	
-	@When("^I select one more scheme using different valid option$")
-	public void iSelectOneMoreSchemeUsingDifferentValidOption() {
+	@When("^I select scheme using different valid option$")
+	public void iSelectSchemeUsingDifferentValidOption() {
 		whichSchemePage = new WhichSchemePage(driver);
+		whichSchemePage.select1995Section();
 		whichSchemePage.select2008Section();
 		whichSchemePage.selectWhichScheme();
 

@@ -4,11 +4,10 @@ Feature: Intend To work for NHS after Retirement Page
 Background:
 
 Given I am on the start page
-When I go to intend to work for NHS page
-
 
 Scenario: Intend to Work for NHS after retirement
-When I choose Yes
+When I enter employment details
+And I choose Yes
 Then the date you return to work fields will be displayed
 And I enter the valid date
 And the intend to work for NHS submission will be successful
@@ -16,6 +15,7 @@ Then Check your answers page will be displayed
 
 
 Scenario Outline: Return to Work date field validation
+When I go to intend to work for NHS page
 When I choose Yes
 Then the date you return to work fields will be displayed
 And I enter invalid date details using the day '<day>', month '<month>' and year '<year>'
@@ -37,11 +37,13 @@ Examples:
 
 
 Scenario: Intend to Work for NHS after retirement
-When I choose No
+When I enter employment details
+And I choose No
 Then Check your answers page will be displayed
 
 
 Scenario: Intend to work for NHS
+When I go to intend to work for NHS page
 When I dont choose anything
 Then intend to work for NHS Page error message 'Select 'yes' if you plan to work for the NHS after you get your pension' will be displayed 
 

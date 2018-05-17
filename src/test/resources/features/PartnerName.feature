@@ -1,4 +1,4 @@
-@Partner'sName @BP490-97 
+@Partner'sName @BP490-97
 Feature: Spouse or civil partner's Name
 
 Background:

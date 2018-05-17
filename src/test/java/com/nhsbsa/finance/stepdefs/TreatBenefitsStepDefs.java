@@ -6,9 +6,11 @@ import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
 import com.nhsbsa.finance.pageobjects.Page;
+import com.nhsbsa.finance.pageobjects.SharedYesNoPage;
 import com.nhsbsa.finance.pageobjects.TreatBenefitsPage;
 import com.nhsbsa.finance.properties.PropertyReader;
 
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -17,7 +19,7 @@ public class TreatBenefitsStepDefs {
 
 	private WebDriver driver = Config.getDriver();
 	private String baseUrl = PropertyReader.getProperty("base.server");
-
+private SharedYesNoPage  sharedYesNoPage;
 	private TreatBenefitsPage treatBenefitsPage;
 
 
@@ -40,6 +42,18 @@ public class TreatBenefitsStepDefs {
 	public void iClickNextOnTreatExcessBenefitPage() {
 		treatBenefitsPage = new TreatBenefitsPage(driver);	
 		treatBenefitsPage.nextStep();
+	}
+
+	@And("^the treat benefit radio button not selected error message '(.*)' will be displayed$")
+	public void theTreatBenefitRadioButtonNotSelectedErrorMessageWillBeDisplayed(String errorMessage) {
+		sharedYesNoPage =  new SharedYesNoPage(driver);
+		assertThat(sharedYesNoPage.getErrorHeadingErrorMessage()).matches("Your form contains errors");
+        assertThat(sharedYesNoPage.getErrorsBelowErrorMessage()).matches("Check your answer:");
+    	assertThat(sharedYesNoPage.doesSharedErrorMessageHaveAnchor()).isTrue();
+		assertThat(sharedYesNoPage.getSharedAnchoredErrorMessage()).matches(errorMessage);
+    	treatBenefitsPage = new TreatBenefitsPage(driver);	
+		assertThat(treatBenefitsPage.getTreatBenefitsFieldErrorMessage()).matches(errorMessage);
+	
 	}
 
 }

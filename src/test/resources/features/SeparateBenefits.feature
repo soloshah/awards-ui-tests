@@ -92,7 +92,7 @@ And I select after April 6 2006 option
 Then I enter the total combined percentage of lifetime allowance
 And I enter the benefit crystallisation date greater than today's date
 Then the separate benefits submission will be unsuccessful
-And the error message 'Enter a date before today's date' for benefit crystallisation date will be displayed    
+And the error message 'Enter a date before todays date' for benefit crystallisation date will be displayed    
 
 
 Scenario: Separate Benefits validation 

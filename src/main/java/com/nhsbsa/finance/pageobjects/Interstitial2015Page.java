@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class Interstitial2015Page extends Page {
 
-  private String interStitial2015PageTitle = "The next questions will be in relation to 2015 Section - Claim your NHS Pension - NHSBSA";
+  private String interStitial2015PageTitle = "The next questions will be in relation to 2015 Scheme - Claim your NHS Pension - NHSBSA";
 
   private By nextButtonLocator = By.id("submit_button");
  

@@ -1,4 +1,4 @@
-@CheckYourAnswers @BP490-214 
+@CheckYourAnswers @BP490-214
 Feature: Check Your Answers for dependant details
 
 Background:

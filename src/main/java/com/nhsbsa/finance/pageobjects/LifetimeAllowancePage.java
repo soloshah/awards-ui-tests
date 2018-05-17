@@ -14,7 +14,7 @@ public class LifetimeAllowancePage extends Page {
 	private By errorsBelowErrorMessageLocator = By.id("error-summary-heading1");
 	private By lifetimeAllowanceAnchoredErrorMessageLocator = By.id("error-list0");
 	private By lifetimeAllowanceAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#yesNoValue']");
-	private By lifetimeAllowanceFieldErrorMessageLocator = By.id("fieldName-error-message");
+	private By lifetimeAllowanceFieldErrorMessageLocator = By.id("yesNoValue");
 	private By certNumberAnchoredErrorMessageLocator = By.id("error-list1");
 	private By certNumberAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#certRefNumber']");
 	private By certNumberFieldErrorMessageLocator = By.id("certRefNumber-error-message");

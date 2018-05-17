@@ -16,10 +16,10 @@ When I enter invalid eq paymaster name details using the name '<name>'
 Then the eq paymaster name submission will be unsuccessful
 And the eq paymaster name error message '<errorMessage>' will be displayed
 Examples:
-| name      | errorMessage                                                      |
-|           |You must enter the name of the pension paid by Equiniti Paymaster  | 
-|In%$ £"^&*"|Enter names using only letters a to z, spaces and hyphens          |
-|1234567890 |Enter names using only letters a to z, spaces and hyphens          |
+| name      | errorMessage                                                         |
+|           |You must enter the name of the pension paid by Equiniti Paymaster     | 
+|In%$ £"^&*"|Enter names using only letters a to z, spaces, apostrophes and hyphens|
+|1234567890 |Enter names using only letters a to z, spaces, apostrophes and hyphens|
 
 
 Scenario: Eq paymaster name field length validations 

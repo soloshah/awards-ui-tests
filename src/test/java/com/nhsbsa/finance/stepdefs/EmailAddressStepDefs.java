@@ -84,8 +84,8 @@ public class EmailAddressStepDefs {
 	public void theEmailAddressSubmissionWillBeUnsuccessful() {
 		emailAddressPage = new EmailAddressPage(driver);
 		assertThat(emailAddressPage.getErrorHeadingErrorMessage())
-				.matches("Some questions have not been answered correctly.");
-		assertThat(emailAddressPage.getErrorsBelowErrorMessage()).matches("Please see the errors below.");
+				.matches("Your form contains errors");
+		assertThat(emailAddressPage.getErrorsBelowErrorMessage()).matches("Check your answer:");
 	}
 
 	@When("^I enter invalid email address details using the email '(.*)'$")
