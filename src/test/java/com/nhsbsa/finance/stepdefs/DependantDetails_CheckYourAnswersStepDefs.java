@@ -30,6 +30,7 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 	private OtherDependantChildrenStepDefs otherDependantChildrenSteps;
 	private SharedYeNoStepDefs sharedYeNoSteps;
 	private ChildNameStepDefs childNameSteps;
+	private DynamicChildGenderStepDefs dynamicChildGenderSteps;
 	private AllocatePensionStepDefs allocationPensionSteps;
 	private AllocationNameStepDefs allocationNameSteps;
 	
@@ -59,6 +60,8 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 		dynamicChildDobSteps = new DynamicChildDateOfBirthStepDefs();
 		dynamicChildDobSteps.theDynamicChildDateOfBirthPageWillBeDisplayed();
 		dynamicChildDobSteps.IenterValidChildDobDetails();
+		/*dynamicChildGenderSteps = new DynamicChildGenderStepDefs();
+		dynamicChildGenderSteps.iSelectFemaleOnChildGenderPage();*/
 		otherDependantChildrenSteps = new OtherDependantChildrenStepDefs();
 		otherDependantChildrenSteps.doYouHaveAnyOtherDependantPageWillBeDisplayed();
 		sharedYeNoSteps = new SharedYeNoStepDefs();
@@ -106,6 +109,8 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 		dynamicChildDobSteps = new DynamicChildDateOfBirthStepDefs();
 		dynamicChildDobSteps.theDynamicChildDateOfBirthPageWillBeDisplayed();
 		dynamicChildDobSteps.IenterValidChildDobDetails();
+		/*dynamicChildGenderSteps = new DynamicChildGenderStepDefs();
+			dynamicChildGenderSteps.iSelectFemaleOnChildGenderPage();*/
 		otherDependantChildrenSteps = new OtherDependantChildrenStepDefs();
 		otherDependantChildrenSteps.doYouHaveAnyOtherDependantPageWillBeDisplayed();
 		sharedYeNoSteps = new SharedYeNoStepDefs();
