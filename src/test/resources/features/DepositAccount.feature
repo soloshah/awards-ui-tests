@@ -22,10 +22,8 @@ Examples:
            |              | Enter an account number     |   
            | 123456       | Enter a valid account number|
            |"£$%^&*@      | Enter a valid account number|
-           | ()12AYTO     | Enter a valid account number|
-           | 5678-AGU     | Enter a valid account number|
-           | 3456U78/.    | Enter a valid account number|
-         #  | ABVCFRGK     | Enter a valid account number|
+           | 5678-AGU/.   | Enter a valid account number|
+         # | ABVCFRGK     | Enter a valid account number|
 
 @Bug @BP490-278
 Scenario Outline: Roll Number field validations 
@@ -35,9 +33,7 @@ And the roll number error message '<errorMessage>' will be displayed
 Examples:
            |rollNumber         | errorMessage             |
            |                   | Enter a roll number      |   
-           | 123456U           | Enter a valid roll number|
            |!"£$%^&*()@~}¬{+   | Enter a valid roll number|
-           | ()12A-/YTO        | Enter a valid roll number|
            | 5678_AGU.U76      | Enter a valid roll number|
            |AR/90 345678/.-893 | Enter a valid roll number|
           

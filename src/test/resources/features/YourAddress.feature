@@ -11,7 +11,7 @@ And I enter valid address details
 Then the address details submission will be successful
 And the national insurance page will be displayed
 
-
+@bug @BP490-401
 Scenario Outline: Building and street line 1 field validations 
 And I enter invalid address details using the streetLineOne '<streetLineOne>'
 Then the address details submission will be unsuccessful
@@ -22,7 +22,7 @@ Examples:
            | "£$%^&*@     | Enter address using only numbers, letters a to z, spaces and hyphens|
            | ()12AYTO     | Enter address using only numbers, letters a to z, spaces and hyphens|
           
-
+@bug @BP490-401
 Scenario Outline: Building and street Line 2 field validations 
 And I enter invalid address details using the streetLineTwo '<streetLineTwo>'
 Then the address details submission will be unsuccessful
@@ -56,7 +56,6 @@ Examples:
            | 123 4567           | You must enter a valid postcode|
            | 12A/ YTO           | You must enter a valid postcode|
            | 12AYTO             | You must enter a valid postcode|
-           | A12 YTO            | You must enter a valid postcode|
            | P12 3T0            | You must enter a valid postcode|
            | NA234TY            | You must enter a valid postcode|
  

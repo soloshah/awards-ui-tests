@@ -41,8 +41,6 @@ Examples:
            | 1234564A        | You must enter a certificate number in the correct format |  
            | !"£$%^&*()@:?>< | You must enter a certificate number in the correct format |  
            | 5865231252632   | You must enter a certificate number in the correct format |  
-           | 3258541552      | You must enter a certificate number in the correct format |  
-           | 458502156       | You must enter a certificate number in the correct format |  
            | AB76yuhnhgn     | You must enter a certificate number in the correct format |  
            | fp16/576668899  | You must enter a certificate number in the correct format |
            | ip16/576668899  | You must enter a certificate number in the correct format |

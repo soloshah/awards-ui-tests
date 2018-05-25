@@ -6,8 +6,9 @@ Given I am on the start page
 
 @Bug @BP490-296
 Scenario: Do you have any other dependant children
-When I go to other dependant children page
-When I select Yes
+When I enter dependant children details
+Then do you have any other depandant children page will be displayed
+And I select Yes
 Then the child name page will be displayed
 
 Scenario: Do you have any other dependant children

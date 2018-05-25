@@ -7,6 +7,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import org.apache.commons.lang3.SystemUtils;
+import org.jsoup.Jsoup;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -15,6 +16,7 @@ import org.openqa.selenium.phantomjs.PhantomJSDriverService;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+
 public class Config {
 
   private static final String USERNAME = "garethjoyce1";
@@ -22,6 +24,7 @@ public class Config {
   private static final String URL =
       "https://" + USERNAME + ":" + AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
   private static WebDriver driver;
+  
   private static File exe;
 
   public static WebDriver setDriver() throws MalformedURLException {
@@ -117,4 +120,6 @@ public class Config {
     driver.manage().timeouts().pageLoadTimeout(30000, MILLISECONDS);
     driver.manage().window().maximize();
   }
+  
+ 
 }

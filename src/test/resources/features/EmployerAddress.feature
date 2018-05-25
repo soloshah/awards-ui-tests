@@ -11,7 +11,7 @@ Then the employer address details submission will be successful
 And the last day of work page will be displayed
 
 
-@bug @BP490-276
+@bug @BP490-276 @bug @BP490-401
 Scenario Outline: Building and street line 1 field validations 
 And I enter invalid employer address details using the streetLineOne '<streetLineOne>'
 Then the employer address details submission will be unsuccessful
@@ -23,7 +23,7 @@ Examples:
            | ()12AYTO     | Enter address using only numbers, letters a to z, spaces and hyphens|
 
           
-@bug @BP490-276
+@bug @BP490-276 @bug @BP490-401
 Scenario Outline: Building and street Line 2 field validations 
 And I enter invalid employer address details using the streetLineTwo '<streetLineTwo>'
 Then the employer address details submission will be unsuccessful

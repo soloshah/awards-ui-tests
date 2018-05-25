@@ -23,7 +23,6 @@ Examples:
          |A1234567  | Enter a valid reference number. This must be 8 characters, which includes 7 numbers and 1 letter |
          |£"$%^&*() | Enter a valid reference number. This must be 8 characters, which includes 7 numbers and 1 letter |
          |OBHUJ8    | Enter a valid reference number. This must be 8 characters, which includes 7 numbers and 1 letter |
-         |123R      | Enter a valid reference number. This must be 8 characters, which includes 7 numbers and 1 letter |
          |12345U89  | Enter a valid reference number. This must be 8 characters, which includes 7 numbers and 1 letter |
          
 

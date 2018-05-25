@@ -21,11 +21,11 @@ Examples:
            |              | Enter an account number     |   
            | 123456       | Enter a valid account number|
            |"£$%^&*@      | Enter a valid account number|
-           | ()12AYTO     | Enter a valid account number|
-           | 5678-AGU     | Enter a valid account number|
-           | 3456U78/.    | Enter a valid account number|
-      #     | ABVCFRGK     | Enter a valid account number|
-
+           | 5678-AGU/.   | Enter a valid account number|
+         # | ABVCFRGK     | Enter a valid account number|
+         
+         
+         
 @Bug @BP490-278       
 Scenario Outline: SortCode field validations 
 And I enter invalid sort code details for current account using the sortCode1 '<sortCode1>', sortCode2 '<sortCode2>' and sortCode3 '<sortCode3>'

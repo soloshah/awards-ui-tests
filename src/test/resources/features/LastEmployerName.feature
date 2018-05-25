@@ -19,7 +19,7 @@ Then the name of your last NHS employer page submission will be unsuccessful
 And the name of your last NHS employer error message '<errorMessage>' will be displayed
 Examples:
 | name      | errorMessage                                                          |
-|           |Enter the name of your last NHS employer                               | 
+|           |Enter the name of your last employer                                   | 
 |In%$ £"^&*"|Enter names using only letters a to z, spaces, apostrophes and hyphens |
 |1234567890P|Enter names using only letters a to z, spaces, apostrophes and hyphens |
 

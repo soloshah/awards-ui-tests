@@ -16,6 +16,7 @@ import com.nhsbsa.finance.shared.SharedData;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 
 public class OtherDependantChildrenStepDefs {
 
@@ -23,8 +24,8 @@ public class OtherDependantChildrenStepDefs {
 	private String baseUrl = PropertyReader.getProperty("base.server");
 
 	private OtherDependantChildrenPage otherDependantChildrenPage;
+	private DependantChildrenStepDefs dependantChildrenSteps;
 	SharedYesNoPage sharedYesNoPage;
-	
 	private ChildNameStepDefs childNameSteps;
 	private SharedYeNoStepDefs sharedYesNoSteps;
 	private DynamicChildDateOfBirthStepDefs dynamicChildDObSteps;
@@ -97,6 +98,20 @@ public class OtherDependantChildrenStepDefs {
 			sharedYesNoSteps =  new SharedYeNoStepDefs();
 			sharedYesNoSteps.iSelectYes();
 		}
+		
+	}
+	
+	@When("^I enter dependant children details$")
+	public void iEnterDependantChildrenDetails() {
+		dependantChildrenSteps =  new DependantChildrenStepDefs();
+		dependantChildrenSteps.iGoToDependantChildrenPage();
+		sharedYesNoSteps =  new SharedYeNoStepDefs();
+		sharedYesNoSteps.iSelectYes();
+		childNameSteps = new ChildNameStepDefs();
+		childNameSteps.IenterValidChildName();
+		dynamicChildDObSteps =  new DynamicChildDateOfBirthStepDefs();
+		dynamicChildDObSteps.theDynamicValueOfChildFirstNameIsDisplayedOnTheChildsDOBPage();
+		dynamicChildDObSteps.IenterValidChildDobDetails();
 		
 	}
 

@@ -25,7 +25,6 @@ Examples:
            |12  | 10     |    | Enter a valid date of birth|
            |45  | 13     |1234| Enter a valid date of birth|
            |RR  | WW     |GGGG| Enter a valid date of birth|
-           |32  | 13     |1900| Enter a valid date of birth|
            |29  | 02     |2001| Enter a valid date of birth|
            |31  | 02     |2000| Enter a valid date of birth|
            |31  | 11     |1980| Enter a valid date of birth|

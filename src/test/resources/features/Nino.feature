@@ -17,8 +17,6 @@ And the nino error message '<errorMessage>' will be displayed
 Examples:
            |nino               | errorMessage                                 |
            |                   | You must enter your National Insurance number|   
-           |invalid            | You must enter a valid National Insurance number format|
-           |123AA76948         | You must enter a valid National Insurance number format|
            |A£$%&()(*&^        | You must enter a valid National Insurance number format|
            |45AA568412AAB89    | You must enter a valid National Insurance number format|
            |AA 34 44 BB 4C     | You must enter a valid National Insurance number format|

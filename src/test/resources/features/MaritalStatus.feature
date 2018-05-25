@@ -59,7 +59,6 @@ Examples:
            |12  | 10     |    | Enter a valid date                                            |
            |45  | 13     |1234| Enter a valid date                                            |
            |RR  | WW     |GGGG| Enter a valid date                                            |
-           |32  | 13     |1900| Enter a valid date                                            |
            |29  | 02     |2001| Enter a valid date                                            |
            |31  | 02     |2000| Enter a valid date                                            |
            |31  | 11     |1980| Enter a valid date                                            |
@@ -80,7 +79,6 @@ Examples:
            |12  | 10     |    | Enter a valid date                                            |
            |45  | 13     |1234| Enter a valid date                                            |
            |RR  | WW     |GGGG| Enter a valid date                                            |
-           |32  | 13     |1900| Enter a valid date                                            |
            |29  | 02     |2001| Enter a valid date                                            |
            |31  | 02     |2000| Enter a valid date                                            |
            |31  | 11     |1980| Enter a valid date                                            |
@@ -100,7 +98,6 @@ Examples:
            |12  | 10     |    | Enter a valid date                                            |
            |45  | 13     |1234| Enter a valid date                                            |
            |RR  | WW     |GGGG| Enter a valid date                                            |
-           |32  | 13     |1900| Enter a valid date                                            |
            |29  | 02     |2001| Enter a valid date                                            |
            |31  | 02     |2000| Enter a valid date                                            |
            |31  | 11     |1980| Enter a valid date                                            |
@@ -121,7 +118,6 @@ Examples:
            |12  | 10     |    | Enter a valid date                                                               |
            |45  | 13     |1234| Enter a valid date                                                               |
            |RR  | WW     |GGGG| Enter a valid date                                                               |
-           |32  | 13     |1900| Enter a valid date                                                               |
            |29  | 02     |2001| Enter a valid date                                                               |
            |31  | 02     |2000| Enter a valid date                                                               |
            |31  | 11     |1980| Enter a valid date                                                               |
