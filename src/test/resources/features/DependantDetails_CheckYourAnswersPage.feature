@@ -42,7 +42,6 @@ Then the correct dependant details with updated maritalStatus will be displayed
 And the dependant details for updated maritalStatus will be displayed
 
 
-@bug @BP490-375
 Scenario: Change partner name details
 When I click on change partnerName
 Then the partner name page will be displayed
@@ -102,7 +101,7 @@ And Check your answers page will be displayed
 Then the correct dependant details with updated allocationPension details will be displayed
 And the dependant details for updated allocatePension details will be displayed
 
-@bug @BP490-375
+
 Scenario: Change allocationPensionName details
 When I click on change allocationPensionName
 Then the allocation name page will be displayed

@@ -136,7 +136,7 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 		assertThat(dependantDetails_CheckYourAnswerPage.getMaritalStatusText()).matches(SharedData.sharedNHSRadioButton);
 		assertThat(dependantDetails_CheckYourAnswerPage.getPresenceOfPartnerName()).isEqualTo(true);
 		assertThat(dependantDetails_CheckYourAnswerPage.getPartnername()).matches("What is your spouse's or civil partner's name");
-		assertThat(dependantDetails_CheckYourAnswerPage.getPartnerNameText()).matches(SharedData.firstName + "\n" + SharedData.lastName);
+		assertThat(dependantDetails_CheckYourAnswerPage.getPartnerNameText()).matches(SharedData.firstName + " " + SharedData.lastName);
 		assertThat(dependantDetails_CheckYourAnswerPage.getPresenceOfPartnerDOB()).isEqualTo(true);
 		assertThat(dependantDetails_CheckYourAnswerPage.getPartnerDob()).matches("What is your spouse's or civil partner's date of birth");
 		assertThat(dependantDetails_CheckYourAnswerPage.getPartnerDobText()).matches(SharedData.day + " " + SharedData.month + " " + SharedData.year);
@@ -154,7 +154,7 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 		assertThat(dependantDetails_CheckYourAnswerPage.getAllocationPensionText()).matches("Yes");
 		assertThat(dependantDetails_CheckYourAnswerPage.getPresenceOfAllocationName()).isEqualTo(true);
 		assertThat(dependantDetails_CheckYourAnswerPage.getAllocationName()).matches("What is the name of the person you want to allocate some of your pension to");
-		assertThat(dependantDetails_CheckYourAnswerPage.getAllocationNameText()).matches(SharedData.allocationFirstName+ "\n" + SharedData.allocationLastName);
+		assertThat(dependantDetails_CheckYourAnswerPage.getAllocationNameText()).matches(SharedData.allocationFirstName+ " " + SharedData.allocationLastName);
 		assertThat(dependantDetails_CheckYourAnswerPage.getPresenceOfAllocationDob()).isEqualTo(true);
 		assertThat(dependantDetails_CheckYourAnswerPage.getAllocationDob()).matches("What is their date of birth");
 		assertThat(dependantDetails_CheckYourAnswerPage.getAllocationDobText()).matches(SharedData.allocateDay+ " " + SharedData.allocateMonth + " " +SharedData.allocateYear);
@@ -172,7 +172,7 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 		assertThat(dependantDetails_CheckYourAnswerPage.getMaritalStatusText()).matches(SharedData.sharedNHSRadioButton);
 		assertThat(dependantDetails_CheckYourAnswerPage.getPresenceOfPartnerName()).isEqualTo(true);
 		assertThat(dependantDetails_CheckYourAnswerPage.getPartnername()).matches("What is your spouse's or civil partner's name");
-		assertThat(dependantDetails_CheckYourAnswerPage.getPartnerNameText()).matches(SharedData.firstName + "\n" + SharedData.lastName);
+		assertThat(dependantDetails_CheckYourAnswerPage.getPartnerNameText()).matches(SharedData.firstName + " " + SharedData.lastName);
 		assertThat(dependantDetails_CheckYourAnswerPage.getPresenceOfPartnerDOB()).isEqualTo(true);
 		assertThat(dependantDetails_CheckYourAnswerPage.getPartnerDob()).matches("What is your spouse's or civil partner's date of birth");
 		assertThat(dependantDetails_CheckYourAnswerPage.getPartnerDobText()).matches(SharedData.day + " " + SharedData.month + " " + SharedData.year);
@@ -190,7 +190,7 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 		assertThat(dependantDetails_CheckYourAnswerPage.getAllocationPensionText()).matches("Yes");
 		assertThat(dependantDetails_CheckYourAnswerPage.getPresenceOfAllocationName()).isEqualTo(true);
 		assertThat(dependantDetails_CheckYourAnswerPage.getAllocationName()).matches("What is the name of the person you want to allocate some of your pension to");
-		assertThat(dependantDetails_CheckYourAnswerPage.getAllocationNameText()).matches(SharedData.allocationFirstName+ "\n" + SharedData.allocationLastName);
+		assertThat(dependantDetails_CheckYourAnswerPage.getAllocationNameText()).matches(SharedData.allocationFirstName+ " " + SharedData.allocationLastName);
 		assertThat(dependantDetails_CheckYourAnswerPage.getPresenceOfAllocationDob()).isEqualTo(true);
 		assertThat(dependantDetails_CheckYourAnswerPage.getAllocationDob()).matches("What is their date of birth");
 		assertThat(dependantDetails_CheckYourAnswerPage.getAllocationDobText()).matches(SharedData.allocateDay+ " " + SharedData.allocateMonth + " " +SharedData.allocateYear);
@@ -209,7 +209,7 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 		assertThat(dependantDetails_CheckYourAnswerPage.getMaritalStatusText()).matches(SharedData.sharedNHSRadioButton);
 		assertThat(dependantDetails_CheckYourAnswerPage.getPresenceOfPartnerName()).isEqualTo(true);
 		assertThat(dependantDetails_CheckYourAnswerPage.getPartnername()).matches("What is your spouse's or civil partner's name");
-		assertThat(dependantDetails_CheckYourAnswerPage.getPartnerNameText()).matches(SharedData.firstName + "\n" + SharedData.lastName);
+		assertThat(dependantDetails_CheckYourAnswerPage.getPartnerNameText()).matches(SharedData.firstName + " " + SharedData.lastName);
 		assertThat(dependantDetails_CheckYourAnswerPage.getPresenceOfPartnerDOB()).isEqualTo(true);
 		assertThat(dependantDetails_CheckYourAnswerPage.getPartnerDob()).matches("What is your spouse's or civil partner's date of birth");
 		assertThat(dependantDetails_CheckYourAnswerPage.getPartnerDobText()).matches(SharedData.day + " " + SharedData.month + " " + SharedData.year);
@@ -254,7 +254,7 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 		assertThat(dependantDetails_CheckYourAnswerPage.getMaritalStatusText()).matches(SharedData.sharedNHSRadioButton);
 		assertThat(dependantDetails_CheckYourAnswerPage.getPresenceOfPartnerName()).isEqualTo(true);
 		assertThat(dependantDetails_CheckYourAnswerPage.getPartnername()).matches("What is your spouse's or civil partner's name");
-		assertThat(dependantDetails_CheckYourAnswerPage.getPartnerNameText()).matches(SharedData.firstName + "\n" + SharedData.lastName);
+		assertThat(dependantDetails_CheckYourAnswerPage.getPartnerNameText()).matches(SharedData.firstName + " " + SharedData.lastName);
 		assertThat(dependantDetails_CheckYourAnswerPage.getPresenceOfPartnerDOB()).isEqualTo(true);
 		assertThat(dependantDetails_CheckYourAnswerPage.getPartnerDob()).matches("What is your spouse's or civil partner's date of birth");
 		assertThat(dependantDetails_CheckYourAnswerPage.getPartnerDobText()).matches(SharedData.day + " " + SharedData.month + " " + SharedData.year);
@@ -272,7 +272,7 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 		assertThat(dependantDetails_CheckYourAnswerPage.getAllocationPensionText()).matches("Yes");
 		assertThat(dependantDetails_CheckYourAnswerPage.getPresenceOfAllocationName()).isEqualTo(true);
 		assertThat(dependantDetails_CheckYourAnswerPage.getAllocationName()).matches("What is the name of the person you want to allocate some of your pension to");
-		assertThat(dependantDetails_CheckYourAnswerPage.getAllocationNameText()).matches(SharedData.allocationFirstName+ "\n" + SharedData.allocationLastName);
+		assertThat(dependantDetails_CheckYourAnswerPage.getAllocationNameText()).matches(SharedData.allocationFirstName+ " " + SharedData.allocationLastName);
 		assertThat(dependantDetails_CheckYourAnswerPage.getPresenceOfAllocationDob()).isEqualTo(true);
 		assertThat(dependantDetails_CheckYourAnswerPage.getAllocationDob()).matches("What is their date of birth");
 		assertThat(dependantDetails_CheckYourAnswerPage.getAllocationDobText()).matches(SharedData.allocateDay+ " " + SharedData.allocateMonth + " " +SharedData.allocateYear);
@@ -291,7 +291,7 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 			break;
 			
 		case "partnerName":
-			assertThat(dependantDetails_CheckYourAnswerPage.getPartnerNameText()).matches(SharedData.firstName + "\n" + SharedData.lastName);
+			assertThat(dependantDetails_CheckYourAnswerPage.getPartnerNameText()).matches(SharedData.firstName + " " + SharedData.lastName);
 			break;
 			
 		case "partnerDob":
@@ -316,7 +316,7 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 			break;
 
 		case "allocatePensionName":
-			assertThat(dependantDetails_CheckYourAnswerPage.getAllocationNameText()).matches(SharedData.firstName+ "\n" + SharedData.lastName);
+			assertThat(dependantDetails_CheckYourAnswerPage.getAllocationNameText()).matches(SharedData.firstName+ " " + SharedData.lastName);
 			break;
 
 		case "allocationDob":
