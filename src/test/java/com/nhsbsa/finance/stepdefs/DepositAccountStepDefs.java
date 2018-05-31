@@ -68,7 +68,7 @@ public class DepositAccountStepDefs {
 		depositAccountPage = new DepositAccountPage(driver);
 		switch (field) {
 		case "accountNumber":
-		SharedData.accountNumber = "9876543";
+		SharedData.accountNumber = "123AB7I8IKN";
 		depositAccountPage.enterAccountNumber(SharedData.accountNumber);
 		depositAccountPage.nextStep();
 			break;
@@ -171,7 +171,6 @@ public class DepositAccountStepDefs {
 	@Then("^The length of account holder name is verified$")
 	public void theLengthOfAccountHolderNameIsVerified() {
 		depositAccountPage = new DepositAccountPage(driver);
-		
 		assertThat(depositAccountPage.readAccountHolderNameField()).matches("InvalidIn@ validInvalidI");
 
 	}
@@ -195,8 +194,8 @@ public class DepositAccountStepDefs {
 	}
 
 	private void setBankDetails() {
-		//SharedData.accountNumber = "123AB7I8IKN";
-		SharedData.accountNumber = "123AB7I8";
+		SharedData.accountNumber = "123AB7I8IKN";
+		//SharedData.accountNumber = "123AB7I8";
 		SharedData.rollNumber = "AA-12345/9P";
 		SharedData.accountHolderName = "Test-User";
 		SharedData.sortCodeFirstField = "12";
@@ -205,8 +204,8 @@ public class DepositAccountStepDefs {
 	}
 	
 	private void setInvalidBankDetails() {
-		//accountNumber = "123l4OP786789"
-		accountNumber = "123l4OP7";
+		accountNumber = "123l4OP786789";
+		//accountNumber = "123l4OP7";
 		rollNumber = "AA-12345/9P";
 		accountHolderName = "Test-User";
 		sortCodeFirstField = "12";
@@ -215,8 +214,8 @@ public class DepositAccountStepDefs {
 	}
 	
 	private void setBankAccountDetails(){
-		//accountNumber = "123l4OP786789"
-		accountNumber = "123l4OP7";
+		accountNumber = "123l4OP786789";
+		//accountNumber = "123l4OP7";
 		rollNumber = "AA-12345/9P";
 		accountHolderName = "Test-User";
 	}

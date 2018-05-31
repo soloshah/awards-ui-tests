@@ -11,7 +11,7 @@ And I enter valid current account details
 Then the current account details submission will be successful
 And the otherEqPensions page will be displayed
 
-@Bug @BP490-278   @Bug @BP490-394
+@Bug @BP490-278
 Scenario Outline: Account number field validations 
 And I enter invalid current account details using the accountNumber '<accountNumber>'
 Then the current account details submission will be unsuccessful
@@ -22,7 +22,7 @@ Examples:
            | 123456       | Enter a valid account number|
            |"£$%^&*@      | Enter a valid account number|
            | 5678-AGU/.   | Enter a valid account number|
-         # | ABVCFRGK     | Enter a valid account number|
+           | ABVCFRGK     | Enter a valid account number|
          
          
          

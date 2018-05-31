@@ -66,8 +66,6 @@ public class CurrentAccountStepDefs {
 	}
 	
 
-	
-
 	@Then("^the current account details submission will be unsuccessful$")
 	public void theCurrentAccountDetailsSubmissionWillBeUnsuccessful() {
 		currentAccountPage = new CurrentAccountPage(driver);
@@ -147,8 +145,8 @@ public class CurrentAccountStepDefs {
 	}
 
 	private void setBankDetails() {
-		SharedData.accountNumber = "123AB7I8";
-		//SharedData.accountNumber = "123AB7I80olk";
+	//	SharedData.accountNumber = "123AB7I8";
+		SharedData.accountNumber = "123AB7I80olk";
 		SharedData.accountHolderName = "Test-User";
 		SharedData.sortCodeFirstField = "12";
 		SharedData.sortCodeSecondField = "34";
@@ -156,14 +154,14 @@ public class CurrentAccountStepDefs {
 	}
 
 	private void setBankAccountDetails() {
-		//accountNumber = "123l4OP78lpj76";
-		accountNumber = "123l4OP7";
+		accountNumber = "123l4OP78lpj76";
+		//accountNumber = "123l4OP7";
 		accountHolderName = "Test-User";
 	}
 	
 	private void setInvalidBankDetails() {
-		//accountNumber = "123l4OP78lpj76";
-		accountNumber = "123l4OP7";
+		accountNumber = "123l4OP78lpj76";
+		//accountNumber = "123l4OP7";
 		accountHolderName = "Test-User";
 		sortCodeFirstField = "12";
 		sortCodeSecondField = "34";
