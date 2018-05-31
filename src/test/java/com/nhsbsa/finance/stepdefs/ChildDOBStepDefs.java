@@ -56,7 +56,7 @@ public class ChildDOBStepDefs {
 		childDOBPage.submitValidChildDateOfBirth(SharedData.childDay, SharedData.childMonth, SharedData.childYear);
 	}
 	
-	@When("^I enter valid child date of birth details using the day '(.*)', month '(.*)' and year '(.*)$")
+	@When("^I enter valid child date of birth details using the day '(.*)', month '(.*)' and year '(.*)'$")
 	public void IenterValidChildDateOfBirthDetailsUsingTheDayMonthAndYear(String day, String month, String year) {
 	
 		childDOBPage = new ChildDOBPage(driver);

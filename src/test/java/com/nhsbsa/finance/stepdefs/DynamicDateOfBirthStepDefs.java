@@ -37,9 +37,7 @@ public class DynamicDateOfBirthStepDefs {
 
 	@Then("^the dynamic value of partner first name is displayed on the partners DOB page$")
 	public void theDynamicValueOfPartnerFirstNameIsDisplayedOnThePartnersDOBPage() {
-		Page page = new Page(driver);
-		String partnerDatePageTitle = "What is " + SharedData.firstName + "'s " + "date of birth? - Claim your NHS Pension - NHSBSA";
-		page.waitForTitleToExist(partnerDatePageTitle);
+		
 		dynamicDateOfBirthPage = new DynamicDateOfBirthPage(driver);
 		assertThat(dynamicDateOfBirthPage.getHeading()).contains("What is " + SharedData.firstName + "'s " + "date of birth?");
 

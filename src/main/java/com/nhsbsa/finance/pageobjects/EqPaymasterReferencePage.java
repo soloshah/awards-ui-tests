@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class EqPaymasterReferencePage extends Page {
 
-
+    private String eqReferencePageTitle = "Give their reference";
 	private By referenceFieldLocator = By.id("reference");
 	private By nextButtonLocator = By.id("submit_button");
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");
@@ -16,6 +16,7 @@ public class EqPaymasterReferencePage extends Page {
 
 	public EqPaymasterReferencePage(WebDriver driver) {
 		super(driver);
+		waitForTitleToExist(eqReferencePageTitle);
 		waitForElementToBeVisibleBy(referenceFieldLocator);
 	}
 

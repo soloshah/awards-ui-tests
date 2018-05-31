@@ -25,9 +25,6 @@ public class DynamicPartnerGenderStepDefs {
 	@Then("^the partner gender page will be displayed$")
 	public void thePartnerGenderPageWillBeDisplayed() {
 		
-		Page page = new Page(driver);
-		String partnerGenderPageTitle = "What is " + SharedData.firstName + "'s " + "legally recognised gender? - Claim your NHS Pension - NHSBSA";
-		page.waitForTitleToExist(partnerGenderPageTitle);
 		dynamicPartnerGenderPage = new DynamicPartnerGenderPage(driver);
 		assertThat(dynamicPartnerGenderPage.getHeading()).contains("What is " + SharedData.firstName + "'s " + "legally recognised gender?");
 		
@@ -41,20 +38,6 @@ public class DynamicPartnerGenderStepDefs {
 				.contains("What is " + SharedData.firstName + "'s " + "legally recognised gender?");
 	}
 	
-	@Then("^the dynamic value of partner first name is displayed on the partners gender page$")
-	public void theDynamicValueOfPartnerFirstNameIsDisplayedOnThePartnersGenderPage() {
-		
-		Page page = new Page(driver);
-		String partnerGenderPageTitle = "What is " + SharedData.firstName + "'s " + "legally recognised gender? - Claim your NHS Pension - NHSBSA";
-		page.waitForTitleToExist(partnerGenderPageTitle);
-		
-		dynamicPartnerGenderPage = new DynamicPartnerGenderPage(driver);
-		assertThat(dynamicPartnerGenderPage.getHeading())
-				.contains("What is " + SharedData.firstName + "'s " + "legally recognised gender?");
-
-	}
-
-
 	@And("^what is your partner gender page error message '(.*)' will be displayed$")
 	public void whatIsYourPartnerGenderPageErrorMessageWillBeDisplayed(String errorMessage) {
 		dynamicPartnerGenderPage = new DynamicPartnerGenderPage(driver);
@@ -108,8 +91,8 @@ public class DynamicPartnerGenderStepDefs {
 	public void theGenderDetailsAreSustained() {
 		dynamicPartnerGenderPage = new DynamicPartnerGenderPage(driver);
 		assertThat(dynamicPartnerGenderPage.getGenderFemale()).matches(SharedData.gender);
-
 	}
+	
 
 	@When("^I select gender using different valid option$")
 	public void iSelectGenderUsingDifferentValidOption() {

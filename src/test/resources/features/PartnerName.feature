@@ -34,7 +34,8 @@ Examples:
 |                         | You must enter your spouse's or civil partner's first and last name   |
 |In%$ £"^&*"              |Enter names using only letters a to z, spaces, apostrophes and hyphens |
 |hgn-yuiom jkhe'tryu90hi23|Enter names using only letters a to z, spaces, apostrophes and hyphens |
-|1234545               |Enter names using only letters a to z, spaces, apostrophes and hyphens |
+|1234545                  |Enter names using only letters a to z, spaces, apostrophes and hyphens |
+
 
 Scenario: Partner first and last name field length validations 
 When I enter an invalid partner name using the firstName 'InvalidIn@validInvalidInv' and lastName 'InvalidIn@validInvalidInv '

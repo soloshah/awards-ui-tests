@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class AllocationDOBPage extends Page {
 
-	
+	private String allocationDobPageTitle = "What is their allocation date of birth";
 	private By allocationDayFieldLocator = By.id("dateOfBirth-day");
 	private By allocationMonthFieldLocator = By.id("dateOfBirth-month");
 	private By allocationYearFieldLocator = By.id("dateOfBirth-year");
@@ -21,6 +21,7 @@ public class AllocationDOBPage extends Page {
 	
 	public AllocationDOBPage(WebDriver driver) {
 		super(driver);
+	waitForTitleToExist(allocationDobPageTitle);
 	waitForElementToBeVisibleBy(backLinkLocator);
 		waitForElementToBeVisibleBy(allocationDayFieldLocator);
 	}

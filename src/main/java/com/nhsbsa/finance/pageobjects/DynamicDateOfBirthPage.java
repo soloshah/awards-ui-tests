@@ -6,7 +6,7 @@ import com.nhsbsa.finance.pageobjects.Page;
 
 public class DynamicDateOfBirthPage extends Page {
 
-	
+	private String partnerDOBPageTitle = "What is your spouse's or civil partner's date of birth - Claim your NHS Pension - NHSBSA";
 	private By partnerDayFieldLocator = By.id("dateOfBirth-day");
 	private By partnerMonthFieldLocator = By.id("dateOfBirth-month");
 	private By partnerYearFieldLocator = By.id("dateOfBirth-year");
@@ -20,7 +20,7 @@ public class DynamicDateOfBirthPage extends Page {
 
 	public DynamicDateOfBirthPage(WebDriver driver) {
 		super(driver);
-		
+		waitForTitleToExist(partnerDOBPageTitle);
 		waitForElementToBeVisibleBy(backButtonLocator);
 	}
 	

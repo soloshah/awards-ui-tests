@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class DynamicPartnerGenderPage extends Page {
 
+	private String partnerGenderPageTitle = "What is your spouse's or civil partner's legally recognised gender? - Claim your NHS Pension - NHSBSA";
 	private By femaleRadioButtonLocator = By.id("gender0");
 	private By maleRadioButtonLocator = By.id("gender1");
 	private By nextButtonLocator = By.id("submit_button");
@@ -22,7 +23,7 @@ public class DynamicPartnerGenderPage extends Page {
 	
 	public DynamicPartnerGenderPage(WebDriver driver) {
 		super(driver);
-	
+	waitForTitleToExist(partnerGenderPageTitle);
 		waitForElementToBeVisibleBy(backLinkLocator);
 	}
 
