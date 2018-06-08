@@ -61,7 +61,7 @@ public class PartnerNameStepDefs {
 		SharedData.lastName = inputLastName.toLowerCase().substring(0, 1).toUpperCase()
 				+ inputLastName.toLowerCase().substring(1);
 		partnerNamePage = new PartnerNamePage(driver);
-		partnerNamePage.submitValidPartnerNameDetails(SharedData.firstName, SharedData.lastName);
+		partnerNamePage.submitValidPartnerName(SharedData.firstName, SharedData.lastName);
 	}
 
 	@Then("^the partner name submission will be unsuccessful$")
@@ -136,7 +136,7 @@ public class PartnerNameStepDefs {
 		SharedData.lastName = inputLastName.toLowerCase().substring(0, 1).toUpperCase()
 				+ inputLastName.toLowerCase().substring(1);
 		partnerNamePage = new PartnerNamePage(driver);
-		partnerNamePage.submitValidPartnerNameDetails(SharedData.firstName, SharedData.lastName);
+		partnerNamePage.submitValidPartnerName(SharedData.firstName, SharedData.lastName);
 	}
 	
 	
@@ -163,7 +163,7 @@ public class PartnerNameStepDefs {
 		SharedData.lastName = inputLastName.toLowerCase().substring(0, 1).toUpperCase()
 				+ inputLastName.toLowerCase().substring(1);
 		partnerNamePage = new PartnerNamePage(driver);
-		partnerNamePage.submitValidPartnerNameDetails(SharedData.firstName, SharedData.lastName);
+		partnerNamePage.submitValidPartnerName(SharedData.firstName, SharedData.lastName);
 	}
 	
 }

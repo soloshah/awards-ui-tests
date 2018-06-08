@@ -3,8 +3,9 @@ package com.nhsbsa.finance.pageobjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class DynamicPartnerGenderPage extends Page {
+public class PartnerGenderPage extends Page {
 
+	private String partnerGenderPageTitle = "What is your spouse's or civil partner's legally recognised gender? - Claim your NHS Pension - NHSBSA";
 	private By femaleRadioButtonLocator = By.id("gender0");
 	private By maleRadioButtonLocator = By.id("gender1");
 	private By nextButtonLocator = By.id("submit_button");
@@ -20,27 +21,27 @@ public class DynamicPartnerGenderPage extends Page {
 	private By selectedMaleRadioButtonLocator = By.xpath("//input[@checked='checked']");
 
 	
-	public DynamicPartnerGenderPage(WebDriver driver) {
+	public PartnerGenderPage(WebDriver driver) {
 		super(driver);
-	
+	waitForTitleToExist(partnerGenderPageTitle);
 		waitForElementToBeVisibleBy(backLinkLocator);
 	}
 
 	
-	public DynamicNinoPage selectFemale() {
+	public PartnerNinoPage selectFemale() {
 		navigateToRootElement();
 		navigateToElementBy(femaleRadioButtonLocator);
 		click();
 		nextStep();
-		return new DynamicNinoPage(driver);
+		return new PartnerNinoPage(driver);
 	}
 
-	public DynamicNinoPage selectMale() {
+	public PartnerNinoPage selectMale() {
 		navigateToRootElement();
 		navigateToElementBy(maleRadioButtonLocator);
 		click();
 		nextStep();
-		return new DynamicNinoPage(driver);
+		return new PartnerNinoPage(driver);
 	}
 	
 	public void nextStep() {
@@ -63,9 +64,9 @@ public class DynamicPartnerGenderPage extends Page {
 		return getElementText();
 	}
 	
-	public DynamicPartnerGenderPage partnerGenderIsNotSelected() {
+	public PartnerGenderPage partnerGenderIsNotSelected() {
 		nextStep();
-		return new DynamicPartnerGenderPage(driver);
+		return new PartnerGenderPage(driver);
 	}
 
 	

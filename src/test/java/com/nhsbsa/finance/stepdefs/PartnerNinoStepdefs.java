@@ -5,9 +5,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
+import com.nhsbsa.finance.pageobjects.PartnerNinoPage;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.Page;
-import com.nhsbsa.finance.pageobjects.PartnerNinoPage;
 import com.nhsbsa.finance.properties.PropertyReader;
 import com.nhsbsa.finance.shared.SharedData;
 
@@ -22,10 +22,12 @@ public class PartnerNinoStepdefs {
 	private String baseUrl = PropertyReader.getProperty("base.server");
 
 	private PartnerNinoPage partnerNinoPage;
-
-	@Given("^I am on the partner national insurance page$")
-	public void iAmOnThePartnerNationalInsurancePage() {
-		new Page(driver).navigateToUrl(baseUrl + "/dependant-details/what-is-your-partner-ni");
+	  private PartnerNameStepDefs partnerNameSteps;
+	  
+	@Given("^I am on the partner nino page$")
+	public void iAmOnThePartnerNinoPage() {
+		Page page = new Page(driver);
+		page.navigateToUrl(baseUrl + "/dependant-details/what-is-your-partner-ni");
 	}
 
 	@When("^I go to partner nino page$")
@@ -73,6 +75,57 @@ public class PartnerNinoStepdefs {
 		partnerNinoPage = new PartnerNinoPage(driver);
 		partnerNinoPage.submitValidNiDetails(SharedData.nino);
 	}
+	
+	@Then("^the partner nino page will be displayed$")
+	public void thePartnerNinoPageWillBeDisplayed() {
+		partnerNinoPage = new PartnerNinoPage(driver);
+		assertThat(partnerNinoPage.getHeading())
+				.contains("What is " + SharedData.firstName + "'s " + "National Insurance number?");
+	}
 
+	@And("^I enter same nino as of main applicant$")
+	public void iEnterSameNinoAsOfMainApplicant() {
+
+		partnerNinoPage = new PartnerNinoPage(driver);
+		partnerNinoPage.enterPartnerNino(SharedData.nino);
+		partnerNinoPage.submitInValidNinoDetails();
+	}
+
+	@When("^I click next on partner national insurance page$")
+	public void iClickNextOnPartnerNationalInsurancePage() {
+		partnerNinoPage = new PartnerNinoPage(driver);
+		partnerNinoPage.nextStep();
+	}
+
+	@Then("^the partnerNino details are sustained$")
+	public void thePartnerNinoDetailsAreSustained() {
+		partnerNinoPage = new PartnerNinoPage(driver);
+		assertThat(partnerNinoPage.getNino()).matches(SharedData.nino);
+		}
+	
+	@When("^I enter partnerNino using different valid details$")
+	public void iEnterPartnerNinoUsingDifferentDetails() {
+		SharedData.nino = "AA123489B";
+		partnerNinoPage = new PartnerNinoPage(driver);
+		partnerNinoPage.submitValidNiDetails(SharedData.nino);
+	}
+	
+	@And("^I enter valid partner details$")
+	public void iEnterValidPartnerDetails() {
+     partnerNameSteps = new PartnerNameStepDefs();
+     partnerNameSteps.iGoToThePartnerNamePage();
+     partnerNameSteps.iSubmitValidPartnerFirstAndLastNameDetails();
+     iAmOnThePartnerNinoPage();
+	}
+	
+	@When("^I go to dynamic partner nino page$")
+	public void iGoToDynamicPartnerNinoPage() {
+
+		Page page = new Page(driver);
+		page.navigateToUrl(baseUrl + "/dependant-details/what-is-your-partner-ni");
+		partnerNinoPage = new PartnerNinoPage(driver);
+		assertThat(partnerNinoPage.getHeading()
+				.contains("What is " + SharedData.firstName + "'s " + "National Insurance number?"));
+	}
 	
 }

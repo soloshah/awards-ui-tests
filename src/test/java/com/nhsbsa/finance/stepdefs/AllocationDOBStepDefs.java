@@ -79,9 +79,6 @@ public class AllocationDOBStepDefs {
 	@Then("^the allocation date of birth page will be displayed$")
 	public void theAllocationDateOfBirthPageWillBeDisplayed() {
 		
-		Page page = new Page(driver);
-		String allocationDobPageTitle = "What is " + SharedData.allocationFirstName + "'s " + "date of birth? - Claim your NHS Pension - NHSBSA";
-		page.waitForTitleToExist(allocationDobPageTitle);
 		allocationDOBPage = new AllocationDOBPage(driver);
 		assertThat(allocationDOBPage.getExampleHint().matches("For example, 31 03 1980"));
 		assertThat(allocationDOBPage.getHeading()).contains("What is " + SharedData.allocationFirstName + "'s " + "date of birth?");

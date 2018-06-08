@@ -4,9 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import com.nhsbsa.finance.pageobjects.Page;
 
-public class DynamicDateOfBirthPage extends Page {
+public class PartnerDateOfBirthPage extends Page {
 
-	
+	private String partnerDOBPageTitle = "What is your spouse's or civil partner's date of birth? - Claim your NHS Pension - NHSBSA";
 	private By partnerDayFieldLocator = By.id("dateOfBirth-day");
 	private By partnerMonthFieldLocator = By.id("dateOfBirth-month");
 	private By partnerYearFieldLocator = By.id("dateOfBirth-year");
@@ -18,10 +18,11 @@ public class DynamicDateOfBirthPage extends Page {
 	private By partnerDobAnchoredErrorMessageLocator = By.id("error-list0");
 	private By partnerDobAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#dateOfBirth']");
 
-	public DynamicDateOfBirthPage(WebDriver driver) {
+	public PartnerDateOfBirthPage(WebDriver driver) {
 		super(driver);
-		
+		waitForTitleToExist(partnerDOBPageTitle);
 		waitForElementToBeVisibleBy(backButtonLocator);
+		waitForElementToBeVisibleBy(partnerDayFieldLocator);
 	}
 	
 	
@@ -55,12 +56,12 @@ public class DynamicDateOfBirthPage extends Page {
 		enterPartnerYear(year);
 	}
 	
-	public DynamicPartnerGenderPage submitValidPartnerDOBDetails(String day, String month, String year) {
+	public PartnerGenderPage submitValidPartnerDOBDetails(String day, String month, String year) {
 		enterPartnerDay(day);
 		enterPartnerMonth(month);
 		enterPartnerYear(year);
 		nextStep();
-		return new DynamicPartnerGenderPage(driver);
+		return new PartnerGenderPage(driver);
 	}
 	
 	public String getDay() {
@@ -111,12 +112,11 @@ public class DynamicDateOfBirthPage extends Page {
 		navigateToElementBy(partnerDobFieldErrorMessageLocator);
 		return getElementText();
 	}
-
 		
 	
-	public DynamicDateOfBirthPage submitInValidPartnerDOBDetails() {
+	public PartnerDateOfBirthPage submitInValidPartnerDOBDetails() {
 		nextStep();
-		return new DynamicDateOfBirthPage(driver);
+		return new PartnerDateOfBirthPage(driver);
 	}
 
 

@@ -42,21 +42,10 @@ public class ChildDOBStepDefs {
 	@Then("^the child date of birth page will be displayed$")
 	public void theChildDateOfBirthPageWillBeDisplayed() {
 		childDOBPage = new ChildDOBPage(driver);
-		assertThat(childDOBPage.getHeading()).contains("What is your child's date of birth?");
+		assertThat(childDOBPage.getHeading()).contains("What is " + SharedData.childFirstName + "'s " + "date of birth?");
 	}
 
-	@When("^I enter valid child date of birth details$")
-	public void IenterValidChildDateOfBirthDetails() {
-		String randomDateString = SharedMethods.randomDateGenerator();
-		LocalDate localDate = LocalDate.parse(randomDateString);
-		SharedData.childDay = SharedMethods.formatDay(localDate);
-		SharedData.childMonth = SharedMethods.formatMonth(localDate);
-		SharedData.childYear = SharedMethods.formatYear(localDate);
-		childDOBPage = new ChildDOBPage(driver);
-		childDOBPage.submitValidChildDateOfBirth(SharedData.childDay, SharedData.childMonth, SharedData.childYear);
-	}
-	
-	@When("^I enter valid child date of birth details using the day '(.*)', month '(.*)' and year '(.*)$")
+	@When("^I enter valid child date of birth details using the day '(.*)', month '(.*)' and year '(.*)'$")
 	public void IenterValidChildDateOfBirthDetailsUsingTheDayMonthAndYear(String day, String month, String year) {
 	
 		childDOBPage = new ChildDOBPage(driver);
@@ -99,13 +88,17 @@ public class ChildDOBStepDefs {
 		childDOBPage.submitInValidChildDOBDetails();
 	}
 
-	@Then("^the dynamic value on child date of birth page will be displayed$")
-	public void theDynamicValueOnChildDateOfBirthPageWillBeDisplayed() {
+	@When("^I enter valid child DOB details$")
+	public void IenterValidChildDobDetails() {
+		String randomDateString = SharedMethods.randomDateGenerator();
+		LocalDate localDate = LocalDate.parse(randomDateString);
+		SharedData.childDay = SharedMethods.formatDay(localDate);
+		SharedData.childMonth = SharedMethods.formatMonth(localDate);
+		SharedData.childYear = SharedMethods.formatYear(localDate);
 		childDOBPage = new ChildDOBPage(driver);
-		assertThat(childDOBPage.getExampleHint().matches("For example, 31 03 1980"));
-		assertThat(childDOBPage.getHeading())
-				.containsIgnoringCase("What is " + SharedData.childFirstName + "'s " + "date of birth?");
+		childDOBPage.submitValidChildDateOfBirth(SharedData.childDay, SharedData.childMonth, SharedData.childYear);
 	}
+	
 		
 		
 }

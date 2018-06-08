@@ -117,11 +117,11 @@ public class ChildNamePage extends Page {
 		return new ChildDOBPage(driver);
 	}
 
-	public DynamicChildDateOfBirthPage submitValidChildName(String firstName, String lastName) {
+	public ChildDOBPage submitValidChildName(String firstName, String lastName) {
 		enterfirstName(firstName);
 		enterlastName(lastName);
 		nextStep();
-		return new DynamicChildDateOfBirthPage(driver);
+		return new ChildDOBPage(driver);
 	}
 	
 	public void submitValidChildNames(String firstName, String lastName) {

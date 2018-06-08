@@ -8,9 +8,9 @@ import org.openqa.selenium.WebDriver;
 
 import com.nhsbsa.finance.driver.Config;
 import com.nhsbsa.finance.pageobjects.ChildDOBPage;
-import com.nhsbsa.finance.pageobjects.DynamicDateOfBirthPage;
 import com.nhsbsa.finance.pageobjects.NavBarPage;
 import com.nhsbsa.finance.pageobjects.Page;
+import com.nhsbsa.finance.pageobjects.PartnerDateOfBirthPage;
 import com.nhsbsa.finance.properties.PropertyReader;
 import com.nhsbsa.finance.shared.SharedData;
 import com.nhsbsa.finance.shared.SharedMethods;
@@ -19,77 +19,66 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class DynamicDateOfBirthStepDefs {
+public class PartnerDateOfBirthStepDefs {
 
 	private WebDriver driver = Config.getDriver();
 	private String baseUrl = PropertyReader.getProperty("base.server");
-	private DynamicDateOfBirthPage dynamicDateOfBirthPage;
+	private PartnerDateOfBirthPage partnerDateOfBirthPage;
 	ChildDOBPage childDOBPage;
 	
 	
 	@Then("^the partners date of birth page will be displayed$")
 	public void thePartnersDateOfBirthPageWillBeDisplayed() {
-		dynamicDateOfBirthPage = new DynamicDateOfBirthPage(driver);
-		assertThat(dynamicDateOfBirthPage.getExampleHint().matches("For example, 31 03 1980"));
-		assertThat(dynamicDateOfBirthPage.getHeading())
+		partnerDateOfBirthPage = new PartnerDateOfBirthPage(driver);
+		assertThat(partnerDateOfBirthPage.getExampleHint().matches("For example, 31 03 1980"));
+		assertThat(partnerDateOfBirthPage.getHeading())
 				.containsIgnoringCase("What is " + SharedData.firstName + "'s " + "date of birth?");
 	}
 
-	@Then("^the dynamic value of partner first name is displayed on the partners DOB page$")
-	public void theDynamicValueOfPartnerFirstNameIsDisplayedOnThePartnersDOBPage() {
-		Page page = new Page(driver);
-		String partnerDatePageTitle = "What is " + SharedData.firstName + "'s " + "date of birth? - Claim your NHS Pension - NHSBSA";
-		page.waitForTitleToExist(partnerDatePageTitle);
-		dynamicDateOfBirthPage = new DynamicDateOfBirthPage(driver);
-		assertThat(dynamicDateOfBirthPage.getHeading()).contains("What is " + SharedData.firstName + "'s " + "date of birth?");
-
-	}
-	
-	
 	@When("^I go to partner DOB page$")
 	public void iGoToPartnerDOBPage() {
    		new Page(driver).navigateToUrl(baseUrl + "/dependant-details/what-is-your-partner-dob");
-		dynamicDateOfBirthPage = new DynamicDateOfBirthPage(driver);
-		assertThat(dynamicDateOfBirthPage.getHeading()).contains("What is " + SharedData.firstName + "'s " + "date of birth?");
-		assertThat(dynamicDateOfBirthPage.getExampleHint().matches("For example, 31 03 1980"));
+		partnerDateOfBirthPage = new PartnerDateOfBirthPage(driver);
+		assertThat(partnerDateOfBirthPage.getHeading()).contains("What is " + SharedData.firstName + "'s " + "date of birth?");
 	}
 
 	@Then("^the partner date of birth submission will be successful$")
 	public void thePartnerDateOfBirthSubmissionWillBeSuccessful() {
 		new NavBarPage(driver);
+		
 	}
 
 	@Then("^the partner date of birth submission will be unsuccessful$")
 	public void thePartnerDateOfBirthSubmissionWillBeUnsuccessful() {
-		dynamicDateOfBirthPage = new DynamicDateOfBirthPage(driver);
-		assertThat(dynamicDateOfBirthPage.getErrorHeadingErrorMessage())
+		partnerDateOfBirthPage = new PartnerDateOfBirthPage(driver);
+		assertThat(partnerDateOfBirthPage.getErrorHeadingErrorMessage())
 				.matches("Your form contains errors");
-		assertThat(dynamicDateOfBirthPage.getErrorsBelowErrorMessage()).matches("Check your answer:");
+		assertThat(partnerDateOfBirthPage.getErrorsBelowErrorMessage()).matches("Check your answer:");
 	}
 
 	@When("^I enter partner DOB details using the day '(.*)', month '(.*)' and year '(.*)'$")
 	public void iEnterPartnerDOBDetailsUsingTheDayMonthAndYear(String day, String month, String year) {
 
-		dynamicDateOfBirthPage = new DynamicDateOfBirthPage(driver);
-		dynamicDateOfBirthPage.enterPartnerDobDetails(day, month, year);
-		dynamicDateOfBirthPage.submitInValidPartnerDOBDetails();
+		partnerDateOfBirthPage = new PartnerDateOfBirthPage(driver);
+		partnerDateOfBirthPage.enterPartnerDobDetails(day, month, year);
+		partnerDateOfBirthPage.submitInValidPartnerDOBDetails();
 
 	}
 
 	@And("^the partner date of birth error message '(.*)' will be displayed$")
 	public void thePartnerDateOfBirthErrorMessageWillBeDisplayed(String errorMessage) {
-		dynamicDateOfBirthPage = new DynamicDateOfBirthPage(driver);
-		assertThat(dynamicDateOfBirthPage.doesPartnerDobErrorMessageHaveAnchor()).isTrue();
-		assertThat(dynamicDateOfBirthPage.getPartnerDobAnchoredErrorMessage()).matches(errorMessage);
-		assertThat(dynamicDateOfBirthPage.getPartnerDobFieldErrorMessage()).matches(errorMessage);
+		partnerDateOfBirthPage = new PartnerDateOfBirthPage(driver);
+		assertThat(partnerDateOfBirthPage.doesPartnerDobErrorMessageHaveAnchor()).isTrue();
+		assertThat(partnerDateOfBirthPage.getPartnerDobAnchoredErrorMessage()).matches(errorMessage);
+		assertThat(partnerDateOfBirthPage.getPartnerDobFieldErrorMessage()).matches(errorMessage);
 	}
 
 	@Then("^the partner date of birth for 16 years error message '(.*)' will be displayed$")
 	public void thePartnerDateOfBirthFor16YearsErrorMessageWillBeDisplayed(String errorMessage) {
-		dynamicDateOfBirthPage = new DynamicDateOfBirthPage(driver);
-		assertThat(dynamicDateOfBirthPage.getPartnerDobFieldErrorMessage()).matches(errorMessage);
-		assertThat(dynamicDateOfBirthPage.doesPartnerDobErrorMessageHaveAnchor()).isTrue();
-		assertThat(dynamicDateOfBirthPage.getPartnerDobAnchoredErrorMessage()).matches(errorMessage);
+		partnerDateOfBirthPage = new PartnerDateOfBirthPage(driver);
+		assertThat(partnerDateOfBirthPage.getPartnerDobFieldErrorMessage()).matches(errorMessage);
+		assertThat(partnerDateOfBirthPage.doesPartnerDobErrorMessageHaveAnchor()).isTrue();
+		assertThat(partnerDateOfBirthPage.getPartnerDobAnchoredErrorMessage()).matches(errorMessage);
 	}
 
 	@And("^I enter partner's dob  less than 16 years from today's date$")
@@ -98,9 +87,9 @@ public class DynamicDateOfBirthStepDefs {
 		SharedData.day = SharedMethods.formatDay(minusYear);
 		SharedData.month = SharedMethods.formatMonth(minusYear);
 		SharedData.year = SharedMethods.formatYear(minusYear);
-		dynamicDateOfBirthPage = new DynamicDateOfBirthPage(driver);
-		dynamicDateOfBirthPage.enterPartnerDobDetails(SharedData.day, SharedData.month, SharedData.year);
-		dynamicDateOfBirthPage.submitInValidPartnerDOBDetails();
+		partnerDateOfBirthPage = new PartnerDateOfBirthPage(driver);
+		partnerDateOfBirthPage.enterPartnerDobDetails(SharedData.day, SharedData.month, SharedData.year);
+		partnerDateOfBirthPage.submitInValidPartnerDOBDetails();
 	}
 	
 	
@@ -112,18 +101,18 @@ public class DynamicDateOfBirthStepDefs {
 		SharedData.day = SharedMethods.formatDay(localDate);
 		SharedData.month = SharedMethods.formatMonth(localDate);
 		SharedData.year = SharedMethods.formatYear(localDate);
-		dynamicDateOfBirthPage = new DynamicDateOfBirthPage(driver);
-		dynamicDateOfBirthPage.submitValidPartnerDOBDetails(SharedData.day, SharedData.month, SharedData.year);
+		partnerDateOfBirthPage = new PartnerDateOfBirthPage(driver);
+		partnerDateOfBirthPage.submitValidPartnerDOBDetails(SharedData.day, SharedData.month, SharedData.year);
 	}
 	
 	
 
 	@Then("^the parnerDob details are sustained$")
 	public void thePartnerDobDetailsAreSustained() {
-		dynamicDateOfBirthPage = new DynamicDateOfBirthPage(driver);
+		partnerDateOfBirthPage = new PartnerDateOfBirthPage(driver);
 		//assertThat(dynamicDateOfBirthPage.getDay()).matches(SharedData.day);
 		//assertThat(dynamicDateOfBirthPage.getMonth()).matches(SharedData.month);
-		assertThat(dynamicDateOfBirthPage.getYear()).matches(SharedData.year);
+		assertThat(partnerDateOfBirthPage.getYear()).matches(SharedData.year);
 
 	}
 
@@ -134,8 +123,8 @@ public class DynamicDateOfBirthStepDefs {
 
 	@When("^I click next on partner date of birth page$")
 	public void iClickNextOnPartnerDateOfBirthPage() {
-		dynamicDateOfBirthPage = new DynamicDateOfBirthPage(driver);
-		dynamicDateOfBirthPage.nextStep();
+		partnerDateOfBirthPage = new PartnerDateOfBirthPage(driver);
+		partnerDateOfBirthPage.nextStep();
 	}	
 	
 }

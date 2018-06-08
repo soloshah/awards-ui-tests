@@ -37,10 +37,6 @@ public class EqPaymasterReferenceStepDefs {
 
 	@Then("^the eqPaymasterReference page will be displayed$")
 	public void theEqPaymasterReferencePageWillBeDisplayed() {
-		Page page = new Page(driver);
-		String eqPaymasterReferencePageTitle = "Give the reference number of " + SharedData.eqPaymasterName
-				+ " - Claim your NHS Pension - NHSBSA";
-		page.waitForTitleToExist(eqPaymasterReferencePageTitle);
 		eqPaymasterReferencePage = new EqPaymasterReferencePage(driver);
 		assertThat(eqPaymasterReferencePage.getHeading())
 				.contains("Give the reference number of " + SharedData.eqPaymasterName);

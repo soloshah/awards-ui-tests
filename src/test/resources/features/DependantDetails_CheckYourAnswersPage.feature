@@ -74,7 +74,7 @@ And the dependant details for updated partnerGender details will be displayed
 
 Scenario: Change partner nino details
 When I click on change partnerNino
-Then the dynamic partners nino page will be displayed
+Then the partner nino page will be displayed
 And the partnerNino details are sustained
 When I enter partnerNino using different valid details
 And I navigate from partnerNino page to check your answers page
@@ -124,7 +124,7 @@ And the dependant details for updated allocationDOB details will be displayed
 
 Scenario: Change allocationRelationship details
 When I click on change allocationRelationship
-Then the dynamic allocation relationship page will be displayed
+Then the allocation relationship page will be displayed
 And the allocationRelationship details are sustained
 When I enter allocationRelationship using different valid details
 And Check your answers page will be displayed
