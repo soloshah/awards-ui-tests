@@ -116,11 +116,11 @@ public class PartnerNamePage extends Page {
 		return getElementValue();
 	}
 
-	public DynamicDateOfBirthPage submitValidPartnerNameDetails(String firstName, String lastName) {
+	public PartnerDateOfBirthPage submitValidPartnerName(String firstName, String lastName) {
 		enterfirstName(firstName);
 		enterlastName(lastName);
 		nextStep();
-		return new DynamicDateOfBirthPage(driver);
+		return new PartnerDateOfBirthPage(driver);
 	}
 	
 	public void submitPartnerName(String firstName, String lastName) {
@@ -135,13 +135,7 @@ public class PartnerNamePage extends Page {
 		return new PartnerNamePage(driver);
 	}
 
-	public DynamicDateOfBirthPage submitValidPartnerName(String firstName, String lastName) {
-		enterfirstName(firstName);
-		enterlastName(lastName);
-		nextStep();
-		return new DynamicDateOfBirthPage(driver);
-	}
-
+	
 	public String getFirstNameDetails() {
 		navigateToRootElement();
 		navigateToElementBy(firstNameFieldLocator);

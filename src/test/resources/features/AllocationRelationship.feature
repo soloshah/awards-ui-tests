@@ -7,7 +7,7 @@ Given I am on the start page
 
 Scenario: Valid relationship field details
 When I enter valid dependant details
-Then the dynamic allocation relationship page will be displayed
+Then the allocation relationship page will be displayed
 And I enter valid relationship
 Then the relationship submission will be successful
 And Check your answers page will be displayed

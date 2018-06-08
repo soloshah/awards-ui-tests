@@ -31,7 +31,7 @@ public class AllocationRelationshipPage extends Page {
 		nextStep();
 	}
 
-	private void nextStep() {
+	public void nextStep() {
 		navigateToRootElement();
 		navigateToElementBy(nextButtonLocator);
 		click();
@@ -81,6 +81,11 @@ public class AllocationRelationshipPage extends Page {
 		return new AllocationRelationshipPage(driver);
 	}
 
+	public String getRelationshipNameDetails() {
+		navigateToRootElement();
+		navigateToElementBy(relationshipNameFieldLocator);
+		return getElementValue();
+	}
 
 
 }

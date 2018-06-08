@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class EqPaymasterReferencePage extends Page {
 
-    private String eqReferencePageTitle = "Give their reference";
+    private String eqReferencePageTitle = "Give their reference number - Claim your NHS Pension - NHSBSA";
 	private By referenceFieldLocator = By.id("reference");
 	private By nextButtonLocator = By.id("submit_button");
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");

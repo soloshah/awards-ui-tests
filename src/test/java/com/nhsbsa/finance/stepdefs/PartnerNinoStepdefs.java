@@ -23,9 +23,11 @@ public class PartnerNinoStepdefs {
 
 	private PartnerNinoPage partnerNinoPage;
 	  private PartnerNameStepDefs partnerNameSteps;
-	@Given("^I am on the partner national insurance page$")
-	public void iAmOnThePartnerNationalInsurancePage() {
-		new Page(driver).navigateToUrl(baseUrl + "/dependant-details/what-is-your-partner-ni");
+	  
+	@Given("^I am on the partner nino page$")
+	public void iAmOnThePartnerNinoPage() {
+		Page page = new Page(driver);
+		page.navigateToUrl(baseUrl + "/dependant-details/what-is-your-partner-ni");
 	}
 
 	@When("^I go to partner nino page$")
@@ -113,7 +115,17 @@ public class PartnerNinoStepdefs {
      partnerNameSteps = new PartnerNameStepDefs();
      partnerNameSteps.iGoToThePartnerNamePage();
      partnerNameSteps.iSubmitValidPartnerFirstAndLastNameDetails();
-     iGoToPartnerNinoPage();
+     iAmOnThePartnerNinoPage();
+	}
+	
+	@When("^I go to dynamic partner nino page$")
+	public void iGoToDynamicPartnerNinoPage() {
+
+		Page page = new Page(driver);
+		page.navigateToUrl(baseUrl + "/dependant-details/what-is-your-partner-ni");
+		partnerNinoPage = new PartnerNinoPage(driver);
+		assertThat(partnerNinoPage.getHeading()
+				.contains("What is " + SharedData.firstName + "'s " + "National Insurance number?"));
 	}
 	
 }

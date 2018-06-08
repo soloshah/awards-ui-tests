@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class PartnerNinoPage extends Page {
 
-	private String partnerNinoPageTitle = "What is your spouse's or civil partner's National Insurance number? - Claim your NHS Pension";
+	private String partnerNinoPageTitle = "What is your spouse's or civil partner's National Insurance number? - Claim your NHS Pension - NHSBSA";
 	private By ninoFieldLocator = By.id("nino");
 	private By nextButtonLocator = By.id("submit_button");
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");

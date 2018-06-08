@@ -28,7 +28,7 @@ public class OtherDependantChildrenStepDefs {
 	SharedYesNoPage sharedYesNoPage;
 	private ChildNameStepDefs childNameSteps;
 	private SharedYeNoStepDefs sharedYesNoSteps;
-	private DynamicChildDateOfBirthStepDefs dynamicChildDObSteps;
+	private ChildDOBStepDefs childDObSteps;
 
 	@Given("^I am on other dependant children page$")
 	public void iAmOnOtherDependantChildrenPage() {
@@ -90,9 +90,9 @@ public class OtherDependantChildrenStepDefs {
 			childNameSteps = new ChildNameStepDefs();
 			childNameSteps.iGoToTheChildNamePage();
 			childNameSteps.IenterValidChildFirstAndLastNameDetails();
-			dynamicChildDObSteps =  new DynamicChildDateOfBirthStepDefs();
-			dynamicChildDObSteps.theDynamicValueOfChildFirstNameIsDisplayedOnTheChildsDOBPage();
-			dynamicChildDObSteps.IenterValidChildDobDetails();
+			childDObSteps =  new ChildDOBStepDefs();
+			childDObSteps.theChildDateOfBirthPageWillBeDisplayed();
+			childDObSteps.IenterValidChildDobDetails();
 			iAmOnOtherDependantChildrenPage();
 			theDynamicValueOfChildFirstAndLastNameWillBeDisplayed();
 			sharedYesNoSteps =  new SharedYeNoStepDefs();
@@ -109,9 +109,9 @@ public class OtherDependantChildrenStepDefs {
 		sharedYesNoSteps.iSelectYes();
 		childNameSteps = new ChildNameStepDefs();
 		childNameSteps.IenterValidChildName();
-		dynamicChildDObSteps =  new DynamicChildDateOfBirthStepDefs();
-		dynamicChildDObSteps.theDynamicValueOfChildFirstNameIsDisplayedOnTheChildsDOBPage();
-		dynamicChildDObSteps.IenterValidChildDobDetails();
+		childDObSteps =  new ChildDOBStepDefs();
+		childDObSteps.theChildDateOfBirthPageWillBeDisplayed();
+		childDObSteps.IenterValidChildDobDetails();
 		
 	}
 

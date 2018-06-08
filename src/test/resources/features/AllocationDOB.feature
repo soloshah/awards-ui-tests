@@ -6,13 +6,13 @@ Given I am on the start page
 When I go to the allocation name page
 And I enter valid allocation name
 And I go to allocation DOB page
-Then the allocation date of birth page will be displayed
+
 
 
 Scenario: Valid allocation date of Birth
 And I enter valid allocation DOB
 Then the allocation date of birth submission will be successful
-Then the dynamic allocation relationship page will be displayed
+Then the allocation relationship page will be displayed
 
 
 Scenario Outline: Allocation date of birth field validations 
