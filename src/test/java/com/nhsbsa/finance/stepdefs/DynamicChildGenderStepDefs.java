@@ -59,20 +59,6 @@ public class DynamicChildGenderStepDefs {
 		dynamicChildGenderPage.childGenderIsNotSelected();
 	}
 
-	@When("^I click on the link how legal gender is identified$")
-	public void iClickOnTheLinkHowLegalGenderIsIdentified() {
-		dynamicChildGenderPage = new DynamicChildGenderPage(driver);
-		dynamicChildGenderPage.verifyGenderLink();
-	}
-
-	@Then("^the guidance for gender link will be displayed$")
-	public void theGuidanceForGenderLinkWillBeDisplayed() {
-		dynamicChildGenderPage = new DynamicChildGenderPage(driver);
-		assertThat((dynamicChildGenderPage.verifyGenderLinkText())
-				.contains("more guidance on legally recognised gender available"));
-	}
-
-	
 	@When("^I select Female on child gender page$")
 	public void iSelectFemaleOnChildGenderPage() {
 		SharedData.gender = "Female";
@@ -100,10 +86,10 @@ public class DynamicChildGenderStepDefs {
 
 	}
 
-	@When("^I select gender using different valid option$")
+	/*@When("^I select gender using different valid option$")
 	public void iSelectGenderUsingDifferentValidOption() {
 		iSelectMaleOnChildGenderPage();
-	}
+	}*/
 	
 	
 	@When("^I fill in child details$")
