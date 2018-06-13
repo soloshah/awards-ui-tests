@@ -21,6 +21,7 @@ public class DependantChildrenStepDefs {
 	private DependantChildrenPage dependantChildrenPage;
 	private ChildNameStepDefs childNameSteps;
 	private ChildDOBStepDefs childDOBSteps;
+	private ChildGenderStepDefs childGenderSteps;
 	private OtherDependantChildrenStepDefs otherDependantChildrenSteps;
 	private SharedYeNoStepDefs sharedYeNoSteps;
 
@@ -57,6 +58,8 @@ public class DependantChildrenStepDefs {
 		childNameSteps.IenterMoreValidChildName();
 		childDOBSteps = new ChildDOBStepDefs();
 		childDOBSteps.IenterValidChildDobDetails();
+		childGenderSteps =  new ChildGenderStepDefs();
+		childGenderSteps.iSelectFemaleOnChildGenderPage();
 		otherDependantChildrenSteps = new OtherDependantChildrenStepDefs();
 		otherDependantChildrenSteps.doYouHaveAnyOtherDependantPageWillBeDisplayed();
 		sharedYeNoSteps = new SharedYeNoStepDefs();

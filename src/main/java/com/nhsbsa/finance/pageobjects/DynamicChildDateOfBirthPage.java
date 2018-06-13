@@ -16,12 +16,12 @@ public class DynamicChildDateOfBirthPage extends Page {
 				waitForElementToBeVisibleBy(childDayFieldLocator);
 	}
 	
-	public DynamicChildGenderPage submitValidChildDateOfBirth(String day, String month, String year) {
+	public ChildGenderPage submitValidChildDateOfBirth(String day, String month, String year) {
 		enterDay(day);
 		enterMonth(month);
 		enterYear(year);
 		nextStep();
-		return new DynamicChildGenderPage(driver);
+		return new ChildGenderPage(driver);
 	}
 	
 	private void enterDay(String day) {

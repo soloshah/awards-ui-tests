@@ -8,6 +8,7 @@ public class YourGenderPage extends Page {
 	private String yourGenderPageTitle = "What is your legally recognised gender? - Claim your NHS Pension - NHSBSA";
 	private By femaleRadioButtonLocator = By.id("gender0");
 	private By maleRadioButtonLocator = By.id("gender1");
+	private By backLinkLocator = By.id("back-link");
 	private By nextButtonLocator = By.id("submit_button");
 	private By errorHeadingErrorMessageLocator = By.id("error-summary-heading");
 	private By errorsBelowErrorMessageLocator = By.id("error-summary-heading1");
@@ -22,7 +23,7 @@ public class YourGenderPage extends Page {
 	public YourGenderPage(WebDriver driver) {
 		super(driver);
 		waitForTitleToExist(yourGenderPageTitle);
-		waitForElementToBeVisibleBy(femaleRadioButtonLocator);
+		waitForElementToBeVisibleBy(backLinkLocator);
 	}
 
 	public void nextStep() {

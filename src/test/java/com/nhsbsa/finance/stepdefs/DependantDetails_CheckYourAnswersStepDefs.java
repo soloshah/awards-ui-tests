@@ -30,7 +30,7 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 	private OtherDependantChildrenStepDefs otherDependantChildrenSteps;
 	private SharedYeNoStepDefs sharedYeNoSteps;
 	private ChildNameStepDefs childNameSteps;
-	private DynamicChildGenderStepDefs dynamicChildGenderSteps;
+	private ChildGenderStepDefs childGenderSteps;
 	private AllocatePensionStepDefs allocationPensionSteps;
 	private AllocationNameStepDefs allocationNameSteps;
 	
@@ -57,17 +57,12 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 		sharedYeNoSteps.iSelectYes();
 		childNameSteps = new ChildNameStepDefs();
 		childNameSteps.IenterValidChildName();
-<<<<<<< HEAD
 		childDobSteps = new ChildDOBStepDefs();
 		childDobSteps.theChildDateOfBirthPageWillBeDisplayed();
 		childDobSteps.IenterValidChildDobDetails();
-=======
-		dynamicChildDobSteps = new DynamicChildDateOfBirthStepDefs();
-		dynamicChildDobSteps.theDynamicChildDateOfBirthPageWillBeDisplayed();
-		dynamicChildDobSteps.IenterValidChildDobDetails();
-		/*dynamicChildGenderSteps = new DynamicChildGenderStepDefs();
-		dynamicChildGenderSteps.iSelectFemaleOnChildGenderPage();*/
->>>>>>> BP490-393
+		childGenderSteps =  new ChildGenderStepDefs();
+		childGenderSteps.theChildGenderPageWillBeDisplayed();
+		childGenderSteps.iSelectFemaleOnChildGenderPage();
 		otherDependantChildrenSteps = new OtherDependantChildrenStepDefs();
 		otherDependantChildrenSteps.doYouHaveAnyOtherDependantPageWillBeDisplayed();
 		sharedYeNoSteps = new SharedYeNoStepDefs();
@@ -112,17 +107,12 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 		sharedYeNoSteps.iSelectYes();
 		childNameSteps = new ChildNameStepDefs();
 		childNameSteps.IenterValidChildName();
-<<<<<<< HEAD
 		childDobSteps = new ChildDOBStepDefs();
 		childDobSteps.theChildDateOfBirthPageWillBeDisplayed();
 		childDobSteps.IenterValidChildDobDetails();
-=======
-		dynamicChildDobSteps = new DynamicChildDateOfBirthStepDefs();
-		dynamicChildDobSteps.theDynamicChildDateOfBirthPageWillBeDisplayed();
-		dynamicChildDobSteps.IenterValidChildDobDetails();
-		/*dynamicChildGenderSteps = new DynamicChildGenderStepDefs();
-			dynamicChildGenderSteps.iSelectFemaleOnChildGenderPage();*/
->>>>>>> BP490-393
+		childGenderSteps =  new ChildGenderStepDefs();
+		childGenderSteps.theChildGenderPageWillBeDisplayed();
+		childGenderSteps.iSelectFemaleOnChildGenderPage();
 		otherDependantChildrenSteps = new OtherDependantChildrenStepDefs();
 		otherDependantChildrenSteps.doYouHaveAnyOtherDependantPageWillBeDisplayed();
 		sharedYeNoSteps = new SharedYeNoStepDefs();

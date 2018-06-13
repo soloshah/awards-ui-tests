@@ -40,7 +40,6 @@ public class SummaryPage extends Page {
 	}
   
   public ApplicationSubmittedPage submitApplication(){
-	  
 	  submitStep();
 	  return new ApplicationSubmittedPage(driver);
   }

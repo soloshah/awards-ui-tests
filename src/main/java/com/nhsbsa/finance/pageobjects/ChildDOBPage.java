@@ -83,12 +83,12 @@ public class ChildDOBPage extends Page {
 		return getElementText();
 	}
 
-	public OtherDependantChildrenPage submitValidChildDateOfBirth(String day, String month, String year) {
+	public ChildGenderPage submitValidChildDateOfBirth(String day, String month, String year) {
 		enterDay(day);
 		enterMonth(month);
 		enterYear(year);
 		nextStep();
-		return new OtherDependantChildrenPage(driver);
+		return new ChildGenderPage(driver);
 	}
 	
 	

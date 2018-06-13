@@ -3,8 +3,9 @@ package com.nhsbsa.finance.pageobjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class DynamicChildGenderPage extends Page {
+public class ChildGenderPage extends Page {
 
+	private String childGenderTitle = "What is your child's legally recognised gender? - Claim your NHS Pension - NHSBSA";
 	private By femaleRadioButtonLocator = By.id("gender0");
 	private By maleRadioButtonLocator = By.id("gender1");
 	private By nextButtonLocator = By.id("submit_button");
@@ -14,15 +15,13 @@ public class DynamicChildGenderPage extends Page {
 	private By childGenderAnchoredErrorMessageLocator = By.id("error-list0");
 	private By childGenderAnchoredErrorMessageAnchorLocator = By.xpath("//a[@href='#gender']");
 	private By childGenderFieldErrorMessageLocator = By.id("'error-message-'+${fieldName}");
-	private By genderIdentifyLinkLocator = By.className("summary");
-	private By genderInformationLinkLocator = By.linkText("more guidance on legally recognised gender available.");
 	private By selectedFemaleRadioButtonLocator = By.xpath("//input[@checked='checked']");
 	private By selectedMaleRadioButtonLocator = By.xpath("//input[@checked='checked']");
 
 	
-	public DynamicChildGenderPage(WebDriver driver) {
+	public ChildGenderPage(WebDriver driver) {
 		super(driver);
-	
+	waitForTitleToExist(childGenderTitle);
 		waitForElementToBeVisibleBy(backLinkLocator);
 	}
 
@@ -63,9 +62,9 @@ public class DynamicChildGenderPage extends Page {
 		return getElementText();
 	}
 	
-	public DynamicChildGenderPage childGenderIsNotSelected() {
+	public ChildGenderPage childGenderIsNotSelected() {
 		nextStep();
-		return new DynamicChildGenderPage(driver);
+		return new ChildGenderPage(driver);
 	}
 
 	
@@ -101,28 +100,6 @@ public class DynamicChildGenderPage extends Page {
 		return getElementText();
 	}
 
-	public void verifyGenderLink() {
-
-		try {
-			navigateToRootElement();
-			navigateToElementBy(genderIdentifyLinkLocator);
-			Thread.sleep(1000);
-			click();
-			Thread.sleep(2000);
-
-		} catch (InterruptedException e) {
-			System.out.print("Link message not success: " + e.getMessage());
-			e.printStackTrace();
-		}
-	}
-
-	public String verifyGenderLinkText() {
-
-		navigateToRootElement();
-		navigateToElementBy(genderInformationLinkLocator);
-		return getElementText();
-
-	}
 
 
 }

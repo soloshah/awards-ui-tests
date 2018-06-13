@@ -1,9 +1,10 @@
-@ChildGender @BP490-393 @WIP
+@ChildGender @BP490-393
 Feature: Child Gender Page
 
 Background:
 Given I fill in child details
 Then the child gender page will be displayed
+
 
 Scenario: What is your child's gender
 When I select Female on child gender page

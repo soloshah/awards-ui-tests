@@ -3,8 +3,7 @@ Feature: ApplicationSubmitted Page
 
 
 Scenario: Feedback Link
-Given I am on the start page
-When I go to application submitted page
+Given I fill in the application
 And I click on finished button
 Then the feedback page will be displayed
 

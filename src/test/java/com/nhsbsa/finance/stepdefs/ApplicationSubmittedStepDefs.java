@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import com.nhsbsa.finance.driver.Config;
 import com.nhsbsa.finance.pageobjects.ApplicationSubmittedPage;
 import com.nhsbsa.finance.pageobjects.Page;
+import com.nhsbsa.finance.pageobjects.SummaryPage;
 import com.nhsbsa.finance.properties.PropertyReader;
 
 
@@ -19,12 +20,68 @@ public class ApplicationSubmittedStepDefs {
   private WebDriver driver = Config.getDriver();
   private String baseUrl = PropertyReader.getProperty("base.server");
    private ApplicationSubmittedPage  applicationSubmittedPage;
+   private PersonalDetails_CheckYourAnswersStepDefs personalDetailsSteps;
+   private DependantDetails_CheckYourAnswersStepDefs dependantDetailsSteps;
+   private EmploymentDetails_CheckYourAnswersStepDefs employmentDetailsSteps;
+   private ContactDetails_CheckYourAnswersStepDefs2 contactDetailsSteps;
+   private PensionDetails_CheckYourAnswersStepDefs pensionDetailsSteps;
+   private HMRC2Details_CheckYourAnswersStepDefs hmrcDetailsSteps;
+   private PaymentDetails_CheckYourAnswersStepDefs paymentetailsSteps;
+   private CheckYourAnswersStepDefs checkYourAnswersSteps;
+   private SummaryPage summaryPage;
+  
 
 	@Then("^the application submitted page will be displayed$")
-  public void theSummaryPageWillBeDisplayed() {
+  public void theApplicationSubmittedPageWillBeDisplayed() {
 		applicationSubmittedPage = new ApplicationSubmittedPage(driver);
 		assertThat(applicationSubmittedPage.getFormCompleteHeaderText()).contains("Form complete");
   }
+	
+	@Then("^I fill in the application$")
+	  public void iFillInTheApplication() throws Throwable {
+		personalDetailsSteps = new PersonalDetails_CheckYourAnswersStepDefs();
+		personalDetailsSteps.iHaveFilledInAPersonalDetails();
+		checkYourAnswersSteps = new CheckYourAnswersStepDefs();
+		checkYourAnswersSteps.iSubmitAllDetails();
+		summaryPage = new SummaryPage(driver);
+		summaryPage.partnerDetailsLink();
+		dependantDetailsSteps = new DependantDetails_CheckYourAnswersStepDefs();
+		dependantDetailsSteps.iHaveFilledInADependantlDetailsForSummaryPage();
+		checkYourAnswersSteps = new CheckYourAnswersStepDefs();
+		checkYourAnswersSteps.iSubmitAllDetails();
+		summaryPage = new SummaryPage(driver);
+		summaryPage.employmentDetailsLink();
+		employmentDetailsSteps = new EmploymentDetails_CheckYourAnswersStepDefs();
+		employmentDetailsSteps.iHaveFilledInCurrentEmploymentDetailsForSummaryPage();
+		checkYourAnswersSteps = new CheckYourAnswersStepDefs();
+		checkYourAnswersSteps.iSubmitAllDetails();
+		summaryPage = new SummaryPage(driver);
+		summaryPage.contactDetailsLink();
+		contactDetailsSteps = new ContactDetails_CheckYourAnswersStepDefs2();
+		contactDetailsSteps.iHaveFilledInAContactDetailsForSummaryPage();
+		checkYourAnswersSteps = new CheckYourAnswersStepDefs();
+		checkYourAnswersSteps.iSubmitAllDetails();
+		summaryPage = new SummaryPage(driver);
+		summaryPage.pensionDetailsLink();
+		pensionDetailsSteps = new PensionDetails_CheckYourAnswersStepDefs();
+		pensionDetailsSteps.iHaveFilledIn1995PensionSchemeDetailsForSummaryPage();
+		checkYourAnswersSteps = new CheckYourAnswersStepDefs();
+		checkYourAnswersSteps.iSubmitAllDetails();
+		summaryPage = new SummaryPage(driver);
+		summaryPage.hmrcDetailsLink();
+		hmrcDetailsSteps = new HMRC2Details_CheckYourAnswersStepDefs();
+		hmrcDetailsSteps.iHaveFilledInTheHmrc2DetailsForSummaryPage();
+		checkYourAnswersSteps = new CheckYourAnswersStepDefs();
+		checkYourAnswersSteps.iSubmitAllDetails();
+		summaryPage = new SummaryPage(driver);
+		summaryPage.paymentDetailsLink();
+		paymentetailsSteps = new PaymentDetails_CheckYourAnswersStepDefs();
+		paymentetailsSteps.iHaveFilledInAPaymentDetailsForSummaryPage();
+		checkYourAnswersSteps = new CheckYourAnswersStepDefs();
+		checkYourAnswersSteps.iSubmitAllDetails();
+		summaryPage = new SummaryPage(driver);
+		summaryPage.submitApplication();
+	  }
 	
 	@Given("^I go to application submitted page$")
 	public void iGoToApplicationSubmittedPage() {
