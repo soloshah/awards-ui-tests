@@ -18,7 +18,7 @@ Then What is your marital status page will be displayed
 And the maritalStatus details are sustained
 When I select marital status using different valid option
 And I navigate from marital status page to check your answers page
-Then the correct dependant details with updated children details will be displayed
+Then the correct dependant details with updated civilStatus and children details will be displayed
 And the dependant details for updated maritalStatus will be displayed
 
 @bug @BP490-377
@@ -28,7 +28,7 @@ Then What is your marital status page will be displayed
 And the maritalStatus details are sustained
 When I select marital status as single
 And I navigate from marital status page with updated status to check your answers page
-Then the correct dependant details with updated maritalStatus will be displayed
+Then the correct dependant details with single maritalStatus will be displayed
 And the dependant details for updated maritalStatus will be displayed
 
 @bug @BP490-377

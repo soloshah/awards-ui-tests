@@ -141,6 +141,8 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 		assertThat(dependantDetails_CheckYourAnswerPage.getMaritalStatus())
 				.matches("What is your marital status");
 		assertThat(dependantDetails_CheckYourAnswerPage.getMaritalStatusText()).matches(SharedData.sharedNHSRadioButton);
+		assertThat(dependantDetails_CheckYourAnswerPage.getMaritalStatusDate()).matches("Date married");
+		assertThat(dependantDetails_CheckYourAnswerPage.getMaritalStatusDateText()).matches(SharedData.maritalDay + " " + SharedData.maritalMonth + " " + SharedData.maritalYear);
 		assertThat(dependantDetails_CheckYourAnswerPage.getPresenceOfPartnerName()).isEqualTo(true);
 		assertThat(dependantDetails_CheckYourAnswerPage.getPartnername()).matches("What is your spouse's or civil partner's name");
 		assertThat(dependantDetails_CheckYourAnswerPage.getPartnerNameText()).matches(SharedData.firstName + " " + SharedData.lastName);
@@ -177,6 +179,8 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 		assertThat(dependantDetails_CheckYourAnswerPage.getMaritalStatus())
 				.matches("What is your marital status");
 		assertThat(dependantDetails_CheckYourAnswerPage.getMaritalStatusText()).matches(SharedData.sharedNHSRadioButton);
+		assertThat(dependantDetails_CheckYourAnswerPage.getMaritalStatusDate()).matches("Date married");
+		assertThat(dependantDetails_CheckYourAnswerPage.getMaritalStatusDateText()).matches(SharedData.maritalDay + " " + SharedData.maritalMonth + " " + SharedData.maritalYear);
 		assertThat(dependantDetails_CheckYourAnswerPage.getPresenceOfPartnerName()).isEqualTo(true);
 		assertThat(dependantDetails_CheckYourAnswerPage.getPartnername()).matches("What is your spouse's or civil partner's name");
 		assertThat(dependantDetails_CheckYourAnswerPage.getPartnerNameText()).matches(SharedData.firstName + " " + SharedData.lastName);
@@ -206,6 +210,43 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 		assertThat(dependantDetails_CheckYourAnswerPage.getAllocationRelationshipText()).matches(SharedData.relationship);
 	}
 
+	@Then("^the correct dependant details with updated civilStatus and children details will be displayed$")
+	public void theCorrectDependantDetailsWithUpdatedCivilStatusAndChildrenDetailsWillBeDisplayed() {
+		dependantDetails_CheckYourAnswerPage = new DependantDetails_CheckYourAnswerPage(driver);
+		assertThat(dependantDetails_CheckYourAnswerPage.getPresenceOfMaritalStatus()).isEqualTo(true);
+		assertThat(dependantDetails_CheckYourAnswerPage.getMaritalStatus())
+				.matches("What is your marital status");
+		assertThat(dependantDetails_CheckYourAnswerPage.getMaritalStatusText()).matches(SharedData.sharedNHSRadioButton);
+		assertThat(dependantDetails_CheckYourAnswerPage.getMaritalStatusCivilDate()).matches("Date of civil partnership");
+		assertThat(dependantDetails_CheckYourAnswerPage.getMaritalStatusCivilDateText()).matches(SharedData.maritalDay + " " + SharedData.maritalMonth + " " + SharedData.maritalYear);
+		assertThat(dependantDetails_CheckYourAnswerPage.getPresenceOfPartnerName()).isEqualTo(true);
+		assertThat(dependantDetails_CheckYourAnswerPage.getPartnername()).matches("What is your spouse's or civil partner's name");
+		assertThat(dependantDetails_CheckYourAnswerPage.getPartnerNameText()).matches(SharedData.firstName + " " + SharedData.lastName);
+		assertThat(dependantDetails_CheckYourAnswerPage.getPresenceOfPartnerDOB()).isEqualTo(true);
+		assertThat(dependantDetails_CheckYourAnswerPage.getPartnerDob()).matches("What is your spouse's or civil partner's date of birth");
+		assertThat(dependantDetails_CheckYourAnswerPage.getPartnerDobText()).matches(SharedData.day + " " + SharedData.month + " " + SharedData.year);
+		assertThat(dependantDetails_CheckYourAnswerPage.getPresenceOfPartnerGender()).isEqualTo(true);
+		assertThat(dependantDetails_CheckYourAnswerPage.getPartnerGender()).matches("What is your spouse's or civil partner's legally recognised gender");
+		assertThat(dependantDetails_CheckYourAnswerPage.getPartnerGenderText()).matches(SharedData.gender);
+		assertThat(dependantDetails_CheckYourAnswerPage.getPresenceOfPartnerNino()).isEqualTo(true);
+		assertThat(dependantDetails_CheckYourAnswerPage.getPartnerNino()).matches("What is your spouse's or civil partner's National Insurance number");
+		assertThat(dependantDetails_CheckYourAnswerPage.getPartnerNinoText()).matches(SharedData.nino);
+		assertThat(dependantDetails_CheckYourAnswerPage.getPresenceOfDependantChildren()).isEqualTo(true);
+		assertThat(dependantDetails_CheckYourAnswerPage.getDependantChildren()).matches("Do you have any dependant children");
+		assertThat(dependantDetails_CheckYourAnswerPage.getDependantChildrenText()).matches("No");
+		assertThat(dependantDetails_CheckYourAnswerPage.getPresenceOfAllocationPension()).isEqualTo(true);
+		assertThat(dependantDetails_CheckYourAnswerPage.getAllocationPension()).matches("Do you want to allocate part of your pension");
+		assertThat(dependantDetails_CheckYourAnswerPage.getAllocationPensionText()).matches("Yes");
+		assertThat(dependantDetails_CheckYourAnswerPage.getPresenceOfAllocationName()).isEqualTo(true);
+		assertThat(dependantDetails_CheckYourAnswerPage.getAllocationName()).matches("What is the name of the person you want to allocate some of your pension to");
+		assertThat(dependantDetails_CheckYourAnswerPage.getAllocationNameText()).matches(SharedData.allocationFirstName+ " " + SharedData.allocationLastName);
+		assertThat(dependantDetails_CheckYourAnswerPage.getPresenceOfAllocationDob()).isEqualTo(true);
+		assertThat(dependantDetails_CheckYourAnswerPage.getAllocationDob()).matches("What is their date of birth");
+		assertThat(dependantDetails_CheckYourAnswerPage.getAllocationDobText()).matches(SharedData.allocateDay+ " " + SharedData.allocateMonth + " " +SharedData.allocateYear);
+		assertThat(dependantDetails_CheckYourAnswerPage.getPresenceOfAllocationRelationship()).isEqualTo(true);
+		assertThat(dependantDetails_CheckYourAnswerPage.getAllocationRelationship()).matches("What is their relationship to you");
+		assertThat(dependantDetails_CheckYourAnswerPage.getAllocationRelationshipText()).matches(SharedData.relationship);
+	}
 	
 	@Then("^the correct dependant details with updated allocationPension details will be displayed$")
 	public void theCorrectDependantDetailsWithUpdatedAllocationPensionDetailsWillBeDisplayed() {
@@ -214,6 +255,8 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 		assertThat(dependantDetails_CheckYourAnswerPage.getMaritalStatus())
 				.matches("What is your marital status");
 		assertThat(dependantDetails_CheckYourAnswerPage.getMaritalStatusText()).matches(SharedData.sharedNHSRadioButton);
+		assertThat(dependantDetails_CheckYourAnswerPage.getMaritalStatusDate()).matches("Date married");
+		assertThat(dependantDetails_CheckYourAnswerPage.getMaritalStatusDateText()).matches(SharedData.maritalDay + " " + SharedData.maritalMonth + " " + SharedData.maritalYear);
 		assertThat(dependantDetails_CheckYourAnswerPage.getPresenceOfPartnerName()).isEqualTo(true);
 		assertThat(dependantDetails_CheckYourAnswerPage.getPartnername()).matches("What is your spouse's or civil partner's name");
 		assertThat(dependantDetails_CheckYourAnswerPage.getPartnerNameText()).matches(SharedData.firstName + " " + SharedData.lastName);
@@ -243,7 +286,25 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 		assertThat(dependantDetails_CheckYourAnswerPage.getMaritalStatus())
 				.matches("What is your marital status");
 		assertThat(dependantDetails_CheckYourAnswerPage.getMaritalStatusText()).matches(SharedData.sharedNHSRadioButton);
+		//assertThat(dependantDetails_CheckYourAnswerPage.getMaritalStatusDate()).matches("Date married");
+		//assertThat(dependantDetails_CheckYourAnswerPage.getMaritalStatusDateText()).matches(SharedData.maritalDay + " " + SharedData.maritalMonth + " " + SharedData.maritalYear);
 	    assertThat(dependantDetails_CheckYourAnswerPage.getPresenceOfDependantChildren()).isEqualTo(true);
+		assertThat(dependantDetails_CheckYourAnswerPage.getDependantChildren()).matches("Do you have any dependant children");
+		assertThat(dependantDetails_CheckYourAnswerPage.getDependantChildrenText()).matches("No");
+		assertThat(dependantDetails_CheckYourAnswerPage.getPresenceOfAllocationPension()).isEqualTo(true);
+		assertThat(dependantDetails_CheckYourAnswerPage.getAllocationPension()).matches("Do you want to allocate part of your pension");
+		assertThat(dependantDetails_CheckYourAnswerPage.getAllocationPensionText()).matches("No");
+		
+	}
+	
+	@Then("^the correct dependant details with single maritalStatus will be displayed$")
+	public void theCorrectDependantDetailsWithSingleMaritalStatusWillBeDisplayed() {
+		dependantDetails_CheckYourAnswerPage = new DependantDetails_CheckYourAnswerPage(driver);
+		assertThat(dependantDetails_CheckYourAnswerPage.getPresenceOfMaritalStatus()).isEqualTo(true);
+		assertThat(dependantDetails_CheckYourAnswerPage.getMaritalStatus())
+				.matches("What is your marital status");
+		assertThat(dependantDetails_CheckYourAnswerPage.getMaritalStatusText()).matches(SharedData.sharedNHSRadioButton);
+		assertThat(dependantDetails_CheckYourAnswerPage.getPresenceOfDependantChildren()).isEqualTo(true);
 		assertThat(dependantDetails_CheckYourAnswerPage.getDependantChildren()).matches("Do you have any dependant children");
 		assertThat(dependantDetails_CheckYourAnswerPage.getDependantChildrenText()).matches("No");
 		assertThat(dependantDetails_CheckYourAnswerPage.getPresenceOfAllocationPension()).isEqualTo(true);
@@ -259,6 +320,8 @@ public class DependantDetails_CheckYourAnswersStepDefs {
 		assertThat(dependantDetails_CheckYourAnswerPage.getMaritalStatus())
 				.matches("What is your marital status");
 		assertThat(dependantDetails_CheckYourAnswerPage.getMaritalStatusText()).matches(SharedData.sharedNHSRadioButton);
+		assertThat(dependantDetails_CheckYourAnswerPage.getMaritalStatusDate()).matches("Date married");
+		assertThat(dependantDetails_CheckYourAnswerPage.getMaritalStatusDateText()).matches(SharedData.maritalDay + " " + SharedData.maritalMonth + " " + SharedData.maritalYear);
 		assertThat(dependantDetails_CheckYourAnswerPage.getPresenceOfPartnerName()).isEqualTo(true);
 		assertThat(dependantDetails_CheckYourAnswerPage.getPartnername()).matches("What is your spouse's or civil partner's name");
 		assertThat(dependantDetails_CheckYourAnswerPage.getPartnerNameText()).matches(SharedData.firstName + " " + SharedData.lastName);

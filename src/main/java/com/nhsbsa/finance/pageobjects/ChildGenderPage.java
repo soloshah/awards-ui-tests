@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class ChildGenderPage extends Page {
 
-	private String childGenderTitle = "What is your child's legally recognised gender? - Claim your NHS Pension - NHSBSA";
+	private String childGenderTitle = "What is your child's gender? - Claim your NHS Pension - NHSBSA";
 	private By femaleRadioButtonLocator = By.id("gender0");
 	private By maleRadioButtonLocator = By.id("gender1");
 	private By nextButtonLocator = By.id("submit_button");

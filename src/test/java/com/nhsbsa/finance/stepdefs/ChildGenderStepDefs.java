@@ -28,7 +28,7 @@ public class ChildGenderStepDefs {
 	@Then("^the child gender page will be displayed$")
 	public void theChildGenderPageWillBeDisplayed() {
 		childGenderPage = new ChildGenderPage(driver);
-		assertThat(childGenderPage.getHeading()).contains("What is " + SharedData.childFirstName + "'s " + "legally recognised gender?");
+		assertThat(childGenderPage.getHeading()).contains("What is " + SharedData.childFirstName + "'s " + "gender?");
 		
 	}
 	

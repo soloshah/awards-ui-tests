@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 public class DependantDetails_CheckYourAnswerPage extends Page {
 
 	private By maritalStatusFieldLocator = By.id("maritalStatus.heading");
+	private By maritalStatusDateFieldLocator = By.id("maritalStatus.dateMarried");
+	private By maritalStatusCivilFieldLocator = By.id("maritalStatus.dateCivilPartnership");
 	private By partnerNameFieldLocator = By.id("whatIsYourPartnerName.heading");
 	private By partnerDobFieldLocator = By.id("whatIsYourPartnerDob.static.heading");
 	private By partnerGenderFieldLocator = By.id("partnerGender.static.heading");
@@ -16,6 +18,8 @@ public class DependantDetails_CheckYourAnswerPage extends Page {
 	private By allocationDOBFieldLocator = By.id("whatIsAllocationDOB.static.heading");
 	private By allocationRelationshipFieldLocator = By.id("whatIsAllocationRelationship.static.heading");
 	private By maritalStatusTextLocator = By.id("maritalStatus.heading-answer");
+	private By maritalStatusDateTextLocator = By.id("maritalStatus.dateMarried-answer");
+	private By maritalStatusCivilDateTextLocator = By.id("maritalStatus.dateCivilPartnership-answer");
 	private By partnerNameTextLocator = By.id("whatIsYourPartnerName.heading-answer");
 	private By partnerDobTextLocator = By.id("whatIsYourPartnerDob.static.heading-answer");
 	private By partnerGenderTextLocator = By.id("partnerGender.static.heading-answer");
@@ -86,6 +90,20 @@ public class DependantDetails_CheckYourAnswerPage extends Page {
 		navigateToElementBy(maritalStatusFieldLocator);
 		return getElementText();
 	}
+	
+	public String getMaritalStatusDate(){
+		navigateToRootElement();
+		navigateToElementBy(maritalStatusDateFieldLocator);
+		return getElementText();	
+		
+	}
+	
+	public String getMaritalStatusCivilDate(){
+		navigateToRootElement();
+		navigateToElementBy(maritalStatusCivilFieldLocator);
+		return getElementText();	
+		
+	}
 
 	public String getPartnername() {
 		navigateToRootElement();
@@ -146,6 +164,20 @@ public class DependantDetails_CheckYourAnswerPage extends Page {
 		navigateToElementBy(maritalStatusTextLocator);
 		return getElementText();
 	}
+	
+
+	public String getMaritalStatusDateText(){
+		navigateToRootElement();
+		navigateToElementBy(maritalStatusDateTextLocator);
+		return getElementText();
+	}
+	
+	public String getMaritalStatusCivilDateText(){
+		navigateToRootElement();
+		navigateToElementBy(maritalStatusCivilDateTextLocator);
+		return getElementText();
+	}
+		
 
 	public String getPartnerNameText() {
 		navigateToRootElement();
