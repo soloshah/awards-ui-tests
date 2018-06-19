@@ -49,5 +49,5 @@ Examples:
 |12.00  |Enter your lump sum amount in multiples of 12 |
 #|00000  |Enter your lump sum amount in multiples of 12 |
 |-1440  |Enter your lump sum amount in multiples of 12 |
-|100000000000000000000000|Enter your lump sum amount in multiples of 12 |
+|100000 |Enter your lump sum amount in multiples of 12 |
          
