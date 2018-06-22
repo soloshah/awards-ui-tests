@@ -199,7 +199,7 @@ public class SeparatePensionBenefitsStepDefs {
 
 	@When("^I enter the gross annual rate$")
 	public void iEnterTheGrossAnnualRate() {
-		SharedData.grossAnnualRate = "987654.98";
+		SharedData.grossAnnualRate = "987654321125.98";
 		separatePensionBenefitsPage = new SeparatePensionBenefitsPage(driver);
 		separatePensionBenefitsPage.enterGrossAnnualRate(SharedData.grossAnnualRate);
 		separatePensionBenefitsPage.submitSeperateBenefit();

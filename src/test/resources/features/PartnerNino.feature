@@ -10,7 +10,7 @@ And I enter valid partner national insurance number
 Then the partner national insurance number submission will be successful
 And Do you have any dependant children page will be displayed
 
- @bug @BP490-246
+
 Scenario Outline: NINO Field validations 
 When I go to partner nino page
 When I enter partner national insurance number using the nino '<nino>'
@@ -26,7 +26,7 @@ Examples:
    
        
           
-@Bug @BP490-246
+
 Scenario: Validation for same NINO of partner and person 
 When I go to nino page
 And I enter valid national insurance number

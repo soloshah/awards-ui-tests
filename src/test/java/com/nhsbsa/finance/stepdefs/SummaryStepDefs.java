@@ -25,8 +25,6 @@ public class SummaryStepDefs {
    private HMRC2Details_CheckYourAnswersStepDefs hmrcDetailsSteps;
    private PaymentDetails_CheckYourAnswersStepDefs paymentetailsSteps;
    private CheckYourAnswersStepDefs checkYourAnswersSteps;
-
- 
    
    
 	@Then("^the summary page will be displayed$")

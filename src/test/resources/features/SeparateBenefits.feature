@@ -33,7 +33,7 @@ Scenario:  Select before and after april 6
 And I select after and before april 6 2006
 And the lifetime allowance page will be displayed
 
-@Bug @Bp490-387  
+
 Scenario Outline: Combined % LTA field  validation
 And I select after April 6 2006 option
 Then I enter the invalid total percentage of LTA using '<LTA>'
@@ -49,7 +49,7 @@ Examples:
           | 123:09 |You must enter your total combined Lifetime Allowance using numbers 0-9 only |
           |@><:~;+=|You must enter your total combined Lifetime Allowance using numbers 0-9 only |
 
-@Bug @Bp490-387       
+       
 Scenario Outline: Gross annual rate field  validation
 And I select before April 6 2006 option
 Then I enter the invalid gross annual rate using '<annualRate>'
@@ -59,7 +59,7 @@ Examples:
           |annualRate |errorMessage                                                  |
           |           |You must enter your gross annual rate                         | 
           |123ABC     |	You must enter your gross annual rate using numbers 0-9 only |
-          |1234567    |	You must enter your gross annual rate using numbers 0-9 only |  
+          |123456789123456| You must enter your gross annual rate using numbers 0-9 only |  
           |"£$%&*(    |	You must enter your gross annual rate using numbers 0-9 only |  
           | 123:09    |	You must enter your gross annual rate using numbers 0-9 only |
           |@><:~;+=   |	You must enter your gross annual rate using numbers 0-9 only |
@@ -86,19 +86,17 @@ Examples:
            |31  | 11     |1980| Enter a valid date |
            |04  | 04     |2006|The date of first Benefit Crystallisation must be on or after 05/04/2006|
      
-@Bug @Bp490-387  
+ 
 Scenario: Benefit of crystallisation date equal to or greater than today's date
 And I select after April 6 2006 option
 Then I enter the total combined percentage of lifetime allowance
 And I enter the benefit crystallisation date greater than today's date
 Then the separate benefits submission will be unsuccessful
-And the error message 'Enter a date before todays date' for benefit crystallisation date will be displayed    
+And the error message 'Enter a date before today's date' for benefit crystallisation date will be displayed    
 
 
 Scenario: Separate Benefits validation 
 And I dont select any option
 Then the separate benefits submission will be unsuccessful
 And the error message 'Select whether you have any separate benefits' for separate benefits page will be displayed
-
-
-         
+        

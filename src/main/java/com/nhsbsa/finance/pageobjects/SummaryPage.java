@@ -14,15 +14,15 @@ public class SummaryPage extends Page {
   private By pensionDetailsLinkLocator = By.id("about-your-pension-table-row-0");
   private By hmrcDetailsLinkLocator = By.id("about-your-pension-table-row-1");
   private By paymentDetailsLinkLocator = By.id("about-your-pension-table-row-2");
-  private By submitButtonLocator = By.xpath("//*[@id='content']/div[2]/div/div/form/div[2]/input");
-  private By personalDetailsCompletedTextLocator = By.xpath("//*[@id='about-you-table']/tbody/tr[1]/td[2]/strong");
-  private By partnerDetailsCompletedTextLocator = By.xpath("//*[@id='about-you-table']/tbody/tr[2]/td[2]/strong");
-  private By employmentDetailsCompletedTextLocator = By.xpath("//*[@id='about-you-table']/tbody/tr[3]/td[2]/strong");
-  private By contactDetailsCompletedTextLocator = By.xpath("//*[@id='about-you-table']/tbody/tr[4]/td[2]/strong");
-  private By pensionDetailsCompletedTextLocator = By.xpath("//*[@id='about-your-pension-table']/tbody/tr[1]/td[2]/strong");
-  private By hmrcDetailsCompletedTextLocator = By.xpath("//*[@id='about-your-pension-table']/tbody/tr[2]/td[2]/strong");
-  private By paymentDetailsCompletedTextLocator = By.xpath("//*[@id='about-your-pension-table']/tbody/tr[3]/td[2]/strong");
-   private By headertextLocator =  By.xpath("//*[@id='content']/div[2]/div/div/form/h1");
+  private By submitButtonLocator = By.id("continue-button");
+  private By personalDetailsCompletedTextLocator = By.id("about-you-table-row-0-completed");
+  private By partnerDetailsCompletedTextLocator = By.id("about-you-table-row-1-completed");
+  private By employmentDetailsCompletedTextLocator = By.id("about-you-table-row-2-completed");
+  private By contactDetailsCompletedTextLocator = By.id("about-you-table-row-3-completed");
+  private By pensionDetailsCompletedTextLocator = By.id("about-your-pension-table-row-0-completed");
+  private By hmrcDetailsCompletedTextLocator = By.id("about-your-pension-table-row-1-completed");
+  private By paymentDetailsCompletedTextLocator = By.id("about-your-pension-table-row-2-completed");
+   private By headertextLocator =  By.id("heading-text");
 
 
 
